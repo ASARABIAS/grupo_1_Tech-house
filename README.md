@@ -1,4 +1,8 @@
 # grupo_1_Tech-house
+
+Temática del sitio y público objetivo.
+
+
 e-commerce de equipos de cómputo
 
 Descripción de Tech-house 
@@ -22,6 +26,7 @@ Integrantes del equipo
   ABRAHAM SARABIA SERENO
   
 Sitios de referencia
+
   https://shop.samsung.com.co/ 
     Es una pagina simple y sencilla visualmente, con buena ubicación en cada una de sus secciones y muestra el contenido necesario para enrutar al cliente.
   
