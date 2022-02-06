@@ -9,13 +9,16 @@ Descripción del público
 
 Integrantes del equipo
 
-  ADAN EDUARDO CAMACHO MENDOZA
+  ADAN EDUARDO CAMACHO MENDOZA:
   
-  JESSICA CARDEÑO
+  JESSICA CARDEÑO:
   
-  JHON DORADO
+  JHON DORADO:
+  Soy economista, en busca de cambiar mi carrera y empezar un nuevo camino en el desarrollo de software.
+  
   
   Mi nombre es Yurley Natalia Londoño Roldán, soy estudiante de Ingenieria de Desarrollo de Software, tengo 28 años y vivo en Medellín.
+  
   ABRAHAM SARABIA SERENO
   
 Sitios de referencia
@@ -29,7 +32,7 @@ Sitios de referencia
     Es reconocida como una de las paginas con mejor diseño.
    
   https://www.amazon.com/
-    Es muy organizada y es facil observar las distintas categorias, ademas tiene 2 formas distintas de ver las categorias, con imagenes y un menu desplegable.
+    Es muy organizada y es facil observar las distintas categorias, ademas tiene 2 formas distintas para observarlas: con imagenes y usando un menu desplegable.
     
   https://www.compulago.net/
   Tiene un diseño simple y contenido concreto y visualmente agradable.
