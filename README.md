@@ -3,6 +3,7 @@
 Temática del sitio y público objetivo.
 
 
+
 e-commerce de equipos de cómputo
 
 Descripción de Tech-house 
@@ -17,7 +18,7 @@ Integrantes del equipo
   
   JESSICA CARDEÑO:
   
-  JHON DORADO:
+  Jhon Harol Dorado:
   Soy economista, en busca de cambiar mi carrera y empezar un nuevo camino en el desarrollo de software.
   
   
