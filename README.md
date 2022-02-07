@@ -1,4 +1,9 @@
 # grupo_1_Tech-house
+
+Temática del sitio y público objetivo.
+
+
+
 e-commerce de equipos de cómputo
 
 Descripción de Tech-house 
@@ -8,13 +13,22 @@ Descripción del público
   Personas interesadas en aquirir equipos de cómputo y accesorios 
 
 Integrantes del equipo
-  ADAN EDUARDO CAMACHO MENDOZA
-  JESSICA CARDEÑO
-  JHON DORADO
-  NATALIA LONDOÑO
-  ABRAHAM SARABIA SERENO
+
+  Adan Eduardo Camacho Mendoza: Future Full-Stack developer, privacy advocate, computer security and free software lover.
+  
+  JESSICA CARDEÑO:
+  
+  Jhon Harol Dorado:
+  Soy economista, en busca de cambiar mi carrera y empezar un nuevo camino en el desarrollo de software.
+  
+  
+  Mi nombre es Yurley Natalia Londoño Roldán, soy estudiante de Ingenieria de Desarrollo de Software, tengo 28 años y vivo en Medellín.
+  
+  ABRAHAM SARABIA SERENO:
+    Actualmente estoy estudiando ingenieria de sistemas en la Universidad Popular del Cesar seccional Aguachica, tengo 21 años de edad y vivo en el bello Corregimiento de Aguas Blancas, San Martin, Cesar
   
 Sitios de referencia
+
   https://shop.samsung.com.co/ 
     Es una pagina simple y sencilla visualmente, con buena ubicación en cada una de sus secciones y muestra el contenido necesario para enrutar al cliente.
   
@@ -25,7 +39,8 @@ Sitios de referencia
     Es reconocida como una de las paginas con mejor diseño.
    
   https://www.amazon.com/
-    Es muy organizada y es facil observar las distintas categorias, ademas tiene 2 formas distintas de ver las categorias, con imagenes y un menu desplegable.
+    Es muy organizada y es facil observar las distintas categorias, ademas tiene 2 formas distintas para observarlas: con imagenes y usando un menu desplegable.
     
   https://www.compulago.net/
+  Tiene un diseño simple y contenido concreto y visualmente agradable.
     
