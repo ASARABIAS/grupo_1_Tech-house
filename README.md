@@ -24,7 +24,8 @@ Integrantes del equipo
   
   Mi nombre es Yurley Natalia Londoño Roldán, soy estudiante de Ingenieria de Desarrollo de Software, tengo 28 años y vivo en Medellín.
   
-  ABRAHAM SARABIA SERENO
+  ABRAHAM SARABIA SERENO:
+    Actualmente estoy estudiando ingenieria de sistemas en la Universidad Popular del Cesar seccional Aguachica, tengo 21 años de edad y vivo en el bello Corregimiento de Aguas Blancas, San Martin, Cesar
   
 Sitios de referencia
 
