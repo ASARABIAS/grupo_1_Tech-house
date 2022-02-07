@@ -14,7 +14,7 @@ Descripción del público
 
 Integrantes del equipo
 
-  ADAN EDUARDO CAMACHO MENDOZA:
+  Adan Eduardo Camacho Mendoza: Future Full-Stack developer, privacy advocate, computer security and free software lover.
   
   JESSICA CARDEÑO:
   
