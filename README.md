@@ -16,7 +16,8 @@ Integrantes del equipo
 
   Adan Eduardo Camacho Mendoza: Future Full-Stack developer, privacy advocate, computer security and free software lover.
   
-  JESSICA CARDEÑO:
+  Jessica Cardeño:
+  Economista de profesión, quiero cambiar mi vida pasando de 0 a 100 en el mundo de la programación; apasionada por este nuevo rumbo que está tomando mi vida, soy de Medellín - Antioquia.
   
   Jhon Harol Dorado:
   Soy economista, en busca de cambiar mi carrera y empezar un nuevo camino en el desarrollo de software.
