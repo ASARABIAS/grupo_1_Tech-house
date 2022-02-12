@@ -44,4 +44,7 @@ Sitios de referencia
     
   https://www.compulago.net/
   Tiene un diseño simple y contenido concreto y visualmente agradable.
-    
+
+  Link Tablero Trello
+
+  https://trello.com/b/0pRwpld1/proyecto-integrador-dh-grupo-1
