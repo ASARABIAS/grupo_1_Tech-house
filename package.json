@@ -1,0 +1,22 @@
+{
+  "name": "grupo_1_tech-house",
+  "version": "1.0.0",
+  "description": "Temática del sitio y público objetivo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ASARABIAS/grupo_1_Tech-house.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ASARABIAS/grupo_1_Tech-house/issues"
+  },
+  "homepage": "https://github.com/ASARABIAS/grupo_1_Tech-house#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
