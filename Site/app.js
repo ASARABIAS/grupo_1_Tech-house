@@ -10,4 +10,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve('./views/home.html'));
 });
 
+app.get('/registro', (req, res) => {
+    res.sendFile(path.resolve('./views/registro.html'));
+});
 app.listen(3030, () => console.log("Servidor Corriendo"));
