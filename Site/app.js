@@ -14,4 +14,7 @@ app.get('/productCart', (req, res) => {
     res.sendFile(path.resolve('./views/productCart.html'));
 });
 
+app.get('/registro', (req, res) => {
+    res.sendFile(path.resolve('./views/registro.html'));
+});
 app.listen(3030, () => console.log("Servidor Corriendo"));
