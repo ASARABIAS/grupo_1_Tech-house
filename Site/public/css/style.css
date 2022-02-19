@@ -1,28 +1,15 @@
-:root{
-    --fresh: #F7F5E6;
-    --vermillion: #333A56;
-    --sunshine: #52658F;
-    --clean: #e8e8e8;
-    --white: #ffff;
-    --dark-gray: #666;
-    --green: #39b54a;
-    --feather:#77c9d4;
-    --marine:#57bc90;
-    --forest:#015249;
-    --sleek-grey:#a5a5af;
-}
 body{
     font-family:  Helvetica, Arial, sans-serif;
     font-weight: 500;
     font-size:16px;
-    background-color: var(--vermillion);
-}
-.registro h1{
-    margin-top:0px;
+    background-color: #333A56
 }
 a{
     text-decoration: none;
     color:#2968f1
+}
+.registro h1{
+    margin-top:2px;
 }
 div.registro-logo img{
     display:flex;
@@ -31,16 +18,14 @@ div.registro-logo img{
     margin:auto;
     margin-top: 20px;
     border-radius: 10px;
-    margin-bottom:1px;
     
 }
 .registro form{
-
     display:block;
     text-align:center;
-    background-color: var(--clean);
+    background-color: #E8E8E8;
     width:70%;
-    margin:0px auto;
+    margin:auto;
     border-radius: 10px;
 }
 .registro form label, input{
@@ -51,7 +36,7 @@ div.registro-logo img{
     margin:auto;
     margin-top:10px;
     padding-top:5px;
-    background-color: var(--clean);
+    background-color: #E8E8E8;
     text-align:center;
     border: 1px solid gray;
     border-radius:10px;
@@ -59,7 +44,7 @@ div.registro-logo img{
 }
 
 .registro form label{
-    border: 1px solid var(--clean);
+    border: 1px solid #E8E8E8;
 }
 
 .registro form .crear-cuenta{
@@ -68,8 +53,8 @@ div.registro-logo img{
     width:45%;
     padding: 8px;
     margin-top: 10px;
-    background-color:var(--vermillion);
-    color: var(--clean);
+    background-color:#333A56;
+    color: #E8E8E8;
     font-weight: 700;
     text-align: center;
 
@@ -81,7 +66,7 @@ div.registro-logo img{
     width:60%;
     margin:auto;
     margin-top:0px;
-    background-color: var(--clean);
+    background-color: #E8E8E8;
     text-align:center;
 }
 @media(min-width:481px) {
@@ -92,7 +77,7 @@ div.registro-logo img{
         width:563px;}
     .registro form{
         width:50%}
-    .registro form input{
+        .registro form input{
             padding-top: 10px;}
    
 }

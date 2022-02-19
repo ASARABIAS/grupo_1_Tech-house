@@ -7,7 +7,7 @@ app.use(express.static('public'));
 //app.use('/static', express.static(__dirname + '/public'))
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve('./views/home.html'));
+    res.sendFile(path.resolve('./views/productDetail.html'));
 });
 
 app.get('/productCart', (req, res) => {
