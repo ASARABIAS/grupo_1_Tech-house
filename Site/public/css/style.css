@@ -17,11 +17,13 @@
     box-sizing: border-box;
 }
 
-body {
+
+/*body {
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     background-color: var(--Vermillion);
 }
+*/
 
 main {
     margin: 20px auto;
@@ -154,4 +156,87 @@ main section.characteristics {
 
 section.characteristics div.characteristics-main article.characteristic {
     margin: 10px 0px;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: #333A56
+}
+
+a {
+    text-decoration: none;
+    color: #2968f1
+}
+
+div.registro-logo img {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.registro form {
+    display: block;
+    text-align: center;
+    background-color: #E8E8E8;
+    width: 70%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.registro form label,
+input {
+    display: block;
+    padding: 0px;
+    width: 60%;
+    margin: auto;
+    margin-top: 10px;
+    padding-top: 5px;
+    background-color: #E8E8E8;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.registro form label {
+    border: 1px solid #E8E8E8;
+}
+
+.registro form .crear-cuenta {
+    display: block;
+    margin: auto;
+    width: 45%;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: #333A56;
+    color: #E8E8E8;
+    font-weight: 700;
+    text-align: center;
+}
+
+.goto-login {
+    display: block;
+    padding: 2px 18px;
+    width: 60%;
+    margin: auto;
+    margin-top: 0px;
+    background-color: #E8E8E8;
+    text-align: center;
+}
+
+@media(min-width:481px) {}
+
+@media(min-width:769px) {
+    div.registro-logo img {
+        width: 563px;
+    }
+    .registro form {
+        width: 50%
+    }
+    .registro form input {
+        padding-top: 10px;
+    }
 }
