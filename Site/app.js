@@ -7,11 +7,15 @@ app.use(express.static('public'));
 //app.use('/static', express.static(__dirname + '/public'))
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve('./views/productDetail.html'));
+    res.sendFile(path.resolve('./views/home.html'));
 });
 
 app.get('/productCart', (req, res) => {
     res.sendFile(path.resolve('./views/productCart.html'));
+});
+
+app.get('/productDetail', (req, res) => {
+    res.sendFile(path.resolve('./views/productDetail.html'));
 });
 
 app.get('/registro', (req, res) => {
