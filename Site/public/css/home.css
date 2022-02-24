@@ -1,3 +1,15 @@
+:root {
+    --Fresh: #F7F5E6;
+    --Vermillion: #333A56;
+    --Sunshine: #52658F;
+    --Clean: #E8E8E8;
+    --White: #ffff;
+    --Dark-grey: #666;
+    --Green: #39b54a;
+    --Black: #000;
+    --Orange: #ffa500d6;
+}
+
 *{
     margin: 0px;
     padding: 0px;
@@ -38,22 +50,31 @@ div.top-header div.logo{
 div.logo img{
     width: 100%;
 }
+.linea{
+    display: none;
+}
+
+.con-burger{
+    display: flex;
+    justify-content: space-between;
+}
 
 header.opciones{
     display: none;
 }
 
 div.top-header form.busqueda{
-    display: flex;
-    width: 50%;
+    display: block;
+    margin: auto;
+    width: 80%;
     align-items: center;
     justify-content: center;
 }
 
 .busqueda input{
-    width: 85%;
-    max-width: max-content;
+    width: 80%;
 }
+
 
 form.busqueda button, form.busqueda input{
     margin-left: 5px;
@@ -69,8 +90,6 @@ main section article .descripcion{
     display: none;
 }
 
-
-
 nav{
     list-style-type: none;
 }
@@ -85,9 +104,8 @@ div.burger-menu{
 }
 
 div.burger-menu i{
-    background-color: #0044AA;
     border-radius: 5px;
-    color: #FFF;
+    color: #000;
     font-size: 20px;
     height: 40px;
     margin: 10px 0px 20px 0px;
@@ -158,17 +176,136 @@ main section article i{
         border-top: 1px solid #ebebeb;
         padding: 15px;
     }
-
-    
+    main section article .descripcion{
+        display: none;
+    }
     .compra{
         width: 100%;
         text-align: center;
 
     }
 
-    .footer{
+    section.banner2 img{
         text-align: center;
+        width: 100%;
     }
+
+    footer{
+        text-align: center;
+        background-color: #f7f5e6;
+    }
+
+    .credito, .envio, .contactos, .tecnico{
+        width: 100%;
+        margin-bottom: 20px;
+       text-align: center;
+    }
+    .copi{
+        text-align: left;
+    }
+
+
+    @media (min-width: 361px){
+        main section article .descripcion{
+            display: block;
+        }
+        .top-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+         
+        .compra{
+            width: 30%;
+        }
+
+        section .detalles{
+            display: none;
+        }
+        .logo{
+            width: 30%;
+        }
+        .busqueda{
+            width: 30%;
+        }
+    
+        .opciones{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0px 20px;
+        }
+    
+        .login-bar{
+            display: flex;
+        }
+        .nav-bar li{
+            margin-left: 10px;
+        }
+        .login-bar li{
+            margin-right: 10px;
+        }
+    
+    
+        main section article{
+            box-shadow: 0px 0px 10px rgb(100, 100, 100);
+        } 
+        main section div.productos article{
+            width: 45%;
+        }
+        
+        main section div.productos{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .precio{
+            width: 50%;
+        }
+    
+        .main-opciones{
+            display: block;
+                }
+        .main-opciones ul{
+            display: block;
+        }
+    
+        .main-opciones li{
+            margin: 10px 15px;
+            font-size: var(--myTittles);
+        }
+        .footer{
+            text-align: center;
+            align-items: center;
+        }
+        .credito, .envio, .contactos, .tecnico{
+            display: flex;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+
+    @media (min-width: 769px){ 
+        main section div.productos article{
+            width: 22%;
+        }
+        div.burger-menu i{
+            display: none;
+        }
+    
+        .main-article{
+            box-shadow: 0px 0px 10px;
+            color: rgb(100, 100, 100);
+        }
+        
+    }
+
+    
+
+    
 
 
 

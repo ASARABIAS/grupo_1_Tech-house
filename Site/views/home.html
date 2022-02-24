@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech-House</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fontawesome.com/icons?d=gallery&m=free">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/normalize.css">
 </head>
@@ -18,34 +19,54 @@
             <img src="image/logo-tech-house.png" alt="logo-tech-House">
         </div>
 
+        <p class="telefono"><i class="fa-thin fa-phone"></i>
+            <div class="linea">Linea de atención (3017618041)</div>
+        </p>
+
+        <div>
+            <i class="fal fa-heart"></i>
+        </div>
+
+        <div>
+            <i class="fa-thin fa-cart-shopping"></i>
+        </div>
+
+        <div>
+            <i class="fa-thin fa-user"></i>
+        </div>
+        </div>
+
+        <div class="con-burger">
+        <div class="burger-menu">
+            <i class="fa fa-bars burger"></i>
+        </div>
+
         <form class="busqueda">
             <input type="text" placeholder="Buscar productos, marcas">
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
+        </div>
 
         <nav class="opciones">
             <ul>
-                <li><a href="#">Linea de atencion</a></li>
-                <li><a href="#">Deseos</a></li>
                 <li><a href="/productCart">Carrito</a></li>
                 <li><a href="/registro">Ingresar</a></li>
                 <li><a href="/login">Ingresar</a></li>
             </ul>
-            <ul>
+            <ul class="categorias">
                 <li><a href="#">Quienes somos</a></li>
                 <li><a href="#">Nuestras tiendas</a></li>
                 <li><a href="#">Zona gamer</a></li>
                 <li><a href="#">Medios de pago</a></li>
             </ul>
         </nav>
-        <div class="burger-menu">
-            <i class="fa fa-bars burger"></i>
-        </div>
         </div>
     </header>
+
     <section class="banner">
         <img src="image/banner.jpg" alt="Banner">
     </section>
+
     <main>
         <section class="Nuevos-productos">
             <h3>Nuevos productos</h3>
@@ -55,31 +76,54 @@
                     <div class="main-article">
                         <p class="precio">$912.00</p>
                         <h4 class="descripcion">Celular Xiaomi Redmi Note 10</h4>
+                        <div class="detalles">
+                            <ul>
+                                <a href="/productDetail">Detalles del producto</a>
+                            </ul>
+                        </div>
                     </div>
                 </article>
+
                 <article>
                     <img src="image/impresora nuevo.jpg" alt="impresora" class="product_img">
                     <div class="main-article">
                         <p class="precio">$2.452.000</p>
                         <h4 class="descripcion">Impresora Multifuncional Ricoh SP3710SF</h4>
+                        <div class="detalles">
+                            <ul><a href="/productDetail">Detalles del producto</a>
+                            </ul>
+                        </div>
                     </div>
                 </article>
+
                 <article>
                     <img src="image/pc nuevo.jpg" alt="pc nuevo" class="product_img">
                     <div class="main-article">
                         <p class="precio">$3.888.000</p>
                         <h4 class="descripcion">PC Dell Vostro 3681 Core I5 8 GB 1 TB Led 20 pulgadas</h4>
+                        <div class="detalles">
+                            <ul>
+                                <a href="/productDetail">Detalles del producto</a>
+                            </ul>
+                        </div>
                     </div>
                 </article>
+
                 <article>
                     <img src="image/router nuevo.jpg" alt="router" class="product_img">
                     <div class="main-article">
                         <p class="precio">$431.000</p>
                         <h4 class="descripcion">Router Dlink 300MBPS 4 Antenas</h4>
+                        <div class="detalles">
+                            <ul>
+                                <a href="/productDetail">Detalles del producto</a>
+                            </ul>
+                        </div>
                     </div>
                 </article>
             </div>
         </section>
+
         <section class="Ofertas">
             <h3>Productos en Oferta</h3>
             <div class="productos">
@@ -88,51 +132,96 @@
                     <div class="main-article">
                         <p class="precio">$1.720.000</p>
                         <h4 class="descripcion">Portatil AMD Ryzen 3</h4>
+                        <div class="detalles">
+                            <ul>
+                                <a href="/productDetail">Detalles del producto</a>
+                            </ul>
+                        </div>
                     </div>
                 </article>
+
                 <article>
                     <img src="image/pc ryzen oferta.jpg" alt="Clon ryzen" class="product_img">
                     <div class="main-article">
                         <p class="precio">$2.335.000</p>
                         <h4 class="descripcion">Torre clon ryzen 5</h4>
+                        <div class="detalles">
+                            <ul>
+                                <a href="#">Detalles del producto</a>
+                            </ul>
+                        </div>
                     </div>
                 </article>
+
                 <article>
                     <img src="image/mecanico oferta.jpg" alt="mecanico" class="product_img">
                     <div class="main-article">
                         <p class="precio">$235.000</p>
                         <h4 class="descripcion">Teclado mecanico MIntaka</h4>
+                        <div class="detalles">
+                            <ul>
+                                <a href="/productDetail">Detalles del producto</a>
+                            </ul>
+                        </div>
                     </div>
                 </article>
+
                 <article>
                     <img src="image/antivirus oferta.jpg" alt="Licencia" class="product_img">
                     <div class="main-article">
                         <p class="precio">$90.000</p>
                         <h4 class="descripcion">Licencia antivirus kasperky</h4>
+                        <div class="detalles">
+                            <ul>
+                                <a href="/productDetail">Detalles del producto</a>
+                            </ul>
+                        </div>
 
                     </div>
                 </article>
-                <section class="banner">
+
+                <section class="banner2">
                     <img src="image/imagen de banner marcas.jpeg" alt="Banner de marcas">
                 </section>
     </main>
+
     <footer>
-        <div class="icon"> <i class="fas fa-credit-card"></i></div>
-        <ul><strong>Pagá con tarjeta o en efectivo</strong></ul>
-       <p>Con el metodo de pago Tech, tenés cuotas sin interés con tarjeta o efectivo en
-        puntos de pago. ¡Y siempre es seguro</p>
+        <div class="credito">
+        <div class="icon">
+            <i class="fas fa-credit-card"></i>
+        </div>
+        <ul><strong>Aceptamos todos</strong></ul>
+       <p>Los medios de pago</p>
+        </div>
 
-        <div class="icon"><i class="far fa-shipping-fast"></i></div>
-        <ul><strong>Envío gratis desde $ 2.500</strong></ul>
-        <p>Solo por estar registrad@ en Tech-House tenés envíos gratis en miles de
-            productos. Es un beneficio de Mercado Puntos.</p>
+        <div class="envio">
+        <div class="icon">
+            <i class="fal fa-shipping-fast"></i>
+        </div>
+        <ul><strong>Envío a toda</strong></ul>
+        <p>Colombia</p>
+        </div>    
+            <div class="contactos">
+            <div class="icon">
+                <i class="fal fa-envelope"></i>
+            </div>
+            <ul><strong>Contáctanos</strong></ul>
+            <p>WhatsApp | Email</p>
+            </div>
 
-            <div class="icon"> <i class="fa-thin fa-shield-check"></i></div>
-            <ul><strong>Seguridad, de principio a fin</strong></ul>
-            <p>¿No te gusta? ¡Devolvelo! En Tech-House, no hay nada que no puedas hacer,
-                porque estás siempre protegid@.</p>
+            <div class="tecnico">
+                <div class="icon">
+                    <i class="fa-thin fa-user-check"></i>
+                </div>
+                <ul><strong>Servicio Técnico</strong></ul>
+                <p>Atencíon especializada</p>
+                </div>
 
-                <ul><strong>Copyright © 2022 Tech-House</strong></ul>
+                <div class="copi">
+                    <ul>
+                        <strong>Copyright © 2022 Tech-House</strong>
+                    </ul>
+                </div>
     </footer>
    
 </body>
