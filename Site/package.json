@@ -4,6 +4,7 @@
   "description": "Temática del sitio y público objetivo.",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "repository": {
