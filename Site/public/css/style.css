@@ -240,22 +240,27 @@ div.registro-logo img{
     background-color: #E8E8E8;
     text-align:center;
 }
-.login{
-    width: 250px;
-    height: 250px;
-    background-color: #E8E8E8 ;
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 70px;
+.login h2{
+    margin-top: 2px;
+}
+
+main.login{
+    margin: 20px auto;
+    width: 90%;
+    height: 358px;
+    background-color: var(--White);
+    padding: 15px;
     border-radius: 5px;
-    margin: 50px;
-    
- }
+}
+div.mainlogin{
+    padding: 45px;
+}
+
  .login form{
     display:block;
     text-align:center;
     background-color: #E8E8E8;
-    width:70%;
+    height: 320px;
     margin:auto;
     border-radius: 10px;
  }
@@ -263,7 +268,8 @@ div.registro-logo img{
  .login input{
     display:block;
     padding:0px;
-    width:60%;
+    width:75%;
+    height: 25px;
     margin:auto;
     margin-top:10px;
     padding-top:5px;
@@ -274,9 +280,7 @@ div.registro-logo img{
  }
  
  .login .button-submit input{
-     width: 180px;
      display: block;
-     margin:auto;
      width:45%;
      padding: 8px;
      margin-top: 10px;
@@ -295,6 +299,9 @@ div.registro-logo img{
         width: 72%;
         margin: 14%;
         margin-top: 50px;
+    }
+    .login form{
+        width:550px;
     }
     
 
