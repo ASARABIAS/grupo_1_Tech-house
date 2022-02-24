@@ -7,26 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech-House</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="/Site/public/css/style.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/normalize.css">
 </head>
 
 <body>
     <header>
-        <div>
+        <div class="top-header">
+        <div class="logo">
             <img src="image/logo-tech-house.png" alt="logo-tech-House">
         </div>
 
-        <div class="form" action="#" method="GET">
-            <div class="input">Buscar</div>
-            <div class="submit"><i class="fa fa-search"></i></div>
-        </div>
-        <nav>
+        <form class="busqueda">
+            <input type="text" placeholder="Buscar productos, marcas">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+
+        <nav class="opciones">
             <ul>
                 <li><a href="#">Linea de atencion</a></li>
                 <li><a href="#">Deseos</a></li>
                 <li><a href="/productCart">Carrito</a></li>
-                <li><a href="#">Ingresar</a></li>
+                <li><a href="/registro">Ingresar</a></li>
             </ul>
             <ul>
                 <li><a href="#">Quienes somos</a></li>
@@ -35,6 +37,10 @@
                 <li><a href="#">Medios de pago</a></li>
             </ul>
         </nav>
+        <div class="burger-menu">
+            <i class="fa fa-bars burger"></i>
+        </div>
+        </div>
     </header>
     <section class="banner">
         <img src="image/banner.jpg" alt="Banner">
@@ -46,7 +52,6 @@
                 <article>
                     <img src="image/celular xiaomi nuevo.jpg" alt="celular xiaomi" class="product_img">
                     <div class="main-article">
-                        <i class="fas fa-truck"></i>
                         <p class="precio">$912.00</p>
                         <h4 class="descripcion">Celular Xiaomi Redmi Note 10</h4>
                     </div>
@@ -54,7 +59,6 @@
                 <article>
                     <img src="image/impresora nuevo.jpg" alt="impresora" class="product_img">
                     <div class="main-article">
-                        <i class="fas fa-truck"></i>
                         <p class="precio">$2.452.000</p>
                         <h4 class="descripcion">Impresora Multifuncional Ricoh SP3710SF</h4>
                     </div>
@@ -62,7 +66,6 @@
                 <article>
                     <img src="image/pc nuevo.jpg" alt="pc nuevo" class="product_img">
                     <div class="main-article">
-                        <i class="fas fa-truck"></i>
                         <p class="precio">$3.888.000</p>
                         <h4 class="descripcion">PC Dell Vostro 3681 Core I5 8 GB 1 TB Led 20 pulgadas</h4>
                     </div>
@@ -70,9 +73,8 @@
                 <article>
                     <img src="image/router nuevo.jpg" alt="router" class="product_img">
                     <div class="main-article">
-                        <i class="fas fa-truck"></i>
-                        <p class="price">$431.000</p>
-                        <h4 class="description">Router Dlink 300MBPS 4 Antenas</h4>
+                        <p class="precio">$431.000</p>
+                        <h4 class="descripcion">Router Dlink 300MBPS 4 Antenas</h4>
                     </div>
                 </article>
             </div>
@@ -83,7 +85,6 @@
                 <article>
                     <img src="image/portatil oferta.jpg" alt="portatil" class="product_img">
                     <div class="main-article">
-                        <i class="fas fa-truck"></i>
                         <p class="precio">$1.720.000</p>
                         <h4 class="descripcion">Portatil AMD Ryzen 3</h4>
                     </div>
@@ -91,15 +92,13 @@
                 <article>
                     <img src="image/pc ryzen oferta.jpg" alt="Clon ryzen" class="product_img">
                     <div class="main-article">
-                        <i class="fas fa-truck"></i>
-                        <p class="price">$2.335.000</p>
-                        <h4 class="description">Torre clon ryzen 5</h4>
+                        <p class="precio">$2.335.000</p>
+                        <h4 class="descripcion">Torre clon ryzen 5</h4>
                     </div>
                 </article>
                 <article>
                     <img src="image/mecanico oferta.jpg" alt="mecanico" class="product_img">
                     <div class="main-article">
-                        <i class="fas fa-truck"></i>
                         <p class="precio">$235.000</p>
                         <h4 class="descripcion">Teclado mecanico MIntaka</h4>
                     </div>
@@ -107,16 +106,34 @@
                 <article>
                     <img src="image/antivirus oferta.jpg" alt="Licencia" class="product_img">
                     <div class="main-article">
-                        <i class="fas fa-truck"></i>
-                        <p class="price">$90.000</p>
-                        <h4 class="description">Licencia antivirus kasperky</h4>
+                        <p class="precio">$90.000</p>
+                        <h4 class="descripcion">Licencia antivirus kasperky</h4>
+
                     </div>
                 </article>
                 <section class="banner">
                     <img src="image/imagen de banner marcas.jpeg" alt="Banner de marcas">
                 </section>
     </main>
-    <footer></footer>
-</body>
+    <footer>
+        <div class="icon"> <i class="fas fa-credit-card"></i></div>
+        <ul><strong>Pagá con tarjeta o en efectivo</strong></ul>
+       <p>Con el metodo de pago Tech, tenés cuotas sin interés con tarjeta o efectivo en
+        puntos de pago. ¡Y siempre es seguro</p>
 
+        <div class="icon"><i class="far fa-shipping-fast"></i></div>
+        <ul><strong>Envío gratis desde $ 2.500</strong></ul>
+        <p>Solo por estar registrad@ en Tech-House tenés envíos gratis en miles de
+            productos. Es un beneficio de Mercado Puntos.</p>
+
+            <div class="icon"> <i class="fa-thin fa-shield-check"></i></div>
+            <ul><strong>Seguridad, de principio a fin</strong></ul>
+            <p>¿No te gusta? ¡Devolvelo! En Tech-House, no hay nada que no puedas hacer,
+                porque estás siempre protegid@.</p>
+
+                <ul><strong>Copyright © 2022 Tech-House</strong></ul>
+    </footer>
+   
+</body>
+<script src="https://kit.fontawesome.com/f3d4785aed.js" crossorigin="anonymous"></script>
 </html>

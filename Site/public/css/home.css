@@ -1,0 +1,182 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Roboto', sans-serif;
+    background-color: #77D9D4;
+}
+
+h3{
+    font-size: 24px;
+}
+
+p{
+    font-size: 12px;
+}
+
+.top-header{
+    padding: 5%;
+}
+header{
+    background-color: #f7f5e6;
+}
+header div.top-header{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+div.top-header div.logo{
+    width: 50%;
+}
+
+div.logo img{
+    width: 100%;
+}
+
+header.opciones{
+    display: none;
+}
+
+div.top-header form.busqueda{
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.busqueda input{
+    width: 85%;
+    max-width: max-content;
+}
+
+form.busqueda button, form.busqueda input{
+    margin-left: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+}
+
+main section article .descripcion{
+    display: none;
+}
+.opciones{
+    display: none;
+}
+
+
+
+nav{
+    list-style-type: none;
+}
+
+header ul li a{
+    text-decoration: none;
+    color: #000;
+}
+
+div.burger-menu{
+    text-align: center;
+}
+
+div.burger-menu i{
+    background-color: #0044AA;
+    border-radius: 5px;
+    color: #FFF;
+    font-size: 20px;
+    height: 40px;
+    margin: 10px 0px 20px 0px;
+    padding: 10px;
+    width: 40px;
+}
+
+.precio{
+    font-size: 18px;
+}
+
+.descripcion{
+    font-size: 16px;
+    font-weight: normal;
+}
+
+h3,
+.descripcion{
+    color: #000;
+}
+
+.description{
+    display: none;
+    margin-top: 20px;
+}
+
+section.banner img{
+    width: 100%;
+}
+
+
+main{
+    width: 90%;
+    margin: 0 auto;
+}
+
+main section article{
+    background-color: #fff;    
+    margin: 10px 0px;
+}
+
+
+main section .productos img{
+    width: 100%;
+}
+
+
+main section article i{
+    display: block;
+    font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #39b54a;
+    background-color: #FFF;
+    border-radius: 50%;
+    position: relative;
+    right: 20px;
+    top: -15px;
+    }
+
+    main section h3{
+        margin: 20px 0px;
+    }
+
+    .productos div.main-article{
+        width: 100%;
+        border-top: 1px solid #ebebeb;
+        padding: 15px;
+    }
+
+    
+    .compra{
+        width: 100%;
+        text-align: center;
+
+    }
+
+    .footer{
+        text-align: center;
+    }
+
+
+
+
+
+
+
+
+    
+
+
