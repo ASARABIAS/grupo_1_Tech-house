@@ -16,17 +16,17 @@
     <main class="registro">
         <form action="/" method="POST">
         <h1>Crear cuenta </h1>
-        <label for="registro-nombre">Tu nombre</label>
-        <input class="registro-nombre" type="text" id="" name=""/>
+        <label for="registroNombre">Tu nombre</label>
+        <input class="registro-nombre" type="text" id="registroNombre" name="registroNombre" required/>
 
-        <label for="registro-apellido">Tu apellido</label>
-        <input class="registro-apellido" type="text" id="" name=""/>
+        <label for="registroApellido">Tu apellido</label>
+        <input class="registroApellido" type="text" id="registroApellido" name="registroApellido" required/>
 
-        <label for="">Correo electrónico </label>
-        <input class="registro-email" type="email" id="" name=""/>
+        <label for="email">Correo electrónico </label>
+        <input class="registro-email" type="email" id="email" name="email" required/>
 
         <label for="registro-contraseña">Contraseña</label>
-        <input class="registro-contraseña" type="text" placeholder="como minimo 6 caracteres" id="registro-contraseña" name="registro-contraseña" minlength="6" />
+        <input class="registro-contraseña" type="password" placeholder="Como minimo 6 caracteres" id="registro-contraseña" name="registro-contraseña" minlength="6" required/>
         
         
         <input class="crear-cuenta" type="submit" value="Crear cuenta">
