@@ -5,68 +5,105 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="/css/productCart.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+
+    </header>
     <main>
-        <div>
-            <div>
+        <div class="main-wrapper">
+            <div class="left-section-cart">
                 <section>
                     <h1>Carrito De Compras</h1>
                 </section>
                 <section>
-                    <article>
-                        <img src="/image/predator.png" alt="Portatil Predator">
-                        <h3>Portartil Acer Predator Triton 300 15"</h3>
-                        <p>Equipada con un procesador1 Intel® Core™ i7 de hasta 11.a generación, una tarjeta gráfica1 NVIDIA® GeForce RTX™ serie 30 y nuestra tecnología personalizada AeroBlade™ 3D de 5.a generación, esta computadora está lista para jugar, donde sea.</p>
-                        <p>$3.700.000</p>
-                        <a href="#">Eliminar</a>
-                        <a href="#">Productos similares</a>
-                        <a href="#">Guardar para después</a>
-                        <div>
-                            <button type="button">-</button>
-                            <input type="text">
-                            <button type="button">+</button>
+                    <article class="product-info">
+                        <div class="product-info-container">
+                            <img src="/image/predator.png" width="100%" alt="Portatil Predator">
+                            <div class="product-description-section">
+                                <h3>Portartil Acer Predator Triton 300 15"</h3>
+                                <p class="product-description">Equipada con un procesador1 Intel® Core™ i7 de hasta 11.a generación, una tarjeta gráfica1 NVIDIA® GeForce RTX™ serie 30 y nuestra tecnología personalizada AeroBlade™ 3D de 5.a generación, esta computadora está lista para jugar, donde sea.</p>
+                                <p class="product-price">$3.700.000</p>
+                            </div>
+                            <div class="product-quantity">
+                                <button type="button">-</button>
+                                <input type="text" value="1">
+                                <button type="button">+</button>
+                            </div>
+                        </div>
+                        <div class="product-options">
+                            <a href="#">Eliminar</a>
+                            <a href="#">Productos similares</a>
+                            <a href="#">Guardar para después</a>
                         </div>
                     </article>
-                    <article>
-                        <img src="/image/diadema.png" alt="Diadema Inalámbrica">
-                        <h3>Diadema Astro A10"</h3>
-                        <p>Lleva tu experiencia de juego en PC a una dimensión completamente nueva. Diseñados para jugadores, los Audífonos A10 presentan un diseño duradero y mayor confort para combatir la fatiga para que puedas jugar más sin descanso.</p>
-                        <p>$500.000</p>
-                        <a href="#">Eliminar</a>
-                        <a href="#">Productos similares</a>
-                        <a href="#">Guardar para después</a>
-                        <div>
-                            <button type="button">-</button>
-                            <input type="text">
-                            <button type="button">+</button>
+                    <article class="product-info">
+                        <div class="product-info-container">
+                            <img src="/image/diadema.png" width="100%" alt="Diadema Inalámbrica">
+                            <div class="product-description-section">
+                                <h3>Diadema Astro A10"</h3>
+                                <p class="product-description">Lleva tu experiencia de juego en PC a una dimensión completamente nueva. Diseñados para jugadores, los Audífonos A10 presentan un diseño duradero y mayor confort para combatir la fatiga para que puedas jugar más sin descanso.</p>
+                                <p class="product-price">$500.000</p>
+                            </div>
+                            <div class="product-quantity">
+                                <button type="button">-</button>
+                                <input type="text" value="1">
+                                <button type="button">+</button>
+                            </div>
+                        </div>  
+                        <div class="product-options">
+                            <a href="#">Eliminar</a>
+                            <a href="#">Productos similares</a>
+                            <a href="#">Guardar para después</a>
                         </div>
                     </article>
-                    <article>
-                        <img src="/image/mouse.png" alt="Mouse Inlámbrico">
-                        <h3>Mouse Inalámbrico Recargable</h3>
-                        <p>Diseño elegante y batería recargable son las caracteristicas principales que nos ofrece este Mouse inalámbrico. Ya no tendras que comprar más baterías, con el cable mini USB puedes recargar la batería del mouse. </p>
-                        <p>$170.000</p>
-                        <a href="#">Eliminar</a>
-                        <a href="#">Productos similares</a>
-                        <a href="#">Guardar para después</a>
-                        <div>
-                            <button type="button">-</button>
-                            <input type="text">
-                            <button type="button">+</button>
+                    <article class="product-info">
+                        <div class="product-info-container">
+                            <img src="/image/mouse.png" width="100%" alt="Mouse Inlámbrico">
+                            <div class="product-description-section">
+                                <h3>Mouse Inalámbrico Recargable</h3>
+                                <p class="product-description">Diseño elegante y batería recargable son las caracteristicas principales que nos ofrece este Mouse inalámbrico. Ya no tendras que comprar más baterías, con el cable mini USB puedes recargar la batería del mouse. </p>
+                                <p class="product-price">$170.000</p>
+                            </div>
+                            <div class="product-quantity">
+                                <button type="button">-</button>
+                                <input type="text" value="1">
+                                <button type="button">+</button>
+                            </div>
+                        </div>
+                        <div class="product-options">
+                            <a href="#">Eliminar</a>
+                            <a href="#">Productos similares</a>
+                            <a href="#">Guardar para después</a>
                         </div>
                     </article>
                 </section>
-            </div>
-            <div>
-                <h3>Total Pedido</h3>
-                <span>Cantidad de Productos <strong>3</strong></span>
-                <span>Subtotal <strong>$4.370.000</strong></span>
-                <span>Envío <strong>$50.000</strong></span>
-                <span>Total <strong>$4.420.000</strong></span>
-                <button type="button">Pagar</button>
+            </div>  
+
+            <div class="right-section-cart">
+                <div class="order-summary">
+                    <h3>Total Pedido</h3>
+                    <div class="order-summary-details">
+                        <hr>
+                        <span>Cantidad de Productos <strong>3</strong></span>
+                        <hr>
+                        <span>Subtotal <strong>$4.370.000</strong></span>
+                        <hr>
+                        <span>Envío <strong>$50.000</strong></span>
+                        <hr>
+                        <span>Total <strong>$4.420.000</strong></span>
+                    </div>
+                </div>
+                <div class="pay-button">
+                    <button type="button">Pagar</button>
+                </div>
             </div>
         </div>
     </main>
+    <footer>
+
+    </footer>
 </body>
 </html>

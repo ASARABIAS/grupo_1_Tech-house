@@ -17,6 +17,10 @@ app.get('/login', (req, res) => {
     res.sendFile(path.resolve('./views/login.html'));
 });
 
+app.get('/productDetail', (req, res) => {
+    res.sendFile(path.resolve('./views/productDetail.html'));
+});
+
 app.get('/registro', (req, res) => {
     res.sendFile(path.resolve('./views/registro.html'));
 });
