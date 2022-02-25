@@ -1,0 +1,89 @@
+@import url("global.css");
+
+div.registro-logo img{
+    display:flex;
+    justify-content:space-evenly;
+    width:70%;
+    margin:auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    
+}
+.login h2{
+    margin-top: 2px;
+}
+
+main.login{
+    margin: 20px auto;
+    width: 90%;
+    height: 358px;
+    background-color: var(--Vermillion);
+    padding: 15px;
+    border-radius: 5px;
+}
+div.mainlogin{
+    padding: 27px;
+}
+
+.login form{
+    display:block;
+    text-align:center;
+    background-color: #E8E8E8;
+    height: 320px;
+    width: 50%;
+    margin:auto;
+    border-radius: 10px;
+ }
+
+ 
+ 
+ .login input{
+    display:block;
+    padding:0px;
+    width:75%;
+    height: 25px;
+    margin:auto;
+    margin-top:10px;
+    padding-top:5px;
+    background-color: white;
+    text-align:center;
+    border: 1px solid gray;
+    border-radius:10px;
+ }
+ 
+ .login .button-submit input{
+     display: block;
+     width:45%;
+     padding: 8px;
+     margin-top: 10px;
+     background-color:#333A56;
+     color: #E8E8E8;
+     font-weight: 700;
+     text-align: center;
+ }
+ .login .text-end{
+     font-size: 12px;
+ }
+ 
+
+@media(min-width:481px) {
+    .login {
+        width: 72%;
+        margin: 14%;
+        margin-top: 50px;
+    }
+    
+
+}  
+@media(min-width:769px) {
+    
+    .login {
+                width: 50%;
+                margin: 26%;
+                margin-top: 50px;
+                padding-bottom: 120px;
+            }
+                    
+    
+      
+}
