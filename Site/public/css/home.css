@@ -1,3 +1,4 @@
+@import url("global.css");
 :root {
     --Fresh: #F7F5E6;
     --Vermillion: #333A56;
@@ -25,49 +26,52 @@ h3{
     font-size: 24px;
 }
 
-p{
+p {
     font-size: 12px;
 }
 
-.top-header{
+.top-header {
     padding: 5%;
 }
-header{
-    background-color: #f7f5e6;
-}
-header div.top-header{
+
+header div.top-header {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
-
 }
 
-div.top-header div.logo{
+div.top-header div.logo {
     width: 50%;
 }
 
-div.logo img{
+div.logo img {
     width: 100%;
 }
-.linea{
+
+.shopping i, .user i, .heart i{
+    color: #E8E8E8;
+}
+
+
+.linea {
     display: none;
 }
 .telefono{
     display: none;
 }
 
-.con-burger{
+.con-burger {
     display: flex;
     justify-content: space-around;
     align-items: baseline;
 }
 
-header.opciones{
+header.opciones {
     display: none;
 }
 
-div.top-header form.busqueda{
+div.top-header form.busqueda {
     display: block;
     margin: auto;
     width: 80%;
@@ -75,39 +79,40 @@ div.top-header form.busqueda{
     justify-content: center;
 }
 
-.busqueda input{
+.busqueda input {
     width: 80%;
 }
 
-
-form.busqueda button, form.busqueda input{
+form.busqueda button,
+form.busqueda input {
     margin-left: 5px;
     border-radius: 5px;
     padding: 5px;
     border: none;
 }
 
-main section article .descripcion{
-    display: none;
-}
-.opciones{
+main section article .descripcion {
     display: none;
 }
 
-nav{
+.opciones {
+    display: none;
+}
+
+nav {
     list-style-type: none;
 }
 
-header ul li a{
+header ul li a {
     text-decoration: none;
     color: #000;
 }
 
-div.burger-menu{
+div.burger-menu {
     text-align: center;
 }
 
-div.burger-menu i{
+div.burger-menu i {
     border-radius: 5px;
     color: #000;
     font-size: 20px;
@@ -117,47 +122,45 @@ div.burger-menu i{
     width: 40px;
 }
 
-.precio{
+.precio {
     font-size: 18px;
 }
 
-.descripcion{
+.descripcion {
     font-size: 16px;
     font-weight: normal;
 }
 
 h3,
-.descripcion{
+.descripcion {
     color: #000;
 }
 
-.description{
+.description {
     display: none;
     margin-top: 20px;
 }
 
-section.banner img{
+section.banner img {
     width: 100%;
 }
 
-
-main{
+main {
     width: 90%;
     margin: 0 auto;
 }
 
-main section article{
-    background-color: #fff;    
+main section article {
     margin: 10px 0px;
+    border: solid var(--Clean) 1px;
 }
 
 
-main section .productos img{
+main section .productos img {
     width: 100%;
 }
 
-
-main section article i{
+main section article i {
     display: block;
     font-size: 16px;
     padding: 5px;
@@ -169,175 +172,140 @@ main section article i{
     position: relative;
     right: 20px;
     top: -15px;
-    }
+}
 
-    main section h3{
-        margin: 20px 0px;
-    }
+main section h3 {
+    margin: 20px 0px;
+}
 
-    .productos div.main-article{
+.productos div.main-article {
+    width: 100%;
+    border-top: 1px solid #ebebeb;
+    padding: 15px;
+}
+
+main section article .descripcion {
+    display: none;
+}
+
+.compra {
+    width: 100%;
+    text-align: center;
+}
+
+section.banner2 img {
+    width: 100%
+}
+
+footer {
+    text-align: center;
+    background-color: #f7f5e6;
+}
+
+.credito,
+.envio,
+.contactos,
+.tecnico {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.copi {
+    text-align: left;
+}
+
+@media (min-width: 361px) {
+    main section article .descripcion {
+        display: block;
+    }
+    .top-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .con-burger {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: baseline;
         width: 100%;
-        border-top: 1px solid #ebebeb;
-        padding: 15px;
     }
-    main section article .descripcion{
+    .compra {
+        width: 30%;
+    }
+    section .detalles {
         display: none;
     }
-    .compra{
-        width: 100%;
+    .logo {
+        width: 30%;
+    }
+    .opciones {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0px 20px;
+    }
+    .login-bar {
+        display: flex;
+    }
+    .nav-bar li {
+        margin-left: 10px;
+    }
+    .login-bar li {
+        margin-right: 10px;
+    }
+    main section article {
+        box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    }
+    main section div.productos article {
+        width: 45%;
+    }
+    main section div.productos {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .precio {
+        width: 50%;
+    }
+    .main-opciones {
+        display: block;
+    }
+    .main-opciones ul {
+        display: block;
+    }
+    .main-opciones li {
+        margin: 10px 15px;
+        font-size: var(--myTittles);
+    }
+    .footer {
         text-align: center;
-
+        align-items: center;
     }
-
-    section.banner2 img{
-        width: 100%;
-    }
-
-    footer{
-        text-align: center;
-        background-color: #f7f5e6;
-    }
-
-    .credito, .envio, .contactos, .tecnico{
+    .credito,
+    .envio,
+    .contactos,
+    .tecnico {
+        display: flex;
         width: 100%;
         margin-bottom: 20px;
-       text-align: center;
     }
-    .copi{
-        text-align: left;
+}
+
+@media (min-width: 769px) {
+    main section div.productos article {
+        width: 22%;
     }
-
-
-    @media (min-width: 361px){
-        main section article .descripcion{
-            display: block;
-        }
-        .top-header{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .telefono{
-            text-align: center;
-            display: flex;
-            display: block;
-        }
-        .linea{
-            text-align: center;
-            display: flex;
-            align-items: center;
-        }
-        .con-burger{
-            display: flex;
-            justify-content: space-evenly;
-            align-items: baseline;
-            width: 100%;
-        }
-        
-        .compra{
-            width: 30%;
-        }
-
-        section .detalles{
-            display: none;
-        }
-        .logo{
-            width: 30%;
-        }
-        .busqueda{
-            width: 80%;
-        }
-    
-        .opciones{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 0px 20px;
-        }
-    
-        .login-bar{
-            display: none;
-        }
-
-        .bar-login{
-            display: flex;
-            justify-content: space-around;
-        }
-        .nav-bar li{
-            margin-left: 10px;
-        }
-        .login-bar li{
-            margin-right: 10px;
-        }
-    
-    
-        main section article{
-            box-shadow: 0px 0px 10px rgb(100, 100, 100);
-        } 
-        main section div.productos article{
-            width: 45%;
-        }
-        
-        main section div.productos{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-        
-        .precio{
-            width: 50%;
-        }
-    
-        .main-opciones{
-            display: block;
-                }
-        .main-opciones ul{
-            display: block;
-        }
-    
-        .main-opciones li{
-            margin: 10px 15px;
-            font-size: var(--myTittles);
-        }
-        .footer{
-            text-align: center;
-            align-items: center;
-        }
-        .credito, .envio, .contactos, .tecnico{
-            display: flex;
-            width: 100%;
-            margin-bottom: 20px;
-        }
+    div.burger-menu i {
+        display: none;
     }
-
-    @media (min-width: 769px){ 
-        main section div.productos article{
-            width: 22%;
-        }
-        div.burger-menu i{
-            display: none;
-        }
-    
-        .main-article{
-            box-shadow: 0px 0px 10px;
-            color: rgb(100, 100, 100);
-        }
-        
+    .main-article {
+        box-shadow: 0px 0px 10px;
+        color: rgb(100, 100, 100);
     }
-
-    
-
-    
-
-
-
-
-
-
+}
 
 
     
-
-
