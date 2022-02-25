@@ -83,8 +83,10 @@ div.image-sequence div.column-images img {
     width: 32px;
 }
 
-div.image-sequence div.column-images img:nth-child(1) {
+div.image-sequence div.column-images img:nth-child(1),
+div.product-colors div.product-colors-main img:nth-child(1) {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    border-radius: 5px;
 }
 
 div.product-images div.product-collage {
@@ -182,6 +184,8 @@ div.product-quantity form div.btn-boy-add button {
     padding: 5px;
     border-radius: 5px;
     border: none;
+    font-size: medium;
+    font-weight: bold;
 }
 
 div.btn-boy-add button.btn-buy {
@@ -229,33 +233,75 @@ main section.questions-answers div.questions-answers-header div.questions-answer
 
 div.questions-answers-fast-main button {
     margin: 5px 5px;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     background-color: var(--Green);
     border: none;
+    font-size: medium;
+    font-weight: bold;
 }
 
 section.questions-answers div.questions-answers-main form input {
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     border: solid var(--Clean) 1px;
     width: 70%;
 }
 
 section.questions-answers div.questions-answers-main form button {
-    padding: 5px;
+    padding: 10px;
     background-color: var(--Green);
     border: solid var(--Clean) 1px;
     border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
 }
 
 main section.product-similar div.product-similar-main article.product {
     margin: 10px 5px;
     display: flex;
+    border: solid var(--Clean) 1px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+div.product-similar-main article.product:hover {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+div.product-similar-main article.product div.product-header {
+    width: 50%;
+    padding: 5px;
+}
+
+article.product div.product-header img {
+    width: 100%;
+    min-width: 64px;
 }
 
 div.product-similar-main article.product div.product-main {
-    margin-left: 10px;
+    padding: 15px 10px;
+    position: relative;
+}
+
+article.product div.product-main i {
+    display: none;
+    padding: 8px;
+    color: var(--Green);
+    border: solid var(--Green) 1px;
+    border-radius: 50%;
+    position: absolute;
+    top: -20px;
+    right: 15px;
+    background-color: var(--White);
+    font-size: 16px;
+    transition: all 0.5s;
+}
+
+article.product div.product-main i:hover {
+    cursor: pointer;
+    transform: rotate(-45deg);
 }
 
 
@@ -263,6 +309,36 @@ div.product-similar-main article.product div.product-main {
 
 
 /*-------------------------------------------------------*/
+
+@media(min-width:481px) {
+    main section.characteristics div.characteristics-main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    main section.characteristics div.characteristics-main article.characteristic {
+        width: 40%;
+    }
+    main section.product-similar div.product-similar-main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    main section.product-similar div.product-similar-main article.product {
+        width: 40%;
+        display: block;
+    }
+    div.product-similar-main article.product div.product-header {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    article.product div.product-main {
+        border-top: solid var(--Clean) 1px;
+    }
+    article.product div.product-main i {
+        display: inline-block;
+    }
+}
 
 @media(min-width:769px) {
     main section.product div.product-header {
@@ -274,7 +350,7 @@ div.product-similar-main article.product div.product-main {
         justify-content: space-around;
     }
     section.product div.product-main div.product-images {
-        width: 65%;
+        width: 60%;
         margin: 5px 10px;
     }
     div.product-main div.product-images div.image-sequence h6 {
@@ -293,12 +369,7 @@ div.product-similar-main article.product div.product-main {
         border-radius: 5px;
         border: solid var(--Clean) 1px;
     }
-    main section.characteristics div.characteristics-main {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-    }
-    main section.characteristics div.characteristics-main article.characteristic {
-        width: 40%;
+    main section.product-similar div.product-similar-main article.product {
+        width: 23%;
     }
 }
