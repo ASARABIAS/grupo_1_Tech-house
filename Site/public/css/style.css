@@ -28,7 +28,7 @@
 main {
     margin: 20px auto;
     width: 90%;
-    background-color: var(--White);
+    background-color: var(--Vermillion);
     padding: 15px;
     border-radius: 5px;
 }
@@ -248,7 +248,7 @@ main.login{
     margin: 20px auto;
     width: 90%;
     height: 358px;
-    background-color: var(--White);
+    background-color: var(--Vermillion);
     padding: 15px;
     border-radius: 5px;
 }
@@ -256,7 +256,7 @@ div.mainlogin{
     padding: 27px;
 }
 
- .login form{
+.login form{
     display:block;
     text-align:center;
     background-color: #E8E8E8;
@@ -264,6 +264,10 @@ div.mainlogin{
     width: 50%;
     margin:auto;
     border-radius: 10px;
+ }
+
+ .main.registro{
+     background-color: #333A56;
  }
  
  .login input{
