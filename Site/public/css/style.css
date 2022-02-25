@@ -1,3 +1,5 @@
+/*   Global   */
+
 :root {
     --Fresh: #F7F5E6;
     --Vermillion: #333A56;
@@ -8,22 +10,18 @@
     --Green: #39b54a;
 }
 
-
-/*para tablet 481px*/
-
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
-
-/*body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 12px;
-    background-color: var(--Vermillion);
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: #333A56
 }
-*/
 
 main {
     margin: 20px auto;
@@ -33,15 +31,74 @@ main {
     border-radius: 5px;
 }
 
-main section {
-    margin-bottom: 10px;
+
+/*  Fin Global  */
+
+
+/*-------------------------------------------------------*/
+
+
+/*   header   */
+
+header {}
+
+header div.top-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-main section.product div {
+header div.top-header div.logo {
+    width: 40%;
+}
+
+div.top-header div.logo img {
+    width: 100%;
+    max-width: max-content;
+    border-radius: 5px;
+}
+
+header nav {
+    display: none;
+}
+
+
+/*  Fin header  */
+
+
+/*   main   */
+
+
+/*   main productDetail   */
+
+main section {
+    margin: 30px 0px;
+    border-top: solid var(--Clean) 1px;
+}
+
+main section div h4 {
     margin: 10px 0px;
 }
 
-main section.product div.product-header h5 {
+main section.product {
+    margin-top: 0px;
+    padding-top: 0px;
+    border-top: none;
+}
+
+
+/*Agregando espacio en los headers*/
+
+main section>div:nth-child(1) {
+    margin: 30px 0px 20px 0px
+}
+
+main section.product>div:nth-child(1) {
+    margin: 0px;
+}
+
+main section.product div.product-header h5,
+div.product-quantity form div.container-product-available {
     color: var(--Dark-grey);
 }
 
@@ -49,7 +106,7 @@ section.product div.product-main div.product-images {
     position: relative;
 }
 
-div.product-images h6 {
+div.product-main div.product-images div.image-sequence h6 {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -58,9 +115,24 @@ div.product-images h6 {
     border-radius: 5px;
 }
 
+div.product-main div.product-images div.image-sequence div.column-images {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+}
+
+div.image-sequence div.column-images img {
+    margin: 5px 0px;
+    width: 32px;
+}
+
+div.image-sequence div.column-images img:nth-child(1) {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
 div.product-images div.product-collage {
+    margin: 10px 0px;
     width: 100%;
-    height: 40vh;
     display: flex;
     align-items: center;
 }
@@ -69,7 +141,7 @@ div.product-collage i.left-arrow {
     position: absolute;
 }
 
-div.product-images img {
+div.product-collage img {
     width: 100%;
 }
 
@@ -78,9 +150,14 @@ div.product-collage i.right-arrow {
     right: 0px;
 }
 
-div.product-main div.product-specification div.product-price-discount {
+div.product-main div.product-specification div.product-price-discount,
+section.product-similar div.product-price-discount {
     display: flex;
     align-items: center;
+}
+
+div.product-main div.product-specification div.payment-methods-header {
+    margin-top: 20px;
 }
 
 div.product-price-discount strong.product-price {
@@ -92,9 +169,15 @@ div.product-price-discount strong.product-discount {
     color: var(--Green);
 }
 
-div.product-specification div.product-delivery p,
+div.product-specification div.product-specification div.product-delivery p,
 div.product-return p {
     color: var(--Green);
+}
+
+div.product-specification div.product-delivery,
+div.product-specification div.product-return,
+div.product-specification div.product-colors {
+    margin: 15px;
 }
 
 div.product-specification div.product-delivery i,
@@ -103,67 +186,143 @@ div.product-return i {
     color: var(--Green);
 }
 
+div.product-specification div.product-colors div.product-colors-main {
+    margin: 15px 5px;
+}
+
 div.product-specification div.product-quantity {
-    margin-top: 10px;
+    margin: 10px 0px;
+}
+
+div.product-quantity div.product-quantity-header,
+div.product-quantity form div {
+    margin-bottom: 15px;
+}
+
+div.product-quantity form div.container-product-available {
+    margin-bottom: 2px;
+    margin-left: 5px;
 }
 
 div.product-quantity form div.container-product-quantity {
     padding: 5px;
     background-color: var(--Clean);
     border-radius: 5px;
-    position: relative;
+    display: flex;
+    text-align: center;
 }
 
 div.container-product-quantity input {
     border: none;
     background-color: transparent;
     margin-left: 5px;
-    width: max-content;
-}
-
-div.container-product-quantity p {
-    display: inline;
-    position: absolute;
-    left: 80px;
-}
-
-div.container-product-quantity label.quantity {
-    position: absolute;
-    right: 5px;
-}
-
-div.container-product-quantity label.quantity i {
-    color: blue;
-    font-size: medium;
 }
 
 div.product-quantity form div.btn-boy-add button {
     display: block;
     width: 100%;
-    margin: 5px 0px;
+    margin: 15px 0px;
     padding: 5px;
     border-radius: 5px;
     border: none;
 }
 
 div.btn-boy-add button.btn-buy {
-    background-color: #2196f3
+    background-color: #2196f3;
 }
 
-main section.characteristics {
-    margin-top: 20px;
+main section.characteristics div.characteristics-main article.characteristic {
+    margin-bottom: 20px;
 }
 
-section.characteristics div.characteristics-main article.characteristic {
+article.characteristic table.characteristic-main {
+    margin: 15px 0px;
+    border-spacing: 0px;
+    width: 100%;
+    border-radius: 5px;
+    border: solid var(--Clean) 1px;
+}
+
+article.characteristic table.characteristic-main tr td {
+    padding: 5px;
+}
+
+article.characteristic table.characteristic-main tr.characteristic-active {
+    background-color: var(--Clean);
+}
+
+main section.payment-methods div.payment-methods-main div.payment-methods-icons,
+div.product-specification div.payment-methods-icons {
     margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 
-body {
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    background-color: #333A56
+div.payment-methods-icons img {
+    width: 64px;
+    margin: 0px 5px;
 }
+
+main section.questions-answers div.questions-answers-header div.questions-answers-fast div.questions-answers-fast-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+div.questions-answers-fast-main button {
+    margin: 5px 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--Green);
+    border: none;
+}
+
+section.questions-answers div.questions-answers-main form input {
+    padding: 5px;
+    border-radius: 5px;
+    border: solid var(--Clean) 1px;
+    width: 70%;
+}
+
+section.questions-answers div.questions-answers-main form button {
+    padding: 5px;
+    background-color: var(--Green);
+    border: solid var(--Clean) 1px;
+    border-radius: 5px;
+}
+
+main section.product-similar div.product-similar-main article.product {
+    margin: 10px 5px;
+    display: flex;
+}
+
+div.product-similar-main article.product div.product-main {
+    margin-left: 10px;
+}
+
+
+/*  Fin main productDetail  */
+
+
+/*  Fin main  */
+
+
+/*-------------------------------------------------------*/
+
+
+/*para tablet 481px*/
+
+
+/*body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    background-color: var(--Vermillion);
+}
+*/
+
+
+/*register*/
 
 a {
     text-decoration: none;
@@ -188,7 +347,7 @@ div.registro-logo img {
 }
 
 .registro form label,
-input {
+.registro form input {
     display: block;
     padding: 0px;
     width: 60%;
@@ -230,6 +389,44 @@ input {
 @media(min-width:481px) {}
 
 @media(min-width:769px) {
+    /*ProducDetail*/
+    main section.product div.product-header {
+        padding-bottom: 10px;
+        border-bottom: solid var(--Clean) 1px;
+    }
+    main section.product div.product-main {
+        display: flex;
+        justify-content: space-around;
+    }
+    section.product div.product-main div.product-images {
+        width: 65%;
+        margin: 5px 10px;
+    }
+    div.product-main div.product-images div.image-sequence h6 {
+        display: none;
+    }
+    div.product-main div.product-images div.image-sequence div.column-images {
+        display: flex;
+    }
+    div.product-main div.product-images div.product-collage i {
+        display: none;
+    }
+    div.product-main div.product-specification {
+        margin-top: 30px;
+        width: 30%;
+        padding: 10px;
+        border-radius: 5px;
+        border: solid var(--Clean) 1px;
+    }
+    main section.characteristics div.characteristics-main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    main section.characteristics div.characteristics-main article.characteristic {
+        width: 40%;
+    }
+    /*fin ProducDetail*/
     div.registro-logo img {
         width: 563px;
     }
