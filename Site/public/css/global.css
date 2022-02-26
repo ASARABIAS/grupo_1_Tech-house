@@ -47,7 +47,8 @@ div.top-header div.logo img {
     cursor: pointer;
 }
 
-div.top-header div.shopping-love-user-carts {
+div.top-header div.shopping-love-user-carts,
+div.top-header div.help-card {
     display: flex;
     width: 60%;
     justify-content: end;
@@ -62,7 +63,8 @@ div.top-header div.shopping-love-user-carts div.user-cart {
 }
 
 div.shopping-love-user-carts div i,
-div.top-header div.burger-menu i {
+div.top-header div.burger-menu i,
+div.top-header div.help-card i {
     font-size: larger;
     color: var(--Light-purple);
 }
