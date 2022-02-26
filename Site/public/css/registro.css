@@ -24,7 +24,7 @@ div.registro-logo img{
    
     display:block;
     padding:0px;
-    width:60%;
+    width:80%;
     margin:auto;
     margin-top:10px;
     padding-top:5px;
@@ -37,6 +37,9 @@ div.registro-logo img{
 input{
     background-color:white;
 }
+input.registro-contraseña{
+font-size: 11px;
+}
 
 .registro form label{
     border: 1px solid #E8E8E8;
@@ -45,7 +48,7 @@ input{
 .registro form .crear-cuenta{
     display: block;
     margin:auto;
-    width:45%;
+    width:60%;
     padding: 8px;
     margin-top: 10px;
     background-color:#333A56;
@@ -58,7 +61,7 @@ input{
 .goto-login{
     display:block;
     padding:2px 18px;
-    width:60%;
+    width:70%;
     margin:auto;
     margin-top:0px;
     background-color: #E8E8E8;
@@ -68,12 +71,15 @@ main.registro{
     background-color: var(--Vermillion);
 }
 
+
+
 @media(min-width:481px) {
-    .login {
-        width: 72%;
-        margin: 14%;
-        margin-top: 50px;
-    }
+    input{
+        font-size: 14px;
+        }
+    input.registro-contraseña{
+            font-size: 14px;
+            }
     
 
 }  
@@ -84,14 +90,7 @@ main.registro{
         width:50%}
     .registro form input{
             padding-top: 10px;}
-          
-    .login {
-                width: 50%;
-                margin: 26%;
-                margin-top: 50px;
-                padding-bottom: 120px;
-            }
-                    
+                          
     
       
 }
