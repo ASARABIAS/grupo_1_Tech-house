@@ -1,11 +1,12 @@
 :root {
-    --Fresh: #F7F5E6;
-    --Vermillion: #333A56;
-    --Sunshine: #52658F;
+    --Light-blue: #00A8F3;
+    --Light-purple: #3F48CC;
+    --Purple: #2E3091;
     --Clean: #E8E8E8;
     --White: #ffff;
-    --Dark-grey: #666;
+    --Red: #C82F35;
     --Green: #39b54a;
+    --Black: #000;
 }
 
 * {
@@ -18,7 +19,7 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 500;
     font-size: 16px;
-    background-color: #00A8F3;
+    background-color: var(--Light-blue);
 }
 
 header {
@@ -62,7 +63,7 @@ div.top-header div.shopping-love-user-carts div.user-cart {
 div.shopping-love-user-carts div i,
 div.top-header div.burger-menu i {
     font-size: larger;
-    color: #3F48CC;
+    color: var(--Light-purple);
 }
 
 div.top-header div.burger-menu {
@@ -95,7 +96,7 @@ div.top-header form button[type="submit"] {
 }
 
 div.top-header form button[type="submit"] i {
-    color: #C82F35;
+    color: var(--red);
 }
 
 header nav {
@@ -122,7 +123,7 @@ main {
 
 a {
     text-decoration: none;
-    color: #2E3091;
+    color: var(--Purple);
     font-size: 14px;
     font-weight: bold;
 }
