@@ -1,0 +1,97 @@
+@import url("global.css");
+
+.registro h1{
+    margin-top:2px;
+}
+div.registro-logo img{
+    display:flex;
+    justify-content:space-evenly;
+    width:70%;
+    margin:auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    
+}
+.registro form{
+    display:block;
+    text-align:center;
+    background-color: #E8E8E8;
+    width:70%;
+    margin:auto;
+    border-radius: 10px;
+}
+.registro form label, input {
+   
+    display:block;
+    padding:0px;
+    width:60%;
+    margin:auto;
+    margin-top:10px;
+    padding-top:5px;
+    background-color: #E8E8E8;
+    text-align:center;
+    border: 1px solid gray;
+    border-radius:10px;
+
+}
+input{
+    background-color:white;
+}
+
+.registro form label{
+    border: 1px solid #E8E8E8;
+}
+
+.registro form .crear-cuenta{
+    display: block;
+    margin:auto;
+    width:45%;
+    padding: 8px;
+    margin-top: 10px;
+    background-color:#333A56;
+    color: #E8E8E8;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+.goto-login{
+    display:block;
+    padding:2px 18px;
+    width:60%;
+    margin:auto;
+    margin-top:0px;
+    background-color: #E8E8E8;
+    text-align:center;
+}
+main.registro{
+    background-color: var(--Vermillion);
+}
+
+@media(min-width:481px) {
+    .login {
+        width: 72%;
+        margin: 14%;
+        margin-top: 50px;
+    }
+    
+
+}  
+@media(min-width:769px) {
+    div.registro-logo img{
+        width:563px;}
+    .registro form{
+        width:50%}
+    .registro form input{
+            padding-top: 10px;}
+          
+    .login {
+                width: 50%;
+                margin: 26%;
+                margin-top: 50px;
+                padding-bottom: 120px;
+            }
+                    
+    
+      
+}

@@ -30,5 +30,13 @@ main {
     padding: 15px;
     border-radius: 5px;
 }
+a{
+    text-decoration: none;
+    color:#2968f1
+}
 
 footer {}
+
+input{
+    background-color: var(--White);
+}
