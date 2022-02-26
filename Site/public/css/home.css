@@ -18,8 +18,10 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #00A8F3;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: var(--Light-blue);
 }
 
 h3 {
@@ -186,10 +188,7 @@ footer {
         margin: 10px 15px;
         font-size: var(--myTittles);
     }
-    .footer {
-        text-align: center;
-        align-items: center;
-    }
+    
     .credito,
     .envio,
     .contactos,
@@ -200,10 +199,11 @@ footer {
     }
     footer {
         display: flex;
+        flex-wrap: wrap;
         text-align: center;
         align-items: center;
-        justify-content: space-evenly;
         background-color: white;
+        justify-content: space-around;
     }
 }
 
