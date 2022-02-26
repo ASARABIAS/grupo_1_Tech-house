@@ -127,7 +127,10 @@ a {
     font-weight: bold;
 }
 
-footer {}
+footer {
+    text-align: center;
+    background-color: white;
+}
 
 input {
     background-color: var(--White);
