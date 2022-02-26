@@ -7,7 +7,10 @@
     --Dark-grey: #666;
     --Green: #39b54a;
     --Black: #000;
-    --Orange: #ffa500d6;
+    --Orange: #ff8000;
+    --Light-blue: #4FB2F0;
+    --Clear-blue: #1399C5;
+    --Dark-green: #266b30;
 }
 
 * {
@@ -39,9 +42,10 @@ h1{
     margin: 9px 0;
     padding: 2px;
     background-color: var(--White);
+    border-radius: 10px;
 }
 
-.product-info a{
+.product-info a:not(.product-delete-button){
     border: solid 0.8px var(--Black);
     color: var(--Black);
     text-decoration: none;
@@ -51,8 +55,7 @@ h1{
     padding: 3px;
     border-radius: 4px;
     margin: 0 3px;
-    background-color: var(--Clean);
-
+    background-color: var(--Light-blue);
 }
 
 .product-info h3, .product-info p{
@@ -64,15 +67,28 @@ h1{
     display: block;
 }
 
+.product-avaliable{
+    color: var(--Orange);
+    font-weight: 600;
+}
+
 .product-price{
     font-size: 16px;
     font-weight: bold;
     color: var(--Green);
 }
 
+.product-delivery-info{
+    margin-top: 5%;
+}
+
+.product-delivery{
+    color: var(--Dark-green);
+}
+
 .product-quantity{
-    display: flex;
-    margin: 6px;
+    display: flex;  
+    margin: 4% 6px;
     max-height: 20px;
 }
 
@@ -82,15 +98,30 @@ h1{
     color: var(--Black);
     width: 15px;    
     border: var(--Black) 1px solid; 
+    height: 23px;
 }
 
 .product-quantity input{
-    background-color: var(--Clean);
+    background-color: var(--White);
     border-radius: 3px;
     color: var(--Black);
     width: 28px;
     text-align: center;
     border: var(--Black) 1px solid;
+    height: 23px;
+}
+
+.product-delete-button{
+    border: solid 0.8px var(--Black);
+    color: var(--Black);
+    text-decoration: none;
+    font-size: 11px;
+    height: 10%;
+    display: inline-block;
+    padding: 3px;
+    border-radius: 4px;
+    margin: 0 3px;
+    background-color: var(--Orange);
 }
 
 .product-options{
@@ -113,6 +144,7 @@ h1{
     margin: 0px 0 6px 0;
     padding: 2px;
     background-color: var(--White);
+    border-radius: 10px;
 }
 
 .order-summary-details{
@@ -139,10 +171,11 @@ h1{
 }
 
 .pay-button button{
-    font-weight: 600;
+    font-weight: 500;
     font-size: 16px;
     width: 100%;
-    background-color: var(--Orange);
+    background-color: var(--Clear-blue);
+    border-radius: 7px;
 }
 
 @media(min-width:481px) {
