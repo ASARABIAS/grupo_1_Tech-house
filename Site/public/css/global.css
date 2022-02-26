@@ -8,6 +8,7 @@
     --Green: #39b54a;
     --Dark-green: #266b30;
     --Black: #000;
+    --Orange: #ff8000;
 }
 
 * {
@@ -131,10 +132,27 @@ a {
     font-weight: bold;
 }
 
-footer {}
-
 input {
     background-color: var(--White);
+}
+
+footer {
+    margin: 5vw 0px 0px 0px;
+    padding: 10px 5px;
+    background-color: white;
+}
+
+.credito,
+.envio,
+.contactos,
+.tecnico {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.copi {
+    text-align: center;
 }
 
 @media(min-width:481px) {
@@ -153,6 +171,21 @@ input {
     }
     header nav {
         display: flex;
+    }
+    .credito,
+    .envio,
+    .contactos,
+    .tecnico {
+        width: 20%;
+        margin-bottom: 20px;
+    }
+    .footer {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        align-items: center;
+        background-color: white;
+        justify-content: space-around;
     }
 }
 
