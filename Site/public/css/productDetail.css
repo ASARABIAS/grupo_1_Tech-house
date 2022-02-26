@@ -2,26 +2,6 @@
 
 /*   header   */
 
-header div.top-header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-header div.top-header div.logo {
-    width: 40%;
-}
-
-div.top-header div.logo img {
-    width: 100%;
-    max-width: max-content;
-    border-radius: 5px;
-}
-
-header nav {
-    display: none;
-}
-
 
 /*  Fin header  */
 

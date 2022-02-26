@@ -18,25 +18,131 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 500;
     font-size: 16px;
-    background-color: #333A56
+    background-color: #00A8F3
 }
 
-header {}
+header {
+    background-color: var(--White);
+    padding: 10px 5%;
+}
+
+header div.top-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header div.top-header div.logo {
+    width: 35%;
+    margin-right: 10px;
+}
+
+div.top-header div.logo img {
+    width: 100%;
+    max-width: max-content;
+    border-radius: 5px;
+}
+
+div.top-header div.shopping-love-user-carts {
+    display: flex;
+    width: 60%;
+    justify-content: end;
+}
+
+div.top-header div.shopping-love-user-carts div {
+    margin: 0px 10px;
+}
+
+div.top-header div.shopping-love-user-carts div.user-cart {
+    margin-right: 0px;
+}
+
+div.shopping-love-user-carts div i,
+div.top-header div.burger-menu i {
+    font-size: larger;
+    color: #3F48CC;
+}
+
+div.top-header div.burger-menu {
+    margin: 10px;
+}
+
+div.top-header form {
+    margin: 0px 10px;
+    flex-grow: 1;
+    position: relative;
+    max-width: 500px;
+}
+
+div.top-header form input[type="search"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid var(--Clean) 1px;
+}
+
+div.top-header form button[type="submit"] {
+    position: absolute;
+    right: 0px;
+    padding: 10px;
+    border-radius: 0px 5px 5px 0px;
+    border: solid var(--Clean) 1px;
+    background-color: var(--White);
+}
+
+div.top-header form button[type="submit"] i {
+    color: #C82F35;
+}
+
+header nav {
+    display: none;
+    justify-content: end;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0px 5px;
+}
 
 main {
-    margin: 20px auto;
+    margin: 5vw auto;
     width: 90%;
     background-color: var(--White);
     padding: 15px;
     border-radius: 5px;
 }
-a{
+
+a {
     text-decoration: none;
-    color:#2968f1
+    color: #2E3091;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 footer {}
 
-input{
+input {
     background-color: var(--White);
 }
+
+@media(min-width:481px) {
+    header div.top-header {
+        flex-wrap: nowrap;
+    }
+    header div.top-header div.logo {
+        width: 200px;
+    }
+    header div.top-header div.burger-menu {
+        display: none;
+    }
+    header div.top-header .shopping-love-user-carts {
+        order: 1;
+        width: max-content;
+    }
+    header nav {
+        display: flex;
+    }
+}
+
+@media(min-width:769px) {}
