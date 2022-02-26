@@ -6,6 +6,7 @@
     --White: #ffff;
     --Red: #C82F35;
     --Green: #39b54a;
+    --Dark-green: #266b30;
     --Black: #000;
 }
 
@@ -96,7 +97,7 @@ div.top-header form button[type="submit"] {
 }
 
 div.top-header form button[type="submit"] i {
-    color: var(--red);
+    color: var(--Red);
 }
 
 header nav {

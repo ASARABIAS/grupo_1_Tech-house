@@ -1,18 +1,4 @@
 @import url("global.css");
-:root {
-    --Fresh: #F7F5E6;
-    --Vermillion: #333A56;
-    --Sunshine: #52658F;
-    --Clean: #E8E8E8;
-    --White: #ffff;
-    --Dark-grey: #666;
-    --Green: #39b54a;
-    --Orange: #ff8000;
-    --Light-blue: #4FB2F0;
-    --Clear-blue: #1399C5;
-    --Dark-green: #266b30;
-}
-
 .left-section-cart {
     padding: 3%;
 }
@@ -56,7 +42,7 @@ h1 {
 }
 
 .product-avaliable {
-    color: var(--Orange);
+    color: var(--Red);
     font-weight: 600;
 }
 
@@ -109,7 +95,7 @@ h1 {
     padding: 3px;
     border-radius: 4px;
     margin: 0 3px;
-    background-color: var(--Orange);
+    background-color: var(--Red);
 }
 
 .product-options {
@@ -162,7 +148,7 @@ h1 {
     font-weight: 500;
     font-size: 16px;
     width: 100%;
-    background-color: var(--Clear-blue);
+    background-color: var(--Light-purple);
     border-radius: 7px;
 }
 
