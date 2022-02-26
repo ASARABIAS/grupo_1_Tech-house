@@ -19,88 +19,8 @@ p {
     font-size: 12px;
 }
 
-.top-header {
-    padding: 5%;
-}
-
-header div.top-header {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-div.top-header div.logo {
-    width: 50%;
-}
-
-div.logo img {
-    width: 100%;
-}
-
-.linea {
-    display: none;
-}
-
-.con-burger {
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
-}
-
-header.opciones {
-    display: none;
-}
-
-div.top-header form.busqueda {
-    display: block;
-    margin: auto;
-    width: 80%;
-    align-items: center;
-    justify-content: center;
-}
-
-.busqueda input {
-    width: 80%;
-}
-
-form.busqueda button,
-form.busqueda input {
-    margin-left: 5px;
-    border-radius: 5px;
-    padding: 5px;
-    border: none;
-}
-
 main section article .descripcion {
     display: none;
-}
-
-.opciones {
-    display: none;
-}
-
-nav {
-    list-style-type: none;
-}
-
-header ul li a {
-    text-decoration: none;
-    color: #000;
-}
-
-div.burger-menu {
-    text-align: center;
-}
-
-div.burger-menu i {
-    border-radius: 5px;
-    color: #000;
-    font-size: 20px;
-    height: 40px;
-    margin: 10px 0px 20px 0px;
-    padding: 10px;
-    width: 40px;
 }
 
 .precio {
