@@ -42,7 +42,7 @@ h1 {
 }
 
 .product-avaliable {
-    color: var(--Red);
+    color: var(--Orange);
     font-weight: 600;
 }
 
@@ -95,7 +95,7 @@ h1 {
     padding: 3px;
     border-radius: 4px;
     margin: 0 3px;
-    background-color: var(--Red);
+    background-color: var(--Orange);
 }
 
 .product-options {
@@ -148,7 +148,7 @@ h1 {
     font-weight: 500;
     font-size: 16px;
     width: 100%;
-    background-color: var(--Light-purple);
+    background-color: var(--Orange);
     border-radius: 7px;
 }
 
