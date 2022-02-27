@@ -141,6 +141,7 @@ section.banner2 img {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+
     }
     .precio {
         width: 50%;
@@ -166,7 +167,7 @@ section.banner2 img {
     div.burger-menu i {
         display: none;
     }
-    .main-article {
+    .main-productos {
         box-shadow: 0px 0px 10px;
         color: rgb(100, 100, 100);
     }
