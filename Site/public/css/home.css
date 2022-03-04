@@ -157,6 +157,9 @@ section.banner2 img {
         font-size: var(--myTittles);
     }
     
+    .detalles{
+        display:contents;
+    }
     
 }
 
