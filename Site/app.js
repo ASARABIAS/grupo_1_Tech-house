@@ -1,17 +1,23 @@
 const express = require("express");
-const path = require("path");
-
 const app = express();
+const path = require("path");
 
 app.use(express.static("public"));
 
-
+app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
+const routeRegister = require('./routes/registerRouter');
+
+
+
+
 
 app.get("/", (req, res) => {
   res.render("home");
 });
 
+app.use('/register', routeRegister);
+/*
 app.get("/login", (req, res) => {
   res.render("login");
 });
@@ -27,6 +33,7 @@ app.get("/productDetail", (req, res) => {
 app.get("/register", (req, res) => {
   res.render("register");
 });
+*/
 
 /*
 //app.use('/static', express.static(__dirname + '/public'))
