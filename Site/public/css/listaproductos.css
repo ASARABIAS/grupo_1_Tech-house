@@ -1,0 +1,84 @@
+@import url("global.css");
+
+
+h3 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 12px;
+}
+
+main section article .descripcion {
+    display: none;
+}
+
+.precio {
+    font-size: 18px;
+}
+
+.descripcion {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+h3,
+.descripcion {
+    color: #000;
+}
+
+.description {
+    display: none;
+    margin-top: 20px;
+}
+
+section.banner img {
+    width: 100%;
+}
+
+main section article {
+    margin: 10px 0px;
+    border: solid var(--Clean) 1px;
+}
+
+main section .productos img {
+    width: 100%;
+}
+
+main section article i {
+    display: block;
+    font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #39b54a;
+    background-color: #FFF;
+    border-radius: 50%;
+    position: relative;
+    right: 20px;
+    top: -15px;
+}
+
+main section h3 {
+    margin: 20px 0px;
+}
+
+.productos div.main-article {
+    width: 100%;
+    border-top: 1px solid #ebebeb;
+    padding: 15px;
+}
+
+main section article .descripcion {
+    display: none;
+}
+
+.compra {
+    width: 100%;
+    text-align: center;
+}
+
+section.banner2 img {
+    width: 100%
+}
+
