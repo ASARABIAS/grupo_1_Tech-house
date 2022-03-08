@@ -31,6 +31,9 @@ app.get("/listaproductos", (req, res) => {
 
 app.use('/register', routeRegister);
 
+app.get("/add_editProduct", (req, res) => {
+  res.render("add_editProduct");
+});
 
 /*
 app.get('/', (req, res) => {

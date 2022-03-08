@@ -12,42 +12,7 @@
 </head>
 
 <body>
-    <header>
-        <div class="top-header">
-            <div class="logo">
-                <img src="./image/logo-tech-house.png" alt="" srcset="">
-            </div>
-            <div class="shopping-love-user-carts">
-                <div class="shopping-cart">
-                    <a href="/productCart"><i class="fas fa-shopping-basket"> </i></a>
-                </div>
-                <div class="love-cart">
-                    <a href=""><i class="fa-solid fa-heart"></i></a>
-                </div>
-                <div class="user-cart">
-                    <a href="/login"><i class="fa-solid fa-user"></i></a>
-                </div>
-            </div>
-            <div class="burger-menu">
-                <div>
-                    <i class="fa fa-bars burger"></i>
-                </div>
-            </div>
-            <form action="#">
-                <input type="search" placeholder="Buscar productos, marcas y más">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="/">Inicio</a> </li>
-                <li><a href="">Ofertas</a></li>
-                <li><a href="">Tiendas</a></li>
-                <li><a href="">Quienes Somos</a></li>
-            </ul>
-            </div>
-        </nav>
-    </header>
+    <%- include('./partials/header') %>
     <main>
         <div class="main-wrapper">
             <div class="left-section-cart">
@@ -157,47 +122,7 @@
             </div>
         </div>
     </main>
-    <footer>
-        <div class="footer">
-            <div class="credito">
-                <div class="icon">
-                    <i class="fas fa-credit-card"></i>
-                </div>
-                <ul><strong>Aceptamos todos</strong></ul>
-                <p>Los medios de pago</p>
-            </div>
-        
-
-         <div class="envio">
-            <div class="icon">
-                <i class="fa fa-shipping-fast"></i>
-            </div>
-            <ul><strong>Envío a toda</strong></ul>
-            <p>Colombia</p>
-         </div>
-         <div class="contactos">
-            <div class="icon">
-                <i class="fa fa-envelope"></i>
-            </div>
-            <ul><strong>Contáctanos</strong></ul>
-            <p>WhatsApp | Email</p>
-         </div>
-
-         <div class="tecnico">
-            <div class="icon">
-                <i class="fa fa-user-check"></i>
-            </div>
-            <ul><strong>Servicio Técnico</strong></ul>
-            <p>Atencíon especializada</p>
-         </div>
-        </div>
-
-        <div class="copi">
-            <ul>
-                <p>Copyright © 2022 Tech-House</p>
-            </ul>
-        </div>
-    </footer>
+    <%- include('./partials/footer') %>
 
 </body>
 
