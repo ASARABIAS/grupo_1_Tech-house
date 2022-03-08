@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const routerProductCart = require("./routes/productCart")
 
 const app = express();
 
@@ -16,9 +17,8 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/productCart", (req, res) => {
-  res.render("productCart");
-});
+//Carrito de Compras
+app.use("/", routerProductCart)
 
 app.get("/productDetail", (req, res) => {
   res.render("productDetail");
