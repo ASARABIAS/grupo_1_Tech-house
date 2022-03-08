@@ -5,16 +5,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/add_editProduct.css">
     <title>Document</title>
 </head>
 
 <body>
     <header>
-
+        <div class="top-header">
+            <div class="logo">
+                <img src="./image/logo-tech-house.png" alt="" srcset="">
+            </div>
+            <div class="shopping-love-user-carts">
+                <div class="shopping-cart">
+                    <a href="/productCart"><i class="fas fa-shopping-basket"> </i></a>
+                </div>
+                <div class="love-cart">
+                    <a href="#"><i class="fa-solid fa-heart"></i></a>
+                </div>
+                <div class="user-cart">
+                    <a href="/login"><i class="fa-solid fa-user"></i>Ingresar Registro</a>
+                </div>
+            </div>
+            <div class="burger-menu">
+                <div>
+                    <i class="fa fa-bars burger"></i>
+                </div>
+            </div>
+            <form action="#">
+                <input type="search" placeholder="Buscar productos, marcas y más">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a> </li>
+                <li><a href="">Ofertas</a></li>
+                <li><a href="">Tiendas</a></li>
+                <li><a href="">Quienes Somos</a></li>
+            </ul>
+            </div>
+        </nav>
     </header>
     <main>
         <section class="photo">
             <img src="./image/logo-tech-house.png" alt="" srcset="">
+            <div class="collage-photo">
+                <img src="./image/logo-tech-house.png" alt="" srcset="" class="enable">
+                <img src="./image/logo-tech-house.png" alt="" srcset="" class="disabled">
+                <img src="./image/logo-tech-house.png" alt="" srcset="" class="disabled">
+            </div>
             <div class="link-photo">
                 <i class="fa-solid fa-camera"></i>
                 <h5>Ingrese una Imagen</h5>
@@ -22,7 +61,7 @@
         </section>
         <section class="information">
             <div class="information-header">
-                <h2>INFORMACIÓN DEL PRODUCTO</h2>
+                <h3>INFORMACIÓN DEL PRODUCTO</h3>
             </div>
             <div class="information-main">
                 <form action="" class="infor-product">
@@ -36,26 +75,28 @@
                     </div>
                     <div class="infor-product-section">
                         <div class="characteristics-header">
-                            <h3>Caractersiticas:</h3>
+                            <h4>Caractersiticas:</h4>
                         </div>
                         <div class="characteristics-main">
                             <div class="characteristics-main-title">
-                                <div class="characteristics-main-title-top">
-                                    <label for="characteristics-title">Titulo de la Caracteristicas:</label>
-                                    <i class="fa-solid fa-circle-plus"></i>
-                                </div>
-                                <div class="characteristics-main-title-down">
-                                    <input type="text" name="characteristics-title" id="characteristics-title" placeholder="Titulo">
-                                </div>
+                                <label for="characteristics-title">Titulo de la Caracteristicas:</label>
+                                <input type="text" name="characteristics-title" id="characteristics-title" placeholder="Titulo">
                             </div>
                             <div class="characteristics-main-context">
                                 <div class="characteristics-main-context-top">
-                                    <label for="characteristics-context">Cuerpo de la Caracteristicas:</label>
+                                    <h5>Cuerpo de la Caracteristicas</h5>
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </div>
                                 <div class="characteristics-main-context-down">
+                                    <label for="characteristics-context">Subtitulo:</label>
+                                    <input type="text" name="characteristics-context" id="characteristics-context" placeholder="Caracteritica">
+                                    <label for="characteristics-context">Descripcion:</label>
                                     <input type="text" name="characteristics-context" id="characteristics-context" placeholder="Caracteritica">
                                 </div>
+                            </div>
+                            <div class="characteristics-main-add">
+                                <a href="">Agregar nueva caracteristica</a>
+                                <i id="characteristic-add" class="fa-solid fa-circle-plus"></i>
                             </div>
                         </div>
                     </div>
@@ -72,8 +113,48 @@
         </section>
     </main>
     <footer>
+        <div class="footer">
+            <div class="credito">
+                <div class="icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <ul><strong>Aceptamos todos</strong></ul>
+                <p>Los medios de pago</p>
+            </div>
 
+
+            <div class="envio">
+                <div class="icon">
+                    <i class="fa fa-shipping-fast"></i>
+                </div>
+                <ul><strong>Envío a toda</strong></ul>
+                <p>Colombia</p>
+            </div>
+            <div class="contactos">
+                <div class="icon">
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <ul><strong>Contáctanos</strong></ul>
+                <p>WhatsApp | Email</p>
+            </div>
+
+            <div class="tecnico">
+                <div class="icon">
+                    <i class="fa fa-user-check"></i>
+                </div>
+                <ul><strong>Servicio Técnico</strong></ul>
+                <p>Atencíon especializada</p>
+            </div>
+        </div>
+
+        <div class="copi">
+            <ul>
+                <p>Copyright © 2022 Tech-House</p>
+            </ul>
+        </div>
     </footer>
+
 </body>
+<script src="https://kit.fontawesome.com/f108e44f29.js" crossorigin="anonymous"></script>
 
 </html>
