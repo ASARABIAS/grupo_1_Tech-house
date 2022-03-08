@@ -5,16 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/add_editProduct.css">
     <title>Document</title>
 </head>
 
 <body>
-    <header>
+    
+    <%- include('./partials/header') %>
 
-    </header>
     <main>
         <section class="photo">
             <img src="./image/logo-tech-house.png" alt="" srcset="">
+            <div class="collage-photo">
+                <img src="./image/logo-tech-house.png" alt="" srcset="" class="enable">
+                <img src="./image/logo-tech-house.png" alt="" srcset="" class="disabled">
+                <img src="./image/logo-tech-house.png" alt="" srcset="" class="disabled">
+            </div>
             <div class="link-photo">
                 <i class="fa-solid fa-camera"></i>
                 <h5>Ingrese una Imagen</h5>
@@ -22,7 +28,7 @@
         </section>
         <section class="information">
             <div class="information-header">
-                <h2>INFORMACIÓN DEL PRODUCTO</h2>
+                <h3>INFORMACIÓN DEL PRODUCTO</h3>
             </div>
             <div class="information-main">
                 <form action="" class="infor-product">
@@ -36,26 +42,28 @@
                     </div>
                     <div class="infor-product-section">
                         <div class="characteristics-header">
-                            <h3>Caractersiticas:</h3>
+                            <h4>Caractersiticas:</h4>
                         </div>
                         <div class="characteristics-main">
                             <div class="characteristics-main-title">
-                                <div class="characteristics-main-title-top">
-                                    <label for="characteristics-title">Titulo de la Caracteristicas:</label>
-                                    <i class="fa-solid fa-circle-plus"></i>
-                                </div>
-                                <div class="characteristics-main-title-down">
-                                    <input type="text" name="characteristics-title" id="characteristics-title" placeholder="Titulo">
-                                </div>
+                                <label for="characteristics-title">Titulo de la Caracteristicas:</label>
+                                <input type="text" name="characteristics-title" id="characteristics-title" placeholder="Titulo">
                             </div>
                             <div class="characteristics-main-context">
                                 <div class="characteristics-main-context-top">
-                                    <label for="characteristics-context">Cuerpo de la Caracteristicas:</label>
+                                    <h5>Cuerpo de la Caracteristicas</h5>
                                     <i class="fa-solid fa-circle-plus"></i>
                                 </div>
                                 <div class="characteristics-main-context-down">
+                                    <label for="characteristics-context">Subtitulo:</label>
+                                    <input type="text" name="characteristics-context" id="characteristics-context" placeholder="Caracteritica">
+                                    <label for="characteristics-context">Descripcion:</label>
                                     <input type="text" name="characteristics-context" id="characteristics-context" placeholder="Caracteritica">
                                 </div>
+                            </div>
+                            <div class="characteristics-main-add">
+                                <a href="">Agregar nueva caracteristica</a>
+                                <i id="characteristic-add" class="fa-solid fa-circle-plus"></i>
                             </div>
                         </div>
                     </div>
@@ -71,9 +79,10 @@
             </div>
         </section>
     </main>
-    <footer>
+    
+    <%- include('./partials/footer') %>
 
-    </footer>
 </body>
+<script src="https://kit.fontawesome.com/f108e44f29.js" crossorigin="anonymous"></script>
 
 </html>

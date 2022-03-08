@@ -10,7 +10,7 @@ p {
 }
 
 main section article .descripcion {
-    display: none;
+    display:block;
 }
 
 .precio {
@@ -67,10 +67,6 @@ main section h3 {
     width: 100%;
     border-top: 1px solid #ebebeb;
     padding: 15px;
-}
-
-main section article .descripcion {
-    display: none;
 }
 
 .compra {

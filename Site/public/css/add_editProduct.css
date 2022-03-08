@@ -1,0 +1,91 @@
+@import url("global.css");
+main {
+    display: flex;
+    align-items: center;
+}
+
+main section {
+    padding: 10px;
+}
+
+main section.photo {
+    width: 45%;
+}
+
+main section.photo img {
+    width: 100%;
+}
+
+main section.photo div.collage-photo {
+    margin: 10px 0px;
+}
+
+main section.photo div.collage-photo img {
+    width: 80px;
+    margin: 0px 5px;
+    border-radius: 5px;
+}
+
+main section.photo div.collage-photo img.enable {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+main section.photo div.collage-photo img.Disabled {
+    box-shadow: 0px 0px 0px rgb(100, 100, 100);
+}
+
+section.photo div.link-photo {
+    text-align: center;
+}
+
+section.photo div.link-photo h5 {
+    display: inline;
+}
+
+main section.information {
+    width: 65%;
+    margin: 10 5px;
+}
+
+main section.information div.information-header {
+    margin-bottom: 15px;
+}
+
+section.information div.information-main {
+    margin-left: 5px;
+}
+
+section.information div.information-main form.infor-product div {
+    margin-bottom: 10px;
+}
+
+section.information div.information-main form.infor-product div label {
+    display: block;
+}
+
+section.information div.information-main form.infor-product div input {
+    margin: 5px;
+    border: none;
+    border-bottom: solid var(--Clean) 1px;
+    padding: 5px;
+    width: 100%;
+}
+
+div.information-main form.infor-product div div.characteristics-header {
+    margin-top: 20px;
+}
+
+div.information-main form.infor-product div div.characteristics-main {
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+div.characteristics-main-context-down {
+    margin-left: 5px;
+}
+
+div.information-main form.infor-product div div.characteristics-main div.characteristics-main-context div.characteristics-main-context-top,
+div.characteristics-main-add {
+    display: flex;
+    justify-content: space-between;
+}
