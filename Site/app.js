@@ -13,20 +13,25 @@ app.set("view engine", "ejs");
 
 
 app.get("/", (req, res) => {
-  res.render("home");
+    res.render("home");
 });
 
 app.get("/login", (req, res) => {
-  res.render("login");
+    res.render("login");
 });
 
 app.use("/", routerProductCart)
 
 app.get("/productDetail", (req, res) => {
-  res.render("productDetail");
+    res.render("productDetail");
 });
 app.get("/listaproductos", (req, res) => {
-  res.render("listaproductos");
+    res.render("listaproductos");
+});
+
+
+app.get("/add_editProduct", (req, res) => {
+    res.render("add_editProduct");
 });
 
 app.use('/register', routeRegister);
