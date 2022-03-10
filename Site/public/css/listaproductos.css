@@ -84,3 +84,86 @@ section.banner2 img {
     width: 100%
 }
 
+@media (min-width: 481px) {
+    main section article .descripcion {
+        display: block;
+    }
+    .compra {
+        width: 30%;
+    }
+    section .detalles {
+        display: none;
+    }
+    .logo {
+        width: 30%;
+    }
+    .opciones {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0px 20px;
+    }
+    .login-bar {
+        display: flex;
+    }
+
+    main section article {
+        box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    }
+    main section div.productos article {
+        width: 45%;
+    }
+
+    main section div.productos {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+    }
+    .precio {
+        width: 50%;
+    }
+    .main-opciones {
+        display: block;
+    }
+    .main-opciones ul {
+        display: block;
+    }
+    .main-opciones li {
+        margin: 10px 15px;
+        font-size: var(--myTittles);
+    }
+    
+    .detalles{
+        display:contents;
+    }
+    
+}
+
+@media (min-width: 769px) {
+    main section div.productos article {
+        width: 100%;
+        display: flex;
+        
+    }
+    img{
+        height: 200px;
+        width: 200px !important;
+    }
+    div.burger-menu i {
+        display: none;
+    }
+    .main-productos {
+        box-shadow: 0px 0px 10px;
+        color: rgb(100, 100, 100);
+    }
+    
+    .article{
+        display: flex;
+        
+
+
+    }
+}
+

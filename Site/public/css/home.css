@@ -100,6 +100,11 @@ main section article .descripcion {
     width: 100%;
     text-align: center;
 }
+.envios{
+    color: green;
+    font-weight: 600;
+
+}
 
 section.banner2 img {
     width: 100%
