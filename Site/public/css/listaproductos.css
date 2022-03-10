@@ -32,6 +32,12 @@ h3,
     margin-top: 20px;
 }
 
+.envios{
+    color: green;
+    font-weight: 600;
+
+}
+
 section.banner img {
     width: 100%;
 }
