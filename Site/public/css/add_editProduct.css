@@ -89,3 +89,22 @@ div.characteristics-main-add {
     display: flex;
     justify-content: space-between;
 }
+
+.boton-editar{
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--Light-purple);
+    color: #E8E8E8;
+    font-weight: 700;
+    text-align: center;
+}
+.boton-editar:hover {
+    background-color: var(--Purple);
+}
+
+label{
+    text-align: left;
+}

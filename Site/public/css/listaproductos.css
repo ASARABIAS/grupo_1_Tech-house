@@ -83,7 +83,28 @@ main section h3 {
 section.banner2 img {
     width: 100%
 }
+.boton-editar, .boton-eliminar{
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--Light-purple);
+    color: #E8E8E8;
+    font-weight: 700;
+    text-align: center;
+}
+.boton-eliminar{
+    background-color: var(--Red);
+    
+}
 
+.boton-editar:hover {
+    background-color: var(--Purple);
+}
+.boton-eliminar:hover {
+    background-color: var(--Orange);
+}
 @media (min-width: 481px) {
     main section article .descripcion {
         display: block;
