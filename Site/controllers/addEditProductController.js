@@ -1,6 +1,6 @@
 const addEditProductController ={
     addEditProduct: (req,res) =>{
-        res.render('add_editProduct');
+        res.render('products/add_editProduct');
     },
     
     

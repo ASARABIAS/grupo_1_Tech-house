@@ -1,6 +1,6 @@
 const productDetailController ={
     productDetail: (req,res) =>{
-        res.render('productDetail');
+        res.render('products/productDetail');
     },
     
     
