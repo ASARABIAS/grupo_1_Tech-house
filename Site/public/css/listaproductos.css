@@ -1,28 +1,5 @@
 @import url("global.css");
-:root {
-    --Fresh: #F7F5E6;
-    --Vermillion: #333A56;
-    --Sunshine: #52658F;
-    --Clean: #E8E8E8;
-    --White: #ffff;
-    --Dark-grey: #666;
-    --Green: #39b54a;
-    --Black: #000;
-    --Orange: #ffa500d6;
-}
 
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    background-color: var(--Light-blue);
-}
 
 h3 {
     font-size: 24px;
@@ -33,7 +10,7 @@ p {
 }
 
 main section article .descripcion {
-    display: none;
+    display:block;
 }
 
 .precio {
@@ -53,6 +30,12 @@ h3,
 .description {
     display: none;
     margin-top: 20px;
+}
+
+.envios{
+    color: green;
+    font-weight: 600;
+
 }
 
 section.banner img {
@@ -92,26 +75,36 @@ main section h3 {
     padding: 15px;
 }
 
-main section article .descripcion {
-    display: none;
-}
-
 .compra {
     width: 100%;
     text-align: center;
-}
-.envios{
-    color: green;
-    font-weight: 600;
-
 }
 
 section.banner2 img {
     width: 100%
 }
+.boton-editar, .boton-eliminar{
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--Light-purple);
+    color: #E8E8E8;
+    font-weight: 700;
+    text-align: center;
+}
+.boton-eliminar{
+    background-color: var(--Red);
+    
+}
 
-
-
+.boton-editar:hover {
+    background-color: var(--Purple);
+}
+.boton-eliminar:hover {
+    background-color: var(--Orange);
+}
 @media (min-width: 481px) {
     main section article .descripcion {
         display: block;
@@ -141,6 +134,7 @@ section.banner2 img {
     main section div.productos article {
         width: 45%;
     }
+
     main section div.productos {
         display: flex;
         flex-direction: row;
@@ -170,7 +164,13 @@ section.banner2 img {
 
 @media (min-width: 769px) {
     main section div.productos article {
-        width: 20%;
+        width: 100%;
+        display: flex;
+        
+    }
+    img{
+        height: 200px;
+        width: 200px !important;
     }
     div.burger-menu i {
         display: none;
@@ -180,4 +180,11 @@ section.banner2 img {
         color: rgb(100, 100, 100);
     }
     
+    .article{
+        display: flex;
+        
+
+
+    }
 }
+

@@ -77,13 +77,25 @@ div.mainlogin {
     font-size: 12px;
     margin-top: 10px;
 }
-
-@media(min-width:481px) {}
+footer{
+    margin-top: 70%;
+}
+p{
+    font-size: 16px;
+}
+@media(min-width:481px) {
+    footer{
+        margin-top: 40%;
+    }
+}
 
 @media(min-width:769px) {
     .login form {
         width: 50%;
         top: -16vh;
         right: 22.5vw;
+    }
+    footer{
+        margin-top: 30%;
     }
 }

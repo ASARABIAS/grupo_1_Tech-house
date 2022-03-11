@@ -3,42 +3,34 @@ const app = express();
 const path = require("path");
 const routerProductCart = require("./routes/productCart")
 const routeRegister = require('./routes/registerRouter');
-
+const routerHome = require("./routes/home")
+const routerlogin = require("./routes/login")
+const routerproductDetail = require("./routes/productDetail")
+const routerAddEditProduct = require("./routes/addEditProduct")
+const routerListaProductos = require("./routes/listaProductos")
 
 app.use(express.static("public"));
 
-app.set('views', path.join(__dirname, 'views'));
+
 app.set("view engine", "ejs");
 
 
-
-app.get("/", (req, res) => {
-    res.render("home");
-});
-
-app.get("/login", (req, res) => {
-    res.render("login");
-});
-
-app.use("/", routerProductCart)
-
-app.get("/productDetail", (req, res) => {
-    res.render("productDetail");
-});
-app.get("/listaproductos", (req, res) => {
-    res.render("listaproductos");
-});
-
-
-app.get("/add_editProduct", (req, res) => {
-    res.render("add_editProduct");
-});
-
+app.use('/', routerHome);
+app.use('/login', routerlogin);
+app.use("/productCart", routerProductCart);
+app.use("/productDetail", routerproductDetail)
+app.use("/add_editProduct", routerAddEditProduct)
+app.use("/listaProductos", routerListaProductos)
 app.use('/register', routeRegister);
 
-app.get("/add_editProduct", (req, res) => {
-  res.render("add_editProduct");
-});
+
+
+
+
+
+
+
+
 
 /*
 app.get('/', (req, res) => {
