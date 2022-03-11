@@ -2,6 +2,8 @@
 main {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 main section {
@@ -59,16 +61,21 @@ section.information div.information-main form.infor-product div {
     margin-bottom: 10px;
 }
 
-section.information div.information-main form.infor-product div label {
+section.information div.information-main form.infor-product div>label {
     display: block;
 }
 
-section.information div.information-main form.infor-product div input {
+section.information div.information-main form.infor-product div input,
+section.information div.information-main form.infor-product div textarea {
     margin: 5px;
     border: none;
     border-bottom: solid var(--Clean) 1px;
     padding: 5px;
     width: 100%;
+}
+
+form.infor-product div textarea {
+    height: 50px;
 }
 
 div.information-main form.infor-product div div.characteristics-header {
@@ -90,21 +97,36 @@ div.characteristics-main-add {
     justify-content: space-between;
 }
 
-.boton-editar{
-    font-size: 14px;
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    background-color: var(--Light-purple);
-    color: #E8E8E8;
-    font-weight: 700;
-    text-align: center;
-}
-.boton-editar:hover {
-    background-color: var(--Purple);
+section.information div.infor-product-section div.payment-methods {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-label{
-    text-align: left;
+section.information div.infor-product-section div.payment-methods div.payment-method {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+section.information div.infor-product-section div.payment-methods div.payment-method input {
+    width: max-content;
+}
+
+section.information div.infor-product-section div.payment-methods div.payment-method label {
+    display: inline;
+}
+
+section.information div.infor-product-section div.payment-methods div.payment-method label img {
+    width: 50px;
+    border-radius: 5px;
+}
+
+@media (min-width: 481px) {}
+
+@media (min-width: 769px) {
+    main {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
 }
