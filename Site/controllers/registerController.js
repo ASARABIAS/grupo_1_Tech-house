@@ -1,6 +1,6 @@
 const registerController ={
     registro: (req,res) =>{
-        res.render('register');
+        res.render('users/register');
     },
     
     

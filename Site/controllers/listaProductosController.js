@@ -1,6 +1,6 @@
 const listaProductosController ={
     listaProductos: (req,res) =>{
-        res.render('listaProductos');
+        res.render('products/listaProductos');
     },
     
     
