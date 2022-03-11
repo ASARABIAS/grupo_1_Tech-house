@@ -1,6 +1,4 @@
 @import url("global.css");
-
-
 h3 {
     font-size: 24px;
 }
@@ -10,7 +8,7 @@ p {
 }
 
 main section article .descripcion {
-    display:block;
+    display: block;
 }
 
 .precio {
@@ -32,10 +30,9 @@ h3,
     margin-top: 20px;
 }
 
-.envios{
+.envios {
     color: green;
     font-weight: 600;
-
 }
 
 section.banner img {
@@ -83,7 +80,9 @@ main section h3 {
 section.banner2 img {
     width: 100%
 }
-.boton-editar, .boton-eliminar{
+
+.boton-editar,
+.boton-eliminar {
     font-size: 14px;
     margin-top: 10px;
     padding: 10px;
@@ -94,17 +93,19 @@ section.banner2 img {
     font-weight: 700;
     text-align: center;
 }
-.boton-eliminar{
+
+.boton-eliminar {
     background-color: var(--Red);
-    
 }
 
 .boton-editar:hover {
     background-color: var(--Purple);
 }
+
 .boton-eliminar:hover {
     background-color: var(--Orange);
 }
+
 @media (min-width: 481px) {
     main section article .descripcion {
         display: block;
@@ -115,9 +116,11 @@ section.banner2 img {
     section .detalles {
         display: none;
     }
+    /*
     .logo {
         width: 30%;
     }
+    */
     .opciones {
         display: flex;
         flex-wrap: wrap;
@@ -127,20 +130,17 @@ section.banner2 img {
     .login-bar {
         display: flex;
     }
-
     main section article {
         box-shadow: 0px 0px 10px rgb(100, 100, 100);
     }
     main section div.productos article {
         width: 45%;
     }
-
     main section div.productos {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
-
     }
     .precio {
         width: 50%;
@@ -155,20 +155,17 @@ section.banner2 img {
         margin: 10px 15px;
         font-size: var(--myTittles);
     }
-    
-    .detalles{
-        display:contents;
+    .detalles {
+        display: contents;
     }
-    
 }
 
 @media (min-width: 769px) {
     main section div.productos article {
         width: 100%;
         display: flex;
-        
     }
-    img{
+    main img {
         height: 200px;
         width: 200px !important;
     }
@@ -179,12 +176,7 @@ section.banner2 img {
         box-shadow: 0px 0px 10px;
         color: rgb(100, 100, 100);
     }
-    
-    .article{
+    .article {
         display: flex;
-        
-
-
     }
 }
-
