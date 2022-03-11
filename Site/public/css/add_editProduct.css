@@ -121,6 +121,27 @@ section.information div.infor-product-section div.payment-methods div.payment-me
     border-radius: 5px;
 }
 
+section.information form div.btn-save-reset {
+    text-align: end;
+}
+
+section.information form div.btn-save-reset button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    margin: 0px 5px;
+    color: #E8E8E8;
+    font-weight: 700;
+}
+
+section.information form div.btn-save-reset button[type="submit"] {
+    background-color: var(--Light-purple);
+}
+
+section.information form div.btn-save-reset button[type="reset"] {
+    background-color: var(--Red);
+}
+
 @media (min-width: 481px) {}
 
 @media (min-width: 769px) {
