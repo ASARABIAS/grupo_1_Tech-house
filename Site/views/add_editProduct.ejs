@@ -10,77 +10,91 @@
 </head>
 
 <body>
-    
+
     <%- include('./partials/header') %>
 
-    <main>
-        <section class="photo">
-            <img src="./image/logo-tech-house.png" alt="" srcset="">
-            <div class="collage-photo">
-                <img src="./image/logo-tech-house.png" alt="" srcset="" class="enable">
-                <img src="./image/logo-tech-house.png" alt="" srcset="" class="disabled">
-                <img src="./image/logo-tech-house.png" alt="" srcset="" class="disabled">
-            </div>
-            <div class="link-photo">
-                <i class="fa-solid fa-camera"></i>
-                <h5>Ingrese una Imagen</h5>
-            </div>
-        </section>
-        <section class="information">
-            <div class="information-header">
-                <h3>INFORMACIÓN DEL PRODUCTO</h3>
-            </div>
-            <div class="information-main">
-                <form action="" class="infor-product">
-                    <div class="infor-product-section">
-                        <label for="name">Nombre:</label>
-                        <input type="text" name="name" id="name" placeholder="Nombre">
-                    </div>
-                    <div class="infor-product-section">
-                        <label for="specifications">Especificaciones:</label>
-                        <input type="text" name="specifications" id="specifications" placeholder="Expecificaciones">
-                    </div>
-                    <div class="infor-product-section">
-                        <div class="characteristics-header">
-                            <h4>Caractersiticas:</h4>
+        <main>
+            <section class="photo">
+                <img src="./image/logo-tech-house.png" alt="" srcset="">
+                <div class="collage-photo">
+                    <img src="./image/logo-tech-house.png" alt="" srcset="" class="enable">
+                    <img src="./image/logo-tech-house.png" alt="" srcset="" class="disabled">
+                    <img src="./image/logo-tech-house.png" alt="" srcset="" class="disabled">
+                </div>
+                <div class="link-photo">
+                    <i class="fa-solid fa-camera"></i>
+                    <h5>Ingrese una Imagen</h5>
+                </div>
+            </section>
+            <section class="information">
+                <div class="information-header">
+                    <h3>INFORMACIÓN DEL PRODUCTO</h3>
+                </div>
+                <div class="information-main">
+                    <form action="" class="infor-product">
+                        <div class="infor-product-section">
+                            <label for="name">Nombre:</label>
+                            <input type="text" name="name" id="name" placeholder="Nombre">
                         </div>
-                        <div class="characteristics-main">
-                            <div class="characteristics-main-title">
-                                <label for="characteristics-title">Titulo de la Caracteristicas:</label>
-                                <input type="text" name="characteristics-title" id="characteristics-title" placeholder="Titulo">
+                        <div class="infor-product-section">
+                            <label for="specifications">Especificaciones:</label>
+                            <textarea name="specifications" id="specifications"> </textarea>
+                        </div>
+                        <div class="infor-product-section">
+                            <div class="characteristics-header">
+                                <h4>Caractersiticas:</h4>
                             </div>
-                            <div class="characteristics-main-context">
-                                <div class="characteristics-main-context-top">
-                                    <h5>Cuerpo de la Caracteristicas</h5>
-                                    <i class="fa-solid fa-circle-plus"></i>
+                            <div class="characteristics-main">
+                                <div class="characteristics-main-title">
+                                    <label for="characteristics-title">Titulo de la Caracteristicas:</label>
+                                    <input type="text" name="characteristics-title" id="characteristics-title" placeholder="Titulo">
                                 </div>
-                                <div class="characteristics-main-context-down">
-                                    <label for="characteristics-context">Subtitulo:</label>
-                                    <input type="text" name="characteristics-context" id="characteristics-context" placeholder="Caracteritica">
-                                    <label for="characteristics-context">Descripcion:</label>
-                                    <input type="text" name="characteristics-context" id="characteristics-context" placeholder="Caracteritica">
+                                <div class="characteristics-main-context">
+                                    <div class="characteristics-main-context-top">
+                                        <h5>Cuerpo de la Caracteristicas</h5>
+                                        <i class="fa-solid fa-circle-plus"></i>
+                                    </div>
+                                    <div class="characteristics-main-context-down">
+                                        <label for="characteristics-context">Subtitulo:</label>
+                                        <input type="text" name="characteristics-context" id="characteristics-context" placeholder="Subtitulo">
+                                        <label for="characteristics-context">Descripcion:</label>
+                                        <input type="text" name="characteristics-context" id="characteristics-context" placeholder="Descripcion">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="characteristics-main-add">
-                                <a href="">Agregar nueva caracteristica</a>
-                                <i id="characteristic-add" class="fa-solid fa-circle-plus"></i>
+                                <div class="characteristics-main-add">
+                                    <a href="">Agregar nueva caracteristica</a>
+                                    <i id="characteristic-add" class="fa-solid fa-circle-plus"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="infor-product-section">
-                        <label for="warranty">Garantia:</label>
-                        <input type="text" name="warranty" id="warranty" placeholder="Garantia">
-                    </div>
-                    <div class="infor-product-section">
-                        <label for="warranty">Medios de Pago:</label>
-                        <input type="text" name="warranty" id="warranty" placeholder="Garantia">
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
-    
-    <%- include('./partials/footer') %>
+                        <div class="infor-product-section">
+                            <label for="warranty">Garantia:</label>
+                            <input type="text" name="warranty" id="warranty" placeholder="Garantia">
+                            <input type="number" name="warranty" id="warranty" placeholder="Tiempo de la Garantia">
+                        </div>
+                        <div class="infor-product-section">
+                            <label>Medios de Pago:</label>
+                            <div class="payment-methods">
+                                <div class="payment-method">
+                                    <input type="checkbox" name="mastercad" value="mastercad" id="mastercad">
+                                    <label for="mastercad"><img src="./image/mastercad.png" alt="" srcset=""></label>
+                                </div>
+                                <div class="payment-method">
+                                    <input type="checkbox" name="visa" value="visa" id="visa">
+                                    <label for="visa"><img src="./image/visa.png" alt="" srcset=""></label>
+                                </div>
+                                <div class="payment-method">
+                                    <input type="checkbox" name="efecty" value="efecty" id="efecty">
+                                    <label for="efecty"><img src="./image/logoefecty.png" alt="" srcset=""></label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <%- include('./partials/footer') %>
 
 </body>
 <script src="https://kit.fontawesome.com/f108e44f29.js" crossorigin="anonymous"></script>
