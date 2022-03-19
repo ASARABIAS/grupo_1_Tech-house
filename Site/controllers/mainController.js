@@ -1,9 +1,8 @@
-const homeController ={
+const mainController ={
     home: (req,res) =>{
         res.render('home');
     },
     
-    
 }
 
-module.exports = homeController;
+module.exports = mainController;

@@ -1,55 +1,17 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const routerProductCart = require("./routes/productCart")
-const routeRegister = require('./routes/registerRouter');
-const routerHome = require("./routes/home")
-const routerlogin = require("./routes/login")
-const routerproductDetail = require("./routes/productDetail")
-const routerAddEditProduct = require("./routes/addEditProduct")
-const routerListaProductos = require("./routes/listaProductos")
+
+const mainRouter = require("./routes/main");
+const productsRouter = require("./routes/products");
+const usersRouter = require("./routes/users");
 
 app.use(express.static("public"));
 
-
 app.set("view engine", "ejs");
 
-
-app.use('/', routerHome);
-app.use('/login', routerlogin);
-app.use("/productCart", routerProductCart);
-app.use("/productDetail", routerproductDetail)
-app.use("/add_editProduct", routerAddEditProduct)
-app.use("/listaProductos", routerListaProductos)
-app.use('/register', routeRegister);
-
-
-
-
-
-
-
-
-
-
-/*
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve('./views/users/home.ejs'));
-});
-
-app.get('/productCart', (req, res) => {
-    res.sendFile(path.resolve('./views/users/productCart.html'));
-});
-app.get('/login', (req, res) => {
-    res.sendFile(path.resolve('./views/users/login.html'));
-});
-
-app.get('/productDetail', (req, res) => {
-    res.sendFile(path.resolve('./views/users/productDetail.html'));
-});
-
-app.get('/registro', (req, res) => {
-    res.sendFile(path.resolve('./views/users/registro.html'));
-});*/
+app.use('/', mainRouter);
+app.use("/users", usersRouter);
+app.use('/products', productsRouter);
 
 app.listen(3030, () => console.log("Servidor Corriendo"));
