@@ -20,7 +20,7 @@ const productsController ={
         }
         // res.send(req.body)
         res.redirect("/products/listaProductos");
-         
+        
     },
     listaProductos: (req,res) =>{
         res.render('products/listaProductos');
