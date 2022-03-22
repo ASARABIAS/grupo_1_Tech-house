@@ -18,8 +18,9 @@ const productsController ={
         price: req.body.price,  
         descount: req.body.descount
         }
+        // res.send(req.body)
         res.redirect("/products/listaProductos");
-       // res.send(req.body)  
+         
     },
     listaProductos: (req,res) =>{
         res.render('products/listaProductos');
