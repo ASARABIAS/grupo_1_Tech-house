@@ -1,27 +1,17 @@
 const express = require("express");
-const path = require('path');
-
 const app = express();
+const path = require("path");
 
-app.use(express.static('public'));
-//app.use('/static', express.static(__dirname + '/public'))
+const mainRouter = require("./routes/main");
+const productsRouter = require("./routes/products");
+const usersRouter = require("./routes/users");
 
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve('./views/home.html'));
-});
+app.use(express.static("public"));
 
-app.get('/productCart', (req, res) => {
-    res.sendFile(path.resolve('./views/productCart.html'));
-});
-app.get('/login', (req, res) => {
-    res.sendFile(path.resolve('./views/login.html'));
-});
+app.set("view engine", "ejs");
 
-app.get('/productDetail', (req, res) => {
-    res.sendFile(path.resolve('./views/productDetail.html'));
-});
+app.use('/', mainRouter);
+app.use("/users", usersRouter);
+app.use('/products', productsRouter);
 
-app.get('/registro', (req, res) => {
-    res.sendFile(path.resolve('./views/registro.html'));
-});
 app.listen(3030, () => console.log("Servidor Corriendo"));

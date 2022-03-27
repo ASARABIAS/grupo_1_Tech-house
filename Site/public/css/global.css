@@ -1,11 +1,14 @@
 :root {
-    --Fresh: #F7F5E6;
-    --Vermillion: #333A56;
-    --Sunshine: #52658F;
+    --Light-blue: #00A8F3;
+    --Light-purple: #3F48CC;
+    --Purple: #2E3091;
     --Clean: #E8E8E8;
     --White: #ffff;
-    --Dark-grey: #666;
+    --Red: #C82F35;
     --Green: #39b54a;
+    --Dark-green: #266b30;
+    --Black: #000;
+    --Orange: #ff8000;
 }
 
 * {
@@ -18,17 +21,172 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 500;
     font-size: 16px;
-    background-color: #333A56
+    background-color: var(--Light-blue);
 }
 
-header {}
+header {
+    background-color: var(--White);
+    padding: 10px 5%;
+}
+
+header div.top-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header div.top-header div.logo {
+    width: 35%;
+    margin-right: 10px;
+}
+
+div.top-header div.logo img {
+    width: 100%;
+    max-width: max-content;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+div.top-header div.shopping-love-user-carts,
+div.top-header div.help-card {
+    display: flex;
+    width: 60%;
+    justify-content: end;
+}
+
+div.top-header div.shopping-love-user-carts div {
+    margin: 0px 10px;
+}
+
+div.top-header div.shopping-love-user-carts div.user-cart {
+    margin-right: 0px;
+}
+
+div.shopping-love-user-carts div i,
+div.top-header div.burger-menu i,
+div.top-header div.help-card i {
+    font-size: larger;
+    color: var(--Light-purple);
+}
+
+div.top-header div.burger-menu {
+    margin: 10px;
+}
+
+div.top-header form {
+    margin: 0px 10px;
+    flex-grow: 1;
+    position: relative;
+    max-width: 500px;
+}
+
+div.top-header form input[type="search"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid var(--Clean) 1px;
+}
+
+div.top-header form button[type="submit"] {
+    position: absolute;
+    right: 3px;
+    top: 4px;
+    padding: 7px;
+    border: none;
+    border-left: solid var(--Clean) 1px;
+    background-color: var(--White);
+    cursor: pointer;
+}
+
+div.top-header form button[type="submit"] i {
+    color: var(--Red);
+}
+
+header nav {
+    display: none;
+    justify-content: end;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0px 5px;
+}
+
+header nav ul li:nth-child(4) {
+    margin-right: 0px;
+}
 
 main {
-    margin: 20px auto;
+    margin: 5vw auto;
     width: 90%;
     background-color: var(--White);
     padding: 15px;
     border-radius: 5px;
 }
 
-footer {}
+a {
+    text-decoration: none;
+    color: var(--Purple);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input {
+    background-color: var(--White);
+}
+
+footer {
+    margin: 5vw 0px 0px 0px;
+    padding: 10px 5px;
+    background-color: white;
+}
+
+.credito,
+.envio,
+.contactos,
+.tecnico {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.copi {
+    text-align: center;
+}
+
+@media(min-width:481px) {
+    header div.top-header {
+        flex-wrap: nowrap;
+    }
+    header div.top-header div.logo {
+        width: 200px;
+    }
+    header div.top-header div.burger-menu {
+        display: none;
+    }
+    header div.top-header .shopping-love-user-carts {
+        order: 1;
+        width: max-content;
+    }
+    header nav {
+        display: flex;
+    }
+    .credito,
+    .envio,
+    .contactos,
+    .tecnico {
+        width: 20%;
+        margin-bottom: 20px;
+    }
+    .footer {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        align-items: center;
+        background-color: white;
+        justify-content: space-around;
+    }
+}
+
+@media(min-width:769px) {}

@@ -1,0 +1,154 @@
+@import url("global.css");
+main {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main section {
+    padding: 10px;
+}
+
+main section.photo {
+    width: 45%;
+}
+
+main section.photo img {
+    width: 100%;
+}
+
+main section.photo div.collage-photo {
+    margin: 10px 0px;
+}
+
+main section.photo div.collage-photo img {
+    width: 80px;
+    margin: 0px 5px;
+    border-radius: 5px;
+}
+
+main section.photo div.collage-photo img.enable {
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+main section.photo div.collage-photo img.Disabled {
+    box-shadow: 0px 0px 0px rgb(100, 100, 100);
+}
+
+section.photo div.link-photo {
+    text-align: center;
+}
+
+section.photo div.link-photo h5 {
+    display: inline;
+}
+
+main section.information {
+    width: 65%;
+    margin: 10 5px;
+}
+
+main section.information div.information-header {
+    margin-bottom: 15px;
+}
+
+section.information div.information-main {
+    margin-left: 5px;
+}
+
+section.information div.information-main form.infor-product div {
+    margin-bottom: 10px;
+}
+
+section.information div.information-main form.infor-product div>label {
+    display: block;
+}
+
+section.information div.information-main form.infor-product div input,
+section.information div.information-main form.infor-product div textarea,
+section.information div.information-main form.infor-product div select {
+    margin: 5px;
+    border: none;
+    border-bottom: solid var(--Clean) 1px;
+    padding: 5px;
+    width: 100%;
+}
+
+form.infor-product div textarea {
+    height: 50px;
+}
+
+div.information-main form.infor-product div div.characteristics-header {
+    margin-top: 20px;
+}
+
+div.information-main form.infor-product div div.characteristics-main {
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+div.characteristics-main-context-down {
+    margin-left: 5px;
+}
+
+div.information-main form.infor-product div div.characteristics-main div.characteristics-main-context div.characteristics-main-context-top,
+div.characteristics-main-add {
+    display: flex;
+    justify-content: space-between;
+}
+
+section.information div.infor-product-section div.payment-methods {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section.information div.infor-product-section div.payment-methods div.payment-method {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+section.information div.infor-product-section div.payment-methods div.payment-method input {
+    width: max-content;
+}
+
+section.information div.infor-product-section div.payment-methods div.payment-method label {
+    display: inline;
+}
+
+section.information div.infor-product-section div.payment-methods div.payment-method label img {
+    width: 50px;
+    border-radius: 5px;
+}
+
+section.information form div.btn-save-reset {
+    text-align: end;
+}
+
+section.information form div.btn-save-reset button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    margin: 0px 5px;
+    color: #E8E8E8;
+    font-weight: 700;
+}
+
+section.information form div.btn-save-reset button[type="submit"] {
+    background-color: var(--Light-purple);
+}
+
+section.information form div.btn-save-reset button[type="reset"] {
+    background-color: var(--Red);
+}
+
+@media (min-width: 481px) {}
+
+@media (min-width: 769px) {
+    main {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+}

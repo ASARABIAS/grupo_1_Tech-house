@@ -49,5 +49,3 @@ Sitios de referencia
 
   https://trello.com/b/0pRwpld1/proyecto-integrador-dh-grupo-1
 
-
-Abraham Sarabia Sereno estuvo aca 
