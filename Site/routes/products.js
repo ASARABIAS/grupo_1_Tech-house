@@ -1,18 +1,19 @@
-const { Router } = require('express');
 const express = require('express');
 const router = express.Router();
 
 const productsController = require('../controllers/productsController.js');
 
-router.get("/add_editProduct", productsController.addEditProduct);
-router.get("/listaProductos", productsController.listaProductos); // -> Corregir nombre
-router.get("/productCart", productsController.productCart);
-router.get("/productDetail/:id", productsController.productDetail);
+router.get("/list", productsController.list);
+router.get("/cart", productsController.cart);
+
+
 
 //Create Product
+router.get("/add", productsController.add);
+router.post("/add", productsController.create);
 
-router.get("/addProduct", productsController.addProduct);
-router.post("/addProduct", productsController.create);
+//Edit Product
+router.get("/detail/:id", productsController.detail);
 
 
 module.exports = router;

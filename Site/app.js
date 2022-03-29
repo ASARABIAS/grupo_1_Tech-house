@@ -18,4 +18,4 @@ app.use('/', mainRouter);
 app.use("/users", usersRouter);
 app.use('/products', productsRouter);
 
-app.listen(3030, () => console.log("Servidor Corriendo"));
+app.listen(3030, () => console.log("Servidor Corriendo en el puerto 3030"));

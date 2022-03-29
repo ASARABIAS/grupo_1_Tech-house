@@ -36,14 +36,29 @@
         "descuento": 0,
         "categoria": "nuevosProductos",
         "cuotas": "30x $81.733",
-        "especificaciones": "Utilice la multifuncional compacta RICOH SP 3710SF para imprimir, copiar, escanear y enviar faxes con facilidad a través de un cartucho de impresión de alto rendimiento",
-        "image": "impresora nuevo.jpg",
-        "tituloCaracteristica": null,
-        "subtitulo": null,
-        "descripcion": null,
-        "garantia": null,
-        "tiempoGarantia": null,
-        "mediosPago": ["Visa", "Mastercard", "Efecty"]
+        "color": ["gris", "blanco"],
+        "images": [
+            ["impresora nuevo.jpg", " "],
+            [" "]
+        ],
+        "caracteristicas": {
+            "titulo": ["Características generales", "Impresión", "Conectividad", "Especificaciones", "Papel"],
+            "subtitulo": [
+                ["Marca-Ricoh", "Modelo-SP 3710SF"],
+                ["Tipo de impresora-Multifuncional", "Tecnología de impresión-Láser", "Tipo de impresión-Monocromática", "Funciones de la impresora-Impresión,Copia,Escaneo,Fax"],
+                ["Con Wi-Fi-No", "Con puerto USB-Sí", "Conexiones móviles-AirPrint,Certificación Mopria,Google Cloud Print,Ricoh Smart Device Connector"],
+                ["Velocidad del procesador-400 MHz", "Cantidad de cartuchos-1", "Tipo de pantalla-Táctil"],
+                ["Tipos de papel-Bond,Cartulina,Etiqueta,Grueso,Membretado,Normal,Preimpreso,Reciclado,Fino,Color,Especial", "Tamaños de papel-Media carta - 216 x 355.6 mm,A6 - B5,Personalizado (100 x 148 mm - 216 x 356 mm),Sobre,Personalizado (90 x 140 mm - 216 x 356 mm),Carta - 216 x 355.6 mm,A4 - B5,8.5 x 14'", "Capacidad máxima de hojas-300", "Cantidad de bandejas-2"]
+            ]
+        },
+        "descripcion": "La impresora SP3710SF ofrece un rendimiento multifuncional productivo, rentable y fácil de usar al alcance de todos los tamaños de negocios. Su tóner de rendimiento ultra alto permite al usuario imprimir por hasta un año sin cambiar los cartuchos, lo que brinda una asequibilidad a largo plazo. La Ricoh SP3710SF combina alto rendimiento, alta confiabilidad y bajo costo total de propiedad. Es una opción ideal para uso multifuncional rentable y de bajo volumen.",
+        "garantia": {
+            "tiempo": 6,
+            "texto": "Recibe el producto que esperabas o te devolvemos tu dinero"
+        },
+        "mediosPago": ["visa.png", "mastercard.png", "efecty.png"],
+        "envio": 3,
+        "valorDevolucion": 0
     },
     {
         "id": 3,
@@ -52,14 +67,26 @@
         "descuento": 0,
         "categoria": "nuevosProductos",
         "cuotas": "30x $81.733",
-        "especificaciones": "Small Form Factor, Intel, Core i5, 2.9ghz, 10ma Gen, Socket 10400, Memoria 8 Gb, Disco Duro 1 TB, NO TIENE UNIDAD, Pantalla 20″ E2020H, Windows 10 PRO",
-        "image": "pc nuevo.jpg",
-        "tituloCaracteristica": null,
-        "subtitulo": null,
-        "descripcion": null,
-        "garantia": false,
-        "tiempoGarantia": null,
-        "mediosPago": ["Visa", "Mastercard", "Efecty"]
+        "color": ["negro"],
+        "images": [
+            ["pc nuevo.jpg", " "],
+            [" "]
+        ],
+        "caracteristicas": {
+            "titulo": ["Características principales", "Otras características"],
+            "subtitulo": [
+                ["Marca-PC Dell", "Modelo-OPTIPLEX 3681 SFF", "Procesador-Intel Core i5", "Disco duro-512 GB"],
+                ["RAM-12 GB", "Sistema operativo-Windows 10 pro", "Tamaño de la pantalla-20 pulgadas HD ", "Almacenamiento-1 Tera Disco Mecanico +512 disco solido"]
+            ]
+        },
+        "descripcion": "Computadora Dell Vostro 3681, Intel Core i5 2.90GHz, 8GB, 1TB, Windows 10 Pro 64-bit.",
+        "garantia": {
+            "tiempo": 12,
+            "texto": "Recibe el producto que esperabas o te devolvemos tu dinero"
+        },
+        "mediosPago": ["visa.png", "mastercard.png", "efecty.png"],
+        "envio": 6,
+        "valorDevolucion": 0
     },
     {
         "id": 4,
