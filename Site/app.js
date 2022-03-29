@@ -1,19 +1,20 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const routerProductCart = require("./routes/productCart")
+const routerProductCart = require("./routes/productCart");
 const routeRegister = require('./routes/registerRouter');
-const routerHome = require("./routes/home")
-const routerlogin = require("./routes/login")
-const routerproductDetail = require("./routes/productDetail")
-const routerAddEditProduct = require("./routes/addEditProduct")
-const routerListaProductos = require("./routes/listaProductos")
+const routerHome = require("./routes/home");
+const routerlogin = require("./routes/login");
+const routerproductDetail = require("./routes/productDetail");
+const routerAddEditProduct = require("./routes/addEditProduct");
+const routerListaProductos = require("./routes/listaProductos");
+const methodOverride = require('method-override')
 
 app.use(express.static("public"));
 
 
 app.set("view engine", "ejs");
-
+app.use(methodOverride('_method'));
 
 app.use('/', routerHome);
 app.use('/login', routerlogin);
