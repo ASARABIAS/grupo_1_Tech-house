@@ -3,15 +3,12 @@ const router = express.Router();
 
 const productsController = require('../controllers/productsController.js');
 
-router.get("/list", productsController.list);
-router.get("/cart", productsController.cart); // mirar prueba
-router.get("/brayan",(req,res)=>{
-    res.send("hola brayan");
-});
+router.get("/", productsController.list);
+router.get("/cart", productsController.cart);
 
 //Create Product
-router.get("/add", productsController.add);
-router.post("/add", productsController.create);
+router.get("/create", productsController.create);
+router.post("/create", productsController.store);
 
 //Edit Product
 router.get("/detail/:id", productsController.detail);
