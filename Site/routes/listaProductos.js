@@ -4,5 +4,5 @@ const controller= require('../controllers/listaProductosController.js');
 
 router.get('/', controller.listaProductos);
 router.get('/eliminar/:id', controller.viewDelete);
-router.delete('/eliminar', controller.deleteProduct);
+router.delete("/eliminar/:id", controller.deleteProduct);
 module.exports = router;

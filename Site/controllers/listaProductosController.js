@@ -27,23 +27,16 @@ const listaProductosController ={
         res.render('products/eliminar', { title: 'Eliminar producto', producto: products.find(producto => producto.id == req.params.id) });
     },
     deleteProduct: function (req, res, next) {
-        console.log("Se eliminó el producto " + req.body.id);
-
-        let productossGuardados = fs.readFileSync(productsFilePath, 'utf-8');
-
+        let productosGuardados = fs.readFileSync(productsFilePath, 'utf-8');
         let products = [];
-
-        if(productossGuardados != ""){
-            usuarios = JSON.parse(productossGuardados);
+        if (productosGuardados != "" && productosGuardados != "[]") {
+            products = JSON.parse(productosGuardados);
         }
-
-        let producto = products.find(producto => producto.id == req.body.id);
-
-        products.splice(products.indexOf(producto), 1);
-
+        let productoEliminado = products.find(producto => producto.id == req.params.id);
+        let index = products.indexOf(productoEliminado);
+        products.splice(index, 1);
         fs.writeFileSync(productsFilePath, JSON.stringify(products));
-
-        res.redirect('/');
+        res.redirect('/listaProductos');
     }
 }
 module.exports = listaProductosController;
