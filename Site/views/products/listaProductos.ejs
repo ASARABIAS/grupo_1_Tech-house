@@ -15,11 +15,11 @@
                         <article class="articulo">
                            
                             <a href="productDetail/<%= products[i].id %>">
-                                <img src="image/<%= products[i].image %>" alt="<%= products[i].nombre %>" class="product_img">
+                                <img src="image/<%= products[i].images %>" alt="<%= products[i].nombre %>" class="product_img">
                             </a>
                             <div class="main-article">
-                                <h4 class="descripcion"><%= products[i].nombre %></h4>
-                                <p class="precio"><%= toThousand(products[i].precio) %></p>
+                                <h4 class="descripcion"><%= products[i].name %></h4>
+                                <p class="precio"><%= toThousand(products[i].price) %></p>
                                 <p><%= products[i].name %></p>
                                 <p class="envios">Envio gratis</p>
                                 <div class="botones">
