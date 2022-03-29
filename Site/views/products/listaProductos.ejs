@@ -22,10 +22,10 @@
                                 <p class="precio"><%= toThousand(products[i].precio) %></p>
                                 <p><%= products[i].name %></p>
                                 <p class="envios">Envio gratis</p>
+                                <div class="botones">
                                 <a class="boton-editar" href="/add_editProduct">Editar</a>
-                                <form action="/listaproductos/delete/<%= products[i].id %>?_method=DELETE" method="POST" style="display: inline-flex">
-                                <input class="boton-eliminar" type="submit" value="Eliminar">
-                                </form>
+                                <a class="boton-eliminar" href="/eliminarProducto">Eliminar</a>
+                                </div>
 
 
                             </div>

@@ -8,28 +8,26 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const listaProductosController ={
     listaProductos: (req, res) => {
-		let product = products.find(product => product.id == id)
+		
         
 		res.render('products/listaProductos', {
-			product,
+			products,
 			toThousand
 		})
 	},
-    delete : (req, res) => {
-			const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-			let idProduct = req.params.id
-	
-			let productosFiltrados = products.filter( product => product.id != idProduct)
-	
-			fs.writeFileSync( productsFilePath , JSON.stringify(productosFiltrados, null, 2))
-	
-			//res.redirect('/products')
-		}
+	viewDelete: function (req, res, next) {
+        
+        let productosGuardados = fs.readFileSync('../data/products.json', 'utf-8');
+        let products = [];
+
+        if(productosGuardados != "" && productosGuardados != "[]"){
+            products = JSON.parse(productosGuardados);
+        }
+
+        res.render('eliminar', { title: 'Eliminar usuario', producto: products.find(producto => producto.id == req.params.id) });
+    
 	}
 
     
-    
-    
 }
-
 module.exports = listaProductosController;

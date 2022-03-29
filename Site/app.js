@@ -8,6 +8,8 @@ const routerlogin = require("./routes/login");
 const routerproductDetail = require("./routes/productDetail");
 const routerAddEditProduct = require("./routes/addEditProduct");
 const routerListaProductos = require("./routes/listaProductos");
+//const routerDelete = require("./routes/delete");
+
 const methodOverride = require('method-override')
 
 app.use(express.static("public"));
@@ -23,6 +25,7 @@ app.use("/productDetail", routerproductDetail)
 app.use("/add_editProduct", routerAddEditProduct)
 app.use("/listaProductos", routerListaProductos)
 app.use('/register', routeRegister);
+//app.use('/delete', routerDelete);
 
 
 
