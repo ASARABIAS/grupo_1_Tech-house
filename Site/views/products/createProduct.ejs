@@ -25,7 +25,7 @@
                         <h3>INFORMACIÓN DEL PRODUCTO</h3>
                     </div>
                     <div class="information-main">
-                        <form action="/products/add" method="post" class="infor-product">
+                        <form action="/products/create" method="post" class="infor-product">
                             <div class="infor-product-section">
                                 <label for="name">Nombre:</label>
                                 <input type="text" name="name" id="name" placeholder="Nombre">
@@ -41,7 +41,7 @@
                                 <div class="characteristics-main">
                                     <div class="characteristics-main-title">
                                         <label for="characteristics-title">Titulo de la Caracteristicas:</label>
-                                        <input type="text" name="characteristics-title" id="characteristics-title" placeholder="Titulo">
+                                        <input type="text" name="characteristicsTitle" id="characteristics-title" placeholder="Titulo">
                                     </div>
                                     <div class="characteristics-main-context">
                                         <div class="characteristics-main-context-top">
@@ -49,10 +49,10 @@
                                             <i class="fa-solid fa-circle-plus"></i>
                                         </div>
                                         <div class="characteristics-main-context-down">
-                                            <label for="characteristics-context">Subtitulo:</label>
-                                            <input type="text" name="characteristics-context" id="characteristics-context" placeholder="Subtitulo">
-                                            <label for="characteristics-context">Descripcion:</label>
-                                            <input type="text" name="characteristics-context" id="characteristics-context" placeholder="Descripcion">
+                                            <label for="characteristics-context-subtitle">Subtitulo:</label>
+                                            <input type="text" name="characteristicsContextSubtitle" id="characteristics-context-subtitle" placeholder="Subtitulo">
+                                            <label for="characteristics-context-description">Descripcion:</label>
+                                            <input type="text" name="characteristicsContextDescription" id="characteristics-context-description" placeholder="Descripcion">
                                         </div>
                                     </div>
                                     <div class="characteristics-main-add">
@@ -64,31 +64,25 @@
                             <div class="infor-product-section">
                                 <label for="warranty">Categoria:</label>
                                 <select name="category" id="category">
-                                    <option value="">yyyyyy</option>
-                                    <option value="">xxxxx</option>
-                                    <option value="">wwwwww</option>
+                                    <% categoryProduct.forEach(category=>{ %>
+                                        <option value="<%= category.id %>"><%= category.name %> </option>
+                                    <%}) %> 
                                 </select>
                             </div>
                             <div class="infor-product-section">
                                 <label for="warrantyText">Garantia:</label>
                                 <input type="text" name="warrantyText" id="warrantyText" placeholder="Descripción de la Garantia">
-                                <input type="number" name="warranty" id="warranty" placeholder="Tiempo de la Garantia">
+                                <input type="number" name="warrantyTime" id="warranty" placeholder="Tiempo de la Garantia">
                             </div>
                             <div class="infor-product-section">
                                 <label>Medios de Pago:</label>
                                 <div class="payment-methods">
-                                    <div class="payment-method">
-                                        <input type="checkbox" name="mastercad" value="mastercad" id="mastercad">
-                                        <label for="mastercad"><img src="/images/methodLogos/mastercard.png" alt="" srcset=""></label>
-                                    </div>
-                                    <div class="payment-method">
-                                        <input type="checkbox" name="visa" value="visa" id="visa">
-                                        <label for="visa"><img src="/images/methodLogos/visa.png" alt="" srcset=""></label>
-                                    </div>
-                                    <div class="payment-method">
-                                        <input type="checkbox" name="efecty" value="efecty" id="efecty">
-                                        <label for="efecty"><img src="/images/methodLogos/efecty.png" alt="" srcset=""></label>
-                                    </div>
+                                    <% paymentMethod.forEach(method => { %>
+                                        <div class="payment-method">
+                                            <input type="checkbox" name="paymentMethod" value="<%= method.id %>" id="paymentMethod<%= method.id %>">
+                                            <label for="paymentMethod<%= method.id %>"><img src="/images/methodLogos/<%= method.image %> " alt="" srcset=""></label>
+                                        </div>
+                                        <%}); %>
                                 </div>
                             </div>
                             <div class="infor-product-section">

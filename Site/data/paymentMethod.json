@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,
+        "name":"efecty",
+        "image":"efecty.png"
+    },
+    {
+        "id":2,
+        "name":"mastercard",
+        "image":"mastercard.png"
+    },
+    {
+        "id":3,
+        "name":"visa",
+        "image":"visa.png"
+    }
+]
