@@ -29,40 +29,20 @@ const productsController = {
     },
     //Acción de creación post
     store: function(req, res) {
-        res.send(req.body);
-        //products.push(req.body);
-        //let ProductsJSON = JSON.stringify(products);
-//
-		//fs.writeFileSync(JSONPath('productsCopy.json'), ProductsJSON);
-        //res.redirect('/products');
-        
 
-        //let newProducts = {
-        //    id: Date.now(),
-        //    nombre: req.body.nombre,
-        //    precio: req.body.precio,
-        //    descuento: req.body.descuento,
-        //    categoria: req.body.categoria,
-        //    cuotas: req.body.cuotas,
-        //    especificaciones: req.body.especificaciones,
-        //    image: req.body.image,
-        //    tituloCaracteristica: req.body.tituloCaracteristica,
-        //    subtitulo: req.body.subtitulo,
-        //    descripcion: req.body.descripcion,
-        //    garantia: req.body.garantia,
-        //    mediosPago: req.body.mediosPago
-        //}
-        //
-        //products.unshift(newProducts)
-        //
-        //let productsJSON = JSON.stringify(products);
-        //
-        //fs.writeFileSync(productsFilePath, productsJSON);
-        //res.redirect("products/listProducts");
+        let newProduct = {id:Date.now(),...req.body,image:"prueba.jpg"}
+        products.push(newProduct);
+
+        let ProductsJSON = JSON.stringify(products);
+
+		fs.writeFileSync(JSONPath('productsCopy.json'), ProductsJSON);
+        res.redirect('/products');
 
     },
     list: (req, res) => {
-        res.render('products/listProducts');
+
+        res.render('products/listProducts',{products});
+
     },
     cart: (req, res) => {
         res.render("products/cartProduct")
