@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      <%= title %>
-    </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+<html lang="en">
+
+<%- include('../partials/head', {title:"Eliminar Producto", namePage:"login"}) %>
+
   <body>
     <a href="/">Volver</a>
+    <main class="formularioEliminar">
     <h3>Está seguro que desea eliminar el producto: <%= producto.nombre %>?</h3>
     <form action="/listaproductos/eliminar/<%= producto.id %>?_method=DELETE" method="POST">
         <input type="hidden" name="id" value="<%= producto.id %>" />
-        <input type="submit" value="Si, eliminar" />
+        <input class="boton-eliminar" type="submit" value="Si, eliminar" />
     </form>
+  </main>
     </body>
     </html>

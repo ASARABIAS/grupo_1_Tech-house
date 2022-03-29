@@ -36,7 +36,7 @@ const listaProductosController ={
         let index = products.indexOf(productoEliminado);
         products.splice(index, 1);
         fs.writeFileSync(productsFilePath, JSON.stringify(products));
-        res.redirect('/listaProductos');
+        res.redirect('/');
     }
 }
 module.exports = listaProductosController;
