@@ -65,7 +65,7 @@
                                 <label for="warranty">Categoria:</label>
                                 <select name="category" id="category">
                                     <% categoryProduct.forEach(category=>{ %>
-                                        <option value="<%= category.id %> "><%= category.name %> </option>
+                                        <option value="<%= category.id %>"><%= category.name %> </option>
                                     <%}) %> 
                                 </select>
                             </div>
@@ -82,7 +82,7 @@
                                             <input type="checkbox" name="paymentMethod" value="<%= method.id %>" id="paymentMethod<%= method.id %>">
                                             <label for="paymentMethod<%= method.id %>"><img src="/images/methodLogos/<%= method.image %> " alt="" srcset=""></label>
                                         </div>
-                                    <%}); %> 
+                                        <%}); %>
                                 </div>
                             </div>
                             <div class="infor-product-section">
