@@ -4,9 +4,10 @@ const router = express.Router();
 const productsController = require('../controllers/productsController.js');
 
 router.get("/list", productsController.list);
-router.get("/cart", productsController.cart);
-
-
+router.get("/cart", productsController.cart); // mirar prueba
+router.get("/brayan",(req,res)=>{
+    res.send("hola brayan");
+});
 
 //Create Product
 router.get("/add", productsController.add);
