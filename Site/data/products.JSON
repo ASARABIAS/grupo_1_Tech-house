@@ -178,5 +178,45 @@
    "Mastercard",
    "Efecty"
   ]
- }
+ },
+ {
+    "id": 10,
+    "nombre": "Celular Xiaomi Redmi Note 10",
+    "precio": 912000,
+    "descuento": 0,
+    "categoria": "nuevosProductos",
+    "cuotas": "30x $30.400",
+    "especificaciones": "El Xiaomi Redmi Note 10 es el líder de la décima reencarnación de la serie Redmi Note. Con una pantalla Super AMOLED de 6.43 pulgadas a resolución Full HD",
+    "image": "celular xiaomi nuevo.jpg",
+    "tituloCaracteristica": null,
+    "subtitulo": null,
+    "descripcion": null,
+    "garantia": "",
+    "tiempoGarantia": null,
+    "mediosPago": [
+     "Visa",
+     "Mastercard",
+     "Efecty"
+    ]
+   },
+   {
+    "id": 11,
+    "nombre": "Celular Xiaomi Redmi Note 10",
+    "precio": 912000,
+    "descuento": 0,
+    "categoria": "nuevosProductos",
+    "cuotas": "30x $30.400",
+    "especificaciones": "El Xiaomi Redmi Note 10 es el líder de la décima reencarnación de la serie Redmi Note. Con una pantalla Super AMOLED de 6.43 pulgadas a resolución Full HD",
+    "image": "celular xiaomi nuevo.jpg",
+    "tituloCaracteristica": null,
+    "subtitulo": null,
+    "descripcion": null,
+    "garantia": "",
+    "tiempoGarantia": null,
+    "mediosPago": [
+     "Visa",
+     "Mastercard",
+     "Efecty"
+    ]
+   }
 ]

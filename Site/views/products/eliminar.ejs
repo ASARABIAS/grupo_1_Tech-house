@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <a href="/">Volver</a>
+    <h3>Está seguro que desea eliminar el producto: <%= producto.nombre %>?</h3>
+    <form action="/eliminar?_method=DELETE" method="POST">
+        <input type="hidden" name="id" value="<%= producto.id %>" />
+        <input type="submit" value="Si, eliminar" />
+    </form>
+    </body>
+    </html>

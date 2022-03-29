@@ -10,7 +10,8 @@ const routerAddEditProduct = require("./routes/addEditProduct");
 const routerListaProductos = require("./routes/listaProductos");
 //const routerDelete = require("./routes/delete");
 
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
+
 
 app.use(express.static("public"));
 
