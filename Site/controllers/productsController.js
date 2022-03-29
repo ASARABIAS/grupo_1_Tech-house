@@ -1,35 +1,51 @@
-const productsController ={
-    addProduct: (req,res) =>{
-        res.render('products/add_editProduct');
+const path = require('path');
+const fs = require('fs');
+
+const productsJSONPath = path.join(__dirname, '../data/products.JSON');
+let products = JSON.parse(fs.readFileSync(productsJSONPath, 'utf-8'));
+
+const productsController = {
+    add: (req, res) => {
+        res.render('products/addProduct');
     },
     //Acción de creación post
-    create: function (req,res){
-        let products={
-        name: req.body.name,
-        specifications: req.body.specifications,
-        title: req.body.title,
-        Subtitulo: req.body.Subtitulo,
-        Descripcion: req.body.Descripcion,
-        category: req.body.category,
-        Garantia: req.body.Garantia,
-        mastercad: req.body.mastercad,
-        visa: req.body.visa,
-        efecty: req.body.efecty,
-        price: req.body.price,  
-        descount: req.body.descount
-        }
-        // res.send(req.body)
-        res.redirect("/products/listaProductos");
-        
+    create: function(req, res) {
+        res.send(req.body);
+        //let newProducts = {
+        //    id: Date.now(),
+        //    nombre: req.body.nombre,
+        //    precio: req.body.precio,
+        //    descuento: req.body.descuento,
+        //    categoria: req.body.categoria,
+        //    cuotas: req.body.cuotas,
+        //    especificaciones: req.body.especificaciones,
+        //    image: req.body.image,
+        //    tituloCaracteristica: req.body.tituloCaracteristica,
+        //    subtitulo: req.body.subtitulo,
+        //    descripcion: req.body.descripcion,
+        //    garantia: req.body.garantia,
+        //    mediosPago: req.body.mediosPago
+        //}
+        //
+        //products.unshift(newProducts)
+        //
+        //let productsJSON = JSON.stringify(products);
+        //
+        //fs.writeFileSync(productsFilePath, productsJSON);
+        //res.redirect("products/listProducts");
+
     },
-    listaProductos: (req,res) =>{
-        res.render('products/listaProductos');
+    list: (req, res) => {
+        res.render('products/listProducts');
     },
-    productCart: (req,res) => {
-        res.render("products/productCart")
+    cart: (req, res) => {
+        res.render("products/cartProduct")
     },
-    productDetail: (req,res) =>{
-        res.render('products/productDetail');
+    detail: (req, res) => {
+        let id = req.params.id;
+        let product = products.find(product => product.id == id);
+
+        res.render('products/detailProduct', { product, index: 0 });
     },
 }
 

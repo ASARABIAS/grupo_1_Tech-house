@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head', {title:"Detalle del Producto", namePage:"productDetail"}) %>
+
+    <body>
+        <%- include('../partials/header') %>
+
+            <main>
+                <section class="product">
+                    <div class="product-header">
+                        <h5># vendidos</h5>
+                        <h2>
+                            <%= product.nombre %>
+                        </h2>
+                    </div>
+                    <div class="product-main">
+                        <div class="product-images">
+                            <div class="image-sequence">
+                                <h6>1 /
+                                    <%=product.images[index].length  %>
+                                </h6>
+                                <div class="column-images">
+                                    <% product.images[index].forEach(image => {%>
+                                        <img src="/images/products/<%= image; %>" alt="" srcset="">
+                                        <%}); %>
+                                </div>
+                            </div>
+                            <div class="product-collage">
+                                <i class="fa-solid fa-chevron-left left-arrow"></i>
+                                <img src="/images/products/<%= product.images[index][0]; %> " alt="">
+                                <i class="fa-solid fa-chevron-right right-arrow"></i>
+                            </div>
+                        </div>
+                        <div class="product-specification">
+                            <strong class="product-price-real">$<%= product.precio; %> </strong>
+                            <div class="product-price-discount">
+                                <strong class="product-price">$ <%= product.descuento!=0 ? product.precio-(product.precio*product.descuento/100) : product.precio; %></strong>
+                                <strong class="product-discount"><%= product.descuento!=0 ? product.descuento+"% OFF" : ''; %></strong>
+                            </div>
+
+                            <div class="payment-methods-header">
+                                <h3>Medios de pago</h3>
+                            </div>
+                            <div class="payment-methods-main">
+                                <div class="payment-methods-icons">
+                                    <% product.mediosPago.forEach(method => {%>
+                                        <img src="/images/methodLogos/<%= method %> " alt="">
+                                        <%}); %>
+                                </div>
+                            </div>
+                            <div class="product-delivery">
+                                <p> <i class="fas fa-truck"></i>llega entre
+                                    <%= product.envio %> dias</p>
+                            </div>
+                            <div class="product-return">
+                                <p> <i class="fa-solid fa-arrow-rotate-left"></i>Devolucion:
+                                    <%= product.valorDevolucion!=0 ? "$"+product.valorDevolucion : 'Gratis'; %>
+                                </p>
+                            </div>
+                            <div class="product-colors">
+                                <div class="product-colors-header">
+                                    <h5>Color: <strong><%= product.color[index] %> </strong></h5>
+                                </div>
+                                <div class="product-colors-main">
+                                    <%for (let i = 0; i < product.color.length; i++) {%>
+                                        <img src="/images/products/<%= product.images[i][0] %> " alt="" srcset="">
+
+                                        <%} %>
+                                </div>
+                            </div>
+                            <div class="product-quantity">
+                                <div class="product-quantity-header">
+                                    <h3>Stock disponible</h3>
+                                </div>
+                                <form action="">
+                                    <div class="container-product-available">
+                                        <h6>(20) disponibles</h6>
+                                    </div>
+                                    <div class="container-product-quantity">
+                                        <label for="quantity">Cantidad:</label>
+                                        <input type="number" name="product-quantity" id="quantity" value="1">
+                                    </div>
+                                    <div class="btn-boy-add">
+                                        <button class="btn-buy">Comprar ahora</button>
+                                        <button class="btn-add">Agregar al carrito</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="characteristics">
+                    <div class="characteristics-header">
+                        <h2>Características del producto</h2>
+                    </div>
+                    <div class="characteristics-main">
+                        <% for (let i = 0; i < product.caracteristicas.titulo.length; i++) {
+                            let titulo = product.caracteristicas.titulo[i];%>
+                            <article class="characteristic">
+                                <div class="characteristic-header">
+                                    <h3>
+                                        <%= titulo ;%>
+                                    </h3>
+                                </div>
+                                <div class="characteristic-main">
+                                    <table class="characteristic-main">
+
+                                        <%let contador=0,estado="active",estado_2="disable";
+                                        product.caracteristicas.subtitulo[i].forEach(subtitulo => {
+                                            let aux=subtitulo.split('-');%>
+
+                                            <tr class="characteristic-<%= contador%2==0 ? estado :estado_2;%>">
+
+                                                <td><strong><%= aux[0];%></strong></td>
+                                                <td>
+                                                    <%= aux[1];%>
+                                                </td>
+
+                                            </tr>
+
+                                            <%contador++;}); %>
+                                    </table>
+                                </div>
+                            </article>
+                            <%} %>
+                    </div>
+                </section>
+                <section class="warranty">
+                    <div class="warranty-header">
+                        <h3>Garantia</h3>
+                    </div>
+                    <div class="warranty-main">
+                        <h4>Compra Protegida</h4>
+                        <p>
+                            <%= product.garantia.texto%>
+                        </p>
+                        <p>Garantía del vendedor:
+                            <strong><%= product.garantia.tiempo%> mese</strong></p>
+                    </div>
+                </section>
+                <section class="payment-methods">
+                    <div class="payment-methods-header">
+                        <h3>Medios de pago</h3>
+                    </div>
+                    <div class="payment-methods-main">
+                        <div class="payment-methods-icons">
+                            <% product.mediosPago.forEach(method => {%>
+                                <img src="/images/methodLogos/<%= method %> " alt="">
+                                <%}); %>
+                        </div>
+                    </div>
+                </section>
+                <section class="specifications">
+                    <div class="specifications-header">
+                        <h3>Descripción</h3>
+                    </div>
+                    <div class="specifications-main">
+                        <p>
+                            <%= product.descripcion%>
+                        </p>
+                    </div>
+                </section>
+                <section class="questions-answers">
+                    <div class="questions-answers-header">
+                        <h3>Preguntas y respuestas</h3>
+                        <div class="questions-answers-fast">
+                            <div class="questions-answers-fast-header">
+                                <h4>Respuestas Rapidas</h4>
+                            </div>
+                            <div class="questions-answers-fast-main">
+                                <button>
+                            Costo y tiempo de envio
+                        </button>
+                                <button>
+                            Devolución
+                        </button>
+                                <button>
+                            Medios de Pago
+                        </button>
+                                <button>
+                            Garantía
+                        </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="questions-answers-main">
+                        <form action="#">
+                            <input type="text" placeholder="Buscar productos, marcas y más">
+                            <button>Preguntar</button>
+                        </form>
+                        <h4>Preguntas realizadas</h4>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, recusandae numquam tempora eos maxime, tenetur fugit fugiat veritatis velit nesciunt id et dolores dolorem, dolor officia quasi animi? Alias, culpa?
+                    </div>
+                </section>
+                <section class="product-similar">
+                    <div class="product-similar-header">
+                        <h3>Producto similares</h3>
+                    </div>
+                    <div class="product-similar-main">
+                        <article class="product">
+                            <div class="product-header">
+                                <img src="/image/diadema.png" alt="" srcset="">
+                            </div>
+                            <div class="product-main">
+                                <i class="fas fa-truck"></i>
+                                <div class="product-price-discount">
+                                    <strong class="product-price">$xxxx</strong>
+                                    <strong class="product-discount">xxx% OFF</strong>
+                                </div>
+                                <h4>Nombre del producto</h4>
+                            </div>
+                        </article>
+                        <article class="product">
+                            <div class="product-header">
+                                <img src="/image/diadema.png" alt="" srcset="">
+                            </div>
+                            <div class="product-main">
+                                <i class="fas fa-truck"></i>
+                                <div class="product-price-discount">
+                                    <strong class="product-price">$xxxx</strong>
+                                    <strong class="product-discount">xxx% OFF</strong>
+                                </div>
+                                <h4>Nombre del producto</h4>
+                            </div>
+                        </article>
+                        <article class="product">
+                            <div class="product-header">
+                                <img src="/image/diadema.png" alt="" srcset="">
+                            </div>
+                            <div class="product-main">
+                                <i class="fas fa-truck"></i>
+                                <div class="product-price-discount">
+                                    <strong class="product-price">$xxxx</strong>
+                                    <strong class="product-discount">xxx% OFF</strong>
+                                </div>
+                                <h4>Nombre del producto</h4>
+                            </div>
+                        </article>
+                        <article class="product">
+                            <div class="product-header">
+                                <img src="/image/diadema.png" alt="" srcset="">
+                            </div>
+                            <div class="product-main">
+                                <i class="fas fa-truck"></i>
+                                <div class="product-price-discount">
+                                    <strong class="product-price">$xxxx</strong>
+                                    <strong class="product-discount">xxx% OFF</strong>
+                                </div>
+                                <h4>Nombre del producto</h4>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+            </main>
+
+            <%- include('../partials/footer') %>
+
+    </body>
+
+
+</html>

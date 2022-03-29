@@ -58,9 +58,10 @@ div.product-main div.product-images div.image-sequence div.column-images {
     flex-direction: column;
 }
 
-div.image-sequence div.column-images img {
+div.image-sequence div.column-images img,
+div.product-specification div.product-colors div.product-colors-main img {
     margin: 5px 0px;
-    width: 32px;
+    width: 50px;
 }
 
 div.image-sequence div.column-images img:nth-child(1),
@@ -82,11 +83,17 @@ div.product-collage i.left-arrow {
 
 div.product-collage img {
     width: 100%;
+    max-height: 85vh;
 }
 
 div.product-collage i.right-arrow {
     position: absolute;
     right: 0px;
+}
+
+strong.product-price-real {
+    text-decoration: line-through;
+    color: rgb(100, 100, 100);
 }
 
 div.product-main div.product-specification div.product-price-discount,
@@ -115,7 +122,8 @@ div.product-return p {
 
 div.product-specification div.product-delivery,
 div.product-specification div.product-return,
-div.product-specification div.product-colors {
+div.product-specification div.product-colors,
+div.product-specification div.product-warranty {
     margin: 15px;
 }
 
@@ -192,12 +200,12 @@ article.characteristic table.characteristic-main tr.characteristic-active {
     background-color: var(--Clean);
 }
 
-main section.payment-methods div.payment-methods-main div.payment-methods-icons,
-div.product-specification div.payment-methods-icons {
+main section.payment-methods div.payment-methods-main div.payment-methods-icons {
     margin: 10px 0px;
     display: flex;
     align-items: center;
     justify-content: start;
+    flex-wrap: nowrap;
 }
 
 div.payment-methods-icons img {
@@ -343,9 +351,10 @@ article.product div.product-main i:hover {
         display: none;
     }
     div.product-main div.product-specification {
-        margin-top: 30px;
+        margin: 30px 0px;
         width: 30%;
         padding: 10px;
+        padding-top: 20px;
         border-radius: 5px;
         border: solid var(--Clean) 1px;
     }

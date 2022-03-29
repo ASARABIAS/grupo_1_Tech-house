@@ -1,17 +1,20 @@
-const { Router } = require('express');
 const express = require('express');
 const router = express.Router();
 
 const productsController = require('../controllers/productsController.js');
 
-router.get("/listaProductos", productsController.listaProductos);
-router.get("/productCart", productsController.productCart);
-router.get("/productDetail", productsController.productDetail);
+router.get("/list", productsController.list);
+router.get("/cart", productsController.cart); // mirar prueba
+router.get("/brayan",(req,res)=>{
+    res.send("hola brayan");
+});
 
 //Create Product
+router.get("/add", productsController.add);
+router.post("/add", productsController.create);
 
-router.get("/addProduct", productsController.addProduct);
-router.post("/addProduct", productsController.create);
+//Edit Product
+router.get("/detail/:id", productsController.detail);
 
 
 module.exports = router;
