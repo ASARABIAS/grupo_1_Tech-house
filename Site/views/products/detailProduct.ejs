@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head', {title:"Detalle del Producto", namePage:"productDetail"}) %>
+
+    <body>
+        <%- include('../partials/header') %>
+
+            <main>
+                <section class="product">
+                    <div class="product-header">
+                        <h5># vendidos</h5>
+                        <h2>
+                            <%= product.name %>
+                        </h2>
+                    </div>
+                    <div class="product-main">
+                        <div class="product-images">
+                            <div class="image-sequence">
+                                <h6>1 /
+                                    <%=product.images.length  %>
+                                </h6>
+                                <div class="column-images">
+                                    <% product.images.forEach(image => {%>
+                                        <img src="/images/products/<%= image; %>" alt="" srcset="">
+                                        <%}); %>
+                                </div>
+                            </div>
+                            <div class="product-collage">
+                                <i class="fa-solid fa-chevron-left left-arrow"></i>
+                                <img src="/images/products/<%= product.images[0]; %> " alt="">
+                                <i class="fa-solid fa-chevron-right right-arrow"></i>
+                            </div>
+                        </div>
+                        <div class="product-specification">
+                            <strong class="product-price-real">$<%= product.price; %> </strong>
+                            <div class="product-price-discount">
+                                <strong class="product-price">$ <%= product.descount!=0 ? product.price-(product.price*product.descount/100) : product.price; %></strong>
+                                <strong class="product-discount"><%= product.descount!=0 ? product.descount+"% OFF" : ''; %></strong>
+                            </div>
+
+                            <div class="payment-methods-header">
+                                <h3>Medios de pago</h3>
+                            </div>
+                            <div class="payment-methods-main">
+                                <div class="payment-methods-icons">
+                                    <% product.paymentMethod.forEach(id => {
+                                        let method = paymentMethod.find(pay=> pay.id==id)%>
+                                        <img src="/images/methodLogos/<%= method.image; %> " alt="">
+                                        <%}); %>
+                                </div>
+                            </div>
+                            <div class="product-delivery">
+                                <p> <i class="fas fa-truck"></i>llega entre
+                                    <%= product.envio %> dias</p>
+                            </div>
+                            <div class="product-return">
+                                <p> <i class="fa-solid fa-arrow-rotate-left"></i>Devolucion:
+                                    <%= product.valorDevolucion!=0 ? "$"+product.valorDevolucion : 'Gratis'; %>
+                                </p>
+                            </div>
+                            <div class="product-colors">
+                                <div class="product-colors-header">
+                                    <h5>Color: <strong><%= product.color[0] %> </strong></h5>
+                                </div>
+                                <div class="product-colors-main">
+                                    <%for (let i = 0; i < product.color.length; i++) {%>
+                                        <img src="/images/products/<%= product.images[0] %> " alt="" srcset="">
+
+                                        <%} %>
+                                </div>
+                            </div>
+                            <div class="product-quantity">
+                                <div class="product-quantity-header">
+                                    <h3>Stock disponible</h3>
+                                </div>
+                                <form action="">
+                                    <div class="container-product-available">
+                                        <h6>(20) disponibles</h6>
+                                    </div>
+                                    <div class="container-product-quantity">
+                                        <label for="quantity">Cantidad:</label>
+                                        <input type="number" name="product-quantity" id="quantity" value="1">
+                                    </div>
+                                    <div class="btn-boy-add">
+                                        <button class="btn-buy">Comprar ahora</button>
+                                        <button class="btn-add">Agregar al carrito</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="characteristics">
+                    <div class="characteristics-header">
+                        <h2>Características del producto</h2>
+                    </div>
+                    <div class="characteristics-main">
+                        <% let contador = 0;
+                        product.characteristicsTitle.forEach(title =>{%>
+                            <article class="characteristic">
+                                <div class="characteristic-header">
+                                    <h3>
+                                        <%= title ;%>
+                                    </h3>
+                                </div>
+                                <div class="characteristic-main">
+                                    <table class="characteristic-main">
+                                        <%let estado="active",estado_2="disable";
+                                        for (let i = 0; i < product.characteristicsContextSubtitle[contador].length; i++) {
+                                            let Subtitle = product.characteristicsContextSubtitle[contador][i];
+                                            let Description = product.characteristicsContextDescription[contador][i];%>
+                                            <tr class="characteristic-<%= i%2==0 ? estado :estado_2;%>">
+
+                                                <td><strong><%= Subtitle;%></strong></td>
+                                                <td>
+                                                    <%= Description;%>
+                                                </td>
+
+                                            </tr>
+                                            <%} %>
+                                    </table>
+                                </div>
+                            </article>
+                            <% contador++})%>
+                    </div>
+                </section>
+                <section class="warranty">
+                    <div class="warranty-header">
+                        <h3>Garantia</h3>
+                    </div>
+                    <div class="warranty-main">
+                        <h4>Compra Protegida</h4>
+                        <p>
+                            <%= product.warrantyText%>
+                        </p>
+                        <p>Garantía del vendedor:
+                            <strong><%= product.warrantyTime%> mese</strong></p>
+                    </div>
+                </section>
+                <section class="payment-methods">
+                    <div class="payment-methods-header">
+                        <h3>Medios de pago</h3>
+                    </div>
+                    <div class="payment-methods-main">
+                        <div class="payment-methods-icons">
+                            <% product.paymentMethod.forEach(id => {
+                                        let method = paymentMethod.find(pay=> pay.id==id)%>
+                                <img src="/images/methodLogos/<%= method.image %> " alt="">
+                                <%}); %>
+                        </div>
+                    </div>
+                </section>
+                <section class="specifications">
+                    <div class="specifications-header">
+                        <h3>Descripción</h3>
+                    </div>
+                    <div class="specifications-main">
+                        <p>
+                            <%= product.specifications%>
+                        </p>
+                    </div>
+                </section>
+                <section class="questions-answers">
+                    <div class="questions-answers-header">
+                        <h3>Preguntas y respuestas</h3>
+                        <div class="questions-answers-fast">
+                            <div class="questions-answers-fast-header">
+                                <h4>Respuestas Rapidas</h4>
+                            </div>
+                            <div class="questions-answers-fast-main">
+                                <button>
+                            Costo y tiempo de envio
+                        </button>
+                                <button>
+                            Devolución
+                        </button>
+                                <button>
+                            Medios de Pago
+                        </button>
+                                <button>
+                            Garantía
+                        </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="questions-answers-main">
+                        <form action="#">
+                            <input type="text" placeholder="Buscar productos, marcas y más">
+                            <button>Preguntar</button>
+                        </form>
+                        <h4>Preguntas realizadas</h4>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, recusandae numquam tempora eos maxime, tenetur fugit fugiat veritatis velit nesciunt id et dolores dolorem, dolor officia quasi animi? Alias, culpa?
+                    </div>
+                </section>
+                <section class="product-similar">
+                    <div class="product-similar-header">
+                        <h3>Producto similares</h3>
+                    </div>
+                    <div class="product-similar-main">
+                        <article class="product">
+                            <div class="product-header">
+                                <img src="/image/diadema.png" alt="" srcset="">
+                            </div>
+                            <div class="product-main">
+                                <i class="fas fa-truck"></i>
+                                <div class="product-price-discount">
+                                    <strong class="product-price">$xxxx</strong>
+                                    <strong class="product-discount">xxx% OFF</strong>
+                                </div>
+                                <h4>Nombre del producto</h4>
+                            </div>
+                        </article>
+                        <article class="product">
+                            <div class="product-header">
+                                <img src="/image/diadema.png" alt="" srcset="">
+                            </div>
+                            <div class="product-main">
+                                <i class="fas fa-truck"></i>
+                                <div class="product-price-discount">
+                                    <strong class="product-price">$xxxx</strong>
+                                    <strong class="product-discount">xxx% OFF</strong>
+                                </div>
+                                <h4>Nombre del producto</h4>
+                            </div>
+                        </article>
+                        <article class="product">
+                            <div class="product-header">
+                                <img src="/image/diadema.png" alt="" srcset="">
+                            </div>
+                            <div class="product-main">
+                                <i class="fas fa-truck"></i>
+                                <div class="product-price-discount">
+                                    <strong class="product-price">$xxxx</strong>
+                                    <strong class="product-discount">xxx% OFF</strong>
+                                </div>
+                                <h4>Nombre del producto</h4>
+                            </div>
+                        </article>
+                        <article class="product">
+                            <div class="product-header">
+                                <img src="/image/diadema.png" alt="" srcset="">
+                            </div>
+                            <div class="product-main">
+                                <i class="fas fa-truck"></i>
+                                <div class="product-price-discount">
+                                    <strong class="product-price">$xxxx</strong>
+                                    <strong class="product-discount">xxx% OFF</strong>
+                                </div>
+                                <h4>Nombre del producto</h4>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+            </main>
+
+            <%- include('../partials/footer') %>
+
+    </body>
+
+
+</html>

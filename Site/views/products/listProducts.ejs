@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head', {title:"Lista Productos", namePage:"listaproductos"}) %>
+
+    <body>
+
+        <%- include('../partials/header') %>
+
+            <main>
+                <section>
+                    <div class="productos">
+                        <% products.forEach(product => {%>
+                            <article class="articulo">
+                                <a href="/products/detail/<%= product.id %> ">
+                                    <img src="/images/products/<%= product.images[0] %>" alt="celular xiaomi" class="product_img">
+                                </a>
+                                <div class="main-article">
+                                    <h4>
+                                        <%= product.name %>
+                                    </h4>
+                                    <p class="descripcion">
+                                        <%= product.specifications %>
+                                    </p>
+                                    <p class="precio">
+                                        <%= product.price %>
+                                    </p>
+                                    <p>
+                                        <%= product.cuotas %>
+                                    </p>
+                                    <p class="envios">
+                                        <%= product.envio!=0? product.envio:"Gratis" ; %>
+                                    </p>
+                                    <a class="boton-editar" href="/products/edit/<%= product.id %>">Editar</a>
+                                    <input class="boton-eliminar" type="submit" value="Eliminar">
+
+
+                                </div>
+                            </article>
+                            <%}); %>
+                    </div>
+                </section>
+            </main>
+
+            <%- include('../partials/footer') %>
+
+    </body>
+
+
+</html>
