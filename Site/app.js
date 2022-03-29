@@ -10,6 +10,10 @@ app.use(express.static("public"));
 
 app.set("view engine", "ejs");
 
+//archivos Json para post
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 app.use('/', mainRouter);
 app.use("/users", usersRouter);
 app.use('/products', productsRouter);
