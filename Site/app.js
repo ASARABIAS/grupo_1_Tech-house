@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 const mainRouter = require("./routes/main");
 const productsRouter = require("./routes/products");
 const usersRouter = require("./routes/users");
-const routerListaProductos = require("./routes/listaProductos");
+
 
 
 app.use(express.static("public"));
@@ -21,5 +21,5 @@ app.use(express.json());
 app.use('/', mainRouter);
 app.use("/users", usersRouter);
 app.use('/products', productsRouter);
-app.use("/listaProductos", routerListaProductos)
+
 app.listen(3030, () => console.log("Servidor Corriendo en el puerto 3030"));

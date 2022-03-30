@@ -4,6 +4,7 @@ const fs = require('fs');
 //Cargar desde el archivo JSON
 let JSONPath = (name) => path.join(__dirname, '../data/' + name);
 let resultReadJSON = (JSONPath) => JSON.parse(fs.readFileSync(JSONPath, 'utf-8'));
+const productsFilePath = path.join(__dirname, '../data/products.json');
 
 
 //Obtener objeto
@@ -57,6 +58,42 @@ const productsController = {
 
         res.render('products/detailProduct', { product, paymentMethod });
     },
+    /* renderiza una lista con todos los productos con los botones editar y eliminar
+    listaProductos: (req, res) => {
+		
+        
+		res.render('products/listaProductos', {
+			products,
+			toThousand
+		})
+	},
+    */
+    // lleva a un formulario donde se confirma que producto se eliminara
+    viewDelete: function (req, res, next) {
+        
+        let productosGuardados = fs.readFileSync(productsFilePath, 'utf-8');
+        let products = [];
+
+        if(productosGuardados != "" && productosGuardados != "[]"){
+            products = JSON.parse(productosGuardados);
+        }
+
+        res.render('products/delete', { title: 'Eliminar producto', producto: products.find(producto => producto.id == req.params.id) });
+    },
+
+    //elimina el producto
+    deleteProduct: function (req, res, next) {
+        let productosGuardados = fs.readFileSync(productsFilePath, 'utf-8');
+        let products = [];
+        if (productosGuardados != "" && productosGuardados != "[]") {
+            products = JSON.parse(productosGuardados);
+        }
+        let productoEliminado = products.find(producto => producto.id == req.params.id);
+        let index = products.indexOf(productoEliminado);
+        products.splice(index, 1);
+        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+        res.redirect('/');
+    }
 }
 
 
