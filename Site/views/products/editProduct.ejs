@@ -26,7 +26,7 @@
                         <h3>INFORMACIÓN DEL PRODUCTO</h3>
                     </div>
                     <div class="information-main">
-                        <form action="/products/addProduct" method="post" class="infor-product">
+                        <form action="/products/edit/<%= product.id%>?_method=PUT" method="post" class="infor-product">
                             <div class="infor-product-section">
                                 <label for="name">Nombre:</label>
                                 <input type="text" name="name" id="name" placeholder="Nombre" value="<%= product.name %> ">
@@ -39,7 +39,8 @@
                                 <div class="characteristics-header">
                                     <h4>Caractersiticas:</h4>
                                 </div>
-                                <% product.characteristics.forEach(characteristic => {%>
+                                <% let count =0;
+                                 product.characteristics.forEach(characteristic => {%>
                                     <div class="characteristics-main">
                                         <div class="characteristics-main-title">
                                             <label for="characteristics-title">Titulo de la Caracteristicas:</label>
@@ -53,9 +54,9 @@
                                             <% characteristic.main.forEach(subcharacteristic=>{%>
                                                 <div class="characteristics-main-context-down">
                                                     <label for="characteristics-context">Subtitulo:</label>
-                                                    <input type="text" name="characteristicsContextSubtitle" id="characteristics-context-subtitle" placeholder="Subtitulo" value="<%= subcharacteristic.subtitle %>">
+                                                    <input type="text" name="characteristicsContextSubtitle_<%=count%>" id="characteristics-context-subtitle" placeholder="Subtitulo" value="<%= subcharacteristic.subtitle %>">
                                                     <label for="characteristics-context-description">Descripcion:</label>
-                                                    <input type="text" name="characteristicsContextDescription" id="characteristics-context-description" placeholder="Descripcion" value="<%= subcharacteristic.description %>">
+                                                    <input type="text" name="characteristicsContextDescription_<%=count%>" id="characteristics-context-description" placeholder="Descripcion" value="<%= subcharacteristic.description %>">
                                                 </div>
                                                 <%}) %>
                                         </div>
@@ -64,7 +65,7 @@
                                             <i id="characteristic-add" class="fa-solid fa-circle-plus"></i>
                                         </div>
                                     </div>
-                                    <%}); %>
+                                    <%count++}); %>
                             </div>
                             <div class="infor-product-section">
                                 <label for="category">Categoria:</label>

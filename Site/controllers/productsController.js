@@ -108,17 +108,6 @@ const productsController = {
         //fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
         //res.redirect('/products');
     },
-
-    /* renderiza una lista con todos los productos con los botones editar y eliminar
-    listaProductos: (req, res) => {
-		
-        
-		res.render('products/listaProductos', {
-			products,
-			toThousand
-		})
-	},
-    */
     // lleva a un formulario donde se confirma que producto se eliminara
     viewDelete: function(req, res, next) {
 
