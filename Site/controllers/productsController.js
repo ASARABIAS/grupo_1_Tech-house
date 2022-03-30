@@ -77,6 +77,37 @@ const productsController = {
 
         res.render('products/editProduct', { product, paymentMethod, categoryProduct });
     },
+    update: (req, res) => {
+
+        let body = req.body;
+        let id = req.params.id;
+        let product = products.find(product => product.id == id);
+
+        res.send(body);
+        console.log(body);
+
+        //product = {
+        //    name: body.name,
+        //    specifications: body.specifications,
+        //    characteristics:getcharacteristics(body),
+        //    category: body.category,
+        //    warrantyText: body.warrantyText,
+        //    warrantyTime: body.warrantyTime,
+        //    paymentMethod: body.paymentMethod,
+        //    price: body.price,
+        //    discount: body.discount,
+        //    images: ["prueba.png"],
+        //    cuotas: "30x $30.400",
+        //    color: ["Color"],
+        //    envio: 4,
+        //    valorDevolucion: 0
+        //}
+
+        //let ProductsJSON = JSON.stringify(products);
+
+        //fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
+        //res.redirect('/products');
+    },
 
     /* renderiza una lista con todos los productos con los botones editar y eliminar
     listaProductos: (req, res) => {
@@ -116,7 +147,15 @@ const productsController = {
     }
 }
 
-
+function getcharacteristics(bodyCharacteristic) {
+    [{
+        title: body.characteristicsTitle,
+        main: [{
+            subtitle: body.characteristicsContextSubtitle,
+            description: body.characteristicsContextDescription
+        }]
+    }]
+}
 
 
 module.exports = productsController;
