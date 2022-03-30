@@ -9,5 +9,9 @@
     {
         "id": 3,
         "name": "celulares usados"
+    },
+    {
+        "id": 4,
+        "name": "Portatil"
     }
 ]
