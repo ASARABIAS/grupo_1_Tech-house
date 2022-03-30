@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head', {title:"Lista Productos", namePage:"listaproductos"}) %>
+
+    <body>
+
+        <%- include('../partials/header') %>
+
+            <main>
+                <section>
+                   
+                    <div class="productos">
+                        <% for(let i=0; i<products.length; i++){ %>
+                        <article class="articulo">
+                           
+                            <a href="productDetail/<%= products[i].id %>">
+                                <img src="image/<%= products[i].images %>" alt="<%= products[i].nombre %>" class="product_img">
+                            </a>
+                            <div class="main-article">
+                                <h4 class="descripcion"><%= products[i].name %></h4>
+                                <p class="precio"><%= toThousand(products[i].price) %></p>
+                                <p><%= products[i].name %></p>
+                                <p class="envios">Envio gratis</p>
+                                <div class="botones">
+                                <a class="boton-editar" href="/add_editProduct">Editar</a>
+                                <a class="boton-eliminar" href="/listaproductos/eliminar/<%= products[i].id %>">Eliminar</a>
+                                </div>
+
+
+                            </div>
+                        </article>
+                        <% } %>
+                        
+                    </div>
+                   
+                </section>
+            </main>
+
+            <%- include('../partials/footer') %>
+
+    </body>
+
+
+</html>

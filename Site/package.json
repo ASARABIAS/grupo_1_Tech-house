@@ -19,7 +19,8 @@
   "homepage": "https://github.com/ASARABIAS/grupo_1_Tech-house#readme",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "method-override": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

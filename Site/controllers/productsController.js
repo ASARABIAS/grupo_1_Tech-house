@@ -5,6 +5,7 @@ const fs = require('fs');
 let JSONPath = (name) => path.join(__dirname, '../data/' + name);
 let resultReadJSON = (JSONPath) => JSON.parse(fs.readFileSync(JSONPath, 'utf-8'));
 
+
 //Obtener objeto
 let products = resultReadJSON(JSONPath('products.json'));
 let paymentMethod = resultReadJSON(JSONPath('paymentMethod.json'));

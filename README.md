@@ -48,4 +48,3 @@ Sitios de referencia
   Link Tablero Trello
 
   https://trello.com/b/0pRwpld1/proyecto-integrador-dh-grupo-1
-

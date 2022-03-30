@@ -84,7 +84,7 @@ section.banner2 img {
 .boton-editar,
 .boton-eliminar {
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 50px;
     padding: 10px;
     border-radius: 10px;
     border: none;
@@ -104,6 +104,9 @@ section.banner2 img {
 
 .boton-eliminar:hover {
     background-color: var(--Orange);
+}
+.botones{
+    margin-top: 20px;
 }
 
 @media (min-width: 481px) {
