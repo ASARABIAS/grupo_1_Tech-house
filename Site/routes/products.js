@@ -13,5 +13,8 @@ router.post("/create", productsController.store);
 //editar Product
 router.get("/detail/:id", productsController.detail);
 
-
+//eliminar
+//router.get('/', productsController.listaProductos);
+router.get('/delete/:id', productsController.viewDelete);
+router.delete("/delete/:id", productsController.deleteProduct);
 module.exports = router;

@@ -28,3 +28,18 @@ Reuniones tan largas, ya que nos hemos llegado a demorar hasta dos horas en reun
 
 Dejar de hacer
 Querer hacer algunas asignaciones juntos en reunión, decidimos tener reuniones más cortas y asignarnos más responsabilidades individuales.
+
+**Retrospectiva Tercer Sprint**
+Comenzar a hacer
+Tener una mejor comunicación a la hora de subir los cambios a las ramas y realizar Merge.
+Organizar un plan de acción concreto con cada una de las asignaciones.
+
+Hacer más
+Reuniones programadas, comprometernos más con el día y la hora de reunirnos.
+Pedir ayuda a tiempo con los temas que no comprendamos muy bien para que non nos veamos atrasados con la fecha de entrega de Sprint
+
+Continuar haciendo
+Siendo responsable con las entregas y ayusando a los compañeros cuando lo necesiten.
+
+Dejar de hacer
+Reuniones improvisadas, en las que no se le informa a el resto del grupo qué fue lo que se desarrolló.
