@@ -54,7 +54,7 @@
                                                 <div class="characteristics-main-context-down">
                                                     <label for="characteristics-context">Subtitulo:</label>
                                                     <input type="text" name="characteristicsContextSubtitle" id="characteristics-context-subtitle" placeholder="Subtitulo" value="<%= subcharacteristic.subtitle %>">
-                                                    <label for="characteristics-context">Descripcion:</label>
+                                                    <label for="characteristics-context-description">Descripcion:</label>
                                                     <input type="text" name="characteristicsContextDescription" id="characteristics-context-description" placeholder="Descripcion" value="<%= subcharacteristic.description %>">
                                                 </div>
                                                 <%}) %>
@@ -76,8 +76,8 @@
                             </div>
                             <div class="infor-product-section">
                                 <label for="warranty">Garantia:</label>
-                                <input type="text" name="warranty" id="warranty" placeholder="Garantia" value="<%= product.warrantyText %>">
-                                <input type="number" name="warranty" id="warranty" placeholder="Tiempo de la Garantia" value="<%= product.warrantyTime %>">
+                                <input type="text" name="warrantyText" id="warrantyText" placeholder="Garantia" value="<%= product.warrantyText %>">
+                                <input type="number" name="warrantyTime" id="warranty" placeholder="Tiempo de la Garantia" value="<%= product.warrantyTime %>">
                             </div>
                             <div class="infor-product-section">
                                 <label>Medios de Pago:</label>
