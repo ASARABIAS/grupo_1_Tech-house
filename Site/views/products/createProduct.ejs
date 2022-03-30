@@ -48,7 +48,7 @@
                                             <h5>Cuerpo de la Caracteristicas</h5>
                                             <i class="fa-solid fa-circle-plus"></i>
                                         </div>
-                                        <div class="characteristics-main-context-down">
+                                        <div class="characteristics-main-context-down" id="characteristics-main-context-down">
                                             <label for="characteristics-context-subtitle">Subtitulo:</label>
                                             <input type="text" name="characteristicsContextSubtitle" id="characteristics-context-subtitle" placeholder="Subtitulo">
                                             <label for="characteristics-context-description">Descripcion:</label>
@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="characteristics-main-add">
                                         <a href="">Agregar nueva caracteristica</a>
-                                        <i id="characteristic-add" class="fa-solid fa-circle-plus"></i>
+                                        <i id="characteristic-add" class="fa-solid fa-circle-plus" onclick="addNewDivDiscripction();"></i>
                                     </div>
                                 </div>
                             </div>
@@ -105,6 +105,7 @@
             <%- include('../partials/footer') %>
 
     </body>
+    <script src="/js/product.js"></script>
     <script src="https://kit.fontawesome.com/f108e44f29.js" crossorigin="anonymous"></script>
 
 </html>

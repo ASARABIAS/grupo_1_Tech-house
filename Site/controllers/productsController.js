@@ -10,27 +10,41 @@ let products = resultReadJSON(JSONPath('products.json'));
 let paymentMethod = resultReadJSON(JSONPath('paymentMethod.json'));
 let categoryProduct = resultReadJSON(JSONPath('categoryProduct.json'));
 
+
 const productsController = {
     create: (req, res) => {
         res.render('products/createProduct', { paymentMethod, categoryProduct });
     },
+
     //Acción de creación post
     store: function(req, res) {
 
-        req.body.characteristicsTitle = [req.body.characteristicsTitle];
-        req.body.characteristicsContextSubtitle = [
-            [req.body.characteristicsContextSubtitle]
-        ];
-        req.body.characteristicsContextDescription = [
-            [req.body.characteristicsContextDescription]
-        ];
+        let body = req.body;
 
-        req.body.category = parseInt(req.body.category);
-        req.body.warrantyTime = parseInt(req.body.warrantyTime);
-        req.body.price = parseInt(req.body.price);
-        req.body.descount = parseInt(req.body.descount);
+        let newProduct = {
+            id: Date.now(),
+            name: body.name,
+            specifications: body.specifications,
+            characteristics: [{
+                title: body.characteristicsTitle,
+                main: [{
+                    subtitle: body.characteristicsContextSubtitle,
+                    description: body.characteristicsContextDescription
+                }]
+            }],
+            category: body.category,
+            warrantyText: body.warrantyText,
+            warrantyTime: body.warrantyTime,
+            paymentMethod: body.paymentMethod,
+            price: body.price,
+            descount: body.descount,
+            images: ["prueba.png"],
+            cuotas: "30x $30.400",
+            color: ["Color"],
+            envio: 4,
+            valorDevolucion: 0
+        }
 
-        let newProduct = { id: Date.now(), ...req.body, images: ["prueba.png"], cuotas: "30x $30.400", color: ["Color"], envio: 4, valorDevolucion: 0 }
         products.push(newProduct);
 
         let ProductsJSON = JSON.stringify(products);
