@@ -1,19 +1,230 @@
-[{
-        "id": 1648605986653,
-        "name": "adan",
-        "specifications": " hola",
-        "characteristics": [{ "title": "titulo 1", "main": [{ "subtitle": "hola", "description": "desss" }] }],
-        "category": "1",
-        "warrantyText": "hollalal",
-        "warrantyTime": "5",
-        "paymentMethod": ["1", "3"],
-        "price": "200002",
-        "descount": "2",
-        "images": ["prueba.png"],
-        "cuotas": "30x $30.400",
-        "color": ["Color"],
-        "envio": 4,
-        "valorDevolucion": 0
-    },
-    { "id": 1, "name": "Celular Xiaomi Redmi Note 10", "specifications": "Fotografía profesional en tu bolsillo Descubre infinitas posibilidades para tus fotos con las 4 cámaras principales de tu equipo. Pon a prueba tu creatividad y juega con la iluminación, diferentes planos y efectos para obtener grandes resultados. Experiencia visual increíble Mira tus series y películas favoritas con la mejor definición a través de su pantalla AMOLED de 6.67. Disfruta de colores brillantes y detalles precisos en todos tus contenidos. Capacidad y eficiencia Con su potente procesador y memoria RAM de 6 GB tu equipo alcanzará un alto rendimiento con gran velocidad de transmisión de contenidos y ejecutará múltiples aplicaciones a la vez sin demoras. Desbloqueo facial y dactilar Máxima seguridad para que solo tú puedas acceder al equipo. Podrás elegir entre el sensor de huella dactilar para habilitar el teléfono en un toque, o el reconocimiento facial que permite un desbloqueo hasta un 30% más rápido. Batería de duración superior ¡Desenchúfate! Con la súper batería de 5020 mAh tendrás energía por mucho más tiempo para jugar, ver series o trabajar sin necesidad de realizar recargas.", "characteristics": [{ "title": "Características generales", "main": [{ "subtitle": "Marca", "description": "Xiaomi" }, { "subtitle": "Línea", "description": "Redmi" }, { "subtitle": "Modelo", "description": "Note 10 Pro (Global)" }] }, { "title": "Memoria", "main": [{ "subtitle": "Memoria interna", "description": "128 GB" }, { "subtitle": "Memoria RAM", "description": "6 GB" }, { "subtitle": "Con ranura para tarjeta de memoria", "description": "Sí" }, { "subtitle": "Tipos de tarjeta de memoria", "description": "MicroSD" }, { "subtitle": "Capacidad máxima de la tarjeta de memoria", "description": "512 GB" }] }, { "title": "Pantalla", "main": [{ "subtitle": "Tamaño de la pantalla", "description": "6.67''" }, { "subtitle": "Tipo de resolución de la pantalla", "description": "Full HD+" }, { "subtitle": "Resolución de la pantalla", "description": "1080 px x 2400 px" }, { "subtitle": "Tecnología de la pantalla", "description": "AMOLED" }, { "subtitle": "Frecuencia de actualización de la pantalla", "description": "120 Hz" }] }, { "title": "Batería", "main": [{ "subtitle": "Capacidad de la batería", "description": "777" }, { "subtitle": "Con carga rápida", "description": "Sí" }, { "subtitle": "Con carga inalámbrica", "description": "No" }] }, { "title": "Batería", "main": [{ "subtitle": "Resolución de la cámara trasera principal", "description": "777" }, { "subtitle": "Resolución de video de la cámara trasera", "description": "Sí" }, { "subtitle": "Cantidad de cámaras traseras", "description": "4" }, { "subtitle": "Cantidad de cámaras traseras", "description": "1" }] }], "category": 2, "warrantyText": "Recibe el producto que esperabas o te devolvemos tu dinero", "warrantyTime": 6, "paymentMethod": [1, 2], "price": 912000, "descount": 10, "images": ["celular xiaomi nuevo.jpg", "1628605030984.jpg"], "cuotas": "30x $30.400", "color": ["Color"], "envio": 4, "valorDevolucion": 0 }
+[
+  {
+    "id": 1648605986653,
+    "name": "adan",
+    "specifications": " hola",
+    "characteristics": [
+      {
+        "title": "titulo 1",
+        "main": [{ "subtitle": "hola", "description": "desss" }]
+      }
+    ],
+    "category": "1",
+    "warrantyText": "hollalal",
+    "warrantyTime": "5",
+    "paymentMethod": ["1", "3"],
+    "price": "200002",
+    "descount": "2",
+    "images": ["prueba.png"],
+    "cuotas": "30x $30.400",
+    "color": ["Color"],
+    "envio": 4,
+    "valorDevolucion": 0
+  },
+  {
+    "id": 1,
+    "name": "Celular Xiaomi Redmi Note 10",
+    "specifications": "Fotografía profesional en tu bolsillo Descubre infinitas posibilidades para tus fotos con las 4 cámaras principales de tu equipo. Pon a prueba tu creatividad y juega con la iluminación, diferentes planos y efectos para obtener grandes resultados. Experiencia visual increíble Mira tus series y películas favoritas con la mejor definición a través de su pantalla AMOLED de 6.67. Disfruta de colores brillantes y detalles precisos en todos tus contenidos. Capacidad y eficiencia Con su potente procesador y memoria RAM de 6 GB tu equipo alcanzará un alto rendimiento con gran velocidad de transmisión de contenidos y ejecutará múltiples aplicaciones a la vez sin demoras. Desbloqueo facial y dactilar Máxima seguridad para que solo tú puedas acceder al equipo. Podrás elegir entre el sensor de huella dactilar para habilitar el teléfono en un toque, o el reconocimiento facial que permite un desbloqueo hasta un 30% más rápido. Batería de duración superior ¡Desenchúfate! Con la súper batería de 5020 mAh tendrás energía por mucho más tiempo para jugar, ver series o trabajar sin necesidad de realizar recargas.",
+    "characteristics": [
+      {
+        "title": "Características generales",
+        "main": [
+          { "subtitle": "Marca", "description": "Xiaomi" },
+          { "subtitle": "Línea", "description": "Redmi" },
+          { "subtitle": "Modelo", "description": "Note 10 Pro (Global)" }
+        ]
+      },
+      {
+        "title": "Memoria",
+        "main": [
+          { "subtitle": "Memoria interna", "description": "128 GB" },
+          { "subtitle": "Memoria RAM", "description": "6 GB" },
+          {
+            "subtitle": "Con ranura para tarjeta de memoria",
+            "description": "Sí"
+          },
+          {
+            "subtitle": "Tipos de tarjeta de memoria",
+            "description": "MicroSD"
+          },
+          {
+            "subtitle": "Capacidad máxima de la tarjeta de memoria",
+            "description": "512 GB"
+          }
+        ]
+      },
+      {
+        "title": "Pantalla",
+        "main": [
+          { "subtitle": "Tamaño de la pantalla", "description": "6.67''" },
+          {
+            "subtitle": "Tipo de resolución de la pantalla",
+            "description": "Full HD+"
+          },
+          {
+            "subtitle": "Resolución de la pantalla",
+            "description": "1080 px x 2400 px"
+          },
+          { "subtitle": "Tecnología de la pantalla", "description": "AMOLED" },
+          {
+            "subtitle": "Frecuencia de actualización de la pantalla",
+            "description": "120 Hz"
+          }
+        ]
+      },
+      {
+        "title": "Batería",
+        "main": [
+          { "subtitle": "Capacidad de la batería", "description": "777" },
+          { "subtitle": "Con carga rápida", "description": "Sí" },
+          { "subtitle": "Con carga inalámbrica", "description": "No" }
+        ]
+      },
+      {
+        "title": "Batería",
+        "main": [
+          {
+            "subtitle": "Resolución de la cámara trasera principal",
+            "description": "777"
+          },
+          {
+            "subtitle": "Resolución de video de la cámara trasera",
+            "description": "Sí"
+          },
+          { "subtitle": "Cantidad de cámaras traseras", "description": "4" },
+          { "subtitle": "Cantidad de cámaras traseras", "description": "1" }
+        ]
+      }
+    ],
+    "category": 2,
+    "warrantyText": "Recibe el producto que esperabas o te devolvemos tu dinero",
+    "warrantyTime": 6,
+    "paymentMethod": [1, 2],
+    "price": 912000,
+    "descount": 10,
+    "images": ["celular xiaomi nuevo.jpg", "1628605030984.jpg"],
+    "cuotas": "30x $30.400",
+    "color": ["Color"],
+    "envio": 4,
+    "valorDevolucion": 0
+  },
+  {
+    "id": 1648608844852,
+    "name": "ZenBook Pro Duo 15 OLED",
+    "specifications": "Te permite hacer las cosas con estilo: con calma, eficiencia y sin complicaciones. Es su poderoso y elegante compañero de siguiente nivel para la productividad y la creatividad en movimiento",
+    "characteristics": [
+      {
+        "title": "GPU",
+        "main": [{ "subtitle": "GeForce RTX  3080", "description": "" }]
+      }
+    ],
+    "category": "1",
+    "warrantyText": "",
+    "warrantyTime": "",
+    "paymentMethod": "1",
+    "price": "2000000",
+    "descount": "10",
+    "images": ["portatil oferta.jpg"],
+    "cuotas": "30x $30.400",
+    "color": ["Color"],
+    "envio": 4,
+    "valorDevolucion": 0
+  },
+  {
+    "id": 1648609385139,
+    "name": " Imagen 3 de 4 de Apple Macbook Air (13 pulgadas, 2020)",
+    "specifications": "La notebook más delgada y ligera de Apple viene con los superpoderes del chip M1. Termina todos tus proyectos mucho más rápido con el CPU de 8 núcleos y disfruta como nunca antes de apps y juegos con gráficos avanzados gracias al GPU de hasta 8 núcleos",
+    "characteristics": [
+      {
+        "title": "Características generales",
+        "main": [
+          { "subtitle": "Marca", "description": "Apple" },
+          { "subtitle": "Línea", "description": "MacBook Air" },
+          {
+            "subtitle": "Resolución de la pantalla",
+            "description": "2560 px x 1600 px"
+          },
+          { "subtitle": "Tamaño de la pantalla", "description": "13.3" }
+        ]
+      }
+    ],
+    "category": "4",
+    "warrantyText": "",
+    "warrantyTime": "",
+    "paymentMethod": "1",
+    "price": "3500000",
+    "descount": "15",
+    "images": ["portatil.png"],
+    "cuotas": "30x $30.400",
+    "color": ["Color"],
+    "envio": 4,
+    "valorDevolucion": 0
+  },
+  {
+    "id": 1648610014583,
+    "name": "Audífonos inalámbricos Sennheiser HD 4.40BT ",
+    "specifications": " El formato perfecto para ti\r\nEl diseño over-ear genera una comodidad insuperable gracias a sus suaves almohadillas. Al mismo tiempo, su sonido envolvente del más alto nivel se convierte en el protagonista de la escena.",
+    "characteristics": [
+      {
+        "title": "Características generales",
+        "main": [
+          { "subtitle": "Marca", "description": "Sennheiser" },
+          { "subtitle": "Modelo", "description": "HD 4.40BT" },
+          { "subtitle": "Marca", "description": "Sennheiser" }
+        ]
+      },
+      {
+        "title": "Conectividad",
+        "main": [
+          { "subtitle": "Es inalámbrico", "description": "Si" },
+          { "subtitle": "Con Bluetooth", "description": "Si" },
+          { "subtitle": "Alcance inalámbrico", "description": "10 m" }
+        ]
+      }
+    ],
+    "category": "1",
+    "warrantyText": "",
+    "warrantyTime": "",
+    "paymentMethod": ["1", "2", "3"],
+    "price": "400000",
+    "descount": "",
+    "images": ["audifonos.jpg"],
+    "cuotas": "30x $30.400",
+    "color": ["Color"],
+    "envio": 4,
+    "valorDevolucion": 0
+  },
+  {
+    "id": 1648610561287,
+    "name": "Samsung Galaxy S21+ 5G Dual SIM 256 GB phantom black 8 GB RAM",
+    "specifications": " Fotografía profesional en tu bolsillo\r\nDescubre infinitas posibilidades para tus fotos con las 3 cámaras principales de tu equipo. Pon a prueba tu creatividad y juega con la iluminación, diferentes planos y efectos para obtener grandes resultados.",
+    "characteristics": [
+      {
+        "title": "Características generales",
+        "main": [{ "subtitle": "Modelo", "description": "S21+ 5G Dual SIM" },
+            { "subtitle": "Linea", "description": "Galaxy S" }]
+      },
+      {
+        "title": "Cámara",
+        "main": [{ "subtitle": "Resolución de la cámara trasera principal", "description": "64 Mpx" },
+            { "subtitle": "Resolución de video de la cámara trasera", "description": "7680 px x 4320 px" }]
+      },
+      {
+        "title": "Pantalla",
+        "main": [{ "subtitle": "Tamaño de la pantalla", "description": "6.7" },
+            { "subtitle": "Resolución de la pantalla", "description": "1080 px x 2400 px" }]
+      }
+    ],
+    "category": "2",
+    "warrantyText": "",
+    "warrantyTime": "",
+    "paymentMethod": ["1", "2", "3"],
+    "price": "3829000",
+    "descount": "15",
+    "images": ["celular samsumg.jpg"],
+    "cuotas": "30x $30.400",
+    "color": ["Color"],
+    "envio": 4,
+    "valorDevolucion": 0
+  }
 ]
