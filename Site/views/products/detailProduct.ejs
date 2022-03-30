@@ -35,8 +35,8 @@
                         <div class="product-specification">
                             <strong class="product-price-real">$<%= product.price; %> </strong>
                             <div class="product-price-discount">
-                                <strong class="product-price">$ <%= product.descount!=0 ? product.price-(product.price*product.descount/100) : product.price; %></strong>
-                                <strong class="product-discount"><%= product.descount!=0 ? product.descount+"% OFF" : ''; %></strong>
+                                <strong class="product-price">$ <%= product.discount!=0 ? product.price-(product.price*product.discount/100) : product.price; %></strong>
+                                <strong class="product-discount"><%= product.discount!=0 ? product.discount+"% OFF" : ''; %></strong>
                             </div>
 
                             <div class="payment-methods-header">
@@ -51,8 +51,9 @@
                                 </div>
                             </div>
                             <div class="product-delivery">
-                                <p> <i class="fas fa-truck"></i>llega entre
-                                    <%= product.envio %> dias</p>
+                                <p> <i class="fas fa-truck"></i>Envio:
+                                    <%= product.envio!=0 ? "$"+product.envio : 'Gratis'; %>
+                                </p>
                             </div>
                             <div class="product-return">
                                 <p> <i class="fa-solid fa-arrow-rotate-left"></i>Devolucion:

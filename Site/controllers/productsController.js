@@ -4,8 +4,6 @@ const fs = require('fs');
 //Cargar desde el archivo JSON
 let JSONPath = (name) => path.join(__dirname, '../data/' + name);
 let resultReadJSON = (JSONPath) => JSON.parse(fs.readFileSync(JSONPath, 'utf-8'));
-const productsFilePath = path.join(__dirname, '../data/products.json');
-
 
 //Obtener objeto
 let products = resultReadJSON(JSONPath('products.json'));
@@ -39,7 +37,7 @@ const productsController = {
             warrantyTime: body.warrantyTime,
             paymentMethod: body.paymentMethod,
             price: body.price,
-            descount: body.descount,
+            discount: body.discount,
             images: ["prueba.png"],
             cuotas: "30x $30.400",
             color: ["Color"],
@@ -72,6 +70,14 @@ const productsController = {
 
         res.render('products/detailProduct', { product, paymentMethod });
     },
+    edit: (req, res) => {
+
+        let id = req.params.id;
+        let product = products.find(product => product.id == id);
+
+        res.render('products/editProduct', { product, paymentMethod, categoryProduct });
+    },
+
     /* renderiza una lista con todos los productos con los botones editar y eliminar
     listaProductos: (req, res) => {
 		
@@ -83,12 +89,12 @@ const productsController = {
 	},
     */
     // lleva a un formulario donde se confirma que producto se eliminara
-    viewDelete: function (req, res, next) {
-        
+    viewDelete: function(req, res, next) {
+
         let productosGuardados = fs.readFileSync(productsFilePath, 'utf-8');
         let products = [];
 
-        if(productosGuardados != "" && productosGuardados != "[]"){
+        if (productosGuardados != "" && productosGuardados != "[]") {
             products = JSON.parse(productosGuardados);
         }
 
@@ -96,7 +102,7 @@ const productsController = {
     },
 
     //elimina el producto
-    deleteProduct: function (req, res, next) {
+    deleteProduct: function(req, res, next) {
         let productosGuardados = fs.readFileSync(productsFilePath, 'utf-8');
         let products = [];
         if (productosGuardados != "" && productosGuardados != "[]") {
