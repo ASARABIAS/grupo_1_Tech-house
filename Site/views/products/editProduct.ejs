@@ -8,20 +8,20 @@
         <%- include('../partials/header') %>
 
             <main>
-                <section class="photo">
-                    <img src="/images/products/<%= product.images[0] %> " alt="" srcset="">
-                    <div class="collage-photo">
-                        <% let i=0 , enable="enable",disabled="disabled";
-                        product.images.forEach(image => {%>
-                            <img src="/images/products/<%= image %>" alt="" srcset="" class="<%= i++==0 ?enable:disabled; %>">
-                            <%}); %>
-                    </div>
-                    <div class="link-photo">
-                        <i class="fa-solid fa-camera"></i>
-                        <h5>Ingrese una Imagen</h5>
-                    </div>
-                </section>
                 <section class="information">
+                    <div class="photo">
+                        <img src="/images/products/<%= product.images[0] %> " alt="" srcset="">
+                        <div class="collage-photo">
+                            <% let i=0 , enable="enable",disabled="disabled";
+                            product.images.forEach(image => {%>
+                                <img src="/images/products/<%= image %>" alt="" srcset="" class="<%= i++==0 ?enable:disabled; %>">
+                                <%}); %>
+                        </div>
+                        <div class="link-photo">
+                            <i class="fa-solid fa-camera"></i>
+                            <h5>Ingrese una Imagen</h5>
+                        </div>
+                    </div>
                     <div class="information-header">
                         <h3>INFORMACIÓN DEL PRODUCTO</h3>
                     </div>

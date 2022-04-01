@@ -10,37 +10,37 @@ main section {
     padding: 10px;
 }
 
-main section.photo {
+main div.photo {
     width: 45%;
 }
 
-main section.photo img {
+main div.photo img {
     width: 100%;
 }
 
-main section.photo div.collage-photo {
+main div.photo div.collage-photo {
     margin: 10px 0px;
 }
 
-main section.photo div.collage-photo img {
+main div.photo div.collage-photo img {
     width: 80px;
     margin: 0px 5px;
     border-radius: 5px;
 }
 
-main section.photo div.collage-photo img.enable {
+main div.photo div.collage-photo img.enable {
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 
-main section.photo div.collage-photo img.Disabled {
+main div.photo div.collage-photo img.Disabled {
     box-shadow: 0px 0px 0px rgb(100, 100, 100);
 }
 
-section.photo div.link-photo {
+div.photo div.link-photo {
     text-align: center;
 }
 
-section.photo div.link-photo h5 {
+div.photo div.link-photo h5 {
     display: inline;
 }
 
