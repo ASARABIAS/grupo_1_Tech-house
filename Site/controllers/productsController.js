@@ -110,29 +110,18 @@ const productsController = {
     },
     // lleva a un formulario donde se confirma que producto se eliminara
     viewDelete: function(req, res, next) {
-
-        let productosGuardados = fs.readFileSync(productsFilePath, 'utf-8');
-        let products = [];
-
-        if (productosGuardados != "" && productosGuardados != "[]") {
-            products = JSON.parse(productosGuardados);
-        }
-
         res.render('products/delete', { title: 'Eliminar producto', producto: products.find(producto => producto.id == req.params.id) });
     },
 
     //elimina el producto
     deleteProduct: function(req, res, next) {
-        let productosGuardados = fs.readFileSync(productsFilePath, 'utf-8');
-        let products = [];
-        if (productosGuardados != "" && productosGuardados != "[]") {
-            products = JSON.parse(productosGuardados);
-        }
-        let productoEliminado = products.find(producto => producto.id == req.params.id);
-        let index = products.indexOf(productoEliminado);
-        products.splice(index, 1);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products));
-        res.redirect('/');
+        let id = req.params.id;
+        products = products.filter(product => product.id != id);
+
+        let ProductsJSON = JSON.stringify(products);
+        fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
+
+        res.redirect('/products');
     }
 }
 
