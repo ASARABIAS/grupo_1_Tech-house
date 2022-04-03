@@ -81,32 +81,31 @@ const productsController = {
 
         let body = req.body;
         let id = req.params.id;
-        let product = products.find(product => product.id == id);
+        let product = products.find(element => element.id == id);
+        let index = products.indexOf(product);
 
-        res.send(body);
-        console.log(body);
+        products[index] = {
+            id: id,
+            name: body.name,
+            specifications: body.specifications,
+            characteristics: getcharacteristics(body.characteristicsTitle, body.characteristicsContextSubtitle, body.characteristicsContextDescription),
+            category: body.category,
+            warrantyText: body.warrantyText,
+            warrantyTime: body.warrantyTime,
+            paymentMethod: body.paymentMethod,
+            price: body.price,
+            discount: body.discount,
+            images: products[index].images,
+            cuotas: products[index].cuotas,
+            color: products[index].color,
+            envio: products[index].envio,
+            valorDevolucion: products[index].valorDevolucion
+        }
 
-        //product = {
-        //    name: body.name,
-        //    specifications: body.specifications,
-        //    characteristics:getcharacteristics(body),
-        //    category: body.category,
-        //    warrantyText: body.warrantyText,
-        //    warrantyTime: body.warrantyTime,
-        //    paymentMethod: body.paymentMethod,
-        //    price: body.price,
-        //    discount: body.discount,
-        //    images: ["prueba.png"],
-        //    cuotas: "30x $30.400",
-        //    color: ["Color"],
-        //    envio: 4,
-        //    valorDevolucion: 0
-        //}
+        let ProductsJSON = JSON.stringify(products);
 
-        //let ProductsJSON = JSON.stringify(products);
-
-        //fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
-        //res.redirect('/products');
+        fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
+        res.redirect('/products');
     },
     // lleva a un formulario donde se confirma que producto se eliminara
     viewDelete: function(req, res, next) {
@@ -125,14 +124,39 @@ const productsController = {
     }
 }
 
-function getcharacteristics(bodyCharacteristic) {
-    [{
-        title: body.characteristicsTitle,
-        main: [{
-            subtitle: body.characteristicsContextSubtitle,
-            description: body.characteristicsContextDescription
-        }]
-    }]
+function getcharacteristics(title, subtitle, description) {
+    let auxSubtitleValor,
+        auxSubtitlePosicion, k = 0;
+    let aux = [],
+        auxMain = [];
+
+    for (let i = 0; i < title.length; i++) {
+
+        while (k < subtitle.length) {
+
+            auxSubtitleValor = subtitle[k].split('_')[0];
+            auxSubtitlePosicion = subtitle[k].split('_')[1];
+
+            if (auxSubtitlePosicion == i) {
+                auxMain.push({
+                    subtitle: auxSubtitleValor,
+                    description: description[k].split('_')[0]
+                });
+            } else {
+                break;
+            }
+            k++;
+        }
+
+        aux.push({
+            title: title[i],
+            main: auxMain
+
+        });
+        auxMain = [];
+    }
+
+    return aux;
 }
 
 
