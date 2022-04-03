@@ -84,7 +84,7 @@ const productsController = {
 
         products.forEach(product => {
 
-            if (product.id === id) {
+            if (product.id == id) {
 
                 product.name = body.name;
                 product.specifications = body.specifications;
