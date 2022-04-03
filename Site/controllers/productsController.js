@@ -81,28 +81,25 @@ const productsController = {
 
         let body = req.body;
         let id = req.params.id;
-        let product = products.find(element => element.id == id);
-        let index = products.indexOf(product);
 
-        products[index] = {
-            id: id,
-            name: body.name,
-            specifications: body.specifications,
-            characteristics: getcharacteristics(body.characteristicsTitle, body.characteristicsContextSubtitle, body.characteristicsContextDescription),
-            category: body.category,
-            warrantyText: body.warrantyText,
-            warrantyTime: body.warrantyTime,
-            paymentMethod: body.paymentMethod,
-            price: body.price,
-            discount: body.discount,
-            images: products[index].images,
-            cuotas: products[index].cuotas,
-            color: products[index].color,
-            envio: products[index].envio,
-            valorDevolucion: products[index].valorDevolucion
-        }
+        products.forEach(product => {
 
-        let ProductsJSON = JSON.stringify(products);
+            if (product.id === id) {
+
+                product.name = body.name;
+                product.specifications = body.specifications;
+                product.characteristics = getCharacteristics(body);
+                product.category = body.category;
+                product.warrantyText = body.warrantyText;
+                product.warrantyTime = body.warrantyTime;
+                product.paymentMethod = body.paymentMethod;
+                product.price = body.price;
+                product.discount = body.discount;
+            }
+
+        });
+
+        let ProductsJSON = JSON.stringify(products, null, ' ');
 
         fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
         res.redirect('/products');
@@ -117,45 +114,44 @@ const productsController = {
         let id = req.params.id;
         products = products.filter(product => product.id != id);
 
-        let ProductsJSON = JSON.stringify(products);
+        let ProductsJSON = JSON.stringify(products, null, ' ');
         fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
 
         res.redirect('/products');
     }
 }
 
-function getcharacteristics(title, subtitle, description) {
-    let auxSubtitleValor,
-        auxSubtitlePosicion, k = 0;
-    let aux = [],
-        auxMain = [];
-
-    for (let i = 0; i < title.length; i++) {
-
-        while (k < subtitle.length) {
-
-            auxSubtitleValor = subtitle[k].split('_')[0];
-            auxSubtitlePosicion = subtitle[k].split('_')[1];
-
-            if (auxSubtitlePosicion == i) {
-                auxMain.push({
-                    subtitle: auxSubtitleValor,
-                    description: description[k].split('_')[0]
-                });
-            } else {
-                break;
-            }
-            k++;
-        }
+function getCharacteristicsMain(subtitle, description) {
+    let aux = [];
+    for (let i = 0; i < subtitle.length; i++) {
+        const mainSubtitle = subtitle[i];
+        const mainDescription = description[i];
 
         aux.push({
-            title: title[i],
-            main: auxMain
-
+            subtitle: mainSubtitle,
+            description: mainDescription
         });
-        auxMain = [];
     }
+    return aux;
+}
 
+function getCharacteristics(body) {
+
+    let characteristicsTitle = body.characteristicsTitle;
+    let aux = [];
+    for (let i = 0; i < characteristicsTitle.length; i++) {
+        const title = characteristicsTitle[i];
+
+        if (body['characteristicsContextSubtitle_' + i] && body['characteristicsContextDescription_' + i]) {
+            const subtitle = body['characteristicsContextSubtitle_' + i];
+            const description = body['characteristicsContextDescription_' + i];
+
+            aux.push({
+                title: title,
+                main: getCharacteristicsMain(subtitle, description)
+            });
+        }
+    }
     return aux;
 }
 
