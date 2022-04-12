@@ -1,73 +1,88 @@
-[{
-    "id": 1,
-    "name": "Abraham",
-    "lastName": "Sarabia Sereno",
-    "email": "asarabias@unicesa.edu.co",
-    "password": "12345",
-    "country": "Colombia",
-    "Avatar" : "img_1.png"
-},
-{
-    "id": 2,
-    "name": "Pedro",
-    "lastName": "Pérez Muñoz",
-    "email": "pedroperez@hotmail.com",
-    "password": "monito123",
-    "country": "Mexico",
-    "Avatar" : "img_2.png"
-},
-{
-    "id": 3,
-    "name": "Maria Lucia",
-    "lastName": "Hernandez",
-    "email": "maria123@outlook.com",
-    "password": "vivaperu12",
-    "country": "Peru",
-    "Avatar" : "img_3.png"
-},
-{
-    "id": 4,
-    "name": "Juan Manuel",
-    "lastName": "Restrepo",
-    "email": "juan_r@udea.edu.com",
-    "password": "1234567",
-    "country": "Colombia",
-    "Avatar" : "img_4.png"
-},
-{
-    "id": 5,
-    "name": "Jessica",
-    "lastName": "Cardeño",
-    "email": "cardenojessica07@gmail.com",
-    "password": "abcdefg",
-    "country": "Colombia",
-    "Avatar" : "img_5.png" 
-},
-{
-    "id": 6,
-    "name": "Jhon",
-    "lastName": "Dorado",
-    "email": "jhond@yahoo.com",
-    "password": "hola123",
-    "country": "Argentina",
-    "Avatar" : "img_6.png"
-},
-{
-    "id": 7,
-    "name": "Adan",
-    "lastName": "Camacho",
-    "email": "adancamacho1@gmail.com",
-    "password": "chao456",
-    "country": "Chile",
-    "Avatar" : "img_7.png"
-},
-{
-    "id": 8,
-    "name": "Natalia",
-    "lastName": "Londoño",
-    "email": "natalia_londono@dh.com",
-    "password": "xyzabc123",
-    "country": "Brasil",
-    "Avatar" : "img_8.png"
-}
+[
+ {
+  "id": 1,
+  "name": "Abraham",
+  "lastName": "Sarabia Sereno",
+  "email": "asarabias@unicesa.edu.co",
+  "password": "12345",
+  "country": "Colombia",
+  "Avatar": "img_1.png"
+ },
+ {
+  "id": 2,
+  "name": "Pedro",
+  "lastName": "Pérez Muñoz",
+  "email": "pedroperez@hotmail.com",
+  "password": "monito123",
+  "country": "Mexico",
+  "Avatar": "img_2.png"
+ },
+ {
+  "id": 3,
+  "name": "Maria Lucia",
+  "lastName": "Hernandez",
+  "email": "maria123@outlook.com",
+  "password": "vivaperu12",
+  "country": "Peru",
+  "Avatar": "img_3.png"
+ },
+ {
+  "id": 4,
+  "name": "Juan Manuel",
+  "lastName": "Restrepo",
+  "email": "juan_r@udea.edu.com",
+  "password": "1234567",
+  "country": "Colombia",
+  "Avatar": "img_4.png"
+ },
+ {
+  "id": 5,
+  "name": "Jessica",
+  "lastName": "Cardeño",
+  "email": "cardenojessica07@gmail.com",
+  "password": "abcdefg",
+  "country": "Colombia",
+  "Avatar": "img_5.png"
+ },
+ {
+  "id": 6,
+  "name": "Jhon",
+  "lastName": "Dorado",
+  "email": "jhond@yahoo.com",
+  "password": "hola123",
+  "country": "Argentina",
+  "Avatar": "img_6.png"
+ },
+ {
+  "id": 7,
+  "name": "Adan",
+  "lastName": "Camacho",
+  "email": "adancamacho1@gmail.com",
+  "password": "chao456",
+  "country": "Chile",
+  "Avatar": "img_7.png"
+ },
+ {
+  "id": 8,
+  "name": "Natalia",
+  "lastName": "Londoño",
+  "email": "natalia_londono@dh.com",
+  "password": "xyzabc123",
+  "country": "Brasil",
+  "Avatar": "img_8.png"
+ },
+ {
+  "id": 1649794367031,
+  "name": "hola",
+  "lastName": "hola",
+  "email": "hola@gmail.com",
+  "password": "$2a$12$S4g.sOQqzhpa9OvnC7CVxOE7X7zp4Mw3SFVVMAaNALP45ORV4ze8."
+ },
+ {
+  "id": 1649794683308,
+  "name": "prueba",
+  "lastName": "prueba",
+  "email": "prueba@gmail.com",
+  "password": "$2a$12$xU/AZtswQx0DqbnJPidrKeZ8wdhR3tS1OlBVpsP6gdlgvHEZXG3fu"
+ }
 ]

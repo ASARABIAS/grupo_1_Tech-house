@@ -1,5 +1,7 @@
 const path = require('path');
 const fs = require('fs');
+const bcryptjs = require('bcryptjs');
+
 
 //Cargar desde el archivo JSON
 let JSONPath = (name) => path.join(__dirname, '../data/' + name);
@@ -27,6 +29,26 @@ const usersController = {
     registro: (req, res) => {
         res.render('users/register');
     },
+    createUser: function(req, res) {
+        let body = req.body
+        let newUser = {
+          id: Date.now(),
+          name: body.name,
+          lastName: body.lastName,
+          email: body.email,
+          password: bcryptjs.hashSync(body.password, 12),
+          country: body.country,
+          Avatar: body.avatar,
+        }
+
+        users.push(newUser);
+
+        let usersJSON = JSON.stringify(users, null, ' ');
+
+        fs.writeFileSync(JSONPath('users.json'), usersJSON);
+        res.redirect('/');
+    }
+
 }
 
 module.exports = usersController;
