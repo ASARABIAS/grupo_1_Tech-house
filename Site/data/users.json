@@ -84,5 +84,13 @@
   "lastName": "prueba",
   "email": "prueba@gmail.com",
   "password": "$2a$12$xU/AZtswQx0DqbnJPidrKeZ8wdhR3tS1OlBVpsP6gdlgvHEZXG3fu"
+ },
+ {
+  "id": 1650041454174,
+  "name": "prueba 2",
+  "lastName": "prueba 2",
+  "email": "faaaa@gmail.com",
+  "password": "$2a$12$GIdg0efWKmWvlF296Re9IOeZrVLa1p3Gsxm9Ty.xpNnvPV4xbJDr2",
+  "country": "Colombia"
  }
 ]
