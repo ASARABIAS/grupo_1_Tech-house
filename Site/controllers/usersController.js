@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const {validationResult} = require('express-validator');
 const bcryptjs = require('bcryptjs');
 
 
@@ -15,19 +16,17 @@ const usersController = {
         res.render('users/login');
     },
     check: (req, res) => {
-        let body = req.body;
-
-        let user = users.find(user => user.email === body.user && user.password === body.password);
-
-        if (user) {
-            res.redirect('/');
-        } else {
-            res.redirect('/users/login');
-        }
-
+        const errors = validationResult(req);
+        if(errors.isEmpty()){ 
+            let usuarioLogueado = users.find(usuario => usuario.email == req.body.email);
+            req.session.usuario = usuarioLogueado; 
+            res.redirect('/');     
+        }else{
+            res.render('users/login', {errors:errors.mapped()});
+        }      
     },
     registro: (req, res) => {
-        res.render('users/register');
+        res.render('users/register'); 
     },
     createUser: function(req, res) {
         let body = req.body
@@ -47,6 +46,10 @@ const usersController = {
 
         fs.writeFileSync(JSONPath('users.json'), usersJSON);
         res.redirect('/');
+    },
+    logout: function(req,res){
+        req.session.destroy();
+        res.redirect('/')
     }
 
 }
