@@ -92,5 +92,13 @@
   "email": "faaaa@gmail.com",
   "password": "$2a$12$GIdg0efWKmWvlF296Re9IOeZrVLa1p3Gsxm9Ty.xpNnvPV4xbJDr2",
   "country": "Colombia"
+ },
+ {
+  "id": 1650072815102,
+  "name": "Mario",
+  "lastName": "Baracus",
+  "email": "mariobarac@gmail.com",
+  "password": "$2a$12$8kRnsfv.WPDY7khQBD99FeFA4SsZpbaYu.Mr6pd5QH8Rvqx0iF5QW",
+  "country": "Colombia"
  }
 ]
