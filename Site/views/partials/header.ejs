@@ -32,12 +32,19 @@
         </form>
     </div>
     <nav>
+        
+        <ul class="user">
+            <li>
+                <% if(locals.usuario) { %>
+                    Hola <%= locals.usuario.name %> <%= locals.usuario.lastName %>
+                <% } %>
+            </li>
+        </ul>       
         <ul>
             <li><a href="/">Inicio</a> </li>
             <li><a href="">Ofertas</a></li>
             <li><a href="">Tiendas</a></li>
             <li><a href="">Quienes Somos</a></li>
         </ul>
-        </div>
     </nav>
 </header>

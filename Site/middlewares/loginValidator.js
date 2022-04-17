@@ -17,7 +17,7 @@ const loginValidations = [
             }
         }
         return false
-      }).withMessage('Usuario no se encuentra registrado...'),
+      }).withMessage('Usuario no se encuentra registrado'),
     
       //Aquí valido si la contraseña colocada es la misma a la que tenemos hasheada
       body('password').custom( (value, {req}) =>{
@@ -31,7 +31,7 @@ const loginValidations = [
               }
           }
           
-      }).withMessage('Usurio o contraseña no coinciden')
+      }).withMessage('Usuario o contraseña no coinciden')
 ]
 
 module.exports = loginValidations;
