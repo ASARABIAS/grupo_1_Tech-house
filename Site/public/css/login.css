@@ -16,6 +16,16 @@ main {
     position: relative;
 }
 
+.main-input{
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+span.text-error{
+    color: var(--Red);
+    font-size: 14px;
+}
+
 .login h2 {
     margin-top: 10px;
 }
@@ -61,6 +71,7 @@ div.mainlogin {
 
 .login .button-submit {
     text-align: center;
+    margin-top: 15px;
 }
 
 .login .button-submit button {

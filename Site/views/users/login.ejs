@@ -16,7 +16,7 @@
                             <input type="text" name="email" id="email">
                         </div>
                         <% if(typeof(errors) != 'undefined' && errors.email){%>
-                            <span class="text-danger">
+                            <span class="text-error">
                               <%= errors.email.msg %>
                             </span>
                          <%}%>
@@ -26,7 +26,7 @@
                             <input type="password" name="password" id="password">
                         </div>
                         <% if(typeof(errors) != 'undefined' && errors.password){%>
-                            <span class="text-danger">
+                            <span class="text-error">
                               <%= errors.password.msg %>
                             </span>
                          <%}%>

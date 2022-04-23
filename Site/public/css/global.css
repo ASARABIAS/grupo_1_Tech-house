@@ -105,7 +105,7 @@ div.top-header form button[type="submit"] i {
 
 header nav {
     display: none;
-    justify-content: end;
+    justify-content: space-between;
 }
 
 header nav ul li {
@@ -115,6 +115,12 @@ header nav ul li {
 
 header nav ul li:nth-child(4) {
     margin-right: 0px;
+}
+
+header nav ul.user{
+    color: var(--Purple);
+    font-size: 14px;
+    font-weight: bold; 
 }
 
 main {
@@ -172,6 +178,9 @@ footer {
     header nav {
         display: flex;
     }
+    header nav ul.user{ 
+        margin-left: 1%;
+    }
     .credito,
     .envio,
     .contactos,
@@ -189,4 +198,8 @@ footer {
     }
 }
 
-@media(min-width:769px) {}
+@media(min-width:769px) {
+    header nav ul.user{ 
+        margin-left: 32%;
+    }
+}
