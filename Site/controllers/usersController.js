@@ -12,6 +12,11 @@ let resultReadJSON = (JSONPath) => JSON.parse(fs.readFileSync(JSONPath, 'utf-8')
 let users = resultReadJSON(JSONPath('users.json'));
 
 const usersController = {
+    home:(req, res) =>{
+        res.render("/", {
+            users: req.session.usuario
+        })
+    },
     login: (req, res) => {
         res.render('users/login');
     },

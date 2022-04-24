@@ -100,5 +100,13 @@
   "email": "mariobarac@gmail.com",
   "password": "$2a$12$8kRnsfv.WPDY7khQBD99FeFA4SsZpbaYu.Mr6pd5QH8Rvqx0iF5QW",
   "country": "Colombia"
+ },
+ {
+  "id": 1650781391881,
+  "name": "Natalia Londoño Roldán",
+  "lastName": "Roman",
+  "email": "santigo22@hotmail.com",
+  "password": "$2a$12$r5Y947mejbGVEgyAMf6aIO/.7XnZDIdZot.NG60G8tcFoN6csiYGa",
+  "country": "Colombia"
  }
 ]
