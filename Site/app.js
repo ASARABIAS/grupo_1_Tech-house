@@ -5,6 +5,7 @@ const app = express();
 const path = require("path");
 const methodOverride = require('method-override');
 const logMiddleware = require("./middlewares/loggedUser");
+const cookies = require("cookie-parser");
 
 const mainRouter = require("./routes/main");
 const productsRouter = require("./routes/products");
@@ -22,6 +23,7 @@ app.use(session({
 
 app.set("view engine", "ejs");
 app.use(methodOverride('_method'));
+app.use(cookies());
 
 //archivos Json para post
 app.use(express.urlencoded({ extended: false }));

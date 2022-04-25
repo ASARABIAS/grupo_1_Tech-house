@@ -108,5 +108,13 @@
   "email": "santigo22@hotmail.com",
   "password": "$2a$12$r5Y947mejbGVEgyAMf6aIO/.7XnZDIdZot.NG60G8tcFoN6csiYGa",
   "country": "Colombia"
+ },
+ {
+  "id": 1650924478490,
+  "name": "camilo",
+  "lastName": "zandoval",
+  "email": "camilo22@gmail.com",
+  "password": "$2a$12$8JHWPWfMnkGK9NWseOoCRukAwSqEg5S/AwDbRG0r7CGQKP6u.PTS6",
+  "country": "Colombia"
  }
 ]
