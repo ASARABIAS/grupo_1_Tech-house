@@ -35,9 +35,6 @@ const usersController = {
     },
     register: (req, res) => {
         res.render('users/register');
-        res.render('users/register');
-
-
     },
     store: (req, res) => {
 
@@ -59,6 +56,9 @@ const usersController = {
         let usersJSON = JSON.stringify(users, null, ' ');
 
         fs.writeFileSync(JSONPath('users.json'), usersJSON);
+
+        req.session.usuario = newUser;
+
         res.redirect('/');
     },
     logout: (req, res) => {
