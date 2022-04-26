@@ -116,5 +116,13 @@
   "email": "camilo22@gmail.com",
   "password": "$2a$12$8JHWPWfMnkGK9NWseOoCRukAwSqEg5S/AwDbRG0r7CGQKP6u.PTS6",
   "country": "Colombia"
+ },
+ {
+  "id": 1650958182932,
+  "name": "snowden",
+  "lastName": "user",
+  "email": "snowden2202@hotmail.com",
+  "password": "$2a$12$v2cl712qBuOBIQEmYbhLfOoYHddGh0Ez/2qyiI9lVsDnzKHYDGwKy",
+  "country": "colombia"
  }
 ]

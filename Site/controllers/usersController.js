@@ -25,12 +25,17 @@ const usersController = {
         if(errors.isEmpty()){ 
             let usuarioLogueado = users.find(usuario => usuario.email == req.body.email);
             req.session.usuario = usuarioLogueado; 
+
+            if (req.body.remember_user){
+                res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60 )* 5})
+            }
             res.redirect('/');     
         }else{
             res.render('users/login', {errors:errors.mapped()});
         }      
     },
     registro: (req, res) => {
+        console.log(req.cookies.userEmail);
         res.render('users/register'); 
     },
     createUser: function(req, res) {
@@ -53,6 +58,7 @@ const usersController = {
         res.redirect('/');
     },
     logout: function(req,res){
+        res.clearCookie("userEmail");
         req.session.destroy();
         res.redirect('/')
     }
