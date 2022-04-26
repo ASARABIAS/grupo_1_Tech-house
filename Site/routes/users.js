@@ -7,6 +7,8 @@ const multer = require('multer');
 const usersController = require('../controllers/usersController.js');
 
 const loginValidations = require("../middlewares/loginValidator");
+const userLoggedIn = require("../middlewares/userLoggedIn");
+const userNotLogged = require("../middlewares/userNotLogged");
 
 router.get("/login", usersController.login);
 router.post("/login", loginValidations, usersController.check);
@@ -26,4 +28,9 @@ var upload = multer({ storage })
 router.post("/register", upload.single('avatar'), usersController.store);
 router.get("/logout", usersController.logout);
 
+//router.get("/register",userLoggedIn, usersController.registro);
+//router.get("/logout", usersController.logout);
+//router.get("/", userNotLogged, usersController.home);   
+//crear usuario
+//srouter.post("/create", usersController.createUser);
 module.exports = router;
