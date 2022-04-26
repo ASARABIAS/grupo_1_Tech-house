@@ -26,16 +26,16 @@ const usersController = {
             let usuarioLogueado = users.find(usuario => usuario.email == req.body.email);
             req.session.usuario = usuarioLogueado; 
 
-            if (req.body.remember_user){
-                res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60 )* 1})
+            if (req.body.recordar_usuario){
+                res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60 )* 60}) //tiempo de la cookie
             }
-            res.redirect('/');     
+             return res.redirect('/');     
         }else{
-            res.render('users/login', {errors:errors.mapped()});
+             return res.render('users/login', {errors:errors.mapped()});
         }      
     },
     registro: (req, res) => {
-        console.log(req.cookies.userEmail);
+        console.log(req.cookies.userEmail); // imprime en consola el email introducido por el usuario
         res.render('users/register'); 
     },
     createUser: function(req, res) {
@@ -57,7 +57,14 @@ const usersController = {
         fs.writeFileSync(JSONPath('users.json'), usersJSON);
         res.redirect('/');
     },
-    logout: function(req,res){
+
+    profile: (req, res) => {
+		res.render('users/userProfile',{
+			user: req.session.userLogged,
+		});
+	},
+    
+    logout: function(req,res){  //Destruye la cookie al salir de la cuenta de usario
         res.clearCookie("userEmail");
         req.session.destroy();
         res.redirect('/')

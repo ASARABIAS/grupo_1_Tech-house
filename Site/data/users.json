@@ -124,5 +124,13 @@
   "email": "snowden2202@hotmail.com",
   "password": "$2a$12$v2cl712qBuOBIQEmYbhLfOoYHddGh0Ez/2qyiI9lVsDnzKHYDGwKy",
   "country": "colombia"
+ },
+ {
+  "id": 1651008233295,
+  "name": "snowden",
+  "lastName": "user",
+  "email": "snowden2202@hotmail.com",
+  "password": "$2a$12$qGWdO2gCjVA6okD.TJTHfeaXWGsCATZc0y8wwtl6KNQdyfV7FBdku",
+  "country": "colombia"
  }
 ]
