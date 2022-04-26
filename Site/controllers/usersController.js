@@ -27,6 +27,28 @@ const usersController = {
     registro: (req, res) => {
         res.render('users/register');
     },
+    store: (req, res) => {
+
+        let body = req.body;
+        let file = req.file;
+
+        let newUser = {
+            id: Date.now(),
+            name: body.name,
+            lastName: body.lastName,
+            email: body.email,
+            password: body.password,
+            country: body.country,
+            Avatar: file.filename
+        }
+
+        users.push(newUser);
+
+        let usersJSON = JSON.stringify(users, null, ' ');
+
+        fs.writeFileSync(JSONPath('users.json'), usersJSON);
+        res.redirect('/');
+    }
 }
 
 module.exports = usersController;
