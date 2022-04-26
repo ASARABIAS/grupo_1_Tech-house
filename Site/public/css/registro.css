@@ -20,7 +20,7 @@ div.registro-logo img {
     display: block;
     text-align: center;
     background-color: #E8E8E8;
-    width: 70%;
+    width: 100%;
     margin: auto;
     border-radius: 10px;
 }
@@ -42,7 +42,7 @@ div.photo img {
     padding: 0px;
     width: 80%;
     margin: auto;
-    margin-top: 10px;
+    margin-top: 6px;
     padding-top: 5px;
     background-color: #E8E8E8;
     text-align: center;
@@ -118,6 +118,7 @@ input.btn-changer {
         div.registro-logo img {
             width: 563px;
         }
+<<<<<<< HEAD
         .registro form {
             width: 50%
         }
@@ -125,4 +126,21 @@ input.btn-changer {
             padding-top: 10px;
         }
     }
+=======
+    input.registro-contraseña{
+            font-size: 14px;
+            }
+    
+
+@media(min-width:769px) {
+    div.registro-logo img{
+        width:563px;}
+    .registro form{
+        width:50%}
+    .registro form input{
+            padding-top: 10px;}
+   
+                              
+}
+>>>>>>> 62afc7b4f5d8f530f4869d472ac3ad24a076996e
 }
