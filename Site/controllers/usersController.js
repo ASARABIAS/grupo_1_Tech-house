@@ -12,7 +12,7 @@ let resultReadJSON = (JSONPath) => JSON.parse(fs.readFileSync(JSONPath, 'utf-8')
 let users = resultReadJSON(JSONPath('users.json'));
 
 const usersController = {
-    home:(req, res) =>{
+    home: (req, res) => {
         res.render("/", {
             users: req.session.usuario
         })
@@ -25,6 +25,9 @@ const usersController = {
         if (errors.isEmpty()) {
             let usuarioLogueado = users.find(usuario => usuario.email == req.body.email);
             req.session.usuario = usuarioLogueado;
+            if (req.body.recordar_usuario) {
+                res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 60 })
+            }
             res.redirect('/');
         } else {
             res.render('users/login', { errors: errors.mapped() });
@@ -32,6 +35,9 @@ const usersController = {
     },
     register: (req, res) => {
         res.render('users/register');
+        res.render('users/register');
+
+
     },
     store: (req, res) => {
 
@@ -55,11 +61,11 @@ const usersController = {
         fs.writeFileSync(JSONPath('users.json'), usersJSON);
         res.redirect('/');
     },
-    logout: function(req, res) {
+    logout: (req, res) => {
+        res.clearCookie("userEmail");
         req.session.destroy();
         res.redirect('/')
-    }
-
+    },
 }
 
 module.exports = usersController;
