@@ -88,5 +88,14 @@
   "password": "$2a$12$w3aC10y0VoTjL/4AowZObOykVkYD0ZDeYoKnt8T1NAqtIXg8LjGnS",
   "country": "Colombia",
   "Avatar": "avatar-1651008286869.jpg"
+ },
+ {
+  "id": 1651011671971,
+  "name": "snowden",
+  "lastName": "user",
+  "email": "snowden2202@hotmail.com",
+  "password": "$2a$12$UQqCtFSJHcp2sQ5Gn91LvOk0rCyeCuzDdd6rCRReo1AnyR3IMqERO",
+  "country": "Colombia",
+  "Avatar": "avatar-1651011671948.jpg"
  }
 ]
