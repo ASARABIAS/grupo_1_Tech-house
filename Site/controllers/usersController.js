@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const {validationResult} = require('express-validator');
+const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs');
 
 
@@ -12,7 +12,7 @@ let resultReadJSON = (JSONPath) => JSON.parse(fs.readFileSync(JSONPath, 'utf-8')
 let users = resultReadJSON(JSONPath('users.json'));
 
 const usersController = {
-    home:(req, res) =>{
+    home: (req, res) => {
         res.render("/", {
             users: req.session.usuario
         })
@@ -22,32 +22,33 @@ const usersController = {
     },
     check: (req, res) => {
         const errors = validationResult(req);
-        if(errors.isEmpty()){ 
+        if (errors.isEmpty()) {
             let usuarioLogueado = users.find(usuario => usuario.email == req.body.email);
-            req.session.usuario = usuarioLogueado; 
-
-            if (req.body.recordar_usuario){
-                res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60 )* 60}) //tiempo de la cookie
+            req.session.usuario = usuarioLogueado;
+            if (req.body.recordar_usuario) {
+                res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 60 })
             }
-             return res.redirect('/');     
-        }else{
-             return res.render('users/login', {errors:errors.mapped()});
-        }      
+            res.redirect('/');
+        } else {
+            res.render('users/login', { errors: errors.mapped() });
+        }
     },
-    registro: (req, res) => {
-        console.log(req.cookies.userEmail); // imprime en consola el email introducido por el usuario
-        res.render('users/register'); 
+    register: (req, res) => {
+        res.render('users/register');
     },
-    createUser: function(req, res) {
-        let body = req.body
+    store: (req, res) => {
+
+        let body = req.body;
+        let file = req.file;
+
         let newUser = {
-          id: Date.now(),
-          name: body.name,
-          lastName: body.lastName,
-          email: body.email,
-          password: bcryptjs.hashSync(body.password, 12),
-          country: body.country,
-          Avatar: body.avatar,
+            id: Date.now(),
+            name: body.name,
+            lastName: body.lastName,
+            email: body.email,
+            password: bcryptjs.hashSync(body.password, 12),
+            country: body.country,
+            Avatar: file.filename
         }
 
         users.push(newUser);
@@ -55,21 +56,20 @@ const usersController = {
         let usersJSON = JSON.stringify(users, null, ' ');
 
         fs.writeFileSync(JSONPath('users.json'), usersJSON);
+
+        req.session.usuario = newUser;
+
         res.redirect('/');
     },
-
-    profile: (req, res) => {
-		res.render('users/userProfile',{
-			user: req.session.userLogged,
-		});
-	},
-    
-    logout: function(req,res){  //Destruye la cookie al salir de la cuenta de usario
+    logout: (req, res) => {
         res.clearCookie("userEmail");
         req.session.destroy();
         res.redirect('/')
+    },
+    profile: (req, res) => {
+        const user = req.session.usuario;
+        res.render('users/profile', { user });
     }
-
 }
 
 module.exports = usersController;
