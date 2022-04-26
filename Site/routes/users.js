@@ -11,8 +11,7 @@ const loginValidations = require("../middlewares/loginValidator");
 router.get("/login", usersController.login);
 router.post("/login", loginValidations, usersController.check);
 
-router.get("/register", usersController.registro);
-<<<<<<< HEAD
+router.get("/register", usersController.register);
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -25,9 +24,6 @@ var storage = multer.diskStorage({
 var upload = multer({ storage })
 
 router.post("/register", upload.single('avatar'), usersController.store);
-=======
 router.get("/logout", usersController.logout);
-//crear usuario
-router.post("/create", usersController.createUser);
->>>>>>> 62afc7b4f5d8f530f4869d472ac3ad24a076996e
+
 module.exports = router;

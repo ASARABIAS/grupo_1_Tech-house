@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const {validationResult} = require('express-validator');
+const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs');
 
 
@@ -17,38 +17,15 @@ const usersController = {
     },
     check: (req, res) => {
         const errors = validationResult(req);
-        if(errors.isEmpty()){ 
+        if (errors.isEmpty()) {
             let usuarioLogueado = users.find(usuario => usuario.email == req.body.email);
-            req.session.usuario = usuarioLogueado; 
-            res.redirect('/');     
-        }else{
-            res.render('users/login', {errors:errors.mapped()});
-        }      
-    },
-    registro: (req, res) => {
-        res.render('users/register'); 
-    },
-    createUser: function(req, res) {
-        let body = req.body
-        let newUser = {
-          id: Date.now(),
-          name: body.name,
-          lastName: body.lastName,
-          email: body.email,
-          password: bcryptjs.hashSync(body.password, 12),
-          country: body.country,
-          Avatar: body.avatar,
+            req.session.usuario = usuarioLogueado;
+            res.redirect('/');
+        } else {
+            res.render('users/login', { errors: errors.mapped() });
         }
-
-        users.push(newUser);
-
-        let usersJSON = JSON.stringify(users, null, ' ');
-
-        fs.writeFileSync(JSONPath('users.json'), usersJSON);
-        res.redirect('/');
     },
-<<<<<<< HEAD
-    registro: (req, res) => {
+    register: (req, res) => {
         res.render('users/register');
     },
     store: (req, res) => {
@@ -61,7 +38,7 @@ const usersController = {
             name: body.name,
             lastName: body.lastName,
             email: body.email,
-            password: body.password,
+            password: bcryptjs.hashSync(body.password, 12),
             country: body.country,
             Avatar: file.filename
         }
@@ -72,14 +49,12 @@ const usersController = {
 
         fs.writeFileSync(JSONPath('users.json'), usersJSON);
         res.redirect('/');
-    }
-=======
-    logout: function(req,res){
+    },
+    logout: function(req, res) {
         req.session.destroy();
         res.redirect('/')
     }
 
->>>>>>> 62afc7b4f5d8f530f4869d472ac3ad24a076996e
 }
 
 module.exports = usersController;
