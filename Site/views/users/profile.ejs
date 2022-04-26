@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head', {title:"Registro", namePage:"registro"}) %>
+<%- include('../partials/head', {title:"Registro", namePage:"profile"}) %>
 
     <body>
         <%- include('../partials/header') %>
 
             <main class="registro">
                 <form action="/users/register" method="POST" enctype="multipart/form-data">
-                    <h1>Crear cuenta </h1>
+                    <h1>
+                        <%- user.name+' '+user.lastName %>
+                    </h1>
                     <div class="photo">
-                        <img src="/images/logo.png" alt="">
+                        <img src="/images/users/<%- user.Avatar %>" alt="">
                     </div>
                     <input type="file" name="avatar" class="btn-changer">
                     <label for="name">Tu nombre</label>
-                    <input class="registro-nombre" type="text" id="name" name="name" required/>
+                    <input class="registro-nombre" type="text" id="name" name="name" value="<%- user.name %> " />
 
                     <label for="lastName">Tu apellido</label>
                     <input class="registroApellido" type="text" id="lastName" name="lastName" required/>

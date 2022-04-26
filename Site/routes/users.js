@@ -33,4 +33,6 @@ router.get("/logout", usersController.logout);
 //router.get("/", userNotLogged, usersController.home);   
 //crear usuario
 //srouter.post("/create", usersController.createUser);
+
+router.get("/profile", usersController.profile)
 module.exports = router;

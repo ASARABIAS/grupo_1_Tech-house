@@ -10,16 +10,16 @@
             <div class="love-cart">
                 <a href="#"><i class="fa-solid fa-heart"></i></a>
             </div>
-            <% if(locals.usuario) { %> 
+            <% if(locals.usuario) { %>
                 <div class="user-cart">
-                    <a class="nav-link" href="/users/logout">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                    <a class="nav-link" href="/users/profile">Perfil<i class="fas fa-sign-out-alt"></i></a>
                 </div>
-            <% } else { %> 
-                <div class="user-cart">
-                    <a href="/users/login"><i class="fa-solid fa-user"></i></a>
-                </div>  
-            <%}%>    
-            
+                <% } else { %>
+                    <div class="user-cart">
+                        <a href="/users/login"><i class="fa-solid fa-user"></i></a>
+                    </div>
+                    <%}%>
+
         </div>
         <div class="burger-menu">
             <div>
@@ -32,14 +32,16 @@
         </form>
     </div>
     <nav>
-        
+
         <ul class="user">
             <li>
                 <% if(locals.usuario) { %>
-                    Hola <%= locals.usuario.name %> <%= locals.usuario.lastName %>
-                <% } %>
+                    Hola
+                    <%= locals.usuario.name %>
+                        <%= locals.usuario.lastName %>
+                            <% } %>
             </li>
-        </ul>       
+        </ul>
         <ul>
             <li><a href="/">Inicio</a> </li>
             <li><a href="">Ofertas</a></li>

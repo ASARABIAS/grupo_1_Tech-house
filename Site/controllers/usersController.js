@@ -66,6 +66,10 @@ const usersController = {
         req.session.destroy();
         res.redirect('/')
     },
+    profile: (req, res) => {
+        const user = req.session.usuario;
+        res.render('users/profile', { user });
+    }
 }
 
 module.exports = usersController;

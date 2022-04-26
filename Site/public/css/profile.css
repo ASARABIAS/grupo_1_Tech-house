@@ -1,0 +1,146 @@
+@import url("global.css");
+.registro h1 {
+    padding-top: 10px;
+}
+
+main.registro {
+    margin-top: 10px;
+}
+
+div.registro-logo img {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.registro form {
+    display: block;
+    text-align: center;
+    background-color: #E8E8E8;
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+div.photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10%;
+}
+
+div.photo img {
+    max-width: 90%;
+    border-radius: 50%;
+}
+
+.registro form label {
+    display: block;
+    padding: 0px;
+    width: 80%;
+    margin: auto;
+    margin-top: 6px;
+    padding-top: 5px;
+    background-color: #E8E8E8;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.registro form input {
+    display: block;
+    padding: 0px;
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    padding-top: 5px;
+    background-color: white;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+input.registro-contraseña {
+    font-size: 11px;
+}
+
+input {
+    background-color: white;
+}
+
+.registro form label {
+    border: 1px solid #E8E8E8;
+}
+
+.registro form .crear-cuenta {
+    display: block;
+    margin: auto;
+    width: 60%;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: #333A56;
+    color: #E8E8E8;
+    font-weight: 700;
+    text-align: center;
+}
+
+.goto-login {
+    display: block;
+    padding: 10px 18px;
+    width: 70%;
+    margin: auto;
+    margin-top: 0px;
+    background-color: #E8E8E8;
+    text-align: center;
+}
+
+main.registro {
+    background-color: var(--Light-blue);
+}
+
+input.btn-changer {
+    border: none !important;
+    background-color: transparent !important;
+    border-radius: 0px !important;
+}
+
+@media(min-width:481px) {
+    input {
+        font-size: 14px;
+    }
+    input.registro-contraseña {
+        font-size: 14px;
+    }
+    @media(min-width:769px) {
+        div.registro-logo img {
+            width: 563px;
+        }
+<<<<<<< HEAD
+        .registro form {
+            width: 50%
+        }
+        .registro form input {
+            padding-top: 10px;
+        }
+    }
+=======
+    input.registro-contraseña{
+            font-size: 14px;
+            }
+    
+
+@media(min-width:769px) {
+    div.registro-logo img{
+        width:563px;}
+    .registro form{
+        width:50%}
+    .registro form input{
+            padding-top: 10px;}
+   
+                              
+}
+>>>>>>> 62afc7b4f5d8f530f4869d472ac3ad24a076996e
+}
