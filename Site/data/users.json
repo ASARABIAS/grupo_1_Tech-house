@@ -90,12 +90,75 @@
   "Avatar": "avatar-1651008286869.jpg"
  },
  {
-  "id": 1651011671971,
+  "id": 1651016983242,
+  "name": "Jhon",
+  "lastName": "Pere",
+  "email": "hola@gmail.com",
+  "password": "$2a$12$HsjVtNDtQK4h6oIHxx5ePuYv/H9eZE1eVel/mJkj5DJGKK3LpWdDG",
+  "country": "Colombia",
+  "Avatar": "avatar-1651016983219.jpg"
+ },
+ {
+  "id": 1651018134916,
+  "name": "adan",
+  "lastName": "hola",
+  "email": "mundo@gmail.com",
+  "password": "$2a$12$Akd6j4DARy/rl0M5jKrYoOljdHMzhMtmDCqwJHAOme/Onl1qm5iH.",
+  "country": "Colombia",
+  "Avatar": "logo.png"
+ },
+ {
+  "id": 1651020862750,
+  "name": "Jhon-2",
+  "lastName": "Peres",
+  "email": "hola@gmail.com",
+  "password": "$2a$12$DeRrFcLhmyG7LHutHvGcA.Ct08rpr1AhCLzvYvhqVb1tFMPnSKhey",
+  "country": "Colombia",
+  "Avatar": "avatar-1651020862716.jpg"
+ },
+ {
+  "id": 1651022492026,
+  "name": "Leydis",
+  "lastName": "Sereno",
+  "email": "parcelamorenaza@gmail.com",
+  "password": "$2a$12$Ls2qrro1m17nZewPQ.YGB.M1AQ7Dh5.R5W7AFEJWq6wbyafBAHXHW",
+  "country": "Colombia",
+  "Avatar": "avatar-1651022491994.jpg"
+ },
+ {
+  "id": 1651022591402,
+  "name": "Jhon-22",
+  "lastName": "Peres",
+  "email": "hola2@gmail.com",
+  "password": "$2a$12$BmBiN22GNzgQhaom.JVqtOdrJPokHUajNDSX.VAjSIetmhNGesBAS",
+  "country": "Colombia",
+  "Avatar": "avatar-1651022591363.jpg"
+ },
+ {
+  "id": 1651022633197,
+  "name": "Jhon-22",
+  "lastName": "Peres",
+  "email": "hola2@gmail.com",
+  "password": "$2a$12$tLMjySM6yfBosATMyQzcCOfdhfB4pwDX5brnNpPjDz9piqXFwB.5y",
+  "country": "Colombia",
+  "Avatar": "avatar-1651022633163.jpg"
+ },
+ {
+  "id": 1651022684520,
+  "name": "Jhon-22",
+  "lastName": "Peres",
+  "email": "hola2@gmail.com",
+  "password": "$2a$12$JeX3JSsg11alOsXVpoDB9.P7ZSAExOfe5SUwEjalrOt4YVHfQ4k3e",
+  "country": "Colombia",
+  "Avatar": "avatar-1651022684495.jpg"
+ },
+ {
+  "id": 1651029232299,
   "name": "snowden",
   "lastName": "user",
   "email": "snowden2202@hotmail.com",
-  "password": "$2a$12$UQqCtFSJHcp2sQ5Gn91LvOk0rCyeCuzDdd6rCRReo1AnyR3IMqERO",
+  "password": "$2a$12$mdMJjeA1No.DCtHbICp4X.LwIFrrci1J3PSDwVQUYoWzZvi6lfr4y",
   "country": "Colombia",
-  "Avatar": "avatar-1651011671948.jpg"
+  "Avatar": "logo.png"
  }
 ]

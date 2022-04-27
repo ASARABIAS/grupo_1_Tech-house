@@ -48,7 +48,7 @@ const usersController = {
             email: body.email,
             password: bcryptjs.hashSync(body.password, 12),
             country: body.country,
-            Avatar: file.filename
+            Avatar: !file ? "logo.png" : file.filename
         }
 
         users.push(newUser);
@@ -57,9 +57,7 @@ const usersController = {
 
         fs.writeFileSync(JSONPath('users.json'), usersJSON);
 
-        req.session.usuario = newUser;
-
-        res.redirect('/');
+        res.redirect('login');
     },
     logout: (req, res) => {
         res.clearCookie("userEmail");
@@ -76,7 +74,11 @@ const usersController = {
         let users = resultReadJSON(JSONPath('users.json'));
         let userToEdit = users[userToEdit];
         res.render("userEdit", {userToEdit:userToEdit});
-    }
+    },
+
+    preferences: (req, res) => {
+        res.send("Favoritos en desarrollo");
+    }    
 }
 
 module.exports = usersController;

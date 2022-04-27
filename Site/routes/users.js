@@ -32,12 +32,7 @@ var upload = multer({ storage })
 
 router.post("/register", upload.single('avatar'), usersController.store);
 router.get("/logout", usersController.logout);
+router.get("/profile", userNotLogged, usersController.profile);
+router.get("/preferences", userNotLogged, usersController.preferences);
 
-//router.get("/register",userLoggedIn, usersController.registro);
-//router.get("/logout", usersController.logout);
-//router.get("/", userNotLogged, usersController.home);   
-//crear usuario
-//srouter.post("/create", usersController.createUser);
-
-router.get("/profile", usersController.profile)
 module.exports = router;

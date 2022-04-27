@@ -63,6 +63,15 @@ div.top-header div.shopping-love-user-carts div.user-cart {
     margin-right: 0px;
 }
 
+div.top-header div.shopping-love-user-carts div.user-cart a {
+    display: flex;
+    align-items: center;
+}
+
+div.top-header div.shopping-love-user-carts div.user-cart i {
+    margin: 0 5px;
+}
+
 div.shopping-love-user-carts div i,
 div.top-header div.burger-menu i,
 div.top-header div.help-card i {
@@ -117,10 +126,10 @@ header nav ul li:nth-child(4) {
     margin-right: 0px;
 }
 
-header nav ul.user{
+header nav ul.user {
     color: var(--Purple);
     font-size: 14px;
-    font-weight: bold; 
+    font-weight: bold;
 }
 
 main {
@@ -177,8 +186,9 @@ footer {
     }
     header nav {
         display: flex;
+        justify-content: flex-end;
     }
-    header nav ul.user{ 
+    header nav ul.user {
         margin-left: 1%;
     }
     .credito,
@@ -199,7 +209,7 @@ footer {
 }
 
 @media(min-width:769px) {
-    header nav ul.user{ 
+    header nav ul.user {
         margin-left: 32%;
     }
 }
