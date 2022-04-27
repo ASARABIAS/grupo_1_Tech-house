@@ -8,6 +8,7 @@ const methodOverride = require('method-override');
 const logMiddleware = require("./middlewares/loggedUser");
 const userLogMiddleware = require("./middlewares/userLoggedIn");
 
+
 const mainRouter = require("./routes/main");
 const productsRouter = require("./routes/products");
 const usersRouter = require("./routes/users");

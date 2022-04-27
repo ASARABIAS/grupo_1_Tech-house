@@ -77,9 +77,17 @@ const usersController = {
         const user = req.session.usuario;
         res.render('users/profile', { user });
     },
-    preferences: (rq, res) => {
+
+    edit: function(req, res){
+        let idUser = req.params.idUser;
+        let users = resultReadJSON(JSONPath('users.json'));
+        let userToEdit = users[userToEdit];
+        res.render("userEdit", {userToEdit:userToEdit});
+    },
+
+    preferences: (req, res) => {
         res.send("Favoritos en desarrollo");
-    }
+    }    
 }
 
 module.exports = usersController;

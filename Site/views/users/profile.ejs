@@ -7,7 +7,7 @@
         <%- include('../partials/header') %>
 
             <main class="registro">
-                <form action="/users/register" method="POST" enctype="multipart/form-data">
+                <form action="/users/edit?_method=PUT" method="POST" enctype="multipart/form-data">
                     <h1>
                         <%- user.name+' '+user.lastName %>
                     </h1>
@@ -24,21 +24,22 @@
                     <input class="registro-nombre" type="text" id="name" name="name" value="<%- user.name %> " />
 
                     <label for="lastName">Tu apellido</label>
-                    <input class="registroApellido" type="text" id="lastName" name="lastName" required/>
+                    <input class="registroApellido" type="text" id="lastName" name="lastName" value="<%- user.lastName %>" required />
 
                     <label for="email">Correo electrónico </label>
-                    <input class="registro-email" type="email" id="email" name="email" required/>
-
-                    <label for="password">Contraseña</label>
-                    <input class="registro-contraseña" type="password" placeholder="Como minimo 6 caracteres" id="password" name="password" minlength="6" required/>
+                    <input class="registro-email" type="email" id="email" name="email" value="<%- user.email %>" required/>
 
                     <label for="country">Pais</label>
-                    <input class="registro-contraseña" type="text" placeholder="Ej: Colombia" id="country" name="country" required/>
+                    <input class="registro-contraseña" type="text" placeholder="Ej: Colombia" id="country" name="country" value="<%- user.country %>" required/>
 
 
-                    <input class="crear-cuenta" type="submit" value="Crear cuenta">
-                    <div class="goto-login">
-                        <p>¿Ya tienes una cuenta? <a href="/users/login">Inicia sesión</a></p>
+                    <input class="actualizar_info" type="submit" value="Actualizar Informacion">
+                    <div class="cambiar_contra">
+                        <a href="#">Cambiar Contraseña</a>
+                    </div>
+
+                    <div class="finalizar_sesion">
+                        <a href="#">Cerrar sesion</a>
                     </div>
                 </form>
             </main>

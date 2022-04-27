@@ -1,22 +1,21 @@
-[
- {
-  "id": 1,
-  "name": "Abraham",
-  "lastName": "Sarabia Sereno",
-  "email": "asarabias@unicesar.edu.co",
-  "password": "$2a$12$JeX3JSsg11alOsXVpoDB9.P7ZSAExOfe5SUwEjalrOt4YVHfQ4k3e",
-  "country": "Colombia",
-  "Avatar": "logo.png",
-  "rol": "0"
- },
- {
-  "id": 1651034013192,
-  "name": "senida",
-  "lastName": "guevara",
-  "email": "parcelamorenaza@gmail.com",
-  "password": "$2a$12$UEpcuQviR3qjY38E9YUtpeq7Fvpv7koL2reNAQFzptQNGANwLCZZi",
-  "country": "Colombia",
-  "Avatar": "avatar-1651034013142.jpg",
-  "rol": 1
- }
+[{
+        "id": 1,
+        "name": "Abraham",
+        "lastName": "Sarabia Sereno",
+        "email": "asarabias@unicesar.edu.co",
+        "password": "$2a$12$JeX3JSsg11alOsXVpoDB9.P7ZSAExOfe5SUwEjalrOt4YVHfQ4k3e",
+        "country": "Colombia",
+        "Avatar": "logo.png",
+        "rol": "0"
+    },
+    {
+        "id": 1651034013192,
+        "name": "senida",
+        "lastName": "guevara",
+        "email": "parcelamorenaza@gmail.com",
+        "password": "$2a$12$UEpcuQviR3qjY38E9YUtpeq7Fvpv7koL2reNAQFzptQNGANwLCZZi",
+        "country": "Colombia",
+        "Avatar": "avatar-1651034013142.jpg",
+        "rol": 1
+    }
 ]
