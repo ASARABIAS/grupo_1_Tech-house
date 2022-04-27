@@ -108,5 +108,13 @@
   "email": "santigo22@hotmail.com",
   "password": "$2a$12$r5Y947mejbGVEgyAMf6aIO/.7XnZDIdZot.NG60G8tcFoN6csiYGa",
   "country": "Colombia"
+ },
+ {
+  "id": 1651030536565,
+  "name": "snowden",
+  "lastName": "user",
+  "email": "snowden2202@hotmail.com",
+  "password": "$2a$12$ITwunOuzcYoDR2BHJ1khI.bBhr/07AEBlCX44BKxKoBoXr78wYQoK",
+  "country": "Colombia"
  }
 ]
