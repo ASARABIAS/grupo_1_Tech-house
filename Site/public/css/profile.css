@@ -101,7 +101,22 @@ main.registro {
     background-color: var(--Light-blue);
 }
 
+.div-avatar {
+    text-align: right;
+    margin-right: 10%;
+}
+
+.label-avatar {
+    display: inline !important;
+    padding: 5px !important;
+    border-radius: 5px !important;
+    border: 1px solid #333A56 !important;
+    background-color: #333A56 !important;
+    color: #E8E8E8 !important;
+}
+
 input.btn-changer {
+    display: none !important;
     border: none !important;
     background-color: transparent !important;
     border-radius: 0px !important;

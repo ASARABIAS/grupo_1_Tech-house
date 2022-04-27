@@ -38,26 +38,35 @@ const usersController = {
     },
     store: (req, res) => {
 
-        let body = req.body;
-        let file = req.file;
+        const errors = validationResult(req);
+        if (errors.isEmpty()) {
+            let body = req.body;
+            let file = req.file;
 
-        let newUser = {
-            id: Date.now(),
-            name: body.name,
-            lastName: body.lastName,
-            email: body.email,
-            password: bcryptjs.hashSync(body.password, 12),
-            country: body.country,
-            Avatar: !file ? "logo.png" : file.filename
+
+            let newUser = {
+                id: Date.now(),
+                name: body.name,
+                lastName: body.lastName,
+                email: body.email,
+                password: bcryptjs.hashSync(body.password, 12),
+                country: body.country,
+                Avatar: !file ? "logo.png" : file.filename,
+                rol: 1 //0=> Administrdor, 1=>cliente
+            }
+
+            users.push(newUser);
+
+            let usersJSON = JSON.stringify(users, null, ' ');
+
+            fs.writeFileSync(JSONPath('users.json'), usersJSON);
+
+            res.redirect('login');
+        } else {
+            res.render('users/register', { errors: errors.mapped() });
         }
 
-        users.push(newUser);
 
-        let usersJSON = JSON.stringify(users, null, ' ');
-
-        fs.writeFileSync(JSONPath('users.json'), usersJSON);
-
-        res.redirect('login');
     },
     logout: (req, res) => {
         res.clearCookie("userEmail");

@@ -107,6 +107,11 @@ input.btn-changer {
     border-radius: 0px !important;
 }
 
+span.text-error {
+    color: var(--Red);
+    font-size: 14px;
+}
+
 @media(min-width:481px) {
     input {
         font-size: 14px;

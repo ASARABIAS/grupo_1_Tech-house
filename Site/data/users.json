@@ -3,153 +3,20 @@
   "id": 1,
   "name": "Abraham",
   "lastName": "Sarabia Sereno",
-  "email": "asarabias@unicesa.edu.co",
-  "password": "12345",
-  "country": "Colombia",
-  "Avatar": "img_1.png"
- },
- {
-  "id": 2,
-  "name": "Pedro",
-  "lastName": "Pérez Muñoz",
-  "email": "pedroperez@hotmail.com",
-  "password": "monito123",
-  "country": "Mexico",
-  "Avatar": "img_2.png"
- },
- {
-  "id": 3,
-  "name": "Maria Lucia",
-  "lastName": "Hernandez",
-  "email": "maria123@outlook.com",
-  "password": "vivaperu12",
-  "country": "Peru",
-  "Avatar": "img_3.png"
- },
- {
-  "id": 4,
-  "name": "Juan Manuel",
-  "lastName": "Restrepo",
-  "email": "juan_r@udea.edu.com",
-  "password": "1234567",
-  "country": "Colombia",
-  "Avatar": "img_4.png"
- },
- {
-  "id": 5,
-  "name": "Jessica",
-  "lastName": "Cardeño",
-  "email": "cardenojessica07@gmail.com",
-  "password": "abcdefg",
-  "country": "Colombia",
-  "Avatar": "img_5.png"
- },
- {
-  "id": 6,
-  "name": "Jhon",
-  "lastName": "Dorado",
-  "email": "jhond@yahoo.com",
-  "password": "hola123",
-  "country": "Argentina",
-  "Avatar": "img_6.png"
- },
- {
-  "id": 7,
-  "name": "Adan",
-  "lastName": "Camacho",
-  "email": "adancamacho1@gmail.com",
-  "password": "chao456",
-  "country": "Chile",
-  "Avatar": "img_7.png"
- },
- {
-  "id": 8,
-  "name": "Natalia",
-  "lastName": "Londoño",
-  "email": "natalia_londono@dh.com",
-  "password": "xyzabc123",
-  "country": "Brasil",
-  "Avatar": "img_8.png"
- },
- {
-  "id": 1651007925255,
-  "name": "Abraham",
-  "lastName": "Sereno",
   "email": "asarabias@unicesar.edu.co",
-  "password": "$2a$12$rlEjKYCDZOf6D7ws1lDYVOMhfoJQ9Pp0sFxM/GE7AmJFGFaSrKWj.",
+  "password": "$2a$12$JeX3JSsg11alOsXVpoDB9.P7ZSAExOfe5SUwEjalrOt4YVHfQ4k3e",
   "country": "Colombia",
-  "Avatar": "avatar-1651007925235.jpg"
+  "Avatar": "logo.png",
+  "rol": "0"
  },
  {
-  "id": 1651008286894,
+  "id": 1651034013192,
   "name": "senida",
   "lastName": "guevara",
   "email": "parcelamorenaza@gmail.com",
-  "password": "$2a$12$w3aC10y0VoTjL/4AowZObOykVkYD0ZDeYoKnt8T1NAqtIXg8LjGnS",
+  "password": "$2a$12$UEpcuQviR3qjY38E9YUtpeq7Fvpv7koL2reNAQFzptQNGANwLCZZi",
   "country": "Colombia",
-  "Avatar": "avatar-1651008286869.jpg"
- },
- {
-  "id": 1651016983242,
-  "name": "Jhon",
-  "lastName": "Pere",
-  "email": "hola@gmail.com",
-  "password": "$2a$12$HsjVtNDtQK4h6oIHxx5ePuYv/H9eZE1eVel/mJkj5DJGKK3LpWdDG",
-  "country": "Colombia",
-  "Avatar": "avatar-1651016983219.jpg"
- },
- {
-  "id": 1651018134916,
-  "name": "adan",
-  "lastName": "hola",
-  "email": "mundo@gmail.com",
-  "password": "$2a$12$Akd6j4DARy/rl0M5jKrYoOljdHMzhMtmDCqwJHAOme/Onl1qm5iH.",
-  "country": "Colombia",
-  "Avatar": "logo.png"
- },
- {
-  "id": 1651020862750,
-  "name": "Jhon-2",
-  "lastName": "Peres",
-  "email": "hola@gmail.com",
-  "password": "$2a$12$DeRrFcLhmyG7LHutHvGcA.Ct08rpr1AhCLzvYvhqVb1tFMPnSKhey",
-  "country": "Colombia",
-  "Avatar": "avatar-1651020862716.jpg"
- },
- {
-  "id": 1651022492026,
-  "name": "Leydis",
-  "lastName": "Sereno",
-  "email": "parcelamorenaza@gmail.com",
-  "password": "$2a$12$Ls2qrro1m17nZewPQ.YGB.M1AQ7Dh5.R5W7AFEJWq6wbyafBAHXHW",
-  "country": "Colombia",
-  "Avatar": "avatar-1651022491994.jpg"
- },
- {
-  "id": 1651022591402,
-  "name": "Jhon-22",
-  "lastName": "Peres",
-  "email": "hola2@gmail.com",
-  "password": "$2a$12$BmBiN22GNzgQhaom.JVqtOdrJPokHUajNDSX.VAjSIetmhNGesBAS",
-  "country": "Colombia",
-  "Avatar": "avatar-1651022591363.jpg"
- },
- {
-  "id": 1651022633197,
-  "name": "Jhon-22",
-  "lastName": "Peres",
-  "email": "hola2@gmail.com",
-  "password": "$2a$12$tLMjySM6yfBosATMyQzcCOfdhfB4pwDX5brnNpPjDz9piqXFwB.5y",
-  "country": "Colombia",
-  "Avatar": "avatar-1651022633163.jpg"
- },
- {
-  "id": 1651022684520,
-  "name": "Jhon-22",
-  "lastName": "Peres",
-  "email": "hola2@gmail.com",
-  "password": "$2a$12$JeX3JSsg11alOsXVpoDB9.P7ZSAExOfe5SUwEjalrOt4YVHfQ4k3e",
-  "country": "Colombia",
-  "Avatar": "avatar-1651022684495.jpg"
+  "Avatar": "avatar-1651034013142.jpg",
+  "rol": 1
  }
 ]
