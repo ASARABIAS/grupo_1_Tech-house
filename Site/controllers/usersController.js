@@ -48,7 +48,7 @@ const usersController = {
             email: body.email,
             password: bcryptjs.hashSync(body.password, 12),
             country: body.country,
-            Avatar: file.filename
+            Avatar: !file ? "logo.png" : file.filename
         }
 
         users.push(newUser);
@@ -57,9 +57,7 @@ const usersController = {
 
         fs.writeFileSync(JSONPath('users.json'), usersJSON);
 
-        req.session.usuario = newUser;
-
-        res.redirect('/');
+        res.redirect('login');
     },
     logout: (req, res) => {
         res.clearCookie("userEmail");
@@ -69,6 +67,9 @@ const usersController = {
     profile: (req, res) => {
         const user = req.session.usuario;
         res.render('users/profile', { user });
+    },
+    preferences: (rq, res) => {
+        res.send("Favoritos en desarrollo");
     }
 }
 
