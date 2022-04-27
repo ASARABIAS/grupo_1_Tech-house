@@ -13,10 +13,9 @@ const userNotLogged = require("../middlewares/userNotLogged");
 router.get("/login", usersController.login);
 router.post("/login", loginValidations, usersController.check);
 
-router.get("/edit/:idUser", usersController.edit);
-router.put("/edit", function(req, res){
-    
-})
+/*router.get("/edit/:idUser", usersController.edit);
+router.put("/edit", function(req, res){ 
+})*/
 
 router.get("/register", usersController.register);
 
