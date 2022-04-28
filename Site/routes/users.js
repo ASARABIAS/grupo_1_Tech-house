@@ -33,5 +33,6 @@ router.post("/register", upload.single('avatar'), registerValidations, usersCont
 router.get("/logout", usersController.logout);
 router.get("/profile", userNotLogged, usersController.profile);
 router.get("/preferences", userNotLogged, usersController.preferences);
+router.put("/update", userNotLogged, upload.single('avatar'), usersController.update)
 
 module.exports = router;

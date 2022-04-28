@@ -78,16 +78,40 @@ const usersController = {
         res.render('users/profile', { user });
     },
 
-    edit: function(req, res){
-        let idUser = req.params.idUser;
-        let users = resultReadJSON(JSONPath('users.json'));
-        let userToEdit = users[userToEdit];
-        res.render("userEdit", {userToEdit:userToEdit});
+    update: function(req, res) {
+
+        const user = req.session.usuario;
+        const body = req.body;
+        const file = req.file;
+
+        user.name = body.name;
+        user.lastName = body.lastName;
+        user.email = body.email;
+        user.country = body.country;
+        user.Avatar = file ? file.filename : user.Avatar;
+
+        for (let index = 0; index < users.length; index++) {
+            if (user.id === users[index].id) {
+                users[index] = user;
+            }
+        }
+
+
+
+        let usersJSON = JSON.stringify(users, null, ' ');
+
+        fs.writeFileSync(JSONPath('users.json'), usersJSON);
+
+        res.redirect('profile');
+        /*let idUser = req.params.idUser;
+        let userToEdit = users[idUser];
+        res.render("userEdit", { userToEdit: userToEdit });
+        */
     },
 
     preferences: (req, res) => {
         res.send("Favoritos en desarrollo");
-    }    
+    }
 }
 
 module.exports = usersController;
