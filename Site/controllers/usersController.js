@@ -79,10 +79,19 @@ const usersController = {
     },
 
     edit: function(req, res){
-        let idUser = req.params.idUser;
-        let users = resultReadJSON(JSONPath('users.json'));
-        let userToEdit = users[userToEdit];
-        res.render("userEdit", {userToEdit:userToEdit});
+       const user = req.session.usuario;
+       const body = req.body;
+
+       user.name = body.name;
+       user.lastName = body.lastName;
+       user.email = body.email;
+       user.country = body.country;
+
+       for(let i = 0; i < user.length; i++){
+           if(user.id === user[user].id){
+               user[i] = user; 
+           }
+       }
     },
 
     preferences: (req, res) => {

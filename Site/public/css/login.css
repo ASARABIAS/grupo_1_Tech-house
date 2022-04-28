@@ -88,6 +88,11 @@ div.mainlogin {
     font-size: 12px;
     margin-top: 10px;
 }
+
+.recordar{
+    display:flex;
+    justify-content: space-between;
+}
 footer{
     margin-top: 70%;
 }
