@@ -10,38 +10,25 @@ function addNewCharacteristics() {
 
         const divCharacteristicsSection = document.createElement('div');
         const divCharacteristicsMainTitle = document.createElement('div');
-        const labelCharacteristicsTitle = document.createElement("label");
-        const inputCharacteristicsTitle = document.createElement("input");
         const divCharacteristicsMainContext = document.createElement('div');
         const divCharacteristicsMainContextTop = document.createElement('div');
-        const characteristicsMainContextDown = document.createElement('div');
+        const divCharacteristicsMainContextDown = document.createElement('div');
 
         divCharacteristicsSection.setAttribute("class", "characteristics-section");
         divCharacteristicsMainTitle.setAttribute("class", "characteristics-main-title");
         divCharacteristicsMainContext.setAttribute("class", "characteristics-main-context");
         divCharacteristicsMainContextTop.setAttribute("class", "characteristics-main-context-top");
 
-        const nameCharacteristicsTitle = "characteristics-title_" + index;
-
-        labelCharacteristicsTitle.innerText = "Titulo de la Caracteristicas:";
-        labelCharacteristicsTitle.setAttribute("for", nameCharacteristicsTitle);
-
-        inputCharacteristicsTitle.setAttribute("type", "text");
-        inputCharacteristicsTitle.setAttribute("name", nameCharacteristicsTitle);
-        inputCharacteristicsTitle.setAttribute("id", nameCharacteristicsTitle);
-        inputCharacteristicsTitle.setAttribute("placeholder", "Titulo");
+        divCharacteristicsMainTitle.innerHTML = '<label for="characteristics-title">Titulo de la Caracteristicas:</label><input type="text" name="characteristicsTitle" id="characteristicsTitle" placeholder="Titulo">';
 
         divCharacteristicsMainContextTop.innerHTML = '<h5>Cuerpo de la Caracteristicas</h5> <i class="fa-solid fa-circle-plus" onclick="addNewcharacteristicsDiscripction(' + index + ');"></i>';
 
-        characteristicsMainContextDown.setAttribute("class", "characteristics-main-context-down");
-        characteristicsMainContextDown.setAttribute("id", "characteristics-main-context-down_" + index)
-        auxAddNewcharacteristicsDiscripction(characteristicsMainContextDown);
-
-        divCharacteristicsMainTitle.appendChild(labelCharacteristicsTitle);
-        divCharacteristicsMainTitle.appendChild(inputCharacteristicsTitle);
+        divCharacteristicsMainContextDown.setAttribute("class", "characteristics-main-context-down");
+        divCharacteristicsMainContextDown.setAttribute("id", "characteristics-main-context-down_" + index)
+        auxAddNewcharacteristicsDiscripction(divCharacteristicsMainContextDown);
 
         divCharacteristicsMainContext.appendChild(divCharacteristicsMainContextTop);
-        divCharacteristicsMainContext.appendChild(characteristicsMainContextDown)
+        divCharacteristicsMainContext.appendChild(divCharacteristicsMainContextDown)
 
         divCharacteristicsSection.appendChild(divCharacteristicsMainTitle);
         divCharacteristicsSection.appendChild(divCharacteristicsMainContext);
@@ -69,23 +56,23 @@ function auxAddNewcharacteristicsDiscripction(div) {
 
     divCarContext.setAttribute("class", "characteristics-section")
 
-    const nombreInputSub = "characteristics-context-subtitle_" + index;
-    const nombreInputDes = "characteristics-context-description_" + index;
+    const nameInputSub = "characteristicsContextSubtitle_" + index;
+    const nameInputDes = "characteristicsContextDescription_" + index;
 
     labelCarContextSub.innerText = "Subtitulo:";
-    labelCarContextSub.setAttribute("for", nombreInputSub);
+    labelCarContextSub.setAttribute("for", nameInputSub);
 
     inputCarContextSub.setAttribute("type", "text");
-    inputCarContextSub.setAttribute("name", nombreInputSub);
-    inputCarContextSub.setAttribute("id", nombreInputSub);
+    inputCarContextSub.setAttribute("name", nameInputSub);
+    inputCarContextSub.setAttribute("id", nameInputSub);
     inputCarContextSub.setAttribute("placeholder", "Descripcion");
 
     labelCarContextDes.innerHTML = "Descripcion:";
-    labelCarContextDes.setAttribute("for", nombreInputDes);
+    labelCarContextDes.setAttribute("for", nameInputDes);
 
     inputCarContextSub.setAttribute("type", "text");
-    inputCarContextDes.setAttribute("name", nombreInputDes);
-    inputCarContextDes.setAttribute("id", nombreInputDes);
+    inputCarContextDes.setAttribute("name", nameInputDes);
+    inputCarContextDes.setAttribute("id", nameInputDes);
     inputCarContextDes.setAttribute("placeholder", "Subtitulo");
 
     divCarContext.appendChild(labelCarContextSub);
@@ -99,15 +86,17 @@ function auxAddNewcharacteristicsDiscripction(div) {
 function validationInputs() {
     let result = true;
 
-    result = document.getElementById('characteristics-title_' + index).value.length > 0;
+    validationInputCharacteristicsTitle = document.querySelectorAll('#characteristicsTitle');
+
+    result = validationInputCharacteristics(validationInputCharacteristicsTitle);
 
     if (!result) {
         confirm('Ingrese primero una caracteristica');
         return result;
     }
 
-    let validationInputCharacteristicsSubtitle = document.querySelectorAll('#characteristics-context-subtitle_' + index);
-    let validationInputCharacteristicsDescription = document.querySelectorAll('#characteristics-context-description_' + index);
+    let validationInputCharacteristicsSubtitle = document.querySelectorAll('#characteristicsContextSubtitle_' + index);
+    let validationInputCharacteristicsDescription = document.querySelectorAll('#characteristicsContextDescription_' + index);
 
     result = validationInputCharacteristics(validationInputCharacteristicsSubtitle);
 
