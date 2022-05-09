@@ -83,14 +83,13 @@
                             <div class="infor-product-section">
                                 <label>Medios de Pago:</label>
                                 <div class="payment-methods">
-                                    <%let index=0; 
-                                    paymentMethod.forEach(pay => {%>
+                                    <%paymentMethod.forEach(pay => {%>
                                         <div class="payment-method">
                                             <input type="checkbox" name="paymentMethod" value="<%= pay.id %>" id="paymentMethod
-                                        <%= pay.id %>" <%=( index <product.paymentMethod.length && pay.id==product.paymentMethod[index++]) ? "checked" : '';%>>
+                                        <%= pay.id %>" <%=(product.paymentMethod.indexOf(pay.id.toString()) != -1) ? "checked" : '';%>>
                                             <label for="paymentMethod<%= pay.id %>"><img src="/images/methodLogos/<%= pay.image %> " alt="" srcset=""></label>
                                         </div>
-                                        <%}); %>
+                                        <%});%>
                                 </div>
                             </div>
                             <div class="infor-product-section">

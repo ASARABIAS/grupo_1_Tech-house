@@ -9,15 +9,16 @@ const usersController = require('../controllers/usersController.js');
 const loginValidations = require("../middlewares/loginValidator");
 const registerValidations = require("../middlewares/registerValidator");
 const userNotLogged = require("../middlewares/userNotLogged");
+const checkRoutesForLoggedUser = require("../middlewares/checkRoutesForLoggedUser");
 
-router.get("/login", usersController.login);
+router.get("/login", checkRoutesForLoggedUser,usersController.login); // ocultar por backend
 router.post("/login", loginValidations, usersController.check);
 
 /*router.get("/edit/:idUser", usersController.edit);
 router.put("/edit", function(req, res){ 
 })*/
 
-router.get("/register", usersController.register);
+router.get("/register", checkRoutesForLoggedUser,usersController.register); // ocultar por backend
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {

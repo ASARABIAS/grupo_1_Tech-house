@@ -92,13 +92,15 @@ const productsController = {
                 product.category = body.category;
                 product.warrantyText = body.warrantyText;
                 product.warrantyTime = body.warrantyTime;
-                product.paymentMethod = body.paymentMethod;
+                product.paymentMethod = getMultipleData(body.paymentMethod);
                 product.price = body.price;
                 product.discount = body.discount;
+                
             }
 
+            
         });
-
+      
         let ProductsJSON = JSON.stringify(products, null, ' ');
 
         fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
@@ -121,6 +123,19 @@ const productsController = {
     }
 }
 
+function getMultipleData(element){
+    let response =  []
+
+    if(Array.isArray(element)){
+        return element
+    }
+
+    if(typeof(element) === "string"){
+        response.push(element)
+    }
+     return response
+}
+
 function getCharacteristicsMain(subtitle, description) {
     let aux = [];
     for (let i = 0; i < subtitle.length; i++) {
@@ -137,7 +152,7 @@ function getCharacteristicsMain(subtitle, description) {
 
 function getCharacteristics(body) {
 
-    let characteristicsTitle = body.characteristicsTitle;
+    let characteristicsTitle = getMultipleData(body.characteristicsTitle);
     let aux = [];
     for (let i = 0; i < characteristicsTitle.length; i++) {
         const title = characteristicsTitle[i];
@@ -148,7 +163,7 @@ function getCharacteristics(body) {
 
             aux.push({
                 title: title,
-                main: getCharacteristicsMain(subtitle, description)
+                main: getCharacteristicsMain(getMultipleData(subtitle), getMultipleData(description))
             });
         }
     }
