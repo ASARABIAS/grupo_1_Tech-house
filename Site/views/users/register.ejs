@@ -12,7 +12,12 @@
                     <div class="photo">
                         <img src="/images/logo.png" alt="">
                     </div>
-                    <input type="file" name="avatar" class="btn-changer">
+
+                    <div class="div-avatar">
+                        <label for="avatar" class="label-avatar">Seleccionar imagen</label>
+                        <input type="file" name="avatar" id="avatar" class="btn-changer">
+                    </div>
+
                     <label for="name">Tu nombre</label>
                     <input class="registro-nombre" type="text" id="name" name="name" required/>
 
@@ -21,11 +26,18 @@
 
                     <label for="email">Correo electrónico </label>
                     <input class="registro-email" type="email" id="email" name="email" required/>
+                    <div>
+                        <% if(typeof(errors) != 'undefined' && errors.email){%>
+                            <span class="text-error">
+                              <%= errors.email.msg %>
+                            </span>
+                            <%}%>
+                    </div>
 
                     <label for="password">Contraseña</label>
                     <input class="registro-contraseña" type="password" placeholder="Como minimo 6 caracteres" id="password" name="password" minlength="6" required/>
 
-                    <label for="country">Contraseña</label>
+                    <label for="country">Pais</label>
                     <input class="registro-contraseña" type="text" placeholder="Ej: Colombia" id="country" name="country" required/>
 
 

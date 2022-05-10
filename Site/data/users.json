@@ -3,90 +3,30 @@
   "id": 1,
   "name": "Abraham",
   "lastName": "Sarabia Sereno",
-  "email": "asarabias@unicesa.edu.co",
-  "password": "12345",
-  "country": "Colombia",
-  "Avatar": "img_1.png"
- },
- {
-  "id": 2,
-  "name": "Pedro",
-  "lastName": "Pérez Muñoz",
-  "email": "pedroperez@hotmail.com",
-  "password": "monito123",
-  "country": "Mexico",
-  "Avatar": "img_2.png"
- },
- {
-  "id": 3,
-  "name": "Maria Lucia",
-  "lastName": "Hernandez",
-  "email": "maria123@outlook.com",
-  "password": "vivaperu12",
-  "country": "Peru",
-  "Avatar": "img_3.png"
- },
- {
-  "id": 4,
-  "name": "Juan Manuel",
-  "lastName": "Restrepo",
-  "email": "juan_r@udea.edu.com",
-  "password": "1234567",
-  "country": "Colombia",
-  "Avatar": "img_4.png"
- },
- {
-  "id": 5,
-  "name": "Jessica",
-  "lastName": "Cardeño",
-  "email": "cardenojessica07@gmail.com",
-  "password": "abcdefg",
-  "country": "Colombia",
-  "Avatar": "img_5.png"
- },
- {
-  "id": 6,
-  "name": "Jhon",
-  "lastName": "Dorado",
-  "email": "jhond@yahoo.com",
-  "password": "hola123",
-  "country": "Argentina",
-  "Avatar": "img_6.png"
- },
- {
-  "id": 7,
-  "name": "Adan",
-  "lastName": "Camacho",
-  "email": "adancamacho1@gmail.com",
-  "password": "chao456",
-  "country": "Chile",
-  "Avatar": "img_7.png"
- },
- {
-  "id": 8,
-  "name": "Natalia",
-  "lastName": "Londoño",
-  "email": "natalia_londono@dh.com",
-  "password": "xyzabc123",
-  "country": "Brasil",
-  "Avatar": "img_8.png"
- },
- {
-  "id": 1650989364910,
-  "name": "Abraham",
-  "lastName": "Sereno",
   "email": "asarabias@unicesar.edu.co",
-  "password": "1231323",
+  "password": "$2a$12$JeX3JSsg11alOsXVpoDB9.P7ZSAExOfe5SUwEjalrOt4YVHfQ4k3e",
   "country": "Colombia",
-  "Avatar": "avatar-1650989364891.jpg"
+  "Avatar": "logo.png",
+  "rol": "0"
  },
  {
-  "id": 1650989496070,
-  "name": "Abraham",
-  "lastName": "Sereno",
-  "email": "asarabias@unicesar.edu.co",
-  "password": "676867868",
+  "id": 1651034013192,
+  "name": "senida",
+  "lastName": "guevara",
+  "email": "parcelamorenaza@gmail.com",
+  "password": "$2a$12$UEpcuQviR3qjY38E9YUtpeq7Fvpv7koL2reNAQFzptQNGANwLCZZi",
   "country": "Colombia",
-  "Avatar": "avatar-1650989496049.jpg"
+  "Avatar": "avatar-1651034013142.jpg",
+  "rol": 1
+ },
+ {
+  "id": 1651106208195,
+  "name": "adan  ",
+  "lastName": "hola",
+  "email": "adan@gmail.com",
+  "password": "$2a$12$oJfCCZ596yww8wl9AxmMZOcMnl9DzHpzF0gkPXpkboUvGAuGSISum",
+  "country": "España",
+  "Avatar": "avatar-1651106665236.jpg",
+  "rol": 1
  }
 ]

@@ -36,3 +36,24 @@ Consideramos que el material brindado en la plataforma no explicaba bien los tem
 
 Qué haremos esta semana
 Terminaremos detalles que nos hacen falta para el correcto funcionamiento de la aplicación, especificamente con el CRUD
+
+**Weekly 1 - Sprint 5**
+Qué se hizo la semana pasada
+- Implementamos una nueva estrategia para trabajar con ramas individuales en el proyecto, que se desprendan de la rama dev
+- Se repartieron responsabilidades individuales y grupales.
+
+Impedimentos encontrados
+Esta semana no hemos encontrado impedimentos que nos impidan cumplir con las consignas del sprint
+
+Qué haremos esta semana
+- Cada uno trabajará en sus responsabilidades individuales y grupales en pro de tener tiempo de realizar correcciones a tiempo de ser necesario.
+
+**Weekly 2 - Sprint 5**
+Qué se hizo la semana pasada
+- Cada integrante del grupo trabajó en sus reponsabilidades individuales
+
+Impedimentos encontrados
+- Presentamos algunas dificultades a la hora de guardar las cookies, pero lo pudimos solucionar finalizando el sprint
+ 
+Qué haremos esta semana
+- Finiquitaremos detalles en las vistas del profile y del usuario logueado; implementaremos roles de usuario y administrador
