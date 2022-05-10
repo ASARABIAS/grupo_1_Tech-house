@@ -110,11 +110,28 @@
   "country": "Colombia"
  },
  {
+<<<<<<< HEAD
   "id": 1651030536565,
   "name": "snowden",
   "lastName": "user",
   "email": "snowden2202@hotmail.com",
   "password": "$2a$12$ITwunOuzcYoDR2BHJ1khI.bBhr/07AEBlCX44BKxKoBoXr78wYQoK",
   "country": "Colombia"
+=======
+  "id": 1650924478490,
+  "name": "camilo",
+  "lastName": "zandoval",
+  "email": "camilo22@gmail.com",
+  "password": "$2a$12$8JHWPWfMnkGK9NWseOoCRukAwSqEg5S/AwDbRG0r7CGQKP6u.PTS6",
+  "country": "Colombia"
+ },
+ {
+  "id": 1650958182932,
+  "name": "snowden",
+  "lastName": "user",
+  "email": "snowden2202@hotmail.com",
+  "password": "$2a$12$v2cl712qBuOBIQEmYbhLfOoYHddGh0Ez/2qyiI9lVsDnzKHYDGwKy",
+  "country": "colombia"
+>>>>>>> 096033d1d77b8efc8dada24126719a9a58519a65
  }
 ]
