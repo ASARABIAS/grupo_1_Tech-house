@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head', {title:"Registro", namePage:"profile"}) %>
+
+    <body>
+        <%- include('../partials/header') %>
+
+            <main class="registro">
+                <form action="/users/update?_method=PUT" method="post" enctype="multipart/form-data">
+                    <h1>
+                        <%- user.name+' '+user.lastName %>
+                    </h1>
+                    <div class="photo">
+                        <img src="/images/users/<%- user.Avatar  %>" alt="">
+                    </div>
+
+                    <div class="div-avatar">
+                        <label for="avatar" class="label-avatar">Cambiar imagen</label>
+                        <input type="file" name="avatar" id="avatar" class="btn-changer">
+                    </div>
+
+                    <label for="name">Tu nombre</label>
+                    <input class="registro-nombre" type="text" id="name" name="name" value="<%- user.name %> " />
+
+                    <label for="lastName">Tu apellido</label>
+                    <input class="registroApellido" type="text" id="lastName" name="lastName" value="<%- user.lastName %>" required />
+
+                    <label for="email">Correo electrónico </label>
+                    <input class="registro-email" type="email" id="email" name="email" value="<%- user.email %>" required/>
+
+                    <label for="country">Pais</label>
+                    <input class="registro-country" type="text" placeholder="Ej: Colombia" id="country" name="country" value="<%- user.country %>" required/>
+
+
+                    <input class="actualizar_info" type="submit" value="Actualizar Informacion">
+                    <div class="cambiar_contra">
+                        <a href="#">Cambiar Contraseña</a>
+                    </div>
+
+                    <div class="finalizar_sesion">
+                        <a href="/users/logout">Cerrar sesion</a>
+                    </div>
+                </form>
+            </main>
+            <%- include('../partials/footer') %>
+    </body>
+
+
+</html>

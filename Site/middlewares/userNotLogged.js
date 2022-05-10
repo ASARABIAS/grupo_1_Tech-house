@@ -1,8 +1,8 @@
-function userNotLogged (req, res, next) {
-    if(!req.session.usuario){
+function userNotLogged(req, res, next) {
+    if (!req.session.usuario) {
         return res.redirect("/users/login");
     }
-    next();
+    return next();
 }
 
 module.exports = userNotLogged;

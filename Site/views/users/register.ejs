@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('../partials/head', {title:"Registro", namePage:"registro"}) %>
+<%- include('../partials/head', {title:"Registro", namePage:"registro"}) %>
 
-<body>
-    <%- include('../partials/header') %>
-    
-    <main class="registro">
-        <form action="/users/create" method="POST">
-            <h1>Crear cuenta </h1>
-            <label for="name">Tu nombre</label>
-            <input class="name" type="text" id="name" name="name" required/>
+    <body>
+        <%- include('../partials/header') %>
 
-            <label for="lastName">Tu apellido</label>
-            <input class="lastName" type="text" id="lastName" name="lastName" required/>
+            <main class="registro">
+                <form action="/users/register" method="POST" enctype="multipart/form-data">
+                    <h1>Crear cuenta </h1>
+                    <div class="photo">
+                        <img src="/images/logo.png" alt="">
+                    </div>
 
-            <label for="email">Correo electrónico </label>
-            <input class="email" type="email" id="email" name="email" required/>
+                    <div class="div-avatar">
+                        <label for="avatar" class="label-avatar">Seleccionar imagen</label>
+                        <input type="file" name="avatar" id="avatar" class="btn-changer">
+                    </div>
 
-            <label for="password">Contraseña</label>
-            <input class="password" type="password" placeholder="Como minimo 6 caracteres" id="password" name="password" minlength="6" required/>
-            
-            <label for="country">Tu país</label>
-            <input class="country" type="text" id="country" name="country" required/>
+                    <label for="name">Tu nombre</label>
+                    <input class="registro-nombre" type="text" id="name" name="name" required/>
 
-            <input class="crear-cuenta" type="submit" value="Crear cuenta">
-            <div class="goto-login">
-                <p>¿Ya tienes una cuenta? <a href="/users/login">Inicia sesión</a></p>
-            </div>
-        </form>
-    </main>
+                    <label for="lastName">Tu apellido</label>
+                    <input class="registroApellido" type="text" id="lastName" name="lastName" required/>
+
+                    <label for="email">Correo electrónico </label>
+                    <input class="registro-email" type="email" id="email" name="email" required/>
+                    <div>
+                        <% if(typeof(errors) != 'undefined' && errors.email){%>
+                            <span class="text-error">
+                              <%= errors.email.msg %>
+                            </span>
+                            <%}%>
+                    </div>
+
+                    <label for="password">Contraseña</label>
+                    <input class="registro-contraseña" type="password" placeholder="Como minimo 6 caracteres" id="password" name="password" minlength="6" required/>
+
+                    <label for="country">Pais</label>
+                    <input class="registro-contraseña" type="text" placeholder="Ej: Colombia" id="country" name="country" required/>
 
 
-
-    </div>
-    <%- include('../partials/footer') %>
-</body>
+                    <input class="crear-cuenta" type="submit" value="Crear cuenta">
+                    <div class="goto-login">
+                        <p>¿Ya tienes una cuenta? <a href="/users/login">Inicia sesión</a></p>
+                    </div>
+                </form>
+            </main>
+            <%- include('../partials/footer') %>
+    </body>
 
 
 </html>

@@ -47,3 +47,13 @@ Esta semana no hemos encontrado impedimentos que nos impidan cumplir con las con
 
 Qué haremos esta semana
 - Cada uno trabajará en sus responsabilidades individuales y grupales en pro de tener tiempo de realizar correcciones a tiempo de ser necesario.
+
+**Weekly 2 - Sprint 5**
+Qué se hizo la semana pasada
+- Cada integrante del grupo trabajó en sus reponsabilidades individuales
+
+Impedimentos encontrados
+- Presentamos algunas dificultades a la hora de guardar las cookies, pero lo pudimos solucionar finalizando el sprint
+ 
+Qué haremos esta semana
+- Finiquitaremos detalles en las vistas del profile y del usuario logueado; implementaremos roles de usuario y administrador

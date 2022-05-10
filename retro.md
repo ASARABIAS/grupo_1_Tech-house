@@ -43,3 +43,29 @@ Siendo responsable con las entregas y ayusando a los compañeros cuando lo neces
 
 Dejar de hacer
 Reuniones improvisadas, en las que no se le informa a el resto del grupo qué fue lo que se desarrolló.
+
+**Retrospectiva Cuarto Sprint**
+Comenzar a hacer
+Reuniones para realizar merge juntos y corregir conflictos
+
+Hacer más
+Pedir ayuda a tiempo de los temas que no dominemos o cuando se presente alguna eventualidad que pueda poner en riesgo el cumplimiento de la entrega del sprint
+
+Continuar haciendo
+Trabajar con ramas y al final cuando esté isto y funcional el proyecto, subirlo a la rama principal
+
+Dejar de hacer
+Estar resolviendo problemas de funcionalidad el mismo día de entrega del sprint
+
+**Retrospectiva Quinto Sprint**
+Comenzar a hacer
+Estar más pendientes del progreso de cada compañero, en aras de lograr terminar el sprint en tiempo y forma
+
+Hacer más
+Explicar el código de cada asignación, para que todos coprendamos la funcionalidad de la aplicación.
+
+Continuar haciendo
+Reunirnos para realizar merge con las ramas de cada uno y corregir conflictos.
+
+Dejar de hacer
+Asignar responsabilidades individuales y desentendernos de cada uno hasta que se vaya acercando la fecha de entrega del sprint.
