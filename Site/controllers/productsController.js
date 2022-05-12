@@ -21,36 +21,37 @@ const productsController = {
 
         let body = req.body;
 
-        let newProduct = {
-            id: Date.now(),
-            name: body.name,
-            specifications: body.specifications,
-            characteristics: [{
-                title: body.characteristicsTitle,
-                main: [{
-                    subtitle: body.characteristicsContextSubtitle,
-                    description: body.characteristicsContextDescription
-                }]
-            }],
-            category: body.category,
-            warrantyText: body.warrantyText,
-            warrantyTime: body.warrantyTime,
-            paymentMethod: body.paymentMethod,
-            price: body.price,
-            discount: body.discount,
-            images: ["prueba.png"],
-            cuotas: "30x $30.400",
-            color: ["Color"],
-            envio: 4,
-            valorDevolucion: 0
-        }
-
-        products.push(newProduct);
-
-        let ProductsJSON = JSON.stringify(products);
-
-        fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
-        res.redirect('/products');
+        console.log(body);
+        //let newProduct = {
+        //    id: Date.now(),
+        //    name: body.name,
+        //    specifications: body.specifications,
+        //    characteristics: [{
+        //        title: body.characteristicsTitle,
+        //        main: [{
+        //            subtitle: body.characteristicsContextSubtitle,
+        //            description: body.characteristicsContextDescription
+        //        }]
+        //    }],
+        //    category: body.category,
+        //    warrantyText: body.warrantyText,
+        //    warrantyTime: body.warrantyTime,
+        //    paymentMethod: body.paymentMethod,
+        //    price: body.price,
+        //    discount: body.discount,
+        //    images: ["prueba.png"],
+        //    cuotas: "30x $30.400",
+        //    color: ["Color"],
+        //    envio: 4,
+        //    valorDevolucion: 0
+        //}
+        //
+        //products.push(newProduct);
+        //
+        //let ProductsJSON = JSON.stringify(products);
+        //
+        //fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
+        //res.redirect('/products');
 
     },
     list: (req, res) => {
