@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Roles";
+    let alias = "Categoria";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -11,11 +11,13 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        tableName: "Roles",
+        tableName: "Categories",
         timestamps: false
     };
-    const Roles = sequelize.define(alias, cols, config);
+    const Categoria = sequelize.define(alias, cols, config);
 
-    return Roles;
+    return Categoria;
 
 }
+
+

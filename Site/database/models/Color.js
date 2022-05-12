@@ -1,23 +1,24 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Categorias";
+    let alias = "Color";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        color: {
             type: dataTypes.STRING
+        },
+        id_product: {
+            type: dataTypes.INTEGER
         }
     };
     let config = {
-        tableName: "Categories",
+        tableName: "Colors",
         timestamps: false
     };
-    const Categorias = sequelize.define(alias, cols, config);
+    const Color = sequelize.define(alias, cols, config);
 
-    return Categorias;
+    return Color;
 
 }
-
-

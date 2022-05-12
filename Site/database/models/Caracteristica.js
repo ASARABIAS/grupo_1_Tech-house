@@ -1,24 +1,24 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Productos_pagos";
+    let alias = "Caracteristica";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        id_product: {
-            type: dataTypes.INTEGER
+        title: {
+            type: dataTypes.STRING
         },
-        id_payment_method: {
+        id_product: {
             type: dataTypes.INTEGER
         }
     };
     let config = {
-        tableName: "Products_payment_methods",
+        tableName: "Characteristics",
         timestamps: false
     };
-    const Productos_pagos = sequelize.define(alias, cols, config);
+    const Caracteristica = sequelize.define(alias, cols, config);
 
-    return Productos_pagos;
+    return Caracteristica;
 
 }
