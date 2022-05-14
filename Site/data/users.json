@@ -23,15 +23,11 @@
   "id": 1651106208195,
   "name": "adan   ",
   "lastName": "hola",
-<<<<<<< HEAD
-  "email": "adan@gmail.com",
-  "password": "$2a$12$oJfCCZ596yww8wl9AxmMZOcMnl9DzHpzF0gkPXpkboUvGAuGSISum",
+  "email": "hola@gmail.com",
+  "password": "$2a$12$S4g.sOQqzhpa9OvnC7CVxOE7X7zp4Mw3SFVVMAaNALP45ORV4ze8.",
   "country": "Venezuela",
   "Avatar": "avatar-1651106665236.jpg",
   "rol": 1
-=======
-  "email": "hola@gmail.com",
-  "password": "$2a$12$S4g.sOQqzhpa9OvnC7CVxOE7X7zp4Mw3SFVVMAaNALP45ORV4ze8."
  },
  {
   "id": 1649794683308,
@@ -65,18 +61,6 @@
   "country": "Colombia"
  },
  {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> dev_abraham
-  "id": 1651030536565,
-  "name": "snowden",
-  "lastName": "user",
-  "email": "snowden2202@hotmail.com",
-  "password": "$2a$12$ITwunOuzcYoDR2BHJ1khI.bBhr/07AEBlCX44BKxKoBoXr78wYQoK",
-  "country": "Colombia"
-<<<<<<< HEAD
-=======
   "id": 1650924478490,
   "name": "camilo",
   "lastName": "zandoval",
@@ -91,9 +75,15 @@
   "email": "snowden2202@hotmail.com",
   "password": "$2a$12$v2cl712qBuOBIQEmYbhLfOoYHddGh0Ez/2qyiI9lVsDnzKHYDGwKy",
   "country": "colombia"
->>>>>>> 096033d1d77b8efc8dada24126719a9a58519a65
-=======
->>>>>>> dev_adan
->>>>>>> dev_abraham
+ },
+ {
+  "id": 1652490583667,
+  "name": "ussr",
+  "lastName": "sssssss",
+  "email": "220212@hotmail.com",
+  "password": "$2a$12$RjnqYt9gUZYJHwboxVKpPOSzod6bYdcZeC/Ai60A/o9FK86Y/jwxS",
+  "country": "1233",
+  "Avatar": "logo.png",
+  "rol": 1
  }
 ]

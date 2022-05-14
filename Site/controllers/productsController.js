@@ -1,5 +1,7 @@
 const path = require('path');
 const fs = require('fs');
+const db = require("../database/models");
+const Producto = require('../database/models/Producto');
 
 //Cargar desde el archivo JSON
 let JSONPath = (name) => path.join(__dirname, '../data/' + name);
@@ -55,8 +57,11 @@ const productsController = {
 
     },
     list: (req, res) => {
+        db.Producto.findAll().then(products => {
+            res.send(products);
+        }) .catch(error => console.log(error));
 
-        res.render('products/listProducts', { products });
+       // res.render('products/listProducts', { products });
 
     },
     cart: (req, res) => {

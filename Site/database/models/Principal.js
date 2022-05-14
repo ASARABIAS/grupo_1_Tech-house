@@ -22,6 +22,14 @@ module.exports = (sequelize, dataTypes) => {
     };
     const Principal = sequelize.define(alias, cols, config);
 
+        Principal.associate = function(models){
+        Principal.belongsTo(models.Caracteristica, {
+            as: "characteristic" ,
+            foreignKey: "id_characteristic"
+        })
+    }
+
+
     return Principal;
 
 }
