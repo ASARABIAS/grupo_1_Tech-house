@@ -40,27 +40,28 @@
                             <div class="infor-product-section">
                                 <div class="characteristics-header">
                                     <h4>Caractersiticas:</h4>
+                                    <i class="fa-solid fa-circle-plus" onclick="addNewCharacteristics();"></i>
                                 </div>
-                                <div class="characteristics-main">
-                                    <div class="characteristics-main-title">
-                                        <label for="characteristics-title">Titulo de la Caracteristicas:</label>
-                                        <input type="text" name="characteristicsTitle" id="characteristics-title" placeholder="Titulo">
-                                    </div>
-                                    <div class="characteristics-main-context">
-                                        <div class="characteristics-main-context-top">
-                                            <h5>Cuerpo de la Caracteristicas</h5>
-                                            <i class="fa-solid fa-circle-plus"></i>
+                                <div class="characteristics-main" id="characteristics-main">
+                                    <div class="characteristics-section">
+                                        <div class="characteristics-main-title">
+                                            <label for="characteristicsTitle">Titulo de la Caracteristicas:</label>
+                                            <input type="text" name="characteristicsTitle" id="characteristicsTitle" placeholder="Titulo">
                                         </div>
-                                        <div class="characteristics-main-context-down" id="characteristics-main-context-down">
-                                            <label for="characteristics-context-subtitle">Subtitulo:</label>
-                                            <input type="text" name="characteristicsContextSubtitle" id="characteristics-context-subtitle" placeholder="Subtitulo">
-                                            <label for="characteristics-context-description">Descripcion:</label>
-                                            <input type="text" name="characteristicsContextDescription" id="characteristics-context-description" placeholder="Descripcion">
+                                        <div class="characteristics-main-context">
+                                            <div class="characteristics-main-context-top">
+                                                <h5>Cuerpo de la Caracteristicas</h5>
+                                                <i class="fa-solid fa-circle-plus" onclick="addNewcharacteristicsDiscripction(0);"></i>
+                                            </div>
+                                            <div class="characteristics-main-context-down" id="characteristics-main-context-down_0">
+                                                <div class="characteristics-section">
+                                                    <label for="characteristicsContextSubtitle_0">Subtitulo:</label>
+                                                    <input type="text" name="characteristicsContextSubtitle_0" id="characteristicsContextSubtitle_0" placeholder="Subtitulo">
+                                                    <label for="characteristicsContextDescription_0">Descripcion:</label>
+                                                    <input type="text" name="characteristicsContextDescription_0" id="characteristicsContextDescription_0" placeholder="Descripcion">
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="characteristics-main-add">
-                                        <a href="">Agregar nueva caracteristica</a>
-                                        <i id="characteristic-add" class="fa-solid fa-circle-plus" onclick="addNewDivDiscripction();"></i>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +109,7 @@
             <%- include('../partials/footer') %>
 
     </body>
-    <script src="/js/product.js"></script>
+    <script src="/js/products/addCharacteristics.js"></script>
     <script src="https://kit.fontawesome.com/f108e44f29.js" crossorigin="anonymous"></script>
 
 </html>
