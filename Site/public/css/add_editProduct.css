@@ -87,18 +87,12 @@ div.information-main form.infor-product div div.characteristics-main {
     margin-bottom: 20px;
 }
 
-div.information-main form.infor-product div div.characteristics-main div.characteristics-section {
-    border: var(--Clean) 1px solid;
-    padding: 20px;
-    border-radius: 10px;
-}
-
 div.characteristics-main-context-down {
     margin-left: 5px;
 }
 
 div.information-main form.infor-product div div.characteristics-main div.characteristics-main-context div.characteristics-main-context-top,
-div.characteristics-header {
+div.characteristics-main-add {
     display: flex;
     justify-content: space-between;
 }

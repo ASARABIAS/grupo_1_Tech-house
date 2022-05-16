@@ -58,7 +58,7 @@ div.mainlogin {
 .login input {
     display: block;
     padding: 0px;
-    width: 70%;
+    width: 75%;
     height: 25px;
     margin: auto;
     margin-top: 10px;
@@ -67,14 +67,6 @@ div.mainlogin {
     text-align: center;
     border: 1px solid gray;
     border-radius: 10px;
-}
-
-.form-check-label{
-    width: 20px;
-}
-
-.recordar{
-    display: flex;
 }
 
 .login .button-submit {
@@ -95,11 +87,6 @@ div.mainlogin {
 .login .text-end {
     font-size: 12px;
     margin-top: 10px;
-}
-
-.recordar{
-    display:flex;
-    justify-content: space-between;
 }
 footer{
     margin-top: 70%;
