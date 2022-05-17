@@ -19,6 +19,14 @@ module.exports = (sequelize, dataTypes) => {
     };
     const Metodo_pago = sequelize.define(alias, cols, config);
 
+
+    Metodo_pago.associate = function(models){
+        Metodo_pago.hasMany(models.Producto_pago, {
+            as: "Products_payment" ,
+            foreignKey: "id_payment_method"
+        })
+    }
+
     return Metodo_pago;
 
 }

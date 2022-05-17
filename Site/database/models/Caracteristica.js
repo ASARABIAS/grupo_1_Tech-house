@@ -19,6 +19,20 @@ module.exports = (sequelize, dataTypes) => {
     };
     const Caracteristica = sequelize.define(alias, cols, config);
 
+    Caracteristica.associate = function(models){
+        Caracteristica.belongTo(models.Producto, {
+            as: "product" ,
+            foreignKey: "id_product"
+        })
+    },
+
+    Caracteristica.associate = function(models){
+        Caracteristica.hasMany(models.Principal, {
+            as: "Principal" ,
+            foreignKey: "id_characteristic"
+        })
+    }
+
     return Caracteristica;
 
 }
