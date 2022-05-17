@@ -57,11 +57,13 @@ const productsController = {
 
     },
     list: (req, res) => {
-        db.Producto.findAll().then(products => {
-            res.send(products);
-        }) .catch(error => console.log(error));
+        db.Producto.findAll()
+            .then(products => {
+                res.send(products);
+            })
+            .catch(error => console.log(error));
 
-       // res.render('products/listProducts', { products });
+        // res.render('products/listProducts', { products });
 
     },
     cart: (req, res) => {
@@ -101,12 +103,12 @@ const productsController = {
                 product.paymentMethod = getMultipleData(body.paymentMethod);
                 product.price = body.price;
                 product.discount = body.discount;
-                
+
             }
 
-            
+
         });
-      
+
         let ProductsJSON = JSON.stringify(products, null, ' ');
 
         fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
@@ -129,17 +131,17 @@ const productsController = {
     }
 }
 
-function getMultipleData(element){
-    let response =  []
+function getMultipleData(element) {
+    let response = []
 
-    if(Array.isArray(element)){
+    if (Array.isArray(element)) {
         return element
     }
 
-    if(typeof(element) === "string"){
+    if (typeof(element) === "string") {
         response.push(element)
     }
-     return response
+    return response
 }
 
 function getCharacteristicsMain(subtitle, description) {
