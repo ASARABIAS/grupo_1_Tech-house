@@ -59,7 +59,7 @@ const usersController = {
                    
         .catch(error => console.log(error))
         .then(()=> {
-            return res.redirect('/')})
+            return res.redirect('/login')})
     }else{
         res.render('users/register', { errors: errors.mapped() });
     }},

@@ -7,11 +7,15 @@ const Users = db.Usuario;
 let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/users.json")));
 
 const registerValidations = [
+    body('name')
+    .notEmpty().withMessage('El campo de nombre no puede estar vacio'),
 	body('email')
-		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail()
-		.isEmail().withMessage('Debes escribir un formato de correo válido'),
-	body('password').notEmpty().withMessage('Tienes que escribir una contraseña').bail()
+		.notEmpty().withMessage('El campo de nombre no puede estar vacio').bail()
+		.isEmail().withMessage('Debe escribir un formato de correo válido'),
+	body('password')
+    .notEmpty().withMessage('El campo de contraseña no puede estar vacio')
     .isLength({min: 6}).withMessage('La contraseña debe tener mimimo 6 caracteres'),
+    body("Country").notEmpty().withMessage('El campo de país no puede estar vacio'),
     body('email').custom( (value) =>{
         let userFound =  Users.findOne({where: {
             email: req.body.email}});
