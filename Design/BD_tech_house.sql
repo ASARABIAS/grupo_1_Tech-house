@@ -16,6 +16,8 @@ country VARCHAR(45),
 avatar VARCHAR(100),
 id_role INT NOT NULL,
 PRIMARY KEY (id),
+UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
 FOREIGN KEY (id_role) REFERENCES roles (id)
 )ENGINE InnoDB DEFAULT CHARSET=utf8mb4;
 
