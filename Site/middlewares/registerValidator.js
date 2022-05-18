@@ -1,22 +1,29 @@
 const { body } = require('express-validator');
 const path = require('path');
 const fs = require('fs');
+const db = require('../database/models');
+const Users = db.Usuario;
 
 let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/users.json")));
 
 const registerValidations = [
-    body('email')
-    .notEmpty().withMessage('Tienes que escribir un correo electrónico').bail()
-    .isEmail().withMessage('Debes escribir un formato de correo válido'),
-    body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
-    body('email').custom((value) => {
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].email == value) {
-                return false;
+	body('email')
+		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail()
+		.isEmail().withMessage('Debes escribir un formato de correo válido'),
+	body('password').notEmpty().withMessage('Tienes que escribir una contraseña').bail()
+    .isLength({min: 6}).withMessage('La contraseña debe tener mimimo 6 caracteres'),
+    body('email').custom( (value) =>{
+        let userFound =  Users.findOne({where: {
+            email: req.body.email}});
+            if (userFound.email == value) {
+                return false    
             }
-        }
-        return true;
-    }).withMessage('Usuario se encuentra registrado'),
+        
+        return true
+      }).withMessage('El usuario ya se encuentra registrado'),
+    
+      //Aquí valido si la contraseña colocada es la misma a la que tenemos hasheada
+      
 ]
 
 module.exports = registerValidations;

@@ -1,15 +1,12 @@
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+const moment = require('moment');
+const bcrypt = require('bcryptjs');
 const path = require('path');
 const fs = require('fs');
 const { validationResult } = require('express-validator');
-const bcryptjs = require('bcryptjs');
-
-
-//Cargar desde el archivo JSON
-let JSONPath = (name) => path.join(__dirname, '../data/' + name);
-let resultReadJSON = (JSONPath) => JSON.parse(fs.readFileSync(JSONPath, 'utf-8'));
-
-//Obtener objeto
-let users = resultReadJSON(JSONPath('users.json'));
+const Users = db.Usuario;
 
 const usersController = {
     home: (req, res) => {
@@ -20,18 +17,23 @@ const usersController = {
     login: (req, res) => {
         res.render('users/login');
     },
-    check: (req, res) => {
+    check: async (req, res) => {
         const errors = validationResult(req);
-        if (errors.isEmpty()) {
-            let usuarioLogueado = users.find(usuario => usuario.email == req.body.email);
-            req.session.usuario = usuarioLogueado;
+        if (errors.isEmpty()){
+            let usuarioLogueado = await Users.findOne({where: {
+                email: req.body.email}});
+                if(await bcrypt.compare(req.body.password, usuarioLogueado.password)){
+                    req.session.usuario = usuarioLogueado;
+                }
+            
             if (req.body.recordar_usuario) {
                 res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 60 })
             }
             res.redirect('/');
-        } else {
+        }else {
             res.render('users/login', { errors: errors.mapped() });
         }
+        
     },
     register: (req, res) => {
         res.render('users/register');
@@ -43,31 +45,25 @@ const usersController = {
             let body = req.body;
             let file = req.file;
 
-
-            let newUser = {
-                id: Date.now(),
+            Users
+        .create(
+            {
                 name: body.name,
-                lastName: body.lastName,
                 email: body.email,
-                password: bcryptjs.hashSync(body.password, 12),
+                password: bcrypt.hashSync(body.password, 12),
                 country: body.country,
-                Avatar: !file ? "logo.png" : file.filename,
-                rol: 1 //0=> Administrdor, 1=>cliente
+                avatar: !file ? "logo.png" : file.filename,
+                id_role: 1
             }
+        )
+                   
+        .catch(error => console.log(error))
+        .then(()=> {
+            return res.redirect('/')})
+    }else{
+        res.render('users/register', { errors: errors.mapped() });
+    }},
 
-            users.push(newUser);
-
-            let usersJSON = JSON.stringify(users, null, ' ');
-
-            fs.writeFileSync(JSONPath('users.json'), usersJSON);
-
-            res.redirect('login');
-        } else {
-            res.render('users/register', { errors: errors.mapped() });
-        }
-
-
-    },
     logout: (req, res) => {
         res.clearCookie("userEmail");
         req.session.destroy();
@@ -85,28 +81,22 @@ const usersController = {
         const file = req.file;
 
         user.name = body.name;
-        user.lastName = body.lastName;
         user.email = body.email;
         user.country = body.country;
         user.Avatar = file ? file.filename : user.Avatar;
 
-        for (let index = 0; index < users.length; index++) {
-            if (user.id === users[index].id) {
-                users[index] = user;
-            }
-        }
-
-
-
-        let usersJSON = JSON.stringify(users, null, ' ');
-
-        fs.writeFileSync(JSONPath('users.json'), usersJSON);
-
-        res.redirect('profile');
-        /*let idUser = req.params.idUser;
-        let userToEdit = users[idUser];
-        res.render("userEdit", { userToEdit: userToEdit });
-        */
+        Users.update({
+            name: body.name,
+                email: body.email,
+                password: bcrypt.hashSync(body.password, 12),
+                country: body.country,
+                avatar: !file ? "logo.png" : file.filename,
+                id_role: 1
+        }, {where:{
+            id: user.id
+        }})
+             res.redirect('profile');
+        
     },
 
     preferences: (req, res) => {

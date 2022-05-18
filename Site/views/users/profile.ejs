@@ -9,7 +9,7 @@
             <main class="registro">
                 <form action="/users/update?_method=PUT" method="post" enctype="multipart/form-data">
                     <h1>
-                        <%- user.name+' '+user.lastName %>
+                        <%- user.name %>
                     </h1>
                     <div class="photo">
                         <img src="/images/users/<%- user.Avatar  %>" alt="">
@@ -23,8 +23,8 @@
                     <label for="name">Tu nombre</label>
                     <input class="registro-nombre" type="text" id="name" name="name" value="<%- user.name %> " />
 
-                    <label for="lastName">Tu apellido</label>
-                    <input class="registroApellido" type="text" id="lastName" name="lastName" value="<%- user.lastName %>" required />
+                    <label for="lastName">Contraseña</label>
+                    <input class="registroApellido" type="text" id="password" name="password" placeholder="Ingrese la nueva contraseña"required />
 
                     <label for="email">Correo electrónico </label>
                     <input class="registro-email" type="email" id="email" name="email" value="<%- user.email %>" required/>
