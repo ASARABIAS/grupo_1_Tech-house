@@ -57,3 +57,28 @@ Impedimentos encontrados
  
 Qué haremos esta semana
 - Finiquitaremos detalles en las vistas del profile y del usuario logueado; implementaremos roles de usuario y administrador
+
+**Weekly 1 - Sprint 6**
+Qué se hizo la semana pasada
+- Se repartieron las responsibilidades individuales
+- Se realizó el diagrama de entidad y relacion y el script de escructura de la DB para que los demás compañeros comenzaran a trabajar en sus partes
+
+Impedimentos encontrados
+Se presentaron algunos bugs de sprints pasados, los cuales debieron ser corregidos para continuar trabajando en este sprint.
+
+Qué haremos esta semana
+- Se creará estructura de carpeta Sequelize y archivos de modelos para seguir trabajando en los puntos del sprint
+- Seguiremos trabajando en las responsabilidades individuales y grupales
+
+**Weekly 2 - Sprint 6**
+Qué se hizo la semana pasada
+- Se creó estuctura de Sequelize, archivos de modelos y sus relaciones
+
+Impedimentos encontrados
+Una de nuestras compañeras presentó inconvenientes con su parte del Sprint, debido a que su computador se le dañó; delegamos esa parte a uno de los demás compañeros.
+
+Qué haremos esta semana
+- Terminar CRUD de Usuarios
+- Terminar CRUD de productos
+- Tratar de realizar los puntos opcionales del Sprint
+

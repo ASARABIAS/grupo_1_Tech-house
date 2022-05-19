@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
+// Importando DB
 const db = require("../database/models");
-const Producto = require('../database/models/Producto');
 
 //Cargar desde el archivo JSON
 let JSONPath = (name) => path.join(__dirname, '../data/' + name);
@@ -9,61 +9,105 @@ let resultReadJSON = (JSONPath) => JSON.parse(fs.readFileSync(JSONPath, 'utf-8')
 
 //Obtener objeto
 let products = resultReadJSON(JSONPath('products.json'));
-let paymentMethod = resultReadJSON(JSONPath('paymentMethod.json'));
-let categoryProduct = resultReadJSON(JSONPath('categoryProduct.json'));
+// let paymentMethod = resultReadJSON(JSONPath('paymentMethod.json'));
+// let categoryProduct = resultReadJSON(JSONPath('categoryProduct.json'));
 
 
 const productsController = {
+
+    // Formulario Creación Producto (GET)
     create: (req, res) => {
+        db.Categoria.findAll()
+            .then((categoryProduct) => {
+                db.Metodo_pago.findAll()
+                    .then((paymentMethod) => {
+                        console.log(paymentMethod);
+                        console.log(categoryProduct);
         res.render('products/createProduct', { paymentMethod, categoryProduct });
+         })
+    })
     },
 
-    //Acción de creación post
+    //Creación de un Producto (POST)
     store: function(req, res) {
-
         let body = req.body;
+        db.Producto.create({
+           name: body.name,
+           specifications: body.specifications,
+           characteristics: [{
+               title: body.characteristicsTitle,
+               principals: [{
+                subtitle: body.characteristicsContextSubtitle_0,
+                description: body.characteristicsContextDescription_0
+            }]
+           }
+           ],
+           id_category: body.category,
+           warranty_text: body.warrantyText,
+           warranty_time: body.warrantyTime,
+           price: body.price,
+           discount: body.discount,
+           quota: "30x $30.400",
+           shipping: 4,
+           return_value: 0,
+           images: [
+               {image: "prueba.png"}
+           ],
+           colors:[
+               {color: "Color"}
+           ]
+        },
+        {
+            include: [
+                {association: "images"},
+                {association: "colors"},
+                {association: "characteristics", include: [
+                    {association: "principals"}
+                ]
+            },
+            ]
+        })
+            .then((product) => {
+                let productsPaymentMethods = getMultipleData(body.paymentMethod);
+                // Obteniendo el arreglo de objetos para el bulkCreate
+                let productsPaymentMethodsDb = [];
+                for (let i = 0; i < productsPaymentMethods.length; i++) {
+                    productsPaymentMethodsDb.push({
+                        id_product: product.id,
+                        id_payment_method: productsPaymentMethods[i]
+                    })                
+                }
+                db.Producto_pago.bulkCreate(
+                    productsPaymentMethodsDb
+                ).then((productPayment) => {
+                    console.log(productPayment);
+                    res.redirect("/")
+                })  
+            }).catch((err) => {
+                console.error(err);
+            });
 
         console.log(body);
-        //let newProduct = {
-        //    id: Date.now(),
-        //    name: body.name,
-        //    specifications: body.specifications,
-        //    characteristics: [{
-        //        title: body.characteristicsTitle,
-        //        main: [{
-        //            subtitle: body.characteristicsContextSubtitle,
-        //            description: body.characteristicsContextDescription
-        //        }]
-        //    }],
-        //    category: body.category,
-        //    warrantyText: body.warrantyText,
-        //    warrantyTime: body.warrantyTime,
-        //    paymentMethod: body.paymentMethod,
-        //    price: body.price,
-        //    discount: body.discount,
-        //    images: ["prueba.png"],
-        //    cuotas: "30x $30.400",
-        //    color: ["Color"],
-        //    envio: 4,
-        //    valorDevolucion: 0
-        //}
-        //
-        //products.push(newProduct);
-        //
-        //let ProductsJSON = JSON.stringify(products);
-        //
-        //fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
-        //res.redirect('/products');
 
     },
+
+    // Lista de Productos
     list: (req, res) => {
-        db.Producto.findAll()
+        db.Producto.findAll({
+            include: [
+                {association: "images"},
+                {association: "colors"},
+                {association: "characteristics", include: [
+                    {association: "principals"}
+                ]
+            },
+            ]
+        })
             .then(products => {
-                res.send(products);
+                
+                res.render('products/listProducts', { products });
             })
             .catch(error => console.log(error));
-
-        // res.render('products/listProducts', { products });
 
     },
     cart: (req, res) => {
@@ -71,61 +115,183 @@ const productsController = {
         res.render("products/cartProduct")
 
     },
-    detail: (req, res) => {
+
+    // Detalle del producto
+    detail: async (req, res) => {
 
         let id = req.params.id;
-        let product = products.find(product => product.id == id);
-
+        let paymentMethod = await db.Metodo_pago.findAll();
+        let product = await db.Producto.findByPk(id, {
+            include: [
+                {association: "images"},
+                {association: "colors"},
+                {association: "metodo_pago"},
+                {association: "characteristics", include: [
+                    {association: "principals"}
+                ]
+                },
+            ]
+        });
+        
         res.render('products/detailProduct', { product, paymentMethod });
     },
-    edit: (req, res) => {
+
+    // Vista editar Producto
+    edit: async (req, res) => {
 
         let id = req.params.id;
-        let product = products.find(product => product.id == id);
-
-        res.render('products/editProduct', { product, paymentMethod, categoryProduct });
-    },
-    update: (req, res) => {
-
-        let body = req.body;
-        let id = req.params.id;
-
-        products.forEach(product => {
-
-            if (product.id == id) {
-
-                product.name = body.name;
-                product.specifications = body.specifications;
-                product.characteristics = getCharacteristics(body);
-                product.category = body.category;
-                product.warrantyText = body.warrantyText;
-                product.warrantyTime = body.warrantyTime;
-                product.paymentMethod = getMultipleData(body.paymentMethod);
-                product.price = body.price;
-                product.discount = body.discount;
-
-            }
-
-
+        let categoryProduct = await db.Categoria.findAll();
+        let paymentMethod = await db.Metodo_pago.findAll();
+        let product = await db.Producto.findByPk(id, {
+            include: [
+                {association: "images"},
+                {association: "colors"},
+                {association: "metodo_pago"},
+                {association: "characteristics", include: [
+                    {association: "principals"}
+                ]
+                },
+            ]
         });
 
-        let ProductsJSON = JSON.stringify(products, null, ' ');
-
-        fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
-        res.redirect('/products');
-    },
-    // lleva a un formulario donde se confirma que producto se eliminara
-    viewDelete: function(req, res, next) {
-        res.render('products/delete', { title: 'Eliminar producto', producto: products.find(producto => producto.id == req.params.id) });
+        //console.log(JSON.stringify(product, null, 2)); 
+        res.render('products/editProduct', { product, paymentMethod, categoryProduct });
     },
 
-    //elimina el producto
-    deleteProduct: function(req, res, next) {
+    // Editar Producto 
+    update: async (req, res) => {
+        let body = req.body;
+
+        await db.Producto.update({
+            name: body.name,
+            specifications: body.specifications,
+            id_category: body.category,
+            warranty_text: body.warrantyText,
+            warranty_time: body.warrantyTime,
+            price: body.price,
+            discount: body.discount,
+         },
+         {
+            where: {id: req.params.id}
+         });
+
+         let updatedProduct = await db.Producto.findByPk(req.params.id, {
+            include: [
+                {association: "characteristics", include: [
+                    {association: "principals"}
+                ]
+                },
+            ]
+        });
+        
+        if(updatedProduct.characteristics.length > 0){
+            await db.Principal.destroy({
+                where: {
+                    id_characteristic: updatedProduct.characteristics[0].id
+                }
+            })
+    
+            await db.Caracteristica.destroy({
+                where: {
+                    id_product: updatedProduct.id
+                },
+                force: true
+            });
+    
+            await db.Caracteristica.create({
+                id_product: updatedProduct.id,
+                title: body.characteristicsTitle,
+                principals: [{
+                 subtitle: body.characteristicsContextSubtitle_0,
+                 description: body.characteristicsContextDescription_0
+             }]
+            }, {
+                include: [
+                    {association: "principals"}
+                ]
+            })
+        }
+      
+         await db.Producto_pago.destroy({
+             where: {
+                id_product: updatedProduct.id
+             }
+         });
+
+        let productsPaymentMethods = getMultipleData(body.paymentMethod);
+
+        let productsPaymentMethodsDb = [];
+        for (let i = 0; i < productsPaymentMethods.length; i++) {
+            productsPaymentMethodsDb.push({
+                id_product: updatedProduct.id,
+                id_payment_method: productsPaymentMethods[i]
+            })                
+        }
+
+        await db.Producto_pago.bulkCreate(
+            productsPaymentMethodsDb
+        ); 
+
+         res.redirect('/products');
+    },
+    // Vista eliminar producto
+    viewDelete: async (req, res, next) => {
         let id = req.params.id;
-        products = products.filter(product => product.id != id);
+        let product = await db.Producto.findByPk(id);
 
-        let ProductsJSON = JSON.stringify(products, null, ' ');
-        fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
+        res.render('products/delete', { title: 'Eliminar producto', product });
+    },
+
+    // Eliminar producto
+    deleteProduct: async (req, res, next) => {
+
+        let deletedProduct = await db.Producto.findByPk(req.params.id, {
+            include: [
+                {association: "characteristics", include: [
+                    {association: "principals"}
+                ]
+                },
+            ]
+        })  
+
+        if(deletedProduct.characteristics.length > 0){
+            await db.Principal.destroy({
+                where: {
+                    id_characteristic: deletedProduct.characteristics[0].id
+                }
+            })
+    
+            await db.Caracteristica.destroy({
+                where: {
+                    id_product: deletedProduct.id
+                },
+                force: true
+            });
+        }
+      
+         await db.Producto_pago.destroy({
+             where: {
+                id_product: deletedProduct.id
+             }
+         });
+
+         await db.Imagen.destroy({
+             where: {
+                 id_product: deletedProduct.id
+             }
+         });
+
+         await db.Color.destroy({
+            where: {
+                id_product: deletedProduct.id
+            }
+        });
+
+        await db.Producto.destroy({
+            where:{
+                id: deletedProduct.id
+            }
+        })
 
         res.redirect('/products');
     }

@@ -2,24 +2,31 @@
 
 
 .formularioEliminar{
-    padding: 100px;
     display: block;
     text-align: center;
-    background-color: #E8E8E8;
+    background-color: var(--White);
     width: 80%;
-    margin: auto;
-    border-radius: 10px;
-    position: absolute;
-    top: -20vh;
+    border-radius: 8px;
     right: 9vw;
 }
 input.boton-eliminar {
-    font-size: 50px;
-    margin-top: 50px;
-    padding: 10px;
-    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 15px;
+    padding: 9px;
+    border-radius: 8px;
     border: none;
     background-color: var(--Red);
+    color: #E8E8E8;
+    font-weight: 700;
+    text-align: center;
+}
+a.boton-volver{
+    font-size: 14px;
+    margin-top: 50px;
+    padding: 9px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--Light-purple);
     color: #E8E8E8;
     font-weight: 700;
     text-align: center;
