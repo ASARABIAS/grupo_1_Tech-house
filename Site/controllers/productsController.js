@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
+// Importando DB
 const db = require("../database/models");
-const Producto = require('../database/models/Producto');
 
 //Cargar desde el archivo JSON
 let JSONPath = (name) => path.join(__dirname, '../data/' + name);
@@ -9,61 +9,105 @@ let resultReadJSON = (JSONPath) => JSON.parse(fs.readFileSync(JSONPath, 'utf-8')
 
 //Obtener objeto
 let products = resultReadJSON(JSONPath('products.json'));
-let paymentMethod = resultReadJSON(JSONPath('paymentMethod.json'));
-let categoryProduct = resultReadJSON(JSONPath('categoryProduct.json'));
+// let paymentMethod = resultReadJSON(JSONPath('paymentMethod.json'));
+// let categoryProduct = resultReadJSON(JSONPath('categoryProduct.json'));
 
 
 const productsController = {
+
+    // Formulario Creación Producto (GET)
     create: (req, res) => {
+        db.Categoria.findAll()
+            .then((categoryProduct) => {
+                db.Metodo_pago.findAll()
+                    .then((paymentMethod) => {
+                        console.log(paymentMethod);
+                        console.log(categoryProduct);
         res.render('products/createProduct', { paymentMethod, categoryProduct });
+         })
+    })
     },
 
-    //Acción de creación post
+    //Creación de un Producto (POST)
     store: function(req, res) {
-
         let body = req.body;
+        db.Producto.create({
+           name: body.name,
+           specifications: body.specifications,
+           characteristics: [{
+               title: body.characteristicsTitle,
+               principals: [{
+                subtitle: body.characteristicsContextSubtitle_0,
+                description: body.characteristicsContextDescription_0
+            }]
+           }
+           ],
+           id_category: body.category,
+           warranty_text: body.warrantyText,
+           warranty_time: body.warrantyTime,
+           price: body.price,
+           discount: body.discount,
+           quota: "30x $30.400",
+           shipping: 4,
+           return_value: 0,
+           images: [
+               {image: "prueba.png"}
+           ],
+           colors:[
+               {color: "Color"}
+           ]
+        },
+        {
+            include: [
+                {association: "images"},
+                {association: "colors"},
+                {association: "characteristics", include: [
+                    {association: "principals"}
+                ]
+            },
+            ]
+        })
+            .then((product) => {
+                let productsPaymentMethods = getMultipleData(body.paymentMethod);
+                // Obteniendo el arreglo de objetos para el bulkCreate
+                let productsPaymentMethodsDb = [];
+                for (let i = 0; i < productsPaymentMethods.length; i++) {
+                    productsPaymentMethodsDb.push({
+                        id_product: product.id,
+                        id_payment_method: productsPaymentMethods[i]
+                    })                
+                }
+                db.Producto_pago.bulkCreate(
+                    productsPaymentMethodsDb
+                ).then((productPayment) => {
+                    console.log(productPayment);
+                    res.redirect("/")
+                })  
+            }).catch((err) => {
+                console.error(err);
+            });
 
         console.log(body);
-        //let newProduct = {
-        //    id: Date.now(),
-        //    name: body.name,
-        //    specifications: body.specifications,
-        //    characteristics: [{
-        //        title: body.characteristicsTitle,
-        //        main: [{
-        //            subtitle: body.characteristicsContextSubtitle,
-        //            description: body.characteristicsContextDescription
-        //        }]
-        //    }],
-        //    category: body.category,
-        //    warrantyText: body.warrantyText,
-        //    warrantyTime: body.warrantyTime,
-        //    paymentMethod: body.paymentMethod,
-        //    price: body.price,
-        //    discount: body.discount,
-        //    images: ["prueba.png"],
-        //    cuotas: "30x $30.400",
-        //    color: ["Color"],
-        //    envio: 4,
-        //    valorDevolucion: 0
-        //}
-        //
-        //products.push(newProduct);
-        //
-        //let ProductsJSON = JSON.stringify(products);
-        //
-        //fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
-        //res.redirect('/products');
 
     },
+
+    // Lista de Productos
     list: (req, res) => {
-        db.Producto.findAll()
+        db.Producto.findAll({
+            include: [
+                {association: "images"},
+                {association: "colors"},
+                {association: "characteristics", include: [
+                    {association: "principals"}
+                ]
+            },
+            ]
+        })
             .then(products => {
-                res.send(products);
+                
+                res.render('products/listProducts', { products });
             })
             .catch(error => console.log(error));
-
-        // res.render('products/listProducts', { products });
 
     },
     cart: (req, res) => {
@@ -78,10 +122,25 @@ const productsController = {
 
         res.render('products/detailProduct', { product, paymentMethod });
     },
-    edit: (req, res) => {
+    edit: async (req, res) => {
 
         let id = req.params.id;
-        let product = products.find(product => product.id == id);
+        let categoryProduct = await db.Categoria.findAll();
+        let paymentMethod = await db.Metodo_pago.findAll();
+        console.log(paymentMethod);
+        let product = await db.Producto.findByPk(id, {
+            include: [
+                {association: "images"},
+                {association: "colors"},
+                {association: "metodo_pago"},
+                {association: "characteristics", include: [
+                    {association: "principals"}
+                ]
+                },
+            ]
+        });
+
+        console.log(JSON.stringify(product, null, 2)); 
 
         res.render('products/editProduct', { product, paymentMethod, categoryProduct });
     },

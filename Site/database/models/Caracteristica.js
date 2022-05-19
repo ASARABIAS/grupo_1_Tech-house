@@ -14,7 +14,7 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        tableName: "Characteristics",
+        tableName: "characteristics",
         timestamps: false
     };
     const Caracteristica = sequelize.define(alias, cols, config);
@@ -28,7 +28,7 @@ module.exports = (sequelize, dataTypes) => {
 
     Caracteristica.associate = function(models){
         Caracteristica.hasMany(models.Principal, {
-            as: "Principal" ,
+            as: "principals" ,
             foreignKey: "id_characteristic"
         })
     }

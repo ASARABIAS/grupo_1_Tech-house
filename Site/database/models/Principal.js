@@ -17,7 +17,7 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        tableName: "Main",
+        tableName: "characteristics_main",
         timestamps: false
     };
     const Principal = sequelize.define(alias, cols, config);

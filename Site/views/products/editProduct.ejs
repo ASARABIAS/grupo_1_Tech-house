@@ -10,11 +10,11 @@
             <main>
                 <section class="information">
                     <div class="photo">
-                        <img src="/images/products/<%= product.images[0] %> " alt="" srcset="">
+                        <img src="/images/products/<%= product.images[0].image %> " alt="" srcset="">
                         <div class="collage-photo">
                             <% let i=0 , enable="enable",disabled="disabled";
                             product.images.forEach(image => {%>
-                                <img src="/images/products/<%= image %>" alt="" srcset="" class="<%= i++==0 ?enable:disabled; %>">
+                                <img src="/images/products/<%= image.image %>" alt="" srcset="" class="<%= i++==0 ?enable:disabled; %>">
                                 <%}); %>
                         </div>
                         <div class="link-photo">
@@ -51,7 +51,7 @@
                                                 <h5>Cuerpo de la Caracteristicas</h5>
                                                 <i class="fa-solid fa-circle-plus"></i>
                                             </div>
-                                            <% characteristic.main.forEach(subcharacteristic=>{%>
+                                            <% characteristic.principals.forEach(subcharacteristic=>{%>
                                                 <div class="characteristics-main-context-down">
                                                     <label for="characteristics-context">Subtitulo:</label>
                                                     <input type="text" name="characteristicsContextSubtitle_<%=count%>" id="characteristics-context-subtitle" placeholder="<%= subcharacteristic.subtitle %>" value="<%= subcharacteristic.subtitle %>">
@@ -86,7 +86,7 @@
                                     <%paymentMethod.forEach(pay => {%>
                                         <div class="payment-method">
                                             <input type="checkbox" name="paymentMethod" value="<%= pay.id %>" id="paymentMethod
-                                        <%= pay.id %>" <%=(product.paymentMethod.indexOf(pay.id.toString()) != -1) ? "checked" : '';%>>
+                                            <%= pay.id %>" <%=(product.metodo_pago.filter((metodoPago)=>{return metodoPago.id == pay.id}).length > 0) ? "checked" : '';%>>
                                             <label for="paymentMethod<%= pay.id %>"><img src="/images/methodLogos/<%= pay.image %> " alt="" srcset=""></label>
                                         </div>
                                         <%});%>
