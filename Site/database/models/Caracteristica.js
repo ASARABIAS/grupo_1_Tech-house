@@ -15,18 +15,20 @@ module.exports = (sequelize, dataTypes) => {
     };
     let config = {
         tableName: "characteristics",
-        timestamps: false
+        timestamps: false,
+        hooks: {
+            afterDestroy: async(instance) => {
+                await instance.setPrincipals([])
+            }
+        }
     };
     const Caracteristica = sequelize.define(alias, cols, config);
 
     Caracteristica.associate = function(models){
-        Caracteristica.belongTo(models.Producto, {
+        Caracteristica.belongsTo(models.Producto, {
             as: "product" ,
             foreignKey: "id_product"
-        })
-    },
-
-    Caracteristica.associate = function(models){
+        }),
         Caracteristica.hasMany(models.Principal, {
             as: "principals" ,
             foreignKey: "id_characteristic"

@@ -115,19 +115,33 @@ const productsController = {
         res.render("products/cartProduct")
 
     },
-    detail: (req, res) => {
+
+    // Detalle del producto
+    detail: async (req, res) => {
 
         let id = req.params.id;
-        let product = products.find(product => product.id == id);
-
+        let paymentMethod = await db.Metodo_pago.findAll();
+        let product = await db.Producto.findByPk(id, {
+            include: [
+                {association: "images"},
+                {association: "colors"},
+                {association: "metodo_pago"},
+                {association: "characteristics", include: [
+                    {association: "principals"}
+                ]
+                },
+            ]
+        });
+        
         res.render('products/detailProduct', { product, paymentMethod });
     },
+
+    // Vista editar Producto
     edit: async (req, res) => {
 
         let id = req.params.id;
         let categoryProduct = await db.Categoria.findAll();
         let paymentMethod = await db.Metodo_pago.findAll();
-        console.log(paymentMethod);
         let product = await db.Producto.findByPk(id, {
             include: [
                 {association: "images"},
@@ -140,51 +154,144 @@ const productsController = {
             ]
         });
 
-        console.log(JSON.stringify(product, null, 2)); 
-
+        //console.log(JSON.stringify(product, null, 2)); 
         res.render('products/editProduct', { product, paymentMethod, categoryProduct });
     },
-    update: (req, res) => {
 
+    // Editar Producto 
+    update: async (req, res) => {
         let body = req.body;
+
+        await db.Producto.update({
+            name: body.name,
+            specifications: body.specifications,
+            id_category: body.category,
+            warranty_text: body.warrantyText,
+            warranty_time: body.warrantyTime,
+            price: body.price,
+            discount: body.discount,
+         },
+         {
+            where: {id: req.params.id}
+         });
+
+         let updatedProduct = await db.Producto.findByPk(req.params.id, {
+            include: [
+                {association: "characteristics", include: [
+                    {association: "principals"}
+                ]
+                },
+            ]
+        });
+        
+        if(updatedProduct.characteristics.length > 0){
+            await db.Principal.destroy({
+                where: {
+                    id_characteristic: updatedProduct.characteristics[0].id
+                }
+            })
+    
+            await db.Caracteristica.destroy({
+                where: {
+                    id_product: updatedProduct.id
+                },
+                force: true
+            });
+    
+            await db.Caracteristica.create({
+                id_product: updatedProduct.id,
+                title: body.characteristicsTitle,
+                principals: [{
+                 subtitle: body.characteristicsContextSubtitle_0,
+                 description: body.characteristicsContextDescription_0
+             }]
+            }, {
+                include: [
+                    {association: "principals"}
+                ]
+            })
+        }
+      
+         await db.Producto_pago.destroy({
+             where: {
+                id_product: updatedProduct.id
+             }
+         });
+
+        let productsPaymentMethods = getMultipleData(body.paymentMethod);
+
+        let productsPaymentMethodsDb = [];
+        for (let i = 0; i < productsPaymentMethods.length; i++) {
+            productsPaymentMethodsDb.push({
+                id_product: updatedProduct.id,
+                id_payment_method: productsPaymentMethods[i]
+            })                
+        }
+
+        await db.Producto_pago.bulkCreate(
+            productsPaymentMethodsDb
+        ); 
+
+         res.redirect('/products');
+    },
+    // Vista eliminar producto
+    viewDelete: async (req, res, next) => {
         let id = req.params.id;
+        let product = await db.Producto.findByPk(id);
 
-        products.forEach(product => {
+        res.render('products/delete', { title: 'Eliminar producto', product });
+    },
 
-            if (product.id == id) {
+    // Eliminar producto
+    deleteProduct: async (req, res, next) => {
 
-                product.name = body.name;
-                product.specifications = body.specifications;
-                product.characteristics = getCharacteristics(body);
-                product.category = body.category;
-                product.warrantyText = body.warrantyText;
-                product.warrantyTime = body.warrantyTime;
-                product.paymentMethod = getMultipleData(body.paymentMethod);
-                product.price = body.price;
-                product.discount = body.discount;
+        let deletedProduct = await db.Producto.findByPk(req.params.id, {
+            include: [
+                {association: "characteristics", include: [
+                    {association: "principals"}
+                ]
+                },
+            ]
+        })  
 
+        if(deletedProduct.characteristics.length > 0){
+            await db.Principal.destroy({
+                where: {
+                    id_characteristic: deletedProduct.characteristics[0].id
+                }
+            })
+    
+            await db.Caracteristica.destroy({
+                where: {
+                    id_product: deletedProduct.id
+                },
+                force: true
+            });
+        }
+      
+         await db.Producto_pago.destroy({
+             where: {
+                id_product: deletedProduct.id
+             }
+         });
+
+         await db.Imagen.destroy({
+             where: {
+                 id_product: deletedProduct.id
+             }
+         });
+
+         await db.Color.destroy({
+            where: {
+                id_product: deletedProduct.id
             }
-
-
         });
 
-        let ProductsJSON = JSON.stringify(products, null, ' ');
-
-        fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
-        res.redirect('/products');
-    },
-    // lleva a un formulario donde se confirma que producto se eliminara
-    viewDelete: function(req, res, next) {
-        res.render('products/delete', { title: 'Eliminar producto', producto: products.find(producto => producto.id == req.params.id) });
-    },
-
-    //elimina el producto
-    deleteProduct: function(req, res, next) {
-        let id = req.params.id;
-        products = products.filter(product => product.id != id);
-
-        let ProductsJSON = JSON.stringify(products, null, ' ');
-        fs.writeFileSync(JSONPath('products.json'), ProductsJSON);
+        await db.Producto.destroy({
+            where:{
+                id: deletedProduct.id
+            }
+        })
 
         res.redirect('/products');
     }
