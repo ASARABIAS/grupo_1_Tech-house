@@ -20,10 +20,10 @@ const usersController = {
     check: async (req, res) => {
         const errors = validationResult(req);
         if (errors.isEmpty()){
-            let usuarioLogueado = await Users.findOne({where: {
+            let userLoggedIn = await Users.findOne({where: {
                 email: req.body.email}});
-                if(await bcrypt.compare(req.body.password, usuarioLogueado.password)){
-                    req.session.usuario = usuarioLogueado;
+                if(await bcrypt.compare(req.body.password, userLoggedIn.password)){
+                    req.session.usuario = userLoggedIn;
                 }
             
             if (req.body.recordar_usuario) {
