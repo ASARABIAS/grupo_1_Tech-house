@@ -21,9 +21,14 @@ const loginValidations = [
     body('password').custom( (value, {req}) => {
         return Users.findOne({where: {
             email: req.body.email}}).then(user => {
+                if(user == null){
+                    return false}
                 if(!bcrypt.compareSync(value,user.password)){
-                    return Promise.reject('La contraseña es incorrecta')
+                    return Promise.reject('La contraseña es incorrecta');
                 }
+                
+                
+                
             });
            
             
