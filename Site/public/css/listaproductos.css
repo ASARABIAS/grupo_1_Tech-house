@@ -14,11 +14,13 @@ main section article .descripcion {
 .precio {
     font-size: 18px;
     padding-bottom: 7px;
+    margin-top: 3px;
 }
 
 .descripcion {
     font-size: 16px;
     font-weight: normal;
+    margin-top: 5px;
 }
 
 h3,

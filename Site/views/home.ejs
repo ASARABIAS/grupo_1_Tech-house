@@ -17,20 +17,17 @@
                         <% productsWithoutDiscount.forEach(product => {%>
                             <article>
                                 <a href="/products/detail/<%= product.id %> ">
-                                    <img src="../images/products/<%= product.images[0] %>" alt="portatil" class="product_img">
+                                    <img src="../images/products/<%= product.images[0].image %>" alt="portatil" class="product_img">
                                 </a>
                                 <div class="main-article">
-                                    <p class="precio">
-                                        <%= product.price %>
-                                    </p>
-                                    <p>
-                                        <%= product.couta %>
-                                    </p>
                                     <h4 class="descripcion">
                                         <%= product.name%>
                                     </h4>
+                                    <p class="precio">
+                                        <%= "$" + Number(product.price).toLocaleString('es-ES') %>
+                                    </p>                                  
                                     <p class="envios">Envio:
-                                        <%= product.envio!=0 ? "$"+product.envio : 'Gratis'; %>
+                                        <%= product.envio!=0 ? "$"+product.shipping : 'Gratis'; %>
                                     </p>
                                 </div>
                             </article>
@@ -44,20 +41,17 @@
                         <% productsWithDiscount.forEach(product => {%>
                             <article>
                                 <a href="/products/detail/<%= product.id %> ">
-                                    <img src="../images/products/<%= product.images[0] %>" alt="portatil" class="product_img">
+                                    <img src="../images/products/<%= product.images[0].image %>" alt="portatil" class="product_img">
                                 </a>
                                 <div class="main-article">
-                                    <p class="precio">
-                                        <%= product.price %>
-                                    </p>
-                                    <p>
-                                        <%= product.couta %>
-                                    </p>
                                     <h4 class="descripcion">
                                         <%= product.name%>
                                     </h4>
+                                    <p class="precio">
+                                        <%= "$" + Number(product.price).toLocaleString('es-ES') %>
+                                    </p>
                                     <p class="envios">Envio:
-                                        <%= product.envio!=0 ? "$"+product.envio : 'Gratis'; %>
+                                        <%= product.envio!=0 ? "$"+product.shipping : 'Gratis'; %>
                                     </p>
                                 </div>
                             </article>

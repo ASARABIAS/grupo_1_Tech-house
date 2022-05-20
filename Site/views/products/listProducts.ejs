@@ -23,7 +23,7 @@
                                         <%= product.specifications %>
                                     </p>
                                     <p class="precio">
-                                        <%= product.price %>
+                                        <%= "$" + Number(product.price).toLocaleString('es-ES') %>
                                     </p>
                                     <p>
                                         <%= product.cuotas %>

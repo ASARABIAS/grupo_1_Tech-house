@@ -5,7 +5,7 @@
         </div>
         <div class="shopping-love-user-carts">
             <div class="shopping-cart">
-                <a href="../products/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
             <div class="love-cart">
                 <a href="/users/preferences"><i class="fa-solid fa-heart"></i></a>
@@ -35,7 +35,7 @@
     </div>
     <nav>
         <ul>
-            <% if(locals.usuario.rol==0){ %>
+            <% if(locals.usuario.id_role==2){ %>
 
                 <li><a href="/products">Listas de productos</a></li>
                 <li><a href="/products/create">Crear Producto</a></li>
