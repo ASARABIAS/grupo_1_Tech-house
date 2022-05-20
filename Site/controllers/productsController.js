@@ -31,6 +31,8 @@ const productsController = {
     //Creación de un Producto (POST)
     store: function(req, res) {
         let body = req.body;
+        let file = req.file;
+
         db.Producto.create({
            name: body.name,
            specifications: body.specifications,
@@ -51,10 +53,10 @@ const productsController = {
            shipping: 4,
            return_value: 0,
            images: [
-               {image: "prueba.png"}
+               {image: !file ? "prueba.png" : file.filename}
            ],
            colors:[
-               {color: "Color"}
+               {color: "Negro-Blanco"}
            ]
         },
         {
@@ -80,15 +82,11 @@ const productsController = {
                 db.Producto_pago.bulkCreate(
                     productsPaymentMethodsDb
                 ).then((productPayment) => {
-                    console.log(productPayment);
-                    res.redirect("/")
+                    res.redirect("/products")
                 })  
             }).catch((err) => {
                 console.error(err);
             });
-
-        console.log(body);
-
     },
 
     // Lista de Productos
@@ -108,7 +106,6 @@ const productsController = {
                 res.render('products/listProducts', { products });
             })
             .catch(error => console.log(error));
-
     },
     cart: (req, res) => {
 
@@ -161,7 +158,9 @@ const productsController = {
     // Editar Producto 
     update: async (req, res) => {
         let body = req.body;
+        let file = req.file;
 
+        //Actualizo campos directos de la tabla, los que vengan desde el form
         await db.Producto.update({
             name: body.name,
             specifications: body.specifications,
@@ -175,9 +174,10 @@ const productsController = {
             where: {id: req.params.id}
          });
 
+         // Obtengo producto con los datos actualizados de la tabla directa Producto
          let updatedProduct = await db.Producto.findByPk(req.params.id, {
             include: [
-                {association: "characteristics", include: [
+                {association: "characteristics", include: [     // Me trae info asociada a estas dos tablas
                     {association: "principals"}
                 ]
                 },
@@ -197,7 +197,8 @@ const productsController = {
                 },
                 force: true
             });
-    
+            
+            // Ingreso la nueva caracteristica
             await db.Caracteristica.create({
                 id_product: updatedProduct.id,
                 title: body.characteristicsTitle,
@@ -212,15 +213,17 @@ const productsController = {
             })
         }
       
+        // Borrando datos de la tabla intermedia
          await db.Producto_pago.destroy({
              where: {
                 id_product: updatedProduct.id
              }
          });
 
+        // Creando arreglo por los checkbox del formulario
         let productsPaymentMethods = getMultipleData(body.paymentMethod);
 
-        let productsPaymentMethodsDb = [];
+        let productsPaymentMethodsDb = []; // Espera un arreglo de objetos
         for (let i = 0; i < productsPaymentMethods.length; i++) {
             productsPaymentMethodsDb.push({
                 id_product: updatedProduct.id,
@@ -231,6 +234,18 @@ const productsController = {
         await db.Producto_pago.bulkCreate(
             productsPaymentMethodsDb
         ); 
+
+        if(file){
+            await db.Imagen.destroy({
+            where: {
+                id_product: updatedProduct.id
+            }
+        });
+            await db.Imagen.create({
+                image: file.filename,
+                id_product: updatedProduct.id,
+            })
+        }
 
          res.redirect('/products');
     },
