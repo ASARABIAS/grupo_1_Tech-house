@@ -45,9 +45,8 @@ const usersController = {
             let body = req.body;
             let file = req.file;
 
-            Users
-        .create(
-            {
+            Users.create(            
+                {
                 name: body.name,
                 email: body.email,
                 password: bcrypt.hashSync(body.password, 12),
@@ -55,11 +54,11 @@ const usersController = {
                 avatar: !file ? "logo.png" : file.filename,
                 id_role: 1
             }
-        )
-                   
-        .catch(error => console.log(error))
-        .then(()=> {
-            return res.redirect('/login')})
+        ).then(()=> {
+            return res.redirect('/users/login')})
+        .catch(error => {
+            console.log(error)
+        })
     }else{
         res.render('users/register', { errors: errors.mapped() });
     }},
