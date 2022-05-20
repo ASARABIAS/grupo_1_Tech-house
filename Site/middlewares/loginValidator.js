@@ -31,23 +31,6 @@ const loginValidations = [
             });
     })
     .bail(),
-    
-    
-        
-    /*
-      //Aquí valido si la contraseña colocada es la misma a la que tenemos hasheada
-      body('password').custom( (value, {req}) =>{
-          for (let i = 0; i < archivoUsuarios.length; i++) {
-              if (archivoUsuarios[i].email == req.body.email) {
-                  if(bcrypt.compareSync(value, archivoUsuarios[i].password)){
-                    return true;
-                  }else{
-                    return false;
-                  }
-              }
-          }
-          
-      }).withMessage('Usuario o contraseña no coinciden')*/
 ]
 
 module.exports = loginValidations;

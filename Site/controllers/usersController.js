@@ -53,6 +53,7 @@ const usersController = {
                 country: body.country,
                 avatar: !file ? "logo.png" : file.filename,
                 id_role: 1
+                
             }
         ).then(()=> {
             return res.redirect('/users/login')})
@@ -90,7 +91,7 @@ const usersController = {
                 password: bcrypt.hashSync(body.password, 12),
                 country: body.country,
                 avatar: !file ? "logo.png" : file.filename,
-                id_role: 1
+                
         }, {where:{
             id: user.id
         }})
