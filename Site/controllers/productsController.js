@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 // Importando DB
 const db = require("../database/models");
+const Op = db.Sequelize.Op;
 
 //Cargar desde el archivo JSON
 let JSONPath = (name) => path.join(__dirname, '../data/' + name);
@@ -89,9 +90,34 @@ const productsController = {
             });
     },
 
-    // Lista de Productos
+    // Lista de Productos y busqueda para usuarios administradores
     list: (req, res) => {
-        db.Producto.findAll({
+
+        let query = req.query.search
+
+        console.log(req.query);
+
+        if (query) {
+            db.Producto.findAll({
+                where:{
+                    name : {[Op.like]: "%" + query + "%"}
+                },
+                include: [
+                    {association: "images"},
+                    {association: "colors"},
+                    {association: "characteristics", include: [
+                        {association: "principals"}
+                    ]
+                },
+                ]
+            })
+                .then(products => {
+                    
+                    res.render('products/listProducts', { products });
+                })
+                .catch(error => console.log(error));
+        } else {
+            db.Producto.findAll({
             include: [
                 {association: "images"},
                 {association: "colors"},
@@ -106,6 +132,9 @@ const productsController = {
                 res.render('products/listProducts', { products });
             })
             .catch(error => console.log(error));
+        }
+
+        
     },
     cart: (req, res) => {
 
@@ -358,6 +387,5 @@ function getCharacteristics(body) {
     }
     return aux;
 }
-
 
 module.exports = productsController;

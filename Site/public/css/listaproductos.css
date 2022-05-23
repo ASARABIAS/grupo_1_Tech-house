@@ -85,7 +85,8 @@ section.banner2 img {
 }
 
 .boton-editar,
-.boton-eliminar {
+.boton-eliminar,
+.boton-volver {
     font-size: 14px;
     margin-top: 50px;
     padding: 9px;
@@ -97,7 +98,8 @@ section.banner2 img {
     text-align: center;
 }
 
-.boton-eliminar {
+.boton-eliminar,
+.boton-volver {
     background-color: var(--Red);
 }
 
