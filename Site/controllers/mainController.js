@@ -1,7 +1,9 @@
 const path = require('path');
 const fs = require('fs');
+
 // Importando DB
 const db = require("../database/models");
+const Op = db.Sequelize.Op;
 
 //Cargar desde el archivo JSON
 let JSONPath = (name) => path.join(__dirname, '../data/' + name);
@@ -11,14 +13,29 @@ let resultReadJSON = (JSONPath) => JSON.parse(fs.readFileSync(JSONPath, 'utf-8')
 let products = resultReadJSON(JSONPath('products.json'));
 
 const mainController = {
-    home: async (req, res) => {
-        let products = await db.Producto.findAll({
-            include: [
-                {association: "images"},
-            ]
-        })
 
-        console.log(JSON.stringify(products, null, 2));
+    // Productos y busqueda para usuarios no administrador y guest
+    home: async (req, res) => {
+
+        let query = req.query.search
+        let products = [];
+
+        if (query) {
+            products = await db.Producto.findAll({
+                where:{
+                    name : {[Op.like]: "%" + query + "%"}
+                },
+                include: [
+                    {association: "images"},
+                ]                
+            }) 
+        } else {
+            products = await db.Producto.findAll({
+                include: [
+                    {association: "images"},
+                ]
+            }) 
+        }
 
         let productsWithDiscount = products.filter(product => product.discount != 0);
         let productsWithoutDiscount = products.filter(product => product.discount == 0);
