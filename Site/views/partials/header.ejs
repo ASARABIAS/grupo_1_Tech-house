@@ -28,8 +28,8 @@
                 <i class="fa fa-bars burger"></i>
             </div>
         </div>
-        <form action="#">
-            <input type="search" placeholder="Buscar productos, marcas y más">
+        <form action=<%= (locals.usuario.id_role==2) ? "/products" : "/" %> method="get">
+            <input type="search" placeholder="Buscar productos" name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>
