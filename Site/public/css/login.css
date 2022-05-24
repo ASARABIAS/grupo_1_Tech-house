@@ -73,10 +73,6 @@ div.mainlogin {
     width: 20px;
 }
 
-.recordar{
-    display: flex;
-}
-
 .login .button-submit {
     text-align: center;
     margin-top: 15px;
@@ -100,6 +96,7 @@ div.mainlogin {
 .recordar{
     display:flex;
     justify-content: space-between;
+    margin-left: 15%;
 }
 footer{
     margin-top: 70%;
