@@ -9,7 +9,7 @@
 
             <main>
                 <section class="information">
-                    
+
                     <div class="information-main">
                         <form action="/products/edit/<%= product.id%>?_method=PUT" method="post" enctype="multipart/form-data" class="infor-product" id="infor-product">
                             <div class="photo">
@@ -40,34 +40,35 @@
                             <div class="infor-product-section">
                                 <div class="characteristics-header">
                                     <h4>Caractersiticas:</h4>
+                                    <i class="fa-solid fa-circle-plus" onclick="addNewCharacteristics();"></i>
                                 </div>
-                                <% let count =0;
+                                <div class="characteristics-main" id="characteristics-main">
+                                    <% let count =0;
                                  product.characteristics.forEach(characteristic => {%>
-                                    <div class="characteristics-main">
-                                        <div class="characteristics-main-title">
-                                            <label for="characteristics-title">Titulo de la Caracteristicas:</label>
-                                            <input type="text" name="characteristicsTitle" id="characteristics-title" placeholder="Titulo" value="<%= characteristic.title %>">
-                                        </div>
-                                        <div class="characteristics-main-context">
-                                            <div class="characteristics-main-context-top">
-                                                <h5>Cuerpo de la Caracteristicas</h5>
-                                                <i class="fa-solid fa-circle-plus"></i>
+                                        <div class="characteristics-section">
+                                            <div class="characteristics-main-title">
+                                                <label for="characteristicsTitle">Titulo de la Caracteristicas:</label>
+                                                <input type="text" name="characteristicsTitle" id="characteristicsTitle" placeholder="Titulo" value="<%= characteristic.title %>">
                                             </div>
-                                            <% characteristic.principals.forEach(subcharacteristic=>{%>
-                                                <div class="characteristics-main-context-down">
-                                                    <label for="characteristics-context">Subtitulo:</label>
-                                                    <input type="text" name="characteristicsContextSubtitle_<%=count%>" id="characteristics-context-subtitle" placeholder="<%= subcharacteristic.subtitle %>" value="<%= subcharacteristic.subtitle %>">
-                                                    <label for="characteristics-context-description">Descripcion:</label>
-                                                    <input type="text" name="characteristicsContextDescription_<%=count%>" id="characteristics-context-description" placeholder="<%= subcharacteristic.description %>" value="<%= subcharacteristic.description %>">
+                                            <div class="characteristics-main-context">
+                                                <div class="characteristics-main-context-top">
+                                                    <h5>Cuerpo de la Caracteristicas</h5>
+                                                    <i class="fa-solid fa-circle-plus" onclick="addNewcharacteristicsDiscripction(0);"></i>
                                                 </div>
-                                                <%}) %>
+                                                <div class="characteristics-main-context-down" id="characteristics-main-context-down_0">
+                                                    <% characteristic.principals.forEach(subcharacteristic=>{%>
+                                                        <div class="characteristics-section">
+                                                            <label for="characteristicsContextSubtitle_<%=count%>">Subtitulo:</label>
+                                                            <input type="text" name="characteristicsContextSubtitle_<%=count%>" id="characteristicsContextSubtitle_<%=count%>" placeholder="<%= subcharacteristic.subtitle %>" value="<%= subcharacteristic.subtitle %>">
+                                                            <label for="characteristicsContextDescription_<%=count%>">Descripcion:</label>
+                                                            <input type="text" name="characteristicsContextDescription_<%=count%>" id="characteristicsContextDescription_<%=count%>" placeholder="<%= subcharacteristic.description %>" value="<%= subcharacteristic.description %>">
+                                                        </div>
+                                                        <%}); %>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="characteristics-main-add">
-                                            <a href="">Agregar nueva caracteristica</a>
-                                            <i id="characteristic-add" class="fa-solid fa-circle-plus"></i>
-                                        </div>
-                                    </div>
-                                    <%count++}); %>
+                                        <%count++}); %>
+                                </div>
                             </div>
                             <div class="infor-product-section">
                                 <label for="category">Categoria:</label>
@@ -114,6 +115,7 @@
             <%- include('../partials/footer') %>
 
     </body>
+    <script src="/js/products/addCharacteristics.js"></script>
     <script src="https://kit.fontawesome.com/f108e44f29.js" crossorigin="anonymous"></script>
 
 </html>

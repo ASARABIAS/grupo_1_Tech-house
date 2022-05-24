@@ -24,9 +24,9 @@ const productsController = {
                     .then((paymentMethod) => {
                         console.log(paymentMethod);
                         console.log(categoryProduct);
-        res.render('products/createProduct', { paymentMethod, categoryProduct });
-         })
-    })
+                        res.render('products/createProduct', { paymentMethod, categoryProduct });
+                    })
+            })
     },
 
     //Creación de un Producto (POST)
@@ -35,41 +35,35 @@ const productsController = {
         let file = req.file;
 
         db.Producto.create({
-           name: body.name,
-           specifications: body.specifications,
-           characteristics: [{
-               title: body.characteristicsTitle,
-               principals: [{
-                subtitle: body.characteristicsContextSubtitle_0,
-                description: body.characteristicsContextDescription_0
-            }]
-           }
-           ],
-           id_category: body.category,
-           warranty_text: body.warrantyText,
-           warranty_time: body.warrantyTime,
-           price: body.price,
-           discount: body.discount,
-           quota: "30x $30.400",
-           shipping: 4,
-           return_value: 0,
-           images: [
-               {image: !file ? "prueba.png" : file.filename}
-           ],
-           colors:[
-               {color: "Negro-Blanco"}
-           ]
-        },
-        {
-            include: [
-                {association: "images"},
-                {association: "colors"},
-                {association: "characteristics", include: [
-                    {association: "principals"}
+                name: body.name,
+                specifications: body.specifications,
+                characteristics: getCharacteristics(body),
+                id_category: body.category,
+                warranty_text: body.warrantyText,
+                warranty_time: body.warrantyTime,
+                price: body.price,
+                discount: body.discount,
+                quota: "30x $30.400",
+                shipping: 4,
+                return_value: 0,
+                images: [
+                    { image: !file ? "prueba.png" : file.filename }
+                ],
+                colors: [
+                    { color: "Negro-Blanco" }
                 ]
-            },
-            ]
-        })
+            }, {
+                include: [
+                    { association: "images" },
+                    { association: "colors" },
+                    {
+                        association: "characteristics",
+                        include: [
+                            { association: "principals" }
+                        ]
+                    },
+                ]
+            })
             .then((product) => {
                 let productsPaymentMethods = getMultipleData(body.paymentMethod);
                 // Obteniendo el arreglo de objetos para el bulkCreate
@@ -78,18 +72,17 @@ const productsController = {
                     productsPaymentMethodsDb.push({
                         id_product: product.id,
                         id_payment_method: productsPaymentMethods[i]
-                    })                
+                    })
                 }
                 db.Producto_pago.bulkCreate(
                     productsPaymentMethodsDb
                 ).then((productPayment) => {
                     res.redirect("/products")
-                })  
+                })
             }).catch((err) => {
                 console.error(err);
             });
     },
-
     // Lista de Productos y busqueda para usuarios administradores
     list: (req, res) => {
 
@@ -99,42 +92,48 @@ const productsController = {
 
         if (query) {
             db.Producto.findAll({
-                where:{
-                    name : {[Op.like]: "%" + query + "%"}
-                },
-                include: [
-                    {association: "images"},
-                    {association: "colors"},
-                    {association: "characteristics", include: [
-                        {association: "principals"}
+                    where: {
+                        name: {
+                            [Op.like]: "%" + query + "%"
+                        }
+                    },
+                    include: [
+                        { association: "images" },
+                        { association: "colors" },
+                        {
+                            association: "characteristics",
+                            include: [
+                                { association: "principals" }
+                            ]
+                        },
                     ]
-                },
-                ]
-            })
+                })
                 .then(products => {
-                    
+
                     res.render('products/listProducts', { products });
                 })
                 .catch(error => console.log(error));
         } else {
             db.Producto.findAll({
-            include: [
-                {association: "images"},
-                {association: "colors"},
-                {association: "characteristics", include: [
-                    {association: "principals"}
-                ]
-            },
-            ]
-        })
-            .then(products => {
-                
-                res.render('products/listProducts', { products });
-            })
-            .catch(error => console.log(error));
+                    include: [
+                        { association: "images" },
+                        { association: "colors" },
+                        {
+                            association: "characteristics",
+                            include: [
+                                { association: "principals" }
+                            ]
+                        },
+                    ]
+                })
+                .then(products => {
+
+                    res.render('products/listProducts', { products });
+                })
+                .catch(error => console.log(error));
         }
 
-        
+
     },
     cart: (req, res) => {
 
@@ -143,39 +142,43 @@ const productsController = {
     },
 
     // Detalle del producto
-    detail: async (req, res) => {
+    detail: async(req, res) => {
 
         let id = req.params.id;
         let paymentMethod = await db.Metodo_pago.findAll();
         let product = await db.Producto.findByPk(id, {
             include: [
-                {association: "images"},
-                {association: "colors"},
-                {association: "metodo_pago"},
-                {association: "characteristics", include: [
-                    {association: "principals"}
-                ]
+                { association: "images" },
+                { association: "colors" },
+                { association: "metodo_pago" },
+                {
+                    association: "characteristics",
+                    include: [
+                        { association: "principals" }
+                    ]
                 },
             ]
         });
-        
+
         res.render('products/detailProduct', { product, paymentMethod });
     },
 
     // Vista editar Producto
-    edit: async (req, res) => {
+    edit: async(req, res) => {
 
         let id = req.params.id;
         let categoryProduct = await db.Categoria.findAll();
         let paymentMethod = await db.Metodo_pago.findAll();
         let product = await db.Producto.findByPk(id, {
             include: [
-                {association: "images"},
-                {association: "colors"},
-                {association: "metodo_pago"},
-                {association: "characteristics", include: [
-                    {association: "principals"}
-                ]
+                { association: "images" },
+                { association: "colors" },
+                { association: "metodo_pago" },
+                {
+                    association: "characteristics",
+                    include: [
+                        { association: "principals" }
+                    ]
                 },
             ]
         });
@@ -185,7 +188,7 @@ const productsController = {
     },
 
     // Editar Producto 
-    update: async (req, res) => {
+    update: async(req, res) => {
         let body = req.body;
         let file = req.file;
 
@@ -198,56 +201,66 @@ const productsController = {
             warranty_time: body.warrantyTime,
             price: body.price,
             discount: body.discount,
-         },
-         {
-            where: {id: req.params.id}
-         });
-
-         // Obtengo producto con los datos actualizados de la tabla directa Producto
-         let updatedProduct = await db.Producto.findByPk(req.params.id, {
-            include: [
-                {association: "characteristics", include: [     // Me trae info asociada a estas dos tablas
-                    {association: "principals"}
-                ]
-                },
-            ]
+        }, {
+            where: { id: req.params.id }
         });
-        
-        if(updatedProduct.characteristics.length > 0){
-            await db.Principal.destroy({
-                where: {
-                    id_characteristic: updatedProduct.characteristics[0].id
-                }
-            })
-    
+
+        // Obtengo producto con los datos actualizados de la tabla directa Producto
+        let updatedProduct = await db.Producto.findByPk(req.params.id, {
+            include: [{
+                association: "characteristics",
+                include: [ // Me trae info asociada a estas dos tablas
+                    { association: "principals" }
+                ]
+            }, ]
+        });
+
+        if (updatedProduct.characteristics.length > 0) {
+            for (let i = 0; i < updatedProduct.characteristics.length; i++) {
+                await db.Principal.destroy({
+                    where: {
+                        id_characteristic: updatedProduct.characteristics[i].id
+                    }
+                })
+
+            }
+
             await db.Caracteristica.destroy({
                 where: {
                     id_product: updatedProduct.id
                 },
                 force: true
             });
-            
+
             // Ingreso la nueva caracteristica
-            await db.Caracteristica.create({
-                id_product: updatedProduct.id,
-                title: body.characteristicsTitle,
-                principals: [{
-                 subtitle: body.characteristicsContextSubtitle_0,
-                 description: body.characteristicsContextDescription_0
-             }]
-            }, {
-                include: [
-                    {association: "principals"}
-                ]
-            })
+            let characteristicsTitle = getMultipleData(body.characteristicsTitle);
+            for (let i = 0; i < characteristicsTitle.length; i++) {
+                const title = characteristicsTitle[i];
+
+                if (body['characteristicsContextSubtitle_' + i] && body['characteristicsContextDescription_' + i]) {
+                    const subtitle = body['characteristicsContextSubtitle_' + i];
+                    const description = body['characteristicsContextDescription_' + i];
+
+                    await db.Caracteristica.create({
+                        id_product: updatedProduct.id,
+                        title: title,
+                        principals: getCharacteristicsMain(getMultipleData(subtitle), getMultipleData(description))
+                    }, {
+                        include: [
+                            { association: "principals" }
+                        ]
+                    });
+                }
+            }
+
         }
-      
+
         // Borrando datos de la tabla intermedia
-         await db.Producto_pago.destroy({
-             where: {
+        await db.Producto_pago.destroy({
+            where: {
                 id_product: updatedProduct.id
-             }
-         });
+            }
+        });
 
         // Creando arreglo por los checkbox del formulario
         let productsPaymentMethods = getMultipleData(body.paymentMethod);
@@ -257,29 +270,29 @@ const productsController = {
             productsPaymentMethodsDb.push({
                 id_product: updatedProduct.id,
                 id_payment_method: productsPaymentMethods[i]
-            })                
+            })
         }
 
         await db.Producto_pago.bulkCreate(
             productsPaymentMethodsDb
-        ); 
+        );
 
-        if(file){
+        if (file) {
             await db.Imagen.destroy({
-            where: {
-                id_product: updatedProduct.id
-            }
-        });
+                where: {
+                    id_product: updatedProduct.id
+                }
+            });
             await db.Imagen.create({
                 image: file.filename,
                 id_product: updatedProduct.id,
             })
         }
 
-         res.redirect('/products');
+        res.redirect('/products');
     },
     // Vista eliminar producto
-    viewDelete: async (req, res, next) => {
+    viewDelete: async(req, res, next) => {
         let id = req.params.id;
         let product = await db.Producto.findByPk(id);
 
@@ -287,24 +300,24 @@ const productsController = {
     },
 
     // Eliminar producto
-    deleteProduct: async (req, res, next) => {
+    deleteProduct: async(req, res, next) => {
 
         let deletedProduct = await db.Producto.findByPk(req.params.id, {
-            include: [
-                {association: "characteristics", include: [
-                    {association: "principals"}
+            include: [{
+                association: "characteristics",
+                include: [
+                    { association: "principals" }
                 ]
-                },
-            ]
-        })  
+            }, ]
+        })
 
-        if(deletedProduct.characteristics.length > 0){
+        if (deletedProduct.characteristics.length > 0) {
             await db.Principal.destroy({
                 where: {
                     id_characteristic: deletedProduct.characteristics[0].id
                 }
             })
-    
+
             await db.Caracteristica.destroy({
                 where: {
                     id_product: deletedProduct.id
@@ -312,27 +325,27 @@ const productsController = {
                 force: true
             });
         }
-      
-         await db.Producto_pago.destroy({
-             where: {
+
+        await db.Producto_pago.destroy({
+            where: {
                 id_product: deletedProduct.id
-             }
-         });
+            }
+        });
 
-         await db.Imagen.destroy({
-             where: {
-                 id_product: deletedProduct.id
-             }
-         });
+        await db.Imagen.destroy({
+            where: {
+                id_product: deletedProduct.id
+            }
+        });
 
-         await db.Color.destroy({
+        await db.Color.destroy({
             where: {
                 id_product: deletedProduct.id
             }
         });
 
         await db.Producto.destroy({
-            where:{
+            where: {
                 id: deletedProduct.id
             }
         })
@@ -365,6 +378,7 @@ function getCharacteristicsMain(subtitle, description) {
             description: mainDescription
         });
     }
+    console.log('main:', aux);
     return aux;
 }
 
@@ -381,7 +395,7 @@ function getCharacteristics(body) {
 
             aux.push({
                 title: title,
-                main: getCharacteristicsMain(getMultipleData(subtitle), getMultipleData(description))
+                principals: getCharacteristicsMain(getMultipleData(subtitle), getMultipleData(description))
             });
         }
     }
