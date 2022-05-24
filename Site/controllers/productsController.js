@@ -207,9 +207,10 @@ const productsController = {
 
         // Obtengo producto con los datos actualizados de la tabla directa Producto
         let updatedProduct = await db.Producto.findByPk(req.params.id, {
+            // Me trae info asociada a estas dos tablas
             include: [{
                 association: "characteristics",
-                include: [ // Me trae info asociada a estas dos tablas
+                include: [ 
                     { association: "principals" }
                 ]
             }, ]
@@ -312,11 +313,13 @@ const productsController = {
         })
 
         if (deletedProduct.characteristics.length > 0) {
-            await db.Principal.destroy({
-                where: {
-                    id_characteristic: deletedProduct.characteristics[0].id
-                }
-            })
+            for (let i = 0; i < deletedProduct.characteristics.length; i++) {
+                await db.Principal.destroy({
+                    where: {
+                        id_characteristic: deletedProduct.characteristics[i].id
+                    }
+                })
+            }
 
             await db.Caracteristica.destroy({
                 where: {
@@ -324,7 +327,7 @@ const productsController = {
                 },
                 force: true
             });
-        }
+        };
 
         await db.Producto_pago.destroy({
             where: {
