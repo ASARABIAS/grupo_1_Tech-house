@@ -112,35 +112,19 @@ INSERT INTO `images` VALUES (1,'productImage-1653062557753.jpg',1),(3,'productIm
 
 UNLOCK TABLES;
 
-CREATE TABLE IF NOT EXISTS colors(
-id INT NOT NULL AUTO_INCREMENT,
-color VARCHAR(100) NOT NULL,
-id_product INT NOT NULL,
-PRIMARY KEY (id),
-FOREIGN KEY (id_product) REFERENCES products (id)
-)ENGINE InnoDB DEFAULT CHARSET=utf8mb4;
-
-LOCK TABLES `colors` WRITE;
-
-INSERT INTO `colors` VALUES (1,'Color',1),(2,'Negro-Blanco',2),(3,'Negro-Blanco',3),(4,'Negro-Blanco',4),(5,'Negro-Blanco',5),(6,'Negro-Blanco',6),(7,'Negro-Blanco',7),(8,'Negro-Blanco',8);
-
-UNLOCK TABLES;
-
 CREATE TABLE IF NOT EXISTS characteristics(
 id INT NOT NULL AUTO_INCREMENT,
 title VARCHAR(100) NOT NULL,
-id_product INT NOT NULL,
-PRIMARY KEY (id),
-FOREIGN KEY (id_product) REFERENCES products (id)
+PRIMARY KEY (id)
 )ENGINE InnoDB DEFAULT CHARSET=utf8mb4;
 
 LOCK TABLES `characteristics` WRITE;
 
-INSERT INTO `characteristics` VALUES (3,'Caracteristicas generales',2),(5,'Caracteristicas generales',3),(8,'Caracteristicas generales',4),(9,'Caracteristicas generales',5),(11,'Caracteristicas principales',7),(14,'Características generales',1),(15,'Características generales',6),(16,'Caracteristicas principales',8);
+INSERT INTO `characteristics` VALUES (3,'Caracteristicas generales'),(5,'Caracteristicas generales',3),(8,'Caracteristicas generales'),(9,'Caracteristicas generales'),(11,'Caracteristicas principales'),(14,'Características generales'),(15,'Características generales'),(16,'Caracteristicas principales');
 
 UNLOCK TABLES;
 
-CREATE TABLE IF NOT EXISTS characteristics_main(
+CREATE TABLE IF NOT EXISTS subcharacteristics(
 id INT NOT NULL AUTO_INCREMENT,
 subtitle VARCHAR(200) NOT NULL,
 description TEXT NOT NULL,
@@ -150,8 +134,25 @@ FOREIGN KEY (id_characteristic) REFERENCES characteristics (id)
 )ENGINE InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-LOCK TABLES `characteristics_main` WRITE;
+LOCK TABLES `subcharacteristics` WRITE;
 
-INSERT INTO `characteristics_main` VALUES (3,'Beneficios','Inserte una tarjeta SIM local y, una vez conectado, puede consultar el correo electrónico, navegar por la web y transmitir contenido multimedia o compartir su conexión a Internet 3G / 4G a través de una red inalámbrica segura o utilizando cualquiera de los cuatro puertos Ethernet 10/100.',3),(5,'Sistema Operativo','Windows 10 Home - ASUS recomienda Windows 11 Pro para empresas Actualización gratuita a Windows 11¹ ',5),(8,'Batería y energía','Hasta 15 horas de navegación web inalámbrica Hasta 18 horas de reproducción de video en la app Apple TV Batería de polímero de litio integrada de 49,9 Wh Adaptador de corriente USB-C de 30 W',8),(9,'Conectividad ','Inalámbrico, con Bluetooth, alcance de 10 metros',9),(11,'Generales','Small Form Factor, Intel, Core i5, 2.9ghz, 10ma Gen, Socket 10400, Memoria 8 Gb, Disco Duro 1 TB, Pantalla 19″, Windows 10 PRO, Garantía 12 Meses',11),(14,'Marca','Ricoh',14),(15,'Cámara - Pantalla','Camara principal: 64 Mpx - Tamaño pantalla: 6.7 pulgadas',15),(16,'Generales','Gamer, color de la retroiluminacion: RGB, tipo de switch: Outemu Blue, Idioma: Inglés',16);
+INSERT INTO `subcharacteristics` VALUES (3,'Beneficios','Inserte una tarjeta SIM local y, una vez conectado, puede consultar el correo electrónico, navegar por la web y transmitir contenido multimedia o compartir su conexión a Internet 3G / 4G a través de una red inalámbrica segura o utilizando cualquiera de los cuatro puertos Ethernet 10/100.',3),(5,'Sistema Operativo','Windows 10 Home - ASUS recomienda Windows 11 Pro para empresas Actualización gratuita a Windows 11¹ ',5),(8,'Batería y energía','Hasta 15 horas de navegación web inalámbrica Hasta 18 horas de reproducción de video en la app Apple TV Batería de polímero de litio integrada de 49,9 Wh Adaptador de corriente USB-C de 30 W',8),(9,'Conectividad ','Inalámbrico, con Bluetooth, alcance de 10 metros',9),(11,'Generales','Small Form Factor, Intel, Core i5, 2.9ghz, 10ma Gen, Socket 10400, Memoria 8 Gb, Disco Duro 1 TB, Pantalla 19″, Windows 10 PRO, Garantía 12 Meses',11),(14,'Marca','Ricoh',14),(15,'Cámara - Pantalla','Camara principal: 64 Mpx - Tamaño pantalla: 6.7 pulgadas',15),(16,'Generales','Gamer, color de la retroiluminacion: RGB, tipo de switch: Outemu Blue, Idioma: Inglés',16);
 
 UNLOCK TABLES;
+
+CREATE TABLE IF NOT EXISTS products_subcharacteristics(
+id INT NOT NULL AUTO_INCREMENT,
+id_subcharacteristics INT NOT NULL,
+id_product INT NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (id_product) REFERENCES products (id),
+FOREIGN KEY (id_subcharacteristics) REFERENCES subcharacteristics (id)
+)ENGINE InnoDB DEFAULT CHARSET=utf8mb4;
+
+LOCK TABLES `products_subcharacteristics` WRITE;
+
+INSERT INTO `products_subcharacteristics` VALUES (1,3,1);
+
+UNLOCK TABLES;
+
+
