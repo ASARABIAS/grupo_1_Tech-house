@@ -69,3 +69,16 @@ Reunirnos para realizar merge con las ramas de cada uno y corregir conflictos.
 
 Dejar de hacer
 Asignar responsabilidades individuales y desentendernos de cada uno hasta que se vaya acercando la fecha de entrega del sprint.
+
+**Retrospectiva Quinto Sprint**
+Comenzar a hacer
+Comenzar los sprints a tiempo, para que no estemos a ultimando detalles el mismo día de la entrega.
+
+Hacer más
+Pedir opiniones y ayuda de los profes a tiempo, para que los cambios sugeridos sean implementados correctamente en tiempo y forma.
+
+Continuar haciendo
+Distribuyendo las tareas y manteniendo el orden en la repartición de éstas.
+
+Dejar de hacer
+Tranquilizarnos por que "tenemos tiempo" y organizar los detalles el mismo día de la entrega del sprint.
