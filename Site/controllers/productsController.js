@@ -37,31 +37,27 @@ const productsController = {
         db.Producto.create({
                 name: body.name,
                 specifications: body.specifications,
-                characteristics: getCharacteristics(body),
+                //characteristics: getCharacteristics(body),
                 id_category: body.category,
                 warranty_text: body.warrantyText,
-                warranty_time: body.warrantyTime,
                 price: body.price,
                 discount: body.discount,
-                quota: "30x $30.400",
                 shipping: 4,
                 return_value: 0,
                 images: [
                     { image: !file ? "prueba.png" : file.filename }
                 ],
-                colors: [
-                    { color: "Negro-Blanco" }
-                ]
             }, {
                 include: [
                     { association: "images" },
-                    { association: "colors" },
+                    /*
                     {
                         association: "characteristics",
                         include: [
                             { association: "principals" }
                         ]
                     },
+                    */
                 ]
             })
             .then((product) => {
@@ -99,13 +95,14 @@ const productsController = {
                     },
                     include: [
                         { association: "images" },
-                        { association: "colors" },
+                        /*{ association: "colors" },
                         {
                             association: "characteristics",
                             include: [
                                 { association: "principals" }
                             ]
                         },
+                        */
                     ]
                 })
                 .then(products => {
@@ -117,13 +114,14 @@ const productsController = {
             db.Producto.findAll({
                     include: [
                         { association: "images" },
-                        { association: "colors" },
+                        /*{ association: "colors" },
                         {
                             association: "characteristics",
                             include: [
                                 { association: "principals" }
                             ]
                         },
+                        */
                     ]
                 })
                 .then(products => {
@@ -149,14 +147,15 @@ const productsController = {
         let product = await db.Producto.findByPk(id, {
             include: [
                 { association: "images" },
-                { association: "colors" },
                 { association: "metodo_pago" },
+                /*{ association: "colors" },
                 {
                     association: "characteristics",
                     include: [
                         { association: "principals" }
                     ]
                 },
+                */
             ]
         });
 
@@ -172,14 +171,15 @@ const productsController = {
         let product = await db.Producto.findByPk(id, {
             include: [
                 { association: "images" },
-                { association: "colors" },
                 { association: "metodo_pago" },
+                /*{ association: "colors" },
                 {
                     association: "characteristics",
                     include: [
                         { association: "principals" }
                     ]
                 },
+                */
             ]
         });
 
@@ -198,7 +198,6 @@ const productsController = {
             specifications: body.specifications,
             id_category: body.category,
             warranty_text: body.warrantyText,
-            warranty_time: body.warrantyTime,
             price: body.price,
             discount: body.discount,
         }, {
@@ -208,15 +207,18 @@ const productsController = {
         // Obtengo producto con los datos actualizados de la tabla directa Producto
         let updatedProduct = await db.Producto.findByPk(req.params.id, {
             // Me trae info asociada a estas dos tablas
+            /*
             include: [{
                 association: "characteristics",
                 include: [ 
                     { association: "principals" }
                 ]
             }, ]
+            */
         });
-
+        /*
         if (updatedProduct.characteristics.length > 0) {
+            
             for (let i = 0; i < updatedProduct.characteristics.length; i++) {
                 await db.Principal.destroy({
                     where: {
@@ -255,7 +257,7 @@ const productsController = {
             }
 
         }
-
+        */
         // Borrando datos de la tabla intermedia
         await db.Producto_pago.destroy({
             where: {
@@ -304,14 +306,17 @@ const productsController = {
     deleteProduct: async(req, res, next) => {
 
         let deletedProduct = await db.Producto.findByPk(req.params.id, {
+            /*
             include: [{
                 association: "characteristics",
                 include: [
                     { association: "principals" }
                 ]
             }, ]
+            */
         })
 
+        /*
         if (deletedProduct.characteristics.length > 0) {
             for (let i = 0; i < deletedProduct.characteristics.length; i++) {
                 await db.Principal.destroy({
@@ -328,6 +333,7 @@ const productsController = {
                 force: true
             });
         };
+        */
 
         await db.Producto_pago.destroy({
             where: {
@@ -336,12 +342,6 @@ const productsController = {
         });
 
         await db.Imagen.destroy({
-            where: {
-                id_product: deletedProduct.id
-            }
-        });
-
-        await db.Color.destroy({
             where: {
                 id_product: deletedProduct.id
             }

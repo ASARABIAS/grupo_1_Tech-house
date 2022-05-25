@@ -37,39 +37,7 @@
                                 <label for="specifications">Especificaciones:</label>
                                 <textarea name="specifications" id="specifications"><%= product.specifications %>  </textarea>
                             </div>
-                            <div class="infor-product-section">
-                                <div class="characteristics-header">
-                                    <h4>Caractersiticas:</h4>
-                                    <i class="fa-solid fa-circle-plus" onclick="addNewCharacteristics();"></i>
-                                </div>
-                                <div class="characteristics-main" id="characteristics-main">
-                                    <% let count =0;
-                                 product.characteristics.forEach(characteristic => {%>
-                                        <div class="characteristics-section">
-                                            <div class="characteristics-main-title">
-                                                <label for="characteristicsTitle">Titulo de la Caracteristicas:</label>
-                                                <input type="text" name="characteristicsTitle" id="characteristicsTitle" placeholder="Titulo" value="<%= characteristic.title %>">
-                                            </div>
-                                            <div class="characteristics-main-context">
-                                                <div class="characteristics-main-context-top">
-                                                    <h5>Cuerpo de la Caracteristicas</h5>
-                                                    <i class="fa-solid fa-circle-plus" onclick="addNewcharacteristicsDiscripction(0);"></i>
-                                                </div>
-                                                <div class="characteristics-main-context-down" id="characteristics-main-context-down_0">
-                                                    <% characteristic.principals.forEach(subcharacteristic=>{%>
-                                                        <div class="characteristics-section">
-                                                            <label for="characteristicsContextSubtitle_<%=count%>">Subtitulo:</label>
-                                                            <input type="text" name="characteristicsContextSubtitle_<%=count%>" id="characteristicsContextSubtitle_<%=count%>" placeholder="<%= subcharacteristic.subtitle %>" value="<%= subcharacteristic.subtitle %>">
-                                                            <label for="characteristicsContextDescription_<%=count%>">Descripcion:</label>
-                                                            <input type="text" name="characteristicsContextDescription_<%=count%>" id="characteristicsContextDescription_<%=count%>" placeholder="<%= subcharacteristic.description %>" value="<%= subcharacteristic.description %>">
-                                                        </div>
-                                                        <%}); %>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <%count++}); %>
-                                </div>
-                            </div>
+
                             <div class="infor-product-section">
                                 <label for="category">Categoria:</label>
                                 <select name="category" id="category">

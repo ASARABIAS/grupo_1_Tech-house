@@ -15,17 +15,11 @@ module.exports = (sequelize, dataTypes) => {
         warranty_text: {
             type: dataTypes.STRING(450)
         },
-        warranty_time: {
-            type: dataTypes.INTEGER
-        },
         price: {
             type: dataTypes.INTEGER
         },
         discount: {
             type: dataTypes.INTEGER
-        },
-        quota: {
-            type: dataTypes.STRING
         },
         shipping: {
             type: dataTypes.INTEGER
@@ -45,15 +39,16 @@ module.exports = (sequelize, dataTypes) => {
     };
     const Producto = sequelize.define(alias, cols, config);
 
-    Producto.associate = function(models){
+    Producto.associate = function(models) {
         Producto.hasMany(models.Producto_pago, {
-            as: "Payment" ,
+            as: "Payment",
             foreignKey: "id_product"
         });
         Producto.hasMany(models.Imagen, {
-            as: "images" ,
+            as: "images",
             foreignKey: "id_product"
         });
+        /*
         Producto.hasMany(models.Color, {
             as: "colors" ,
             foreignKey: "id_product"
@@ -62,12 +57,13 @@ module.exports = (sequelize, dataTypes) => {
             as: "characteristics" ,
             foreignKey: "id_product"
         });
+        */
         Producto.belongsTo(models.Categoria, {
-            as: "categories" ,
+            as: "categories",
             foreignKey: "id_category"
         });
         Producto.belongsToMany(models.Metodo_pago, {
-            as: "metodo_pago" ,
+            as: "metodo_pago",
             through: "products_payment_methods",
             foreignKey: "id_product",
             otherKey: "id_payment_method",
