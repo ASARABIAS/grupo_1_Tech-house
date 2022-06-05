@@ -18,15 +18,5 @@
   "country": "Colombia",
   "Avatar": "avatar-1651034013142.jpg",
   "rol": 1
- },
- {
-  "id": 1651106208195,
-  "name": "adan  ",
-  "lastName": "hola",
-  "email": "adan@gmail.com",
-  "password": "$2a$12$oJfCCZ596yww8wl9AxmMZOcMnl9DzHpzF0gkPXpkboUvGAuGSISum",
-  "country": "España",
-  "Avatar": "avatar-1651106665236.jpg",
-  "rol": 1
  }
 ]

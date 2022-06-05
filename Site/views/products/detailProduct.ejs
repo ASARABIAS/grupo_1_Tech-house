@@ -22,13 +22,13 @@
                                 </h6>
                                 <div class="column-images">
                                     <% product.images.forEach(image => {%>
-                                        <img src="/images/products/<%= image; %>" alt="" srcset="">
+                                        <img src="/images/products/<%= image.image; %>" alt="" srcset="">
                                         <%}); %>
                                 </div>
                             </div>
                             <div class="product-collage">
                                 <i class="fa-solid fa-chevron-left left-arrow"></i>
-                                <img src="/images/products/<%= product.images[0]; %> " alt="">
+                                <img src="/images/products/<%= product.images[0].image; %> " alt="">
                                 <i class="fa-solid fa-chevron-right right-arrow"></i>
                             </div>
                         </div>
@@ -44,32 +44,21 @@
                             </div>
                             <div class="payment-methods-main">
                                 <div class="payment-methods-icons">
-                                    <% product.paymentMethod.forEach(id => {
-                                        let method = paymentMethod.find(pay=> pay.id==id)%>
+                                    <% product.metodo_pago.forEach(metodo_pago => {
+                                        let method = paymentMethod.find(pay=> pay.id==metodo_pago.id)%>
                                         <img src="/images/methodLogos/<%= method.image; %> " alt="">
                                         <%}); %>
                                 </div>
                             </div>
                             <div class="product-delivery">
                                 <p> <i class="fas fa-truck"></i>Envio:
-                                    <%= product.envio!=0 ? "$"+product.envio : 'Gratis'; %>
+                                    <%= product.shipping!=0 ? "$"+product.shipping : 'Gratis'; %>
                                 </p>
                             </div>
                             <div class="product-return">
                                 <p> <i class="fa-solid fa-arrow-rotate-left"></i>Devolucion:
-                                    <%= product.valorDevolucion!=0 ? "$"+product.valorDevolucion : 'Gratis'; %>
+                                    <%= product.return_value!=0 ? "$"+product.return_value : 'Gratis'; %>
                                 </p>
-                            </div>
-                            <div class="product-colors">
-                                <div class="product-colors-header">
-                                    <h5>Color: <strong><%= product.color[0] %> </strong></h5>
-                                </div>
-                                <div class="product-colors-main">
-                                    <%for (let i = 0; i < product.color.length; i++) {%>
-                                        <img src="/images/products/<%= product.images[0] %> " alt="" srcset="">
-
-                                        <%} %>
-                                </div>
                             </div>
                             <div class="product-quantity">
                                 <div class="product-quantity-header">
@@ -92,37 +81,6 @@
                         </div>
                     </div>
                 </section>
-                <section class="characteristics">
-                    <div class="characteristics-header">
-                        <h2>Características del producto</h2>
-                    </div>
-                    <div class="characteristics-main">
-                        <% product.characteristics.forEach(characteristic =>{%>
-                            <article class="characteristic">
-                                <div class="characteristic-header">
-                                    <h3>
-                                        <%= characteristic.title ;%>
-                                    </h3>
-                                </div>
-                                <div class="characteristic-main">
-                                    <table class="characteristic-main">
-                                        <%let contador=0, estado="active",estado_2="disable";
-                                        characteristic.main.forEach(subcharacteristic => {%>
-                                            <tr class="characteristic-<%= contador%2==0 ? estado :estado_2;%>">
-
-                                                <td><strong><%= subcharacteristic.subtitle;%></strong></td>
-                                                <td>
-                                                    <%= subcharacteristic.description;%>
-                                                </td>
-
-                                            </tr>
-                                            <%contador++});%>
-                                    </table>
-                                </div>
-                            </article>
-                            <%})%>
-                    </div>
-                </section>
                 <section class="warranty">
                     <div class="warranty-header">
                         <h3>Garantia</h3>
@@ -132,8 +90,6 @@
                         <p>
                             <%= product.warrantyText%>
                         </p>
-                        <p>Garantía del vendedor:
-                            <strong><%= product.warrantyTime%> mese</strong></p>
                     </div>
                 </section>
                 <section class="payment-methods">
@@ -142,8 +98,8 @@
                     </div>
                     <div class="payment-methods-main">
                         <div class="payment-methods-icons">
-                            <% product.paymentMethod.forEach(id => {
-                                        let method = paymentMethod.find(pay=> pay.id==id)%>
+                            <% product.metodo_pago.forEach(metodo_pago => {
+                                        let method = paymentMethod.find(pay=> pay.id==metodo_pago.id)%>
                                 <img src="/images/methodLogos/<%= method.image %> " alt="">
                                 <%}); %>
                         </div>
@@ -198,7 +154,7 @@
                     <div class="product-similar-main">
                         <article class="product">
                             <div class="product-header">
-                                <img src="/image/diadema.png" alt="" srcset="">
+                                <img src="/images/products/diadema.png" alt="" srcset="">
                             </div>
                             <div class="product-main">
                                 <i class="fas fa-truck"></i>
@@ -211,7 +167,7 @@
                         </article>
                         <article class="product">
                             <div class="product-header">
-                                <img src="/image/diadema.png" alt="" srcset="">
+                                <img src="/images/products/diadema.png" alt="" srcset="">
                             </div>
                             <div class="product-main">
                                 <i class="fas fa-truck"></i>
@@ -224,7 +180,7 @@
                         </article>
                         <article class="product">
                             <div class="product-header">
-                                <img src="/image/diadema.png" alt="" srcset="">
+                                <img src="/images/products/diadema.png" alt="" srcset="">
                             </div>
                             <div class="product-main">
                                 <i class="fas fa-truck"></i>
@@ -237,7 +193,7 @@
                         </article>
                         <article class="product">
                             <div class="product-header">
-                                <img src="/image/diadema.png" alt="" srcset="">
+                                <img src="/images/products/diadema.png" alt="" srcset="">
                             </div>
                             <div class="product-main">
                                 <i class="fas fa-truck"></i>

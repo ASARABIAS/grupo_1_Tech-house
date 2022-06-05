@@ -13,11 +13,14 @@ main section article .descripcion {
 
 .precio {
     font-size: 18px;
+    padding-bottom: 7px;
+    margin-top: 3px;
 }
 
 .descripcion {
     font-size: 16px;
     font-weight: normal;
+    margin-top: 5px;
 }
 
 h3,
@@ -82,11 +85,12 @@ section.banner2 img {
 }
 
 .boton-editar,
-.boton-eliminar {
+.boton-eliminar,
+.boton-volver {
     font-size: 14px;
     margin-top: 50px;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 9px;
+    border-radius: 8px;
     border: none;
     background-color: var(--Light-purple);
     color: #E8E8E8;
@@ -94,7 +98,8 @@ section.banner2 img {
     text-align: center;
 }
 
-.boton-eliminar {
+.boton-eliminar,
+.boton-volver {
     background-color: var(--Red);
 }
 

@@ -9,24 +9,26 @@
 
             <main>
                 <section class="information">
-                    <div class="photo">
-                        <img src="/images/products/<%= product.images[0] %> " alt="" srcset="">
-                        <div class="collage-photo">
-                            <% let i=0 , enable="enable",disabled="disabled";
-                            product.images.forEach(image => {%>
-                                <img src="/images/products/<%= image %>" alt="" srcset="" class="<%= i++==0 ?enable:disabled; %>">
-                                <%}); %>
-                        </div>
-                        <div class="link-photo">
-                            <i class="fa-solid fa-camera"></i>
-                            <h5>Ingrese una Imagen</h5>
-                        </div>
-                    </div>
-                    <div class="information-header">
-                        <h3>INFORMACIÓN DEL PRODUCTO</h3>
-                    </div>
+
                     <div class="information-main">
-                        <form action="/products/edit/<%= product.id%>?_method=PUT" method="post" class="infor-product" id="infor-product">
+                        <form action="/products/edit/<%= product.id%>?_method=PUT" method="post" enctype="multipart/form-data" class="infor-product" id="infor-product">
+                            <div class="photo">
+                                <img class="imagePreview" src="/images/products/<%= product.images[0].image %> " alt="" srcset="">
+                                <div class="collage-photo">
+                                    <% let i=0 , enable="enable",disabled="disabled";
+                                    product.images.forEach(image => {%>
+                                        <img src="/images/products/<%= image.image %>" alt="" srcset="" class="<%= i++==0 ?enable:disabled; %> imagePreview">
+                                        <%}); %>
+                                </div>
+                                <div class="div-avatar">
+                                    <i class="fa-solid fa-camera"></i>
+                                    <label for="productImage" class="label-avatar">Seleccionar imagen</label>
+                                    <input type="file" name="productImage" id="productImage" class="btn-changer">
+                                </div>
+                            </div>
+                            <div class="information-header">
+                                <h3>INFORMACIÓN DEL PRODUCTO</h3>
+                            </div>
                             <div class="infor-product-section">
                                 <label for="name">Nombre:</label>
                                 <input type="text" name="name" id="name" placeholder="Nombre" value="<%= product.name %> ">
@@ -35,38 +37,7 @@
                                 <label for="specifications">Especificaciones:</label>
                                 <textarea name="specifications" id="specifications"><%= product.specifications %>  </textarea>
                             </div>
-                            <div class="infor-product-section">
-                                <div class="characteristics-header">
-                                    <h4>Caractersiticas:</h4>
-                                </div>
-                                <% let count =0;
-                                 product.characteristics.forEach(characteristic => {%>
-                                    <div class="characteristics-main">
-                                        <div class="characteristics-main-title">
-                                            <label for="characteristics-title">Titulo de la Caracteristicas:</label>
-                                            <input type="text" name="characteristicsTitle" id="characteristics-title" placeholder="Titulo" value="<%= characteristic.title %>">
-                                        </div>
-                                        <div class="characteristics-main-context">
-                                            <div class="characteristics-main-context-top">
-                                                <h5>Cuerpo de la Caracteristicas</h5>
-                                                <i class="fa-solid fa-circle-plus"></i>
-                                            </div>
-                                            <% characteristic.main.forEach(subcharacteristic=>{%>
-                                                <div class="characteristics-main-context-down">
-                                                    <label for="characteristics-context">Subtitulo:</label>
-                                                    <input type="text" name="characteristicsContextSubtitle_<%=count%>" id="characteristics-context-subtitle" placeholder="<%= subcharacteristic.subtitle %>" value="<%= subcharacteristic.subtitle %>">
-                                                    <label for="characteristics-context-description">Descripcion:</label>
-                                                    <input type="text" name="characteristicsContextDescription_<%=count%>" id="characteristics-context-description" placeholder="<%= subcharacteristic.description %>" value="<%= subcharacteristic.description %>">
-                                                </div>
-                                                <%}) %>
-                                        </div>
-                                        <div class="characteristics-main-add">
-                                            <a href="">Agregar nueva caracteristica</a>
-                                            <i id="characteristic-add" class="fa-solid fa-circle-plus"></i>
-                                        </div>
-                                    </div>
-                                    <%count++}); %>
-                            </div>
+
                             <div class="infor-product-section">
                                 <label for="category">Categoria:</label>
                                 <select name="category" id="category">
@@ -77,20 +48,19 @@
                             </div>
                             <div class="infor-product-section">
                                 <label for="warranty">Garantia:</label>
-                                <input type="text" name="warrantyText" id="warrantyText" placeholder="Garantia" value="<%= product.warrantyText %>">
-                                <input type="number" name="warrantyTime" id="warranty" placeholder="Tiempo de la Garantia" value="<%= product.warrantyTime %>">
+                                <input type="text" name="warrantyText" id="warrantyText" placeholder="Garantia" value="<%= product.warranty_text %>">
+                                <input type="number" name="warrantyTime" id="warranty" placeholder="Tiempo de la Garantia" value="<%= product.warranty_time %>">
                             </div>
                             <div class="infor-product-section">
                                 <label>Medios de Pago:</label>
                                 <div class="payment-methods">
-                                    <%let index=0; 
-                                    paymentMethod.forEach(pay => {%>
+                                    <%paymentMethod.forEach(pay => {%>
                                         <div class="payment-method">
                                             <input type="checkbox" name="paymentMethod" value="<%= pay.id %>" id="paymentMethod
-                                        <%= pay.id %>" <%=( index <product.paymentMethod.length && pay.id==product.paymentMethod[index++]) ? "checked" : '';%>>
+                                            <%= pay.id %>" <%=(product.metodo_pago.filter((metodoPago)=>{return metodoPago.id == pay.id}).length > 0) ? "checked" : '';%>>
                                             <label for="paymentMethod<%= pay.id %>"><img src="/images/methodLogos/<%= pay.image %> " alt="" srcset=""></label>
                                         </div>
-                                        <%}); %>
+                                        <%});%>
                                 </div>
                             </div>
                             <div class="infor-product-section">
@@ -113,6 +83,8 @@
             <%- include('../partials/footer') %>
 
     </body>
+    <script src="/js/products/addCharacteristics.js"></script>
     <script src="https://kit.fontawesome.com/f108e44f29.js" crossorigin="anonymous"></script>
+    <script src="/js/products/editProduct.js"></script>
 
 </html>

@@ -5,7 +5,7 @@
         </div>
         <div class="shopping-love-user-carts">
             <div class="shopping-cart">
-                <a href="../products/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
             <div class="love-cart">
                 <a href="/users/preferences"><i class="fa-solid fa-heart"></i></a>
@@ -28,14 +28,14 @@
                 <i class="fa fa-bars burger"></i>
             </div>
         </div>
-        <form action="#">
-            <input type="search" placeholder="Buscar productos, marcas y más">
+        <form action=<%= (locals.usuario.id_role==2) ? "/products" : "/" %> method="get">
+            <input type="search" placeholder="Buscar productos" name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>
     <nav>
         <ul>
-            <% if(locals.usuario.rol==0){ %>
+            <% if(locals.usuario.id_role==2){ %>
 
                 <li><a href="/products">Listas de productos</a></li>
                 <li><a href="/products/create">Crear Producto</a></li>

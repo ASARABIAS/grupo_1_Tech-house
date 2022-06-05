@@ -38,11 +38,13 @@ main section article .descripcion {
 
 .precio {
     font-size: 18px;
+    margin-bottom: 1px;
 }
 
 .descripcion {
     font-size: 16px;
-    font-weight: normal;
+    font-weight: bold;
+    margin-bottom: 8px;
 }
 
 h3,
@@ -110,6 +112,22 @@ main section article .descripcion {
 
 section.banner2 img {
     width: 100%
+}
+
+.boton-volver {
+    font-size: 14px;
+    margin-top: 50px;
+    padding: 9px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--Light-purple);
+    color: #E8E8E8;
+    font-weight: 700;
+    text-align: center;
+}
+
+.boton-volver {
+    background-color: var(--Red);
 }
 
 @media (min-width: 481px) {
