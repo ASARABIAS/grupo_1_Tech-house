@@ -2,7 +2,6 @@
 <html lang="en">
 
 <%- include('../partials/head', {title:"Agregar y editar Producto", namePage:"add_editProduct"}) %>
-    <script src="/js/validationProduct.js"></script>
 
     <body>
 
@@ -18,7 +17,8 @@
                                 <div class="div-avatar">
                                     <i class="fa-solid fa-camera"></i>
                                     <label for="productImage" class="label-avatar">Seleccionar imagen</label>
-                                    <input type="file" name="productImage" id="productImage" class="btn-changer">
+                                    <input type="file" name="productImage" id="productImage" class="btn-changer" accept=".JPG, .JPEG, .PNG, .GIF">
+                                    <small id="errorProductImage"></small>
                                 </div>
                             </div>
                             <div class="information-header">
@@ -27,10 +27,12 @@
                             <div class="infor-product-section">
                                 <label for="name">Nombre:</label>
                                 <input type="text" name="name" id="name" placeholder="Nombre">
+                                <small id="errorName"></small>
                             </div>
                             <div class="infor-product-section">
                                 <label for="specifications">Especificaciones:</label>
                                 <textarea name="specifications" id="specifications"> </textarea>
+                                <small id="errorSpecifications"></small>
                             </div>
 
                             <div class="infor-product-section">
@@ -76,7 +78,7 @@
             <%- include('../partials/footer') %>
 
     </body>
-
+    <script src="/js/validationProduct.js"></script>
 
     <script src="/js/products/addCharacteristics.js"></script>
     <script src="https://kit.fontawesome.com/f108e44f29.js" crossorigin="anonymous"></script>
