@@ -33,9 +33,7 @@ const productsController = {
 
     //Creación de un Producto (POST)
     store: function(req, res) {
-        console.log(req.body);
         const errors = validationResult(req);
-        console.log(errors);
         if(errors.isEmpty()){
             let body = req.body;
             let file = req.file;
@@ -140,7 +138,6 @@ const productsController = {
                     ]
                 })
                 .then(products => {
-
                     res.render('products/listProducts', { products });
                 })
                 .catch(error => console.log(error));
@@ -197,117 +194,139 @@ const productsController = {
                 */
             ]
         });
-
         //console.log(JSON.stringify(product, null, 2)); 
         res.render('products/editProduct', { product, paymentMethod, categoryProduct });
     },
 
     // Editar Producto 
     update: async(req, res) => {
-        let body = req.body;
-        let file = req.file;
+        const errors = validationResult(req);
+        if(errors.isEmpty()){
+            let body = req.body;
+            let file = req.file;
 
-        //Actualizo campos directos de la tabla, los que vengan desde el form
-        await db.Producto.update({
-            name: body.name,
-            specifications: body.specifications,
-            id_category: body.category,
-            warranty_text: body.warrantyText,
-            price: body.price,
-            discount: body.discount,
-        }, {
-            where: { id: req.params.id }
-        });
-
-        // Obtengo producto con los datos actualizados de la tabla directa Producto
-        let updatedProduct = await db.Producto.findByPk(req.params.id, {
-            // Me trae info asociada a estas dos tablas
-            /*
-            include: [{
-                association: "characteristics",
-                include: [ 
-                    { association: "principals" }
-                ]
-            }, ]
-            */
-        });
-        /*
-        if (updatedProduct.characteristics.length > 0) {
-            
-            for (let i = 0; i < updatedProduct.characteristics.length; i++) {
-                await db.Principal.destroy({
-                    where: {
-                        id_characteristic: updatedProduct.characteristics[i].id
-                    }
-                })
-
-            }
-
-            await db.Caracteristica.destroy({
-                where: {
-                    id_product: updatedProduct.id
-                },
-                force: true
+            //Actualizo campos directos de la tabla, los que vengan desde el form
+            await db.Producto.update({
+                name: body.name,
+                specifications: body.specifications,
+                id_category: body.category,
+                warranty_text: body.warrantyText,
+                price: body.price,
+                discount: body.discount,
+            }, {
+                where: { id: req.params.id }
             });
 
-            // Ingreso la nueva caracteristica
-            let characteristicsTitle = getMultipleData(body.characteristicsTitle);
-            for (let i = 0; i < characteristicsTitle.length; i++) {
-                const title = characteristicsTitle[i];
+            // Obtengo producto con los datos actualizados de la tabla directa Producto
+            let updatedProduct = await db.Producto.findByPk(req.params.id, {
+                // Me trae info asociada a estas dos tablas
+                /*
+                include: [{
+                    association: "characteristics",
+                    include: [ 
+                        { association: "principals" }
+                    ]
+                }, ]
+                */
+            });
+            /*
+            if (updatedProduct.characteristics.length > 0) {
+                
+                for (let i = 0; i < updatedProduct.characteristics.length; i++) {
+                    await db.Principal.destroy({
+                        where: {
+                            id_characteristic: updatedProduct.characteristics[i].id
+                        }
+                    })
 
-                if (body['characteristicsContextSubtitle_' + i] && body['characteristicsContextDescription_' + i]) {
-                    const subtitle = body['characteristicsContextSubtitle_' + i];
-                    const description = body['characteristicsContextDescription_' + i];
+                }
 
-                    await db.Caracteristica.create({
-                        id_product: updatedProduct.id,
-                        title: title,
-                        principals: getCharacteristicsMain(getMultipleData(subtitle), getMultipleData(description))
-                    }, {
+                await db.Caracteristica.destroy({
+                    where: {
+                        id_product: updatedProduct.id
+                    },
+                    force: true
+                });
+
+                // Ingreso la nueva caracteristica
+                let characteristicsTitle = getMultipleData(body.characteristicsTitle);
+                for (let i = 0; i < characteristicsTitle.length; i++) {
+                    const title = characteristicsTitle[i];
+
+                    if (body['characteristicsContextSubtitle_' + i] && body['characteristicsContextDescription_' + i]) {
+                        const subtitle = body['characteristicsContextSubtitle_' + i];
+                        const description = body['characteristicsContextDescription_' + i];
+
+                        await db.Caracteristica.create({
+                            id_product: updatedProduct.id,
+                            title: title,
+                            principals: getCharacteristicsMain(getMultipleData(subtitle), getMultipleData(description))
+                        }, {
+                            include: [
+                                { association: "principals" }
+                            ]
+                        });
+                    }
+                }
+
+            }
+            */
+            // Borrando datos de la tabla intermedia
+            await db.Producto_pago.destroy({
+                where: {
+                    id_product: updatedProduct.id
+                }
+            });
+
+            // Creando arreglo por los checkbox del formulario
+            let productsPaymentMethods = getMultipleData(body.paymentMethod);
+
+            let productsPaymentMethodsDb = []; // Espera un arreglo de objetos
+            for (let i = 0; i < productsPaymentMethods.length; i++) {
+                productsPaymentMethodsDb.push({
+                    id_product: updatedProduct.id,
+                    id_payment_method: productsPaymentMethods[i]
+                })
+            }
+
+            await db.Producto_pago.bulkCreate(
+                productsPaymentMethodsDb
+            );
+
+            if (file) {
+                await db.Imagen.destroy({
+                    where: {
+                        id_product: updatedProduct.id
+                    }
+                });
+                await db.Imagen.create({
+                    image: file.filename,
+                    id_product: updatedProduct.id,
+                })
+            }
+
+            res.redirect('/products');
+        }else{
+            let id = req.params.id;
+            let categoryProduct = await db.Categoria.findAll();
+            let paymentMethod = await db.Metodo_pago.findAll();
+            let product = await db.Producto.findByPk(id, {
+                include: [
+                    { association: "images" },
+                    { association: "metodo_pago" },
+                    /*{ association: "colors" },
+                    {
+                        association: "characteristics",
                         include: [
                             { association: "principals" }
                         ]
-                    });
-                }
-            }
-
-        }
-        */
-        // Borrando datos de la tabla intermedia
-        await db.Producto_pago.destroy({
-            where: {
-                id_product: updatedProduct.id
-            }
-        });
-
-        // Creando arreglo por los checkbox del formulario
-        let productsPaymentMethods = getMultipleData(body.paymentMethod);
-
-        let productsPaymentMethodsDb = []; // Espera un arreglo de objetos
-        for (let i = 0; i < productsPaymentMethods.length; i++) {
-            productsPaymentMethodsDb.push({
-                id_product: updatedProduct.id,
-                id_payment_method: productsPaymentMethods[i]
-            })
-        }
-
-        await db.Producto_pago.bulkCreate(
-            productsPaymentMethodsDb
-        );
-
-        if (file) {
-            await db.Imagen.destroy({
-                where: {
-                    id_product: updatedProduct.id
-                }
+                    },
+                    */
+                ]
             });
-            await db.Imagen.create({
-                image: file.filename,
-                id_product: updatedProduct.id,
-            })
+            //console.log(JSON.stringify(product, null, 2)); 
+            res.render('products/editProduct', { product, paymentMethod, categoryProduct, errors: errors.mapped() });
         }
-
-        res.redirect('/products');
     },
     // Vista eliminar producto
     viewDelete: async(req, res, next) => {

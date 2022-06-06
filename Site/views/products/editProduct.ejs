@@ -31,13 +31,22 @@
                             </div>
                             <div class="infor-product-section">
                                 <label for="name">Nombre:</label>
-                                <input type="text" name="name" id="name" placeholder="Nombre" value="<%= product.name %> ">
+                                <input type="text" name="name" id="name" placeholder="Nombre" value="<%= product.name%>">
                             </div>
+                            <%if(typeof(errors) != 'undefined' && errors.name){%>
+                                <span class="text-error">
+                                  <%= errors.name.msg %>
+                                </span>
+                             <%}%>
                             <div class="infor-product-section">
                                 <label for="specifications">Especificaciones:</label>
-                                <textarea name="specifications" id="specifications"><%= product.specifications %>  </textarea>
+                                <textarea name="specifications" id="specifications"><%= product.specifications %></textarea>
                             </div>
-
+                            <%if(typeof(errors) != 'undefined' && errors.specifications){%>
+                                <span class="text-error">
+                                  <%= errors.specifications.msg %>
+                                </span>
+                             <%}%>
                             <div class="infor-product-section">
                                 <label for="category">Categoria:</label>
                                 <select name="category" id="category">
@@ -46,11 +55,20 @@
                                         <%}); %> 
                                 </select>
                             </div>
+                            <%if(typeof(errors) != 'undefined' && errors.category){%>
+                                <span class="text-error">
+                                  <%= errors.category.msg %>
+                                </span>
+                             <%}%>
                             <div class="infor-product-section">
                                 <label for="warranty">Garantia:</label>
                                 <input type="text" name="warrantyText" id="warrantyText" placeholder="Garantia" value="<%= product.warranty_text %>">
-                                <input type="number" name="warrantyTime" id="warranty" placeholder="Tiempo de la Garantia" value="<%= product.warranty_time %>">
                             </div>
+                            <%if(typeof(errors) != 'undefined' && errors.warrantyText){%>
+                                <span class="text-error">
+                                  <%= errors.warrantyText.msg %>
+                                </span>
+                             <%}%>
                             <div class="infor-product-section">
                                 <label>Medios de Pago:</label>
                                 <div class="payment-methods">
@@ -63,14 +81,29 @@
                                         <%});%>
                                 </div>
                             </div>
+                            <%if(typeof(errors) != 'undefined' && errors.paymentMethod){%>
+                                <span class="text-error">
+                                  <%= errors.paymentMethod.msg %>
+                                </span>
+                             <%}%>
                             <div class="infor-product-section">
                                 <label for="price">Precio:</label>
                                 <input type="number" name="price" id="price" placeholder="Precio" value="<%= product.price%>">
                             </div>
+                            <%if(typeof(errors) != 'undefined' && errors.price){%>
+                                <span class="text-error">
+                                  <%= errors.price.msg %>
+                                </span>
+                             <%}%>
                             <div class="infor-product-section">
                                 <label for="descount">Descuento:</label>
                                 <input type="number" name="discount" id="discount" placeholder="Descuento" value="<%= product.discount%>">
                             </div>
+                            <%if(typeof(errors) != 'undefined' && errors.discount){%>
+                                <span class="text-error">
+                                  <%= errors.discount.msg %>
+                                </span>
+                             <%}%>
                             <div class="infor-product-section btn-save-reset">
                                 <button type="submit" onclick="CreateStrucureCharacteristics();">Guardar</button>
                                 <a href="/products"><button type="button">Cancelar</button></a>

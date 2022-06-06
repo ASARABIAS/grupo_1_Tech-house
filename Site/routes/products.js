@@ -7,7 +7,8 @@ const multer = require('multer');
 const productsController = require('../controllers/productsController.js');
 const userNotLogged = require("../middlewares/userNotLogged");
 const userIsAdministrator = require("../middlewares/userIsAdministrator");
-const productsValidation = require("../middlewares/productValidator")
+const productsValidation = require("../middlewares/productValidator");
+const editProductsValidation = require("../middlewares/editValidator")
 
 router.get("/", userNotLogged, userIsAdministrator, productsController.list);
 router.get("/cart", userNotLogged, productsController.cart);
@@ -32,7 +33,7 @@ router.get("/detail/:id", productsController.detail);
 
 //edit Product
 router.get("/edit/:id", userNotLogged, userIsAdministrator, productsController.edit);
-router.put("/edit/:id", userNotLogged, upload.single('productImage'), userIsAdministrator, productsController.update);
+router.put("/edit/:id", userNotLogged, upload.single('productImage'), userIsAdministrator, editProductsValidation, productsController.update);
 
 //eliminar
 //router.get('/', productsController.listaProductos);
