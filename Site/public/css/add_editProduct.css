@@ -154,6 +154,10 @@ section.information form div.btn-save-reset button[type="button"] {
     margin-right: 10%;
 }
 
+.showError {
+    color: red;
+}
+
 .label-avatar {
     display: inline !important;
     padding: 5px !important;
