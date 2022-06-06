@@ -55,7 +55,8 @@ const usersController = {
                 id_role: 1
                 
             }
-        ).then(()=> {
+        )
+        .then(()=> {
             return res.redirect('/users/login')})
         .catch(error => {
             console.log(error)

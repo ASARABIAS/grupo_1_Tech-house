@@ -130,6 +130,17 @@ span.text-error {
 input.btn-changer {
     display: none !important;
 }
+div.error {
+	color: var(--Red);
+    font-size: 14px;
+	
+}
+
+div.error ul{
+    list-style-type: none
+}
+
+
 
 @media(min-width:481px) {
     input {

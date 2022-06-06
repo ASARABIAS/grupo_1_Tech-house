@@ -7,28 +7,42 @@
         <%- include('../partials/header') %>
 
             <main class="registro">
-                <form action="/users/register" method="POST" enctype="multipart/form-data">
+                <form action="/users/register" method="POST" enctype="multipart/form-data" >
                     <h1>Crear cuenta </h1>
                     <div class="photo">
                         <img id="imagePreview" src="/images/logo.png" alt="" width="200" height="150">
                     </div>
-
+                   <div class ="registerAvatar">
                     <div class="div-avatar">
                         <label for="avatar" class="label-avatar">Seleccionar imagen</label>
                         <input type="file" name="avatar" id="avatar" class="btn-changer">
                     </div>
-
+                    <div>
+                        <% if(typeof(errors) != 'undefined' && errors.avatar){%>
+                            <span class="text-error">
+                              <%= errors.avatar.msg %>
+                            </span>
+                            <%}%>
+                        </div>
+                        <div class ="error"> 
+                            <ul></ul>
+                        </div>
+                        </div>
+                    <div class="registerName">
                     <label for="name">Tu nombre</label>
                     <input class="registro-nombre" type="text" id="name" name="name" />
-                    <div>
+                        <div>
                         <% if(typeof(errors) != 'undefined' && errors.name){%>
                             <span class="text-error">
                               <%= errors.name.msg %>
                             </span>
                             <%}%>
+                        </div>
+                    <div class ="error"> 
+                        <ul></ul>
                     </div>
-
-                
+                    </div>
+                    <div class="registerEmail">
                     <label for="email">Correo electrónico </label>
                     <input class="registro-email" type="text" id="email" name="email" />
                     <div>
@@ -38,16 +52,25 @@
                             </span>
                             <%}%>
                     </div>
-
+                    <div class ="error"> 
+                        <ul></ul>
+                    </div>
+                    </div>
+                    <div class="registerPassword">
                     <label for="password">Contraseña</label>
-                    <input class="registro-contraseña" type="password" placeholder="Como minimo 6 caracteres" id="password" name="password" />
+                    <input class="registro-contraseña" type="password" placeholder="Como minimo 8 caracteres" id="password" name="password" />
                     <div>
                         <% if(typeof(errors) != 'undefined' && errors.password){%>
                             <span class="text-error">
                               <%= errors.password.msg %>
                             </span>
                             <%}%>
-                    </div>
+                        </div>
+                        <div class ="error"> 
+                            <ul></ul>
+                        </div>
+                        </div>
+                    <div class="registerCountry"> 
                     <label for="country">Pais</label>
                     <input class="registro-contraseña" type="text" placeholder="Ej: Colombia" id="country" name="country" />
                     <div>
@@ -56,8 +79,11 @@
                               <%= errors.country.msg %>
                             </span>
                             <%}%>
-                    </div>
-
+                        </div>
+                        <div class ="error"> 
+                            <ul></ul>
+                        </div>
+                        </div>
                     <input class="crear-cuenta" type="submit" value="Crear cuenta">
                     <div class="goto-login">
                         <p>¿Ya tienes una cuenta? <a href="/users/login">Inicia sesión</a></p>
@@ -67,6 +93,7 @@
             <%- include('../partials/footer') %>
 
         <script src="/js/users/register.js"></script>
+        <script src="/js/users/registerValidations.js"></script>
 
     </body>
 

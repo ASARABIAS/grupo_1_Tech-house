@@ -26,12 +26,13 @@ var storage = multer.diskStorage({
         cb(null, 'public/images/users')
     },
     filename: function(req, file, cb) {
+       
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
 })
 var upload = multer({ storage })
 
-router.post("/register", upload.single('avatar'), registerValidations, usersController.store);
+router.post("/register", upload.single('avatar'),registerValidations,usersController.store);
 //router.post("/register", upload.single('avatar'), usersController.store);
 router.get("/logout", usersController.logout);
 router.get("/profile", userNotLogged, usersController.profile);

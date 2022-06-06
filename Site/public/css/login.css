@@ -104,6 +104,16 @@ footer{
 p{
     font-size: 16px;
 }
+
+div.error {
+	color: var(--Red);
+    font-size: 14px;
+	
+}
+
+div.error ul{
+    list-style-type: none
+}
 @media(min-width:481px) {
     footer{
         margin-top: 40%;
