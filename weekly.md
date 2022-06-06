@@ -82,3 +82,16 @@ Qué haremos esta semana
 - Terminar CRUD de productos
 - Tratar de realizar los puntos opcionales del Sprint
 
+**Weekly 1 - Sprint 7**
+Qué se hizo la semana pasada
+- Se repartieron las responsibilidades individuales
+- Se asignaron tareas sobre detalles que nos hacian falta, como organizar los modelos y cambiar los nombres de las carpetas al idioma ingles y actualizar estructura con respecto al DER corregido.
+
+Impedimentos encontrados
+Esta semana no hemos encontrado impedimentos que nos impidan cumplir con las consignas del sprint.
+
+Qué haremos esta semana
+- Cada uno trabajará en sus responsabilidades individuales para realizar la entrega de el sprint en la fecha establecida.
+
+
+
