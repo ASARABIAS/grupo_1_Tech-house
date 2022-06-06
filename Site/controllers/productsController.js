@@ -1,5 +1,7 @@
 const path = require('path');
 const fs = require('fs');
+const { validationResult } = require("express-validator");
+
 // Importando DB
 const db = require("../database/models");
 const Op = db.Sequelize.Op;
@@ -31,10 +33,14 @@ const productsController = {
 
     //Creación de un Producto (POST)
     store: function(req, res) {
-        let body = req.body;
-        let file = req.file;
+        console.log(req.body);
+        const errors = validationResult(req);
+        console.log(errors);
+        if(errors.isEmpty()){
+            let body = req.body;
+            let file = req.file;
 
-        db.Producto.create({
+            db.Producto.create({
                 name: body.name,
                 specifications: body.specifications,
                 //characteristics: getCharacteristics(body),
@@ -47,37 +53,46 @@ const productsController = {
                 images: [
                     { image: !file ? "prueba.png" : file.filename }
                 ],
-            }, {
-                include: [
-                    { association: "images" },
-                    /*
-                    {
-                        association: "characteristics",
-                        include: [
-                            { association: "principals" }
-                        ]
-                    },
-                    */
-                ]
-            })
-            .then((product) => {
-                let productsPaymentMethods = getMultipleData(body.paymentMethod);
-                // Obteniendo el arreglo de objetos para el bulkCreate
-                let productsPaymentMethodsDb = [];
-                for (let i = 0; i < productsPaymentMethods.length; i++) {
-                    productsPaymentMethodsDb.push({
-                        id_product: product.id,
-                        id_payment_method: productsPaymentMethods[i]
-                    })
-                }
-                db.Producto_pago.bulkCreate(
-                    productsPaymentMethodsDb
-                ).then((productPayment) => {
-                    res.redirect("/products")
+                },{
+                    include: [
+                        { association: "images" },
+                        /*
+                        {
+                            association: "characteristics",
+                            include: [
+                                { association: "principals" }
+                            ]
+                        },
+                        */
+                    ]
                 })
-            }).catch((err) => {
-                console.error(err);
-            });
+                .then((product) => {
+                    let productsPaymentMethods = getMultipleData(body.paymentMethod);
+                    // Obteniendo el arreglo de objetos para el bulkCreate
+                    let productsPaymentMethodsDb = [];
+                    for (let i = 0; i < productsPaymentMethods.length; i++) {
+                        productsPaymentMethodsDb.push({
+                            id_product: product.id,
+                            id_payment_method: productsPaymentMethods[i]
+                        })
+                    }
+                    db.Producto_pago.bulkCreate(
+                        productsPaymentMethodsDb
+                    ).then((productPayment) => {
+                        res.redirect("/products")
+                    })
+                }).catch((err) => {
+                    console.error(err);
+                });
+        }else{
+            db.Categoria.findAll()
+            .then((categoryProduct) => {
+                db.Metodo_pago.findAll()
+                    .then((paymentMethod) => {
+                        res.render('products/createProduct', { paymentMethod, categoryProduct, errors: errors.mapped() });
+                    })
+            })
+        } 
     },
     // Lista de Productos y busqueda para usuarios administradores
     list: (req, res) => {

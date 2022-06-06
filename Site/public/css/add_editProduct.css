@@ -168,6 +168,11 @@ input.btn-changer {
     display: none !important;
 }
 
+span.text-error{
+    color: var(--Red);
+    font-size: 14px;
+}
+
 @media (min-width: 481px) {}
 
 @media (min-width: 769px) {}

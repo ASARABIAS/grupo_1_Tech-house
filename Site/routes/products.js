@@ -7,6 +7,7 @@ const multer = require('multer');
 const productsController = require('../controllers/productsController.js');
 const userNotLogged = require("../middlewares/userNotLogged");
 const userIsAdministrator = require("../middlewares/userIsAdministrator");
+const productsValidation = require("../middlewares/productValidator")
 
 router.get("/", userNotLogged, userIsAdministrator, productsController.list);
 router.get("/cart", userNotLogged, productsController.cart);
@@ -24,7 +25,7 @@ var storage = multer.diskStorage({
 })
 var upload = multer({ storage })
 
-router.post("/create", upload.single('productImage'), userNotLogged, userIsAdministrator, productsController.store);
+router.post("/create", upload.single('productImage'), userNotLogged, userIsAdministrator, productsValidation, productsController.store);
 
 //detail Product
 router.get("/detail/:id", productsController.detail);
