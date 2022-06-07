@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Producto_pago";
+    let alias = "Products_payment_methods";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -17,7 +17,7 @@ module.exports = (sequelize, dataTypes) => {
         tableName: "Products_payment_methods",
         timestamps: false
     };
-    const Producto_pago = sequelize.define(alias, cols, config);
+    const Products_payment_methods = sequelize.define(alias, cols, config);
 
     // Producto_pago.associate = function(models){
     //     Producto_pago.hasMany(models.Producto, {
@@ -37,6 +37,6 @@ module.exports = (sequelize, dataTypes) => {
     //     });
     // }  
     
-    return Producto_pago;
+    return Products_payment_methods;
 
 }
