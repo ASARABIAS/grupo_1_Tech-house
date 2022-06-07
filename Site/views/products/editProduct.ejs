@@ -23,7 +23,8 @@
                                 <div class="div-avatar">
                                     <i class="fa-solid fa-camera"></i>
                                     <label for="productImage" class="label-avatar">Seleccionar imagen</label>
-                                    <input type="file" name="productImage" id="productImage" class="btn-changer">
+                                    <input type="file" name="productImage" id="productImage" class="btn-changer" value = "<%= product.images[0].image %>">
+                                    <span id="errorProductImage" class="showError"></span>
                                 </div>
                             </div>
                             <div class="information-header">
@@ -33,20 +34,12 @@
                                 <label for="name">Nombre:</label>
                                 <input type="text" name="name" id="name" placeholder="Nombre" value="<%= product.name%>">
                             </div>
-                            <%if(typeof(errors) != 'undefined' && errors.name){%>
-                                <span class="text-error">
-                                  <%= errors.name.msg %>
-                                </span>
-                             <%}%>
+                            <span class="text-error" id="errorName"> <% (typeof(errors) !='undefined' && errors.name) ?  errors.name.msg :"";%> </span>
                             <div class="infor-product-section">
                                 <label for="specifications">Especificaciones:</label>
                                 <textarea name="specifications" id="specifications"><%= product.specifications %></textarea>
                             </div>
-                            <%if(typeof(errors) != 'undefined' && errors.specifications){%>
-                                <span class="text-error">
-                                  <%= errors.specifications.msg %>
-                                </span>
-                             <%}%>
+                            <span class="text-error" id="errorSpecifications"> <% (typeof(errors) !='undefined' && errors.specifications) ? errors.specifications.msg : "" %> </span>
                             <div class="infor-product-section">
                                 <label for="category">Categoria:</label>
                                 <select name="category" id="category">
@@ -55,11 +48,7 @@
                                         <%}); %> 
                                 </select>
                             </div>
-                            <%if(typeof(errors) != 'undefined' && errors.category){%>
-                                <span class="text-error">
-                                  <%= errors.category.msg %>
-                                </span>
-                             <%}%>
+                            <span class="text-error"> <%(typeof(errors) !='undefined' && errors.category)? errors.category.msg:"" %> </span>
                             <div class="infor-product-section">
                                 <label for="warranty">Garantia:</label>
                                 <input type="text" name="warrantyText" id="warrantyText" placeholder="Garantia" value="<%= product.warranty_text %>">
@@ -119,5 +108,6 @@
     <script src="/js/products/addCharacteristics.js"></script>
     <script src="https://kit.fontawesome.com/f108e44f29.js" crossorigin="anonymous"></script>
     <script src="/js/products/editProduct.js"></script>
+    <script src="/js/validationProduct.js"></script>
 
 </html>

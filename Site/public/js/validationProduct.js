@@ -8,6 +8,7 @@ const spanName = document.querySelector('#errorName');
 const spanSpecification = document.querySelector('#errorSpecifications');
 
 form.addEventListener('submit', (event) => {
+    console.log("Imagen: ",inputImage.value);
     
     const ext = (inputImage.value.length > 0) ? inputImage.value.split(".").pop() : "none";
 
