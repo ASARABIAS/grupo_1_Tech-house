@@ -18,9 +18,9 @@ const productsController = {
 
     // Formulario Creación Producto (GET)
     create: (req, res) => {
-        db.Categoria.findAll()
+        db.Categories.findAll()
             .then((categoryProduct) => {
-                db.Metodo_pago.findAll()
+                db.paymentMethod.findAll()
                     .then((paymentMethod) => {
                         console.log(paymentMethod);
                         console.log(categoryProduct);
@@ -34,7 +34,7 @@ const productsController = {
         let body = req.body;
         let file = req.file;
 
-        db.Producto.create({
+        db.Products.create({
                 name: body.name,
                 specifications: body.specifications,
                 //characteristics: getCharacteristics(body),
@@ -87,7 +87,7 @@ const productsController = {
         console.log(req.query);
 
         if (query) {
-            db.Producto.findAll({
+            db.Products.findAll({
                     where: {
                         name: {
                             [Op.like]: "%" + query + "%"
@@ -111,7 +111,7 @@ const productsController = {
                 })
                 .catch(error => console.log(error));
         } else {
-            db.Producto.findAll({
+            db.Products.findAll({
                     include: [
                         { association: "images" },
                         /*{ association: "colors" },

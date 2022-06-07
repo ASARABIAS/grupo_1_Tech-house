@@ -31,7 +31,7 @@ const mainController = {
                 ]
             })
         } else {
-            products = await db.Producto.findAll({
+            products = await db.Products.findAll({
                 include: [
                     { association: "images" },
                 ]
