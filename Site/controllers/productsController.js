@@ -51,6 +51,7 @@ const productsController = {
                 images: [
                     { image: !file ? "prueba.png" : file.filename }
                 ],
+<<<<<<< HEAD
                 },{
                     include: [
                         { association: "images" },
@@ -63,6 +64,35 @@ const productsController = {
                         },
                         */
                     ]
+=======
+            }, {
+                include: [
+                    { association: "images" },
+                    /*
+                    {
+                        association: "characteristics",
+                        include: [
+                            { association: "principals" }
+                        ]
+                    },
+                    */
+                ]
+            })
+            .then((product) => {
+                let productsPaymentMethods = getMultipleData(body.paymentMethod);
+                // Obteniendo el arreglo de objetos para el bulkCreate
+                let productsPaymentMethodsDb = [];
+                for (let i = 0; i < productsPaymentMethods.length; i++) {
+                    productsPaymentMethodsDb.push({
+                        id_product: product.id,
+                        id_payment_method: productsPaymentMethods[i]
+                    })
+                }
+                db.paymentMethod.bulkCreate(
+                    productsPaymentMethodsDb
+                ).then((productPayment) => {
+                    res.redirect("/products")
+>>>>>>> dev_adan
                 })
                 .then((product) => {
                     let productsPaymentMethods = getMultipleData(body.paymentMethod);
@@ -155,11 +185,11 @@ const productsController = {
     detail: async(req, res) => {
 
         let id = req.params.id;
-        let paymentMethod = await db.Metodo_pago.findAll();
-        let product = await db.Producto.findByPk(id, {
+        let paymentMethod = await db.Payment_methods.findAll();
+        let product = await db.Products.findByPk(id, {
             include: [
                 { association: "images" },
-                { association: "metodo_pago" },
+                { association: "Payment_methods" },
                 /*{ association: "colors" },
                 {
                     association: "characteristics",
