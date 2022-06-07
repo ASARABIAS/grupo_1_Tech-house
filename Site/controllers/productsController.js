@@ -38,11 +38,7 @@ const productsController = {
             let body = req.body;
             let file = req.file;
 
-<<<<<<< HEAD
-            db.Producto.create({
-=======
         db.Products.create({
->>>>>>> dev_adan
                 name: body.name,
                 specifications: body.specifications,
                 //characteristics: getCharacteristics(body),
