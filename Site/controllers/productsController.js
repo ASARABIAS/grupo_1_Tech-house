@@ -22,7 +22,7 @@ const productsController = {
     create: (req, res) => {
         db.Categories.findAll()
             .then((categoryProduct) => {
-                db.paymentMethod.findAll()
+                db.Payment_methods.findAll()
                     .then((paymentMethod) => {
                         console.log(paymentMethod);
                         console.log(categoryProduct);
@@ -51,7 +51,6 @@ const productsController = {
                 images: [
                     { image: !file ? "prueba.png" : file.filename }
                 ],
-<<<<<<< HEAD
                 },{
                     include: [
                         { association: "images" },
@@ -64,35 +63,6 @@ const productsController = {
                         },
                         */
                     ]
-=======
-            }, {
-                include: [
-                    { association: "images" },
-                    /*
-                    {
-                        association: "characteristics",
-                        include: [
-                            { association: "principals" }
-                        ]
-                    },
-                    */
-                ]
-            })
-            .then((product) => {
-                let productsPaymentMethods = getMultipleData(body.paymentMethod);
-                // Obteniendo el arreglo de objetos para el bulkCreate
-                let productsPaymentMethodsDb = [];
-                for (let i = 0; i < productsPaymentMethods.length; i++) {
-                    productsPaymentMethodsDb.push({
-                        id_product: product.id,
-                        id_payment_method: productsPaymentMethods[i]
-                    })
-                }
-                db.paymentMethod.bulkCreate(
-                    productsPaymentMethodsDb
-                ).then((productPayment) => {
-                    res.redirect("/products")
->>>>>>> dev_adan
                 })
                 .then((product) => {
                     let productsPaymentMethods = getMultipleData(body.paymentMethod);
@@ -100,11 +70,11 @@ const productsController = {
                     let productsPaymentMethodsDb = [];
                     for (let i = 0; i < productsPaymentMethods.length; i++) {
                         productsPaymentMethodsDb.push({
-                            id_product: product.id,
+                            id_product: products.id,
                             id_payment_method: productsPaymentMethods[i]
                         })
                     }
-                    db.Producto_pago.bulkCreate(
+                    db.Payment_methods.bulkCreate(
                         productsPaymentMethodsDb
                     ).then((productPayment) => {
                         res.redirect("/products")
@@ -113,9 +83,9 @@ const productsController = {
                     console.error(err);
                 });
         }else{
-            db.Categoria.findAll()
+            db.Categories.findAll()
             .then((categoryProduct) => {
-                db.Metodo_pago.findAll()
+                db.Payment_methods.findAll()
                     .then((paymentMethod) => {
                         res.render('products/createProduct', { paymentMethod, categoryProduct, errors: errors.mapped() });
                     })
@@ -188,7 +158,7 @@ const productsController = {
         let paymentMethod = await db.Payment_methods.findAll();
         let product = await db.Products.findByPk(id, {
             include: [
-                { association: "images" },
+                { association: "Images" },
                 { association: "Payment_methods" },
                 /*{ association: "colors" },
                 {
@@ -208,9 +178,9 @@ const productsController = {
     edit: async(req, res) => {
 
         let id = req.params.id;
-        let categoryProduct = await db.Categoria.findAll();
-        let paymentMethod = await db.Metodo_pago.findAll();
-        let product = await db.Producto.findByPk(id, {
+        let categoryProduct = await db.Categories.findAll();
+        let paymentMethod = await db.Payment_methods.findAll();
+        let product = await db.Products.findByPk(id, {
             include: [
                 { association: "images" },
                 { association: "metodo_pago" },
@@ -236,7 +206,7 @@ const productsController = {
             let file = req.file;
 
             //Actualizo campos directos de la tabla, los que vengan desde el form
-            await db.Producto.update({
+            await db.Products.update({
                 name: body.name,
                 specifications: body.specifications,
                 id_category: body.category,
@@ -248,7 +218,7 @@ const productsController = {
             });
 
             // Obtengo producto con los datos actualizados de la tabla directa Producto
-            let updatedProduct = await db.Producto.findByPk(req.params.id, {
+            let updatedProduct = await db.Products.findByPk(req.params.id, {
                 // Me trae info asociada a estas dos tablas
                 /*
                 include: [{
@@ -302,7 +272,7 @@ const productsController = {
             }
             */
             // Borrando datos de la tabla intermedia
-            await db.Producto_pago.destroy({
+            await db.Products_payment_methods.destroy({
                 where: {
                     id_product: updatedProduct.id
                 }
@@ -319,17 +289,17 @@ const productsController = {
                 })
             }
 
-            await db.Producto_pago.bulkCreate(
+            await db.Products_payment_methods.bulkCreate(
                 productsPaymentMethodsDb
             );
 
             if (file) {
-                await db.Imagen.destroy({
+                await db.Images.destroy({
                     where: {
                         id_product: updatedProduct.id
                     }
                 });
-                await db.Imagen.create({
+                await db.Images.create({
                     image: file.filename,
                     id_product: updatedProduct.id,
                 })
@@ -338,9 +308,9 @@ const productsController = {
             res.redirect('/products');
         }else{
             let id = req.params.id;
-            let categoryProduct = await db.Categoria.findAll();
-            let paymentMethod = await db.Metodo_pago.findAll();
-            let product = await db.Producto.findByPk(id, {
+            let categoryProduct = await db.Categories.findAll();
+            let paymentMethod = await db.Payment_methods.findAll();
+            let product = await db.Products.findByPk(id, {
                 include: [
                     { association: "images" },
                     { association: "metodo_pago" },
@@ -361,7 +331,7 @@ const productsController = {
     // Vista eliminar producto
     viewDelete: async(req, res, next) => {
         let id = req.params.id;
-        let product = await db.Producto.findByPk(id);
+        let product = await db.Products.findByPk(id);
 
         res.render('products/delete', { title: 'Eliminar producto', product });
     },
@@ -369,7 +339,7 @@ const productsController = {
     // Eliminar producto
     deleteProduct: async(req, res, next) => {
 
-        let deletedProduct = await db.Producto.findByPk(req.params.id, {
+        let deletedProduct = await db.Products.findByPk(req.params.id, {
             /*
             include: [{
                 association: "characteristics",
@@ -399,19 +369,19 @@ const productsController = {
         };
         */
 
-        await db.Producto_pago.destroy({
+        await db.Products_payment_methods.destroy({
             where: {
                 id_product: deletedProduct.id
             }
         });
 
-        await db.Imagen.destroy({
+        await db.Images.destroy({
             where: {
                 id_product: deletedProduct.id
             }
         });
 
-        await db.Producto.destroy({
+        await db.Products.destroy({
             where: {
                 id: deletedProduct.id
             }
