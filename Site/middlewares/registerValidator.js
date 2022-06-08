@@ -16,7 +16,7 @@ const registerValidations = [
 	body('password')
     .notEmpty().withMessage('El campo de contraseña no puede estar vacio')
     .isLength({min: 8}).withMessage('La contraseña debe tener mimimo 8 caracteres')
-    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/, "i"),
+    .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/, "i").withMessage("text"),
     body("country").notEmpty().withMessage('El campo de país no puede estar vacio'),
     body('email').custom( async (value) =>{
         let userFound = await Users.findOne({where: {email: value}});
@@ -29,15 +29,19 @@ const registerValidations = [
 
       }).withMessage('El usuario ya se encuentra registrado'),
       body('avatar').custom((value, {req}) => {
-        if(req.file.mimetype == "image/png" || req.file.mimetype == "image/jpg" || req.file.mimetype == "image/jpeg"
+        if(req.file){
+            if(req.file.mimetype == "image/png" || req.file.mimetype == "image/jpg" || req.file.mimetype == "image/jpeg"
         || req.file.mimetype == "image/gif"){
             
             return true; 
         }else{
             return false; 
         }
+        }else{
+            return true;
+        }
     })
-.withMessage('Solo puede usar imagenes con los formatos: JPG, JPEG, PNG o GIF como su imagen de perfil).'),
+.withMessage('Solo puede usar imagenes con los formatos: JPG, JPEG, PNG o GIF como su imagen de perfil'),
     
      
       
