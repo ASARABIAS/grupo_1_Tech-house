@@ -2,7 +2,7 @@ const { body } = require('express-validator');
 const path = require('path');
 const fs = require('fs');
 const db = require('../database/models');
-const Users = db.Usuario;
+const Users = db.Users;
 const multer = require('multer');
 
 
