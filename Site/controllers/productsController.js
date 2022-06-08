@@ -158,8 +158,8 @@ const productsController = {
         let paymentMethod = await db.Payment_methods.findAll();
         let product = await db.Products.findByPk(id, {
             include: [
-                { association: "Images" },
-                { association: "Payment_methods" },
+                { association: "images" },
+                { association: "payment_methods" },
                 /*{ association: "colors" },
                 {
                     association: "characteristics",
@@ -170,7 +170,7 @@ const productsController = {
                 */
             ]
         });
-
+        console.log("producto: ", product);
         res.render('products/detailProduct', { product, paymentMethod });
     },
 

@@ -44,7 +44,7 @@
                             </div>
                             <div class="payment-methods-main">
                                 <div class="payment-methods-icons">
-                                    <% product.metodo_pago.forEach(metodo_pago => {
+                                    <% product.payment_methods.forEach(metodo_pago => {
                                         let method = paymentMethod.find(pay=> pay.id==metodo_pago.id)%>
                                         <img src="/images/methodLogos/<%= method.image; %> " alt="">
                                         <%}); %>
@@ -98,7 +98,7 @@
                     </div>
                     <div class="payment-methods-main">
                         <div class="payment-methods-icons">
-                            <% product.metodo_pago.forEach(metodo_pago => {
+                            <% product.payment_methods.forEach(metodo_pago => {
                                         let method = paymentMethod.find(pay=> pay.id==metodo_pago.id)%>
                                 <img src="/images/methodLogos/<%= method.image %> " alt="">
                                 <%}); %>

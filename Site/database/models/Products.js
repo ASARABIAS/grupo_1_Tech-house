@@ -40,10 +40,6 @@ module.exports = (sequelize, dataTypes) => {
     const Products = sequelize.define(alias, cols, config);
 
     Products.associate = function(models) {
-        Products.hasMany(models.Payment_methods, {
-            as: "Payment_methods",
-            foreignKey: "id_product"
-        });
         Products.hasMany(models.Images, {
             as: "images",
             foreignKey: "id_product"
@@ -61,8 +57,8 @@ module.exports = (sequelize, dataTypes) => {
             as: "categories",
             foreignKey: "id_category"
         });
-        Products.belongsToMany(models.Products_payment_methods, {
-            as: "Products_payment_methods",
+        Products.belongsToMany(models.Payment_methods, {
+            as: "payment_methods",
             through: "products_payment_methods",
             foreignKey: "id_product",
             otherKey: "id_payment_method",
