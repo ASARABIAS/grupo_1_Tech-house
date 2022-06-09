@@ -100,3 +100,4 @@ Seguir informando al grupo de trabajo sobre los cambios y avances realizados en 
 Dejar de hacer:
 
 Reuniones no programadas con tiempo para que todos podamos asistir.
+
