@@ -93,7 +93,7 @@ Impedimentos encontrados
 Qué haremos esta semana
 - Cada uno trabajará en sus responsabilidades individuales para realizar la entrega de el sprint en la fecha establecida.
 
-**Weekly 1 - Sprint 7**
+**Weekly 2 - Sprint 7**
 Qué se hizo la semana pasada
 - Se realizaron las Validaciones de back-end y front-end
 
