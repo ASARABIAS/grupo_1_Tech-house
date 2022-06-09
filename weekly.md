@@ -101,7 +101,7 @@ Impedimentos encontrados
 - Esta semana no hemos encontrado impedimentos que nos impidan cumplir con las consignas del sprint.
 
 Qué haremos esta semana
--Nos reuniremos para subir los cambios realizados por cada uno en el proyecto para la entrega.
+- Nos reuniremos para subir los cambios realizados por cada uno en el proyecto para la entrega.
 
 
 
