@@ -85,18 +85,18 @@ Tranquilizarnos por que "tenemos tiempo" y organizar los detalles el mismo día 
 
 **Retrospectiva Septimo Sprint**
 
-Comenzar a hacer
+Comenzar a hacer:
 
 Tener claridad absoluta respecto a la fecha de entrega de el sprint para que el tiempo sea suficiente para realizar correcciones respectivas.
 
-Hacer más
+Hacer más:
 
 Programar reuniones en las que cada uno realice una explicación corta sobre su tarea realizada.
 
-Continuar haciendo
+Continuar haciendo:
 
 Seguir informando al grupo de trabajo sobre los cambios y avances realizados en cada una de las tareas asignadas.
 
-Dejar de hacer
+Dejar de hacer:
 
 Reuniones no programadas con tiempo para que todos podamos asistir.
