@@ -94,9 +94,7 @@ div.mainlogin {
 }
 
 .recordar{
-    display:flex;
     justify-content: space-between;
-    margin-left: 15%;
 }
 footer{
     margin-top: 70%;

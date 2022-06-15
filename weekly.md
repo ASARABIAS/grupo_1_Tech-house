@@ -93,6 +93,16 @@ Impedimentos encontrados
 Qué haremos esta semana
 - Cada uno trabajará en sus responsabilidades individuales para realizar la entrega de el sprint en la fecha establecida.
 
+**Weekly 2 - Sprint 7**
+Qué se hizo la semana pasada
+- Se realizaron las Validaciones de back-end y front-end
+
+Impedimentos encontrados
+- Esta semana no hemos encontrado impedimentos que nos impidan cumplir con las consignas del sprint.
+
+Qué haremos esta semana
+- Nos reuniremos para subir los cambios realizados por cada uno en el proyecto para la entrega.
+
 
 
 

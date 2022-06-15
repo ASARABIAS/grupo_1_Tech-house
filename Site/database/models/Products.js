@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Producto";
+    let alias = "Products";
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -37,33 +37,28 @@ module.exports = (sequelize, dataTypes) => {
         deletedAt: false,
         paranoid: true
     };
-    const Producto = sequelize.define(alias, cols, config);
+    const Products = sequelize.define(alias, cols, config);
 
-    Producto.associate = function(models) {
-        Producto.hasMany(models.Producto_pago, {
-            as: "Payment",
-            foreignKey: "id_product"
-        });
-        Producto.hasMany(models.Imagen, {
+    Products.associate = function(models) {
+        Products.hasMany(models.Images, {
             as: "images",
             foreignKey: "id_product"
         });
-        /*
-        Producto.hasMany(models.Color, {
-            as: "colors" ,
-            foreignKey: "id_product"
+
+        Products.belongsToMany(models.Subcharacteristics, {
+            as: "Subcharacteristics" ,
+            through: "Products_subcharacteristics",
+            foreignKey: "id_product",
+            otherKey: "id_characteristic",
+            timestamps: false
         });
-        Producto.hasMany(models.Caracteristica, {
-            as: "characteristics" ,
-            foreignKey: "id_product"
-        });
-        */
-        Producto.belongsTo(models.Categoria, {
+
+        Products.belongsTo(models.Categories, {
             as: "categories",
             foreignKey: "id_category"
         });
-        Producto.belongsToMany(models.Metodo_pago, {
-            as: "metodo_pago",
+        Products.belongsToMany(models.Payment_methods, {
+            as: "payment_methods",
             through: "products_payment_methods",
             foreignKey: "id_product",
             otherKey: "id_payment_method",
@@ -71,6 +66,6 @@ module.exports = (sequelize, dataTypes) => {
         });
     }
 
-    return Producto;
+    return Products;
 
 }

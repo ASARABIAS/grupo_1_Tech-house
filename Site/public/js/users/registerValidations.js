@@ -25,13 +25,14 @@ registerForm.addEventListener("submit", (e) => {
   else if(userNameValue.length <3){
     nameErrors.push("El nombre debe tener mínimo 2 caracteres");
   };
-if(nameErrors.length > 0) {
-  e.preventDefault();
-  let ulErrors= document.querySelector(".registerName div.error ul");
-  for( let i =0; i< nameErrors.length;i++){
-    ulErrors.innerHTML += "<li>" +nameErrors[i]+ "</li>"
-  }
-  
+  if(nameErrors.length > 0) {
+    e.preventDefault();
+    let ulErrors= document.querySelector(".registerName div.error ul");
+    ulErrors.innerHTML = "";
+    for( let i =0; i< nameErrors.length;i++){
+      ulErrors.innerHTML += "<li>" +nameErrors[i]+ "</li>"
+    }
+
 }
 
 if (emailValue == ''|| emailValue == null) {
@@ -46,6 +47,7 @@ else if (!isEmail(emailValue)) {
 if(emailErrors.length > 0) {
   e.preventDefault();
   let ulErrors= document.querySelector(".registerEmail div.error ul");
+  ulErrors.innerHTML = "";
   for( let i =0; i< emailErrors.length;i++){
     ulErrors.innerHTML += "<li>" +emailErrors[i]+ "</li>"
   }
@@ -57,16 +59,17 @@ if (passwordValue == ''|| passwordValue == null) {
 }
 
 else if(passwordValue.length <8){
-  passwordErrors.push("El nombre debe tener mínimo 8 caracteres");
+  passwordErrors.push("La contraseña debe tener mínimo 8 caracteres");
 }
 
 else if (!validPassword(passwordValue)) {
-  passwordErrors.push("Deberá tener letras mayúsculas, minúsculas, un número y un carácter especial");
+  passwordErrors.push("La contraseña deberá tener letras mayúsculas, minúsculas, un número y un carácter especial");
 }
 
 if(passwordErrors.length > 0) {
   e.preventDefault();
   let ulErrors= document.querySelector(".registerPassword div.error ul");
+  ulErrors.innerHTML = "";
   for( let i =0; i< passwordErrors.length;i++){
     ulErrors.innerHTML += "<li>" +passwordErrors[i]+ "</li>"
   }
@@ -81,12 +84,13 @@ if (countryValue == ''|| countryValue == null) {
 if(countryErrors.length > 0) {
   e.preventDefault();
   let ulErrors= document.querySelector(".registerCountry div.error ul");
+  ulErrors.innerHTML = "";
   for( let i =0; i< countryErrors.length;i++){
     ulErrors.innerHTML += "<li>" +countryErrors[i]+ "</li>"
   }
   
 }
-if(avatarValue){
+if(avatarValue !== ""){
 if(!validImage(avatarValue) ){
   avatarErrors.push("Solo puede usar imagenes con los formatos: JPG, JPEG, PNG o GIF como su imagen de perfil")
 
@@ -96,6 +100,7 @@ if(!validImage(avatarValue) ){
 if(avatarErrors.length > 0) {
   e.preventDefault();
   let ulErrors= document.querySelector(".registerAvatar div.error ul");
+  ulErrors.innerHTML = "";
   for( let i =0; i< avatarErrors.length;i++){
     ulErrors.innerHTML += "<li>" +avatarErrors[i]+ "</li>"
   }

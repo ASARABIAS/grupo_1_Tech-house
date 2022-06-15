@@ -13,6 +13,8 @@ const mainRouter = require("./routes/main");
 const productsRouter = require("./routes/products");
 const usersRouter = require("./routes/users");
 
+const apiProductsRouter = require("./routes/api/products");
+
 
 app.use(express.static("public"));
 
@@ -37,5 +39,7 @@ app.use(logMiddleware);
 app.use('/', mainRouter);
 app.use("/users", usersRouter);
 app.use('/products', productsRouter);
+
+app.use(apiProductsRouter);
 
 app.listen(3030, () => console.log("Servidor Corriendo en el puerto 3030"));

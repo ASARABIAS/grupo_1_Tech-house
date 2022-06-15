@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const path = require('path');
 const fs = require('fs');
 const { validationResult } = require('express-validator');
-const Users = db.Usuario;
+const Users = db.Users;
 
 const usersController = {
     home: (req, res) => {

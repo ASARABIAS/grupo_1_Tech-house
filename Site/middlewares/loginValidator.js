@@ -4,7 +4,7 @@ const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
 const req = require('express/lib/request');
-const Users = db.Usuario;
+const Users = db.Users;
 
 
 const loginValidations = [

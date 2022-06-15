@@ -21,7 +21,7 @@ const mainController = {
         let products = [];
 
         if (query) {
-            products = await db.Producto.findAll({
+            products = await db.Products.findAll({
                 where: {
                     name: {
                         [Op.like]: "%" + query + "%" }
@@ -31,7 +31,7 @@ const mainController = {
                 ]
             })
         } else {
-            products = await db.Producto.findAll({
+            products = await db.Products.findAll({
                 include: [
                     { association: "images" },
                 ]
