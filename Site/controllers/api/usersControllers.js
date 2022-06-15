@@ -1,5 +1,6 @@
 const db = require("../../database/models");
 
+//se define la información que se va a traer del usuario en la lista
 const getUsersCollection = (users) => {
   let allUsers = users.map((user) => {
     return {
@@ -20,7 +21,10 @@ const usersController = {
       count: users.length,
       users: usersCollection,
     };
-    res.status(200).json(response);
+    res.status(200).json(response)
+    .catch((error) =>  {
+       console.log(error);
+  });
   },
 
   detail: async (req, res) => {
@@ -36,7 +40,10 @@ const usersController = {
       avatar: user.avatar,
       imageUrl: image,
     }
-    res.status(200).json(userResponse);
+    res.status(200).json(userResponse) 
+    .catch((error) =>  {
+       console.log(error);
+  });
   },
 };
 
