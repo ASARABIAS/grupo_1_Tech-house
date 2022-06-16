@@ -1,7 +1,7 @@
 import React from 'react';
-import TopBar from './TopBar';
+import TopBar from './partials/TopBar';
 import ContentRowTop from './ContentRowTop';
-import Footer from './Footer';
+import Footer from './partials/Footer';
 function ContentWrapper(){
     return (
         <React.Fragment>
