@@ -2,7 +2,7 @@ const User = require("../routes/users");
 const path = require("path");
 const fs = require("fs");
 const db = require('../database/models');
-const Users = db.Usuario;
+const Users = db.Users;
 
 async function userLoggedIn(req, res, next) {
 

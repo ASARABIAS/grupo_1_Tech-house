@@ -46,7 +46,7 @@ module.exports = (sequelize, dataTypes) => {
         });
 
         Products.belongsToMany(models.Subcharacteristics, {
-            as: "Subcharacteristics" ,
+            as: "subcharacteristics" ,
             through: "Products_subcharacteristics",
             foreignKey: "id_product",
             otherKey: "id_characteristic",
