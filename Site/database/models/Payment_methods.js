@@ -22,7 +22,7 @@ module.exports = (sequelize, dataTypes) => {
 
     Payment_methods.associate = function(models){
         Payment_methods.belongsToMany(models.Products, {
-            as: "Products" ,
+            as: "products" ,
             through: "products_payment_methods",
             foreignKey: "id_payment_method",
             otherKey: "id_product",

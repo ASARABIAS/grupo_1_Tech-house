@@ -30,14 +30,14 @@ module.exports = (sequelize, dataTypes) => {
     Subcharacteristics.associate = function(models){
     Subcharacteristics.belongsToMany(models.Products, {
         as: "products" ,
-        through: "Products_subcharacteristics",
+        through: "products_subcharacteristics",
         foreignKey: "id_product",
         otherKey: "id_characteristics",
         timestamps: false
     });
     
     Subcharacteristics.belongsTo(models.Characteristics, {
-        as: "Characteristics",
+        as: "characteristics",
         foreignKey: "id_characteristics"
     });
     }
