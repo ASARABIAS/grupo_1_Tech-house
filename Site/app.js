@@ -1,6 +1,7 @@
 const express = require("express");
 const session = require("express-session");
 const cookies = require("cookie-parser");
+const cors = require('cors');
 
 const app = express();
 const path = require("path");
@@ -41,7 +42,11 @@ app.use('/', mainRouter);
 app.use("/users", usersRouter);
 app.use('/products', productsRouter);
 
+app.use(cors());
+
 app.use(apiProductsRouter);
 app.use(apiUsersRouter);
+
+
 
 app.listen(3030, () => console.log("Servidor Corriendo en el puerto 3030"));
