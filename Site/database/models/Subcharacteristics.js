@@ -17,7 +17,7 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        tableName: "Subcharacteristics",
+        tableName: "subcharacteristics",
         timestamps: false,
         hooks: {
             afterDestroy: async(instance) => {

@@ -11,7 +11,7 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        tableName: "Characteristics",
+        tableName: "characteristics",
         timestamps: false,
         hooks: {
             afterDestroy: async(instance) => {

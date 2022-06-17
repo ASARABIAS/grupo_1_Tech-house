@@ -14,7 +14,7 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        tableName: "Payment_methods",
+        tableName: "payment_methods",
         timestamps: false
     };
     const Payment_methods = sequelize.define(alias, cols, config);

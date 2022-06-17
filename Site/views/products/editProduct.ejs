@@ -64,7 +64,7 @@
                                     <%paymentMethod.forEach(pay => {%>
                                         <div class="payment-method">
                                             <input type="checkbox" name="paymentMethod" value="<%= pay.id %>" id="paymentMethod
-                                            <%= pay.id %>" <%=(product.metodo_pago.filter((metodoPago)=>{return metodoPago.id == pay.id}).length > 0) ? "checked" : '';%>>
+                                            <%= pay.id %>" <%=(product.payment_methods.filter((metodoPago)=>{return metodoPago.id == pay.id}).length > 0) ? "checked" : '';%>>
                                             <label for="paymentMethod<%= pay.id %>"><img src="/images/methodLogos/<%= pay.image %> " alt="" srcset=""></label>
                                         </div>
                                         <%});%>
