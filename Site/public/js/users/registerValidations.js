@@ -33,7 +33,7 @@ registerForm.addEventListener("submit", (e) => {
   }
   else if (!isEmail(emailValue)) {
     emailErrors.innerText =
-      "Debe escribir un formato de correo electrónico validoo";
+      "Debe escribir un formato de correo electrónico valido";
   };
 
   if (passwordValue == "") {
