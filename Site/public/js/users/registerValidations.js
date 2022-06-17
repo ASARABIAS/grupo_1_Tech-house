@@ -17,7 +17,7 @@ registerForm.addEventListener("submit", (e) => {
   const passwordValue = password.value.trim();
   const countryValue = country.value.trim();
   const avatarValue = avatar.value.trim();
-  clear();
+  
  
 
   if (userNameValue == "") {
