@@ -14,7 +14,6 @@ const getProductCategories = async (categories) => {
             title: categories[i].name,
             color: color[indexColor < color.length ? indexColor++ : indexColor = 0],
             cuantity: cuantity,
-            icon: 'fa-award'
         });
     }
     return aux;
@@ -49,8 +48,7 @@ const productsController = {
         const response = {
             count: products.length,
             countByCategory: productsByCategory,
-            products: productsCollection,
-            categories:categories
+            products: productsCollection
         }
         res.status(200).json(response)
     },

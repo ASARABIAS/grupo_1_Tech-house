@@ -12,9 +12,9 @@ function ContentRowMovies(props){
     
         <div className="row">
             
-            {props.carts?.map( (movie, index) => {
+            {props.carts?.map( (item, index) => {
 
-                return <SmallCard {...movie} key={index} selectedOption={props.selectedOption} onValueChange={props.onValueChange} />
+                return <SmallCard {...item} key={index} selectedOption={props.selectedOption} onValueChange={props.onValueChange} />
             
             })}
 
