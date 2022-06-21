@@ -23,18 +23,20 @@ registerForm.addEventListener("submit", (e) => {
   if (userNameValue == "") {
     nameErrors.innerText = "El campo de nombre no puede estar vacío"}
   
-  else if (userNameValue.length < 3) {
-    nameErrors.innerText = "El nombre debe tener mínimo 2 caracteres";
-  };
+  else if (userNameValue.length <= 1) {
+    nameErrors.innerText = "El nombre debe tener mínimo 2 caracteres"
+  }
+  else(nameErrors.innerText ="");
 
   if (emailValue == "") {
     emailErrors.innerText =
-      "El campo de correo electrónico no puede estar vacío";
+      "El campo de correo electrónico no puede estar vacío"
   }
   else if (!isEmail(emailValue)) {
     emailErrors.innerText =
-      "Debe escribir un formato de correo electrónico valido";
-  };
+      "Debe escribir un formato de correo electrónico valido"
+  }
+  else (emailErrors.innerText ="");
 
   if (passwordValue == "") {
     passwordErrors.innerText = "El campo de contraseña no puede estar vacío";
@@ -45,15 +47,20 @@ registerForm.addEventListener("submit", (e) => {
   else if (!validPassword(passwordValue)) {
     passwordErrors.innerText =
       "La contraseña debe tener mínimo una letra mayúscula, una letra minúscula, un número y un carácter especial";
-  };
+  }
+  else(passwordErrors.innerText ="");
+
   if (countryValue == "") {
     countryErrors.innerText = "El campo de país no puede estar vacío";
-  };
-  if (avatarValue !== "") {
+  }
+  else(countryErrors.innerText="");
+
+  if (avatarValue) {
     if (!validImage(avatarValue)) {
       avatarErrors.innerText =
         "Solo puede usar imágenes con los formatos: JPG, JPEG, PNG o GIF como su imagen de perfil";
-    }};
+    }
+    else avatarErrors.innerText=""};
 if (
       nameErrors.innerText.length > 0 ||
       emailErrors.innerText.length > 0 ||
@@ -80,13 +87,7 @@ function validImage(image) {
   return /.*\.(gif|jpe?g|bmp|png)*$/.test(image);
 }
 
-function clear() {
-  nameErrors.innerText = "";
-  emailErrors.innerText = "";
-  passwordErrors.innerText = "";
-  countryErrors.innerText = "";
-  avatarErrors.innerText = "";
-}
+
 
   
 
