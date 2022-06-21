@@ -1,101 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+  <%- include('../partials/head', {title:"Registro", namePage:"registro"}) %>
 
-<%- include('../partials/head', {title:"Registro", namePage:"registro"}) %>
+  <body>
+    <%- include('../partials/header') %>
 
-    <body>
-        <%- include('../partials/header') %>
+    <main class="registro">
+      <form
+        action="/users/register"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <h1>Crear cuenta</h1>
+        <div class="photo">
+          <img
+            id="imagePreview"
+            src="/images/logo.png"
+            alt=""
+            width="200"
+            height="150"
+          />
+        </div>
+        <div class="registerAvatar">
+          <div class="div-avatar">
+            <label for="avatar" class="label-avatar">Seleccionar imagen</label>
+            <input type="file" name="avatar" id="avatar" class="btn-changer" accept=".JPG, .JPEG, .PNG, .GIF"/>
+          </div>
+          <div>
+            <% if(typeof(errors) != 'undefined' && errors.avatar){%>
+            <span class="text-error" id="AvatarError">
+              <%= errors.avatar.msg %>
+            
+            <%}%>
+        </span>
+          </div>
+        </div>
+        <div class="registerName">
+          <label for="name">Tu nombre</label>
+          <input class="registro-nombre" type="text" id="name" name="name" />
+          <div>
+            <span class="text-error" id="nameError">
+              <% if(typeof(errors) != 'undefined' && errors.name){%> <%=
+              errors.name.msg %>
+              <%}%>
+            </span>
+            
+          </div>
+          
+        </div>
+        <div class="registerEmail">
+          <label for="email">Correo electrónico </label>
+          <input class="registro-email" type="text" id="email" name="email" />
+          <div>
+            <span class="text-error" id="emailErrors">
+            <% if(typeof(errors) != 'undefined' && errors.email){%>
+            
+              <%= errors.email.msg %>
+            
+            <%}%>
+        </span>
+          </div>
+          
+        </div>
+        <div class="registerPassword">
+          <label for="password">Contraseña</label>
+          <input
+            class="registro-contraseña"
+            type="password"
+            placeholder="Como minimo 8 caracteres"
+            id="password"
+            name="password"
+          />
+          <div>
+            <span class="text-error" id="passwordError">
+              <% if(typeof(errors) != 'undefined' && errors.password){%> <%=
+              errors.password.msg %>
+              <%}%>
+            </span>
+            
+          </div>
+          
+        </div>
+        <div class="registerCountry">
+          <label for="country">Pais</label>
+          <input
+            
+            type="text"
+            placeholder="Ej: Colombia"
+            id="country"
+            name="country"
+          />
+          <div>
+            <span class="text-error" id="countryError">
+            <% if(typeof(errors) != 'undefined' && errors.country){%>
+            
+              <%= errors.country.msg %>
+            
+            <%}%>
+        </span>
+        
+          </div>
+          
+        </div>
+        <input class="crear-cuenta" type="submit" value="Crear cuenta" />
+        <div class="goto-login">
+          <p>¿Ya tienes una cuenta? <a href="/users/login">Inicia sesión</a></p>
+        </div>
+      </form>
+    </main>
+    <%- include('../partials/footer') %>
 
-            <main class="registro">
-                <form action="/users/register" method="POST" enctype="multipart/form-data" >
-                    <h1>Crear cuenta </h1>
-                    <div class="photo">
-                        <img id="imagePreview" src="/images/logo.png" alt="" width="200" height="150">
-                    </div>
-                   <div class ="registerAvatar">
-                    <div class="div-avatar">
-                        <label for="avatar" class="label-avatar">Seleccionar imagen</label>
-                        <input type="file" name="avatar" id="avatar" class="btn-changer">
-                    </div>
-                    <div>
-                        <% if(typeof(errors) != 'undefined' && errors.avatar){%>
-                            <span class="text-error">
-                              <%= errors.avatar.msg %>
-                            </span>
-                            <%}%>
-                        </div>
-                        <div class ="error"> 
-                            <ul></ul>
-                        </div>
-                        </div>
-                    <div class="registerName">
-                    <label for="name">Tu nombre</label>
-                    <input class="registro-nombre" type="text" id="name" name="name" />
-                        <div>
-                        <% if(typeof(errors) != 'undefined' && errors.name){%>
-                            <span class="text-error">
-                              <%= errors.name.msg %>
-                            </span>
-                            <%}%>
-                        </div>
-                    <div class ="error"> 
-                        <ul></ul>
-                    </div>
-                    </div>
-                    <div class="registerEmail">
-                    <label for="email">Correo electrónico </label>
-                    <input class="registro-email" type="text" id="email" name="email" />
-                    <div>
-                        <% if(typeof(errors) != 'undefined' && errors.email){%>
-                            <span class="text-error">
-                              <%= errors.email.msg %>
-                            </span>
-                            <%}%>
-                    </div>
-                    <div class ="error"> 
-                        <ul></ul>
-                    </div>
-                    </div>
-                    <div class="registerPassword">
-                    <label for="password">Contraseña</label>
-                    <input class="registro-contraseña" type="password" placeholder="Como minimo 8 caracteres" id="password" name="password" />
-                    <div>
-                        <% if(typeof(errors) != 'undefined' && errors.password){%>
-                            <span class="text-error">
-                              <%= errors.password.msg %>
-                            </span>
-                            <%}%>
-                        </div>
-                        <div class ="error"> 
-                            <ul></ul>
-                        </div>
-                        </div>
-                    <div class="registerCountry"> 
-                    <label for="country">Pais</label>
-                    <input class="registro-contraseña" type="text" placeholder="Ej: Colombia" id="country" name="country" />
-                    <div>
-                        <% if(typeof(errors) != 'undefined' && errors.country){%>
-                            <span class="text-error">
-                              <%= errors.country.msg %>
-                            </span>
-                            <%}%>
-                        </div>
-                        <div class ="error"> 
-                            <ul></ul>
-                        </div>
-                        </div>
-                    <input class="crear-cuenta" type="submit" value="Crear cuenta">
-                    <div class="goto-login">
-                        <p>¿Ya tienes una cuenta? <a href="/users/login">Inicia sesión</a></p>
-                    </div>
-                </form>
-            </main>
-            <%- include('../partials/footer') %>
-
-        <script src="/js/users/register.js"></script>
-        <script src="/js/users/registerValidations.js"></script>
-
-    </body>
-
-
+    <script src="/js/users/register.js"></script>
+    <script src="/js/users/registerValidations.js"></script>
+  </body>
 </html>
