@@ -1,23 +1,21 @@
 const { body } = require('express-validator');
-const path = require('path');
-const fs = require('fs');
 const db = require('../database/models');
 const Users = db.Users;
-const multer = require('multer');
+
 
 
 const registerValidations = [
     body('name')
-    .notEmpty().withMessage('El campo de nombre no puede estar vacio')
-    .isLength({min: 2}).withMessage('El nombre debe tener mimimo 2 caracteres'),
+    .notEmpty().withMessage('El campo de nombre no puede estar vacío').bail()
+    .isLength({min: 2}).withMessage('El nombre debe tener mínimo 2 caracteres').bail(),
 	body('email')
-		.notEmpty().withMessage('El campo de nombre no puede estar vacio').bail()
-		.isEmail().withMessage('Debe escribir un formato de correo válido'),
+		.notEmpty().withMessage('El campo de correo electrónico no puede estar vacío').bail()
+		.isEmail().withMessage('Debe escribir un formato de correo electrónico válido').bail(),
 	body('password')
-    .notEmpty().withMessage('El campo de contraseña no puede estar vacio')
-    .isLength({min: 8}).withMessage('La contraseña debe tener mimimo 8 caracteres')
-    .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/, "i").withMessage("text"),
-    body("country").notEmpty().withMessage('El campo de país no puede estar vacio'),
+    .notEmpty().withMessage('El campo de contraseña no puede estar vacío').bail()
+    .isLength({min: 8}).withMessage('La contraseña debe tener mínimo 8 caracteres').bail()
+    .matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/, "i").withMessage("La contraseña debe tener mínimo una letra mayúscula, una letra minúscula, un número y un carácter especial").bail(),
+    body("country").notEmpty().withMessage('El campo de país no puede estar vacío').bail(),
     body('email').custom( async (value) =>{
         let userFound = await Users.findOne({where: {email: value}});
 
@@ -32,7 +30,7 @@ const registerValidations = [
         if(req.file){
             if(req.file.mimetype == "image/png" || req.file.mimetype == "image/jpg" || req.file.mimetype == "image/jpeg"
         || req.file.mimetype == "image/gif"){
-            
+            //mimetype es el atributo de multer que guarda el formato de la imagen
             return true; 
         }else{
             return false; 
@@ -41,7 +39,7 @@ const registerValidations = [
             return true;
         }
     })
-.withMessage('Solo puede usar imagenes con los formatos: JPG, JPEG, PNG o GIF como su imagen de perfil'),
+.withMessage('Solo puede usar imágenes con los formatos: JPG, JPEG, PNG o GIF como su imagen de perfil'),
     
      
       

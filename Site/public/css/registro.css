@@ -131,7 +131,7 @@ input.btn-changer {
     display: none !important;
 }
 div.error {
-	color: var(--Red);
+	color: var(--Green);
     font-size: 14px;
 	
 }
@@ -139,6 +139,7 @@ div.error {
 div.error ul{
     list-style-type: none
 }
+
 
 
 
