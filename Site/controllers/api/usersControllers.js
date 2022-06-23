@@ -15,22 +15,24 @@ const getUsersCollection = (users) => {
 
 const usersController = {
   list: async (req, res) => {
-    let users = await db.Users.findAll();
+    let users = await db.Users.findAll() .catch((error) =>  {
+      console.log(error);
+     });
     const usersCollection = getUsersCollection(users);
     const response = {
       count: users.length,
       users: usersCollection,
     };
     res.status(200).json(response)
-    .catch((error) =>  {
-       console.log(error);
-  });
   },
 
   detail: async (req, res) => {
     let id = req.params.id;
 
-    let user = await db.Users.findByPk(id);
+    let user = await db.Users.findByPk(id) 
+    .catch((error) =>  {
+      console.log(error);
+ });
     const image = `http://localhost:3030/images/users/${user.avatar}`;
     const userResponse = {
       id: user.id,
@@ -41,9 +43,6 @@ const usersController = {
       imageUrl: image,
     }
     res.status(200).json(userResponse) 
-    .catch((error) =>  {
-       console.log(error);
-  });
   },
 };
 
