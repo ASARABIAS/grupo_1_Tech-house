@@ -4,6 +4,7 @@ import ContentRowCards from '../../ContentRowCards';
 import Footer from '../../partials/Footer';
 import TopBar from '../../partials/TopBar';
 import Image from '../../Image';
+import { Link } from 'react-router-dom';
 
 const Product = () => {
     const [products, setProducts] = useState([]);
@@ -17,16 +18,16 @@ const Product = () => {
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
-                setNameCategory(data.countByCategory?.find(item => item.id === selectedOption)?.title);
-                setItems(data.products?.filter(item => item.category === selectedOption));
+                setNameCategory(data.countByCategory?.find(item => item.id == selectedOption)?.title);
+                setItems(data.products?.filter(item => item.category == selectedOption));
             })
             .catch(err => console.log("Error: ", err))
     }, []);
 
     const onValueChange = (event) => {
         setSelectedOption(event.target.value);
-        setNameCategory(products.countByCategory?.find(item => item.id === event.target.value)?.title);
-        setItems(products.products?.filter(item => item.category === event.target.value));
+        setNameCategory(products.countByCategory?.find(item => item.id == event.target.value)?.title);
+        setItems(products.products?.filter(item => item.category == event.target.value));
     }
 
     return (
@@ -38,6 +39,7 @@ const Product = () => {
                 <div className="container-fluid">
                     <div className="d-sm-flex aligns-items-center justify-content-between mb-4">
                         <h1 className="h3 mb-0 text-gray-800">Productos</h1>
+                        <Link to= {`/products/last/${products.products?.length>0?products?.products[products?.products?.length-1].id:0}`}> <small>Ultimo producto</small></Link>  
                     </div>
 
                     {/*<!-- Content Row Cards-->*/}
