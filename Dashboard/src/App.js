@@ -4,6 +4,9 @@ import NotFound from './components/NotFound';
 import {Route, Routes} from 'react-router-dom';
 import Product from './components/mains/product/Product';
 import DetailProduct from './components/mains/product/DetailProduct';
+import Index from './components/mains/Index';
+import User from './components/mains/user/User';
+import DetailUser from './components/mains/user/DetailUser';
 
 function App() {
   return (
@@ -11,10 +14,12 @@ function App() {
       	<div id="wrapper">
           <SideBar />
           <Routes>
-                <Route exact path="/" />
+                <Route exact path="/" element={<Index/>}/>
                 <Route path="/Products" element={<Product/>}/>
                 <Route path="/Products/:id" element={<DetailProduct />}/>
-                <Route component={NotFound} />
+                <Route path="/Users" element={<User/>}/>
+                <Route path="/Users/:id" element={<DetailUser/>}/>
+                <Route path="*" element={<NotFound/>} />
             </Routes>
         </div>
     </React.Fragment>

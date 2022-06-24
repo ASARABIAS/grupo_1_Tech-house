@@ -19,8 +19,8 @@ const DetailProduct = () => {
                 </div>
                 <div className="card-body">
                     <div class="row g-0 px-2">
-                        <div class="col-md-6" >
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" Style={'max-width:350px;margin:auto' } src={product.imageUrl} alt=" " />
+                        <div class="col-md-6 text-center" >
+                            <img className="card-img rounded" Style={'max-width:350px;margin:auto'} src={product.imageUrl} alt=" " />
                         </div>
                         <div class="col-md-6 border rounded" >
                             <div class="card-body ">

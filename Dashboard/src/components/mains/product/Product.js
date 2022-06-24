@@ -1,9 +1,8 @@
-import React from 'react';
 import { useEffect, useState, useRef } from 'react';
 import ContentRowCards from '../../ContentRowCards';
 import Footer from '../../partials/Footer';
 import TopBar from '../../partials/TopBar';
-import Image from '../../Image';
+import ItemContent from '../../ItemContent';
 
 const Product = () => {
     const [products, setProducts] = useState([]);
@@ -17,16 +16,16 @@ const Product = () => {
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
-                setNameCategory(data.countByCategory?.find(item => item.id === selectedOption)?.title);
-                setItems(data.products?.filter(item => item.category === selectedOption));
+                setNameCategory(data.countByCategory?.find(item => item.id == selectedOption)?.title);
+                setItems(data.products?.filter(item => item.category == selectedOption));
             })
             .catch(err => console.log("Error: ", err))
     }, []);
 
     const onValueChange = (event) => {
         setSelectedOption(event.target.value);
-        setNameCategory(products.countByCategory?.find(item => item.id === event.target.value)?.title);
-        setItems(products.products?.filter(item => item.category === event.target.value));
+        setNameCategory(products.countByCategory?.find(item => item.id == event.target.value)?.title);
+        setItems(products.products?.filter(item => item.category == event.target.value));
     }
 
     return (
@@ -38,6 +37,7 @@ const Product = () => {
                 <div className="container-fluid">
                     <div className="d-sm-flex aligns-items-center justify-content-between mb-4">
                         <h1 className="h3 mb-0 text-gray-800">Productos</h1>
+                        <small>{`Total: ${products.count}`}</small>
                     </div>
 
                     {/*<!-- Content Row Cards-->*/}
@@ -51,7 +51,7 @@ const Product = () => {
                         <h1 className="h3 mb-0 text-gray-800">{`Productos de la categoría ${nameCategory}`}</h1>
                     </div>
                     <div className="card-columns">
-                        {items.length>0?items.map((item, index) => <Image {...item} key={index} router={router} />):`No hay productos de la categoría ${nameCategory}`}
+                        {items.length>0?items.map((item, index) => <ItemContent {...item} key={index} router={router} />):`No hay productos de la categoría ${nameCategory}`}
                     </div>
 
                 </div>

@@ -16,6 +16,7 @@ const usersRouter = require("./routes/users");
 
 const apiProductsRouter = require("./routes/api/products");
 const apiUsersRouter = require("./routes/api/users");
+const apiIndexRouter = require("./routes/api/index");
 
 
 app.use(express.static("public"));
@@ -46,6 +47,7 @@ app.use(cors());
 
 app.use(apiProductsRouter);
 app.use(apiUsersRouter);
+app.use(apiIndexRouter);
 
 
 
