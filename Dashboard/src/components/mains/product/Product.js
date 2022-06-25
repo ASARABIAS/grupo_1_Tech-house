@@ -51,7 +51,7 @@ const Product = () => {
                         <h1 className="h3 mb-0 text-gray-800">{`Productos de la categoría ${nameCategory}`}</h1>
                     </div>
                     <div className="card-columns">
-                        {items.length>0?items.map((item, index) => <ItemContent {...item} key={index} router={router} />):`No hay productos de la categoría ${nameCategory}`}
+                        {items.length > 0 ? items.map((item, index) => <ItemContent {...item} key={index} router={router} />) : `No hay productos de la categoría ${nameCategory}`}
                     </div>
 
                 </div>

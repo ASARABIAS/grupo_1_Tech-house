@@ -2,27 +2,52 @@ import { useEffect, useState, useRef } from 'react';
 import Footer from '../partials/Footer';
 import TopBar from '../partials/TopBar';
 import ContentRowCards from '../ContentRowCards'
+import MainDetailProduct from './product/MainDetailProduct';
+import MainDetailUser from './user/MainDetailUser';
+import ItemContent from '../ItemContent';
 
 
 const Index = () => {
     const [element, setElement] = useState({});
-    const [selectedOption, setSelectedOption] = useState(1);
+    const [selectedOption, setSelectedOption] = useState(0);
     const [nameSelected, setNameSelected] = useState('');
     const [item, setItem] = useState({});
-    const [route, setRoute] = useState('');
+    const [items, setItems] = useState([]);
+    const [route, setRoute] = useState();
 
     useEffect(() => {
-        fetch('http://localhost:3030/api/products')
+        fetch('http://localhost:3030/api/index')
             .then(res => res.json())
             .then(data => {
                 setElement(data);
-                
+                setNameSelected(data.countByElement[selectedOption].title);
+                getItemSelected(data.countByElement[selectedOption].route, data.endElementsById[selectedOption],selectedOption)
             })
             .catch(err => console.log("Error: ", err))
     }, []);
 
+    const getItemSelected = (route, index,selected) => {
+        setRoute(`/${route}`);
+        fetch(`http://localhost:3030/api/${route}/${index}`)
+            .then(res => res.json())
+            .then(data => {
+                setItem(data);
+            })
+            .catch(err => console.log("Error: ", err));
+
+        fetch(`http://localhost:3030/api/${route}`)
+            .then(res => res.json())
+            .then(data => {
+                setItems(selected == 0 ? data.products : data.users);
+            })
+            .catch(err => console.log("Error: ", err));
+
+    }
+
     const onValueChange = (event) => {
         setSelectedOption(event.target.value);
+        setNameSelected(element.countByElement[event.target.value].title);
+        getItemSelected(element.countByElement[event.target.value].route, element.endElementsById[event.target.value],event.target.value);
     }
 
     return (
@@ -35,46 +60,29 @@ const Index = () => {
                     <div className="d-sm-flex aligns-items-center justify-content-between mb-4">
                         <h1 className="h3 mb-0 text-gray-800">Tech-House</h1>
                     </div>
-                    <div className="card-body">
-                        <div class="row g-0 px-2">
-                            <div class="col-md-6" >
-                                <ContentRowCards
-                                    carts={element.countByCategory}
-                                    selectedOption={selectedOption}
-                                    onValueChange={onValueChange}
-                                />
-                            </div>
-                            <div class="col-md-6 border rounded" >
-                                <div class="card-body ">
-                                    <div className='my-3'>
-                                        <small><strong><del>${ }</del></strong></small>
-                                        <h5 class="card-title text-success"><strong>${ }</strong></h5>
-                                    </div>
-                                    <div className='my-3'>
-                                        <p><i class="fa-solid fa-truck text-success"></i> Envío: { }</p>
-                                    </div>
-                                    <div className='my-3'>
-                                        <p> <i class="fa-solid fa-arrow-rotate-left text-success"></i> Devolucion: { }</p>
-                                    </div>
-                                    <div className='my-3'>
-                                        <h4>Medios de pago:</h4>
-                                    </div>
-                                    <div className='my-3'>
-                                        <h4>Categorías: </h4>
-                                        <p></p>
-                                    </div>
-                                    <div className='my-3'>
-                                        <h4>Garantía: </h4>
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='my-3'>
-                            <h4>Descripción: </h4>
-                            <p class="card-text"></p>
+
+                    {/*<!-- Content Row Cards-->*/}
+
+                    <ContentRowCards
+                        carts={element.countByElement}
+                        selectedOption={selectedOption}
+                        onValueChange={onValueChange}
+                    />
+                    <div className="d-sm-flex aligns-items-center justify-content-between">
+                        <h1 className="h3 mb-0 text-gray-800">{`Ultimo ${nameSelected?.substring(0, nameSelected.length - 1)}`}</h1>
+                    </div>
+                    {selectedOption == 0 ? <MainDetailProduct product={item} /> : <MainDetailUser user={item} />}
+
+                    <div className="d-sm-flex aligns-items-center justify-content-between">
+                        <h1 className="h3 mb-0 text-gray-800">{`Listado de ${nameSelected?.substring(0, nameSelected.length - 1)}`}</h1>
+                    </div>
+                    <div className="container-fluid mt-4">
+                        <div className="card-columns">
+                            {items?.length > 0 ? items.map((item, index) => <ItemContent {...item} key={index} router={route} />) : `No hay ${nameSelected?.substring(0, nameSelected.length - 1)}`}
                         </div>
                     </div>
+
+
                 </div>
                 {/*<!--End Content Row Top-->*/}
                 <Footer />

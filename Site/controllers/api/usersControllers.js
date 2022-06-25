@@ -57,7 +57,7 @@ const usersController = {
     let id = req.params.id;
 
     let user = await db.Users.findByPk(id);
-    const image = `http://localhost:3030/images/users/${user.avatar}`;
+    const image = `http://localhost:3030/images/users/${user?.avatar}`;
     const userResponse = {
       id: user.id,
       name: user.name,
