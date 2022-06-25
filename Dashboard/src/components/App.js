@@ -7,6 +7,7 @@ import ContentRowMovies from './ContentRowMovies';
 import NotFound from './NotFound';
 import {Route, Switch} from 'react-router-dom';
 import SearchMovies from './SearchMovies';
+
 function App() {
   return (
     <React.Fragment>
