@@ -26,7 +26,7 @@ const getUsersCollection = (users) => {
       name: user.name,
       //email: user.email,
       image: `http://localhost:3030/images/users/${user.avatar}`,
-      specifications:user.email,
+      specifications: user.email,
       id_role: user.id_role,
       detail: `http://localhost:3030/api/users/${user.id}`,
     };
@@ -54,24 +54,34 @@ const usersController = {
   },
 
   detail: async (req, res) => {
-    let id = req.params.id;
+    const { id } = req.params;
 
-    let user = await db.Users.findByPk(id);
-    const image = `http://localhost:3030/images/users/${user?.avatar}`;
-    const userResponse = {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      country: user.country,
-      avatar: user.avatar,
-      imageUrl: image,
+    const user = await db.Users.findByPk(id);
+    let response, status;
+
+    if (user) {
+      const image = `http://localhost:3030/images/users/${user?.avatar}`;
+      status = 200;
+      response = {
+        status,
+        data: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          country: user.country,
+          avatar: user.avatar,
+          imageUrl: image,
+        }
+      }
+    } else {
+      status = 501;
+      response = {
+        status,
+        data: "No se encuentra el Usuario"
+      }
     }
-    res.status(200).json(userResponse)
-    /*
-      .catch((error) => {
-        console.log(error);
-      });
-      */
+
+    res.status(200).json(response);
   },
 };
 

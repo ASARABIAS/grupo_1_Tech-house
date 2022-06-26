@@ -25,8 +25,11 @@ const indexController = {
         ];
 
         res.status(200).json({
-            countByElement,
-            endElementsById: [idProduct, idUser]
+            status:200,
+            data: {
+                countByElement,
+                endElementsById: [idProduct, idUser]
+            }
         });
     }
 }

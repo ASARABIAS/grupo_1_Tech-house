@@ -25,9 +25,9 @@ const getProductCollection = (products) => {
             id: product.id,
             name: product.name,
             specifications: product.specifications,
-            detail: `http://localhost:3030/api/products/${product.id}`,
+            detail: `http://localhost:3030/api/products/${product?.id}`,
             price: product.price,
-            image : `http://localhost:3030/images/products/${product.images[0].image}`,
+            image: `http://localhost:3030/images/products/${product?.images[0].image}`,
             category: product.categories.id,
         }
     })
@@ -53,17 +53,34 @@ const productsController = {
         res.status(200).json(response)
     },
     detail: async (req, res) => {
-        let id = req.params.id;
-        let product = await db.Products.findByPk(id, {
+        const { id } = req.params;
+        const product = await db.Products.findByPk(id, {
             include: [
                 { association: "images" },
                 { association: "payment_methods" },
                 { association: "categories" },
             ]
         });
-        const image = `http://localhost:3030/images/products/${product.images[0].image}`
-        const productResponse = { ...product.dataValues, imageUrl: image }
-        res.status(200).json(productResponse)
+        let response, status;
+        
+        if (product) {
+            const image = `http://localhost:3030/images/products/${product.images[0].image}`;
+            status = 200;
+            response = {
+                status,
+                data: {
+                    ...product.dataValues, imageUrl: image
+                }
+            }
+        } else {
+            status = 501;
+            response = {
+                status,
+                data: "Producto no Encontrado en la base de datos"
+            }
+        }
+
+        res.status(status).json(response)
     }
 }
 
