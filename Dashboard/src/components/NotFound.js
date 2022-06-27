@@ -1,13 +1,31 @@
 import React from 'react';
-import imagenFondo from '../assets/images/404.png';
+import notfound from '../assets/images/404.jpg';
+import TopBar from './partials/TopBar'
+import Footer from './partials/Footer'
 
-function NotFound(){
-    return(
-        <div className="text-center">
-            <h1>404 Not Found</h1>
-            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 30 +'rem'}} src={imagenFondo} alt=" Star Wars - Mandalorian "/>
+function NotFound() {
+    return (
+        <div id="content-wrapper" className="d-flex flex-column">
+            {/*<!-- Main Content -->*/}
+            <div id="content">
+                <TopBar />
+                {/*<!-- Content Row Top -->*/}
+                <div className="container-fluid">
+                    <div className="container-fluid">
+                        <div className="card text-center mb-4" >
+                            <div className="card-body d-flex align-items-center justify-content-center" Style={'height:70vh'}>
+                                <div>
+                                    <img className="card-img rounded" Style={'max-width:450px;margin:auto'} src={notfound} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                {/*<!--End Content Row Top-->*/}
+                <Footer />
+            </div>
         </div>
-        
     )
 }
 

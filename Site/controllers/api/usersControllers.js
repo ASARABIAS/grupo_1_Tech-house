@@ -1,12 +1,33 @@
 const db = require("../../database/models");
 
+const getUsersRoles = async (roles) => {
+  const color = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark'];
+  let aux = [];
+  let cuantity, indexColor = 0;
+  for (let i = 0; i < roles.length; i++) {
+
+    cuantity = await db.Users.count({ where: { id_role: roles[i].id } })
+
+    aux.push({
+      id: roles[i].id,
+      title: roles[i].name,
+      color: color[indexColor < color.length ? indexColor++ : indexColor = 0],
+      cuantity: cuantity,
+    });
+  }
+  return aux;
+}
+
 //se define la información que se va a traer del usuario en la lista
 const getUsersCollection = (users) => {
   let allUsers = users.map((user) => {
     return {
       id: user.id,
       name: user.name,
-      email: user.email,
+      //email: user.email,
+      image: `http://localhost:3030/images/users/${user.avatar}`,
+      specifications: user.email,
+      id_role: user.id_role,
       detail: `http://localhost:3030/api/users/${user.id}`,
     };
   });
@@ -17,42 +38,50 @@ const usersController = {
   list: async (req, res) => {
     let users = await db.Users.findAll().catch(error => res.send(error));
     const usersCollection = getUsersCollection(users);
-    if(users){
-      const response = {
-        count: users.length,
-        users: usersCollection,
-      }
-      res.status(200).json(response)
-      
-    }else{
-      res.status(404).json({error: "No se encontraron usuarios"})
-    }
-    
-    
-    
+    const roles = await db.Roles.findAll()
+    const countByRol = await getUsersRoles(roles);
+    const response = {
+      count: users.length,
+      countByRol,
+      users: usersCollection,
+    };
+    res.status(200).json(response)
+    /*
+      .catch((error) => {
+        console.log(error);
+      });
+      */
   },
 
   detail: async (req, res) => {
-    let id = req.params.id;
-    let user = await db.Users.findByPk(id)
-    if(user){
-      const image = `http://localhost:3030/images/users/${user.avatar}`;
+    const { id } = req.params;
 
-      const userResponse = {
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        country: user.country,
-        avatar: user.avatar,
-        imageUrl: image,
+    const user = await db.Users.findByPk(id);
+    let response, status;
+
+    if (user) {
+      const image = `http://localhost:3030/images/users/${user?.avatar}`;
+      status = 200;
+      response = {
+        status,
+        data: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          country: user.country,
+          avatar: user.avatar,
+          imageUrl: image,
+        }
       }
-      res.status(200).json(userResponse) 
-      
+    } else {
+      status = 501;
+      response = {
+        status,
+        data: "No se encuentra el Usuario"
+      }
     }
-    else{
-      res.status(404).json({error: "Usuario no encontrado"})
-    }
-    
+
+    res.status(200).json(response);
   },
 };
 
