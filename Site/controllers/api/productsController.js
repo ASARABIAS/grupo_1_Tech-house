@@ -1,6 +1,5 @@
 const db = require("../../database/models");
 
-
 const getProductCategories = async (categories) => {
     const color = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark'];
     let aux = [];
@@ -36,12 +35,26 @@ const getProductCollection = (products) => {
 
 const productsController = {
     list: async (req, res) => {
-        const products = await db.Products.findAll({
+        let pageNumber = req.query.page
+        const itemsPerPage = 10;
+        const queryOptions = {
             include: [
                 { association: "images" },
                 { association: "categories" }
             ]
-        });
+        }
+        let maxPages;
+        if(pageNumber){
+            pageNumber = parseInt(pageNumber);
+            const totalProducts = await db.Products.findAll();
+            maxPages = Math.ceil(totalProducts.length/itemsPerPage);
+            if(pageNumber>maxPages){
+                pageNumber = maxPages
+            }
+            queryOptions.limit = itemsPerPage;
+            queryOptions.offset = itemsPerPage*(pageNumber-1);
+        }
+        const products = await db.Products.findAll(queryOptions);
         const categories = await db.Categories.findAll()
         const productsByCategory = await getProductCategories(categories);
         const productsCollection = getProductCollection(products)
@@ -49,6 +62,10 @@ const productsController = {
             count: products.length,
             countByCategory: productsByCategory,
             products: productsCollection
+        }
+        if(pageNumber){
+            response.next = `http://localhost:3030/api/products?page=${pageNumber < maxPages ? pageNumber + 1 : maxPages}`;
+            response.previous = `http://localhost:3030/api/products?page=${pageNumber == 1 ? 1 : pageNumber - 1}`;
         }
         res.status(200).json(response)
     },
