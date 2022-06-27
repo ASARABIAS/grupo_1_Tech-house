@@ -35,7 +35,7 @@ const getProductCollection = (products) => {
 
 const productsController = {
     list: async (req, res) => {
-        let pageNumber = req.query.page
+        let pageNumber = req.query.page;
         const itemsPerPage = 10;
         const queryOptions = {
             include: [
@@ -44,7 +44,7 @@ const productsController = {
             ]
         }
         let maxPages;
-        if(pageNumber){
+        if(pageNumber && pageNumber > 0){
             pageNumber = parseInt(pageNumber);
             const totalProducts = await db.Products.findAll();
             maxPages = Math.ceil(totalProducts.length/itemsPerPage);
@@ -63,7 +63,7 @@ const productsController = {
             countByCategory: productsByCategory,
             products: productsCollection
         }
-        if(pageNumber){
+        if(pageNumber && pageNumber > 0){
             response.next = `http://localhost:3030/api/products?page=${pageNumber < maxPages ? pageNumber + 1 : maxPages}`;
             response.previous = `http://localhost:3030/api/products?page=${pageNumber == 1 ? 1 : pageNumber - 1}`;
         }
