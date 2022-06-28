@@ -78,7 +78,7 @@ const productsController = {
                         productsPaymentMethodsDb
                     ).then((productPayment) => {
                         res.redirect("/products")
-                    })
+                    }).then(res.redirect("/products"))///aqui deberia ir el redirect despues de hacer el producto?
                 }).catch((err) => {
                     console.error(err);
                 });
