@@ -32,8 +32,10 @@
                                         <p class="envios">
                                             <%= product.envio!=0? product.envio:"Gratis" ; %>
                                         </p>
+                                        <% if(locals.usuario.id_role==2){ %>
                                         <a class="boton-editar" href="/products/edit/<%= product.id %>">Editar</a>
                                         <a class="boton-eliminar" href="/products/delete/<%= product.id %>">Eliminar</a>
+                                        <% } %>
                                     </div>
                                 </article>
                                 <%}); %>

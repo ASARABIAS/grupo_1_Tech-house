@@ -26,7 +26,7 @@ const loginValidations = [
                 if(user == null){
                     return false}
                 if(!bcrypt.compareSync(value,user.password)){
-                    return Promise.reject('La contraseña es incorrecta')
+                    return Promise.reject('El correo electrónico o la contraseña son incorrectos')
                 }           
             });
     })
