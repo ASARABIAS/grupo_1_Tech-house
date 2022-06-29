@@ -33,7 +33,7 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                <Link className="nav-link" to="/Products">
+                <Link className="nav-link" to="/products">
                         <i className="fas fa-fw fa-folder"></i>
                         <span>Productos</span>
                     </Link>
@@ -41,19 +41,19 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/Users">
+                    <Link className="nav-link" to="/users">
                         <i className="fas fa-fw fa-chart-area"></i>
                         <span>Usuarios</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item nav-link">
-                <Link className="nav-link" to="/Categories">
+                <Link className="nav-link" to="/categories">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Categorías</span></Link>
                 </li>
                 <li className="nav-item nav-link">
-                <Link className="nav-link" to="/SearchMovies">
+                <Link className="nav-link" to="/searchMovies">
                         <i className="fas fa-fw fa-search"></i>
                         <span>Buscar</span></Link>
                 </li>

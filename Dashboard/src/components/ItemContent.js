@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-function Image(props) {
+function ItemContent(props) {
     return (
         <div className="card ">
             <div className="card-body">
@@ -11,7 +11,7 @@ function Image(props) {
                 <p className="card-text">{props.specifications}</p>
             </div>
             <div className="card-footer">
-                <small className="text-muted"><Link to={`${props.router}/${props.id}`}>Leer mas..</Link></small>
+                <small className="text-muted"><Link to={`/${props.router}/${props.id}`}>Leer mas..</Link></small>
             </div>
         </div>
     )
@@ -19,4 +19,4 @@ function Image(props) {
 
 
 
-export default Image;
+export default ItemContent;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import ContentRowCards from '../../ContentRowCards';
 import Footer from '../../partials/Footer';
 import TopBar from '../../partials/TopBar';
@@ -6,30 +6,31 @@ import ItemContent from '../../ItemContent';
 import { getAll } from '../../../services/getApi';
 import Loading from '../../Loading';
 
-const Product = () => {
-    const [products, setProducts] = useState();
+const User = () => {
+
+    const [users, setUsers] = useState();
     const [selectedOption, setSelectedOption] = useState(1);
-    const [nameCategory, setNameCategory] = useState();
+    const [nameRol, setNameRol] = useState();
     const [items, setItems] = useState([]);
-    const router = "products";
+    const router = "users";
 
     useEffect(() => {
         getAll(router).then(data => {
-            setProducts(data);
-            setNameCategory(data.countByCategory?.find(item => item.id === selectedOption)?.title);
-            setItems(data.products?.filter(item => item.category === selectedOption));
+            setUsers(data);
+            setNameRol(data.countByRol?.find(item => item.id == selectedOption)?.title);
+            setItems(data.users?.filter(item => item.id_role == selectedOption));
         })
             .catch(err => console.log("Error: ", err))
+
     }, []);
 
     const onValueChange = (event) => {
-        const value = parseInt(event.target.value, 10);
-        setSelectedOption(value);
-        setNameCategory(products.countByCategory?.find(item => item.id === value)?.title);
-        setItems(products.products?.filter(item => item.category === value));
+        setSelectedOption(event.target.value);
+        setNameRol(users.countByRol?.find(item => item.id == event.target.value)?.title);
+        setItems(users.users?.filter(item => item.id_role == event.target.value));
     }
 
-    if (products) {
+    if (users) {
         return (
             <div id="content-wrapper" className="d-flex flex-column">
                 {/*<!-- Main Content -->*/}
@@ -38,22 +39,22 @@ const Product = () => {
                     {/*<!-- Content Row Top -->*/}
                     <div className="container-fluid">
                         <div className="d-sm-flex aligns-items-center justify-content-between mb-4">
-                            <h1 className="h3 mb-0 text-gray-800">Productos</h1>
-                            <small>{`Total: ${products?.count}`}</small>
+                            <h1 className="h3 mb-0 text-gray-800">Usuarios</h1>
+                            <small>{`Total: ${users.count}`}</small>
                         </div>
 
                         {/*<!-- Content Row Cards-->*/}
 
                         <ContentRowCards
-                            carts={products?.countByCategory}
+                            carts={users.countByRol}
                             selectedOption={selectedOption}
                             onValueChange={onValueChange}
                         />
                         <div className="d-sm-flex aligns-items-center justify-content-between mb-4">
-                            <h1 className="h3 mb-0 text-gray-800">{`Productos de la categoría ${nameCategory}`}</h1>
+                            <h1 className="h3 mb-0 text-gray-800">{`Productos de la categoría ${nameRol}`}</h1>
                         </div>
                         <div className="card-columns">
-                            {items.length > 0 ? items.map((item, index) => <ItemContent {...item} key={index} router={router} />) : `No hay productos de la categoría ${nameCategory}`}
+                            {items.length > 0 ? items.map((item, index) => <ItemContent {...item} key={index} router={router} />) : `No hay productos de la categoría ${nameRol}`}
                         </div>
 
                     </div>
@@ -67,6 +68,8 @@ const Product = () => {
             <Loading/>
         );
     }
+
+
 }
 
-export default Product;
+export default User;
