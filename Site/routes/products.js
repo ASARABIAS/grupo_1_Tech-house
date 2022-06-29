@@ -10,7 +10,7 @@ const userIsAdministrator = require("../middlewares/userIsAdministrator");
 const productsValidation = require("../middlewares/productValidator");
 const editProductsValidation = require("../middlewares/editValidator")
 
-router.get("/", userNotLogged, userIsAdministrator, productsController.list);
+router.get("/", /*userNotLogged, userIsAdministrator,*/ productsController.list);
 router.get("/cart", userNotLogged, productsController.cart);
 
 //Create Product
