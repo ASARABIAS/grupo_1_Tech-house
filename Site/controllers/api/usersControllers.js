@@ -109,31 +109,41 @@ const usersController = {
 
   login: async (req, res) => {
     const { email, password } = req.body;
+    let useraux = await db.Users.findOne({ where:{email}});
+    console.log("useraux: ",useraux);
+    let messenger;
     let userLoggedIn = await db.Users.findOne({
       where: {
         email,
         id_role: 2
       }
     });
-    if (userLoggedIn && await bcrypt.compare(password, userLoggedIn.password)) {
-      req.session.usuario = userLoggedIn;
-      const token = jwt.sign({ email }, 'secret', { expiresIn: '1h' });
-      res.status(200).json({
-        status: 200,
-        data: {
-          token,
-          expiresIn: 3600
-        }
-      });
+    if (userLoggedIn) {
+      if (await bcrypt.compare(password, userLoggedIn.password)) {
+        req.session.usuario = userLoggedIn;
+        const token = jwt.sign({ email }, 'secret', { expiresIn: '1h' });
+        res.status(200).json({
+          status: 200,
+          data: {
+            token,
+            expiresIn: 3600
+          }
+        });
+      } else {
+        messenger = 'Invalid username or password';
+      }
+    } else if (useraux) {
+      messenger = 'solo se permiten el ingreso de Adminstradores';
     } else {
-      res.status(401).json({
-        status: 401,
-        data: {
-          error: 'Invalid username or password'
-        }
-
-      });
+      messenger = 'Invalid username or password';
     }
+    res.status(401).json({
+      status: 401,
+      data: {
+        error: messenger
+      }
+
+    });
   },
   checkToken: (req, res) => {
     //Recibo el token del header del request
@@ -177,7 +187,7 @@ const usersController = {
   logout: (req, res) => {
     req.session.destroy();
     res.status(202).json({
-      status:200
+      status: 200
     })
   },
 };
