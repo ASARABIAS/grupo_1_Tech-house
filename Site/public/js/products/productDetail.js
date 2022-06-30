@@ -37,6 +37,9 @@ window.onload = () => {
             })
             localStorage.setItem("cart", JSON.stringify(cart))
         } 
+        let message = document.querySelector("#snackbar");
+        message.className = "show";
+        setTimeout(function(){ message.className = message.className.replace("show", ""); }, 2000);
     })
     
 }
