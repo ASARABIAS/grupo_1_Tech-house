@@ -1,4 +1,5 @@
 const db = require("../../database/models");
+const { Op } = require("sequelize");
 
 const getProductCategories = async (categories) => {
     const color = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark'];
@@ -26,6 +27,7 @@ const getProductCollection = (products) => {
             specifications: product.specifications,
             detail: `http://localhost:3030/api/products/${product?.id}`,
             price: product.price,
+            discount: product.discount,
             image: `http://localhost:3030/images/products/${product?.images[0].image}`,
             category: product.categories.id,
         }
@@ -36,23 +38,49 @@ const getProductCollection = (products) => {
 const productsController = {
     list: async (req, res) => {
         let pageNumber = req.query.page;
-        const itemsPerPage = 10;
+        const category = req.query.category;
+        const discount = req.query.discount;
+        const itemsPerPage = req.query.itemsperpage ? parseInt(req.query.itemsperpage) : 6;
+        console.log("itemsPerPage: ",itemsPerPage);
         const queryOptions = {
             include: [
                 { association: "images" },
                 { association: "categories" }
             ]
         }
-        let maxPages;
-        if(pageNumber && pageNumber > 0){
-            pageNumber = parseInt(pageNumber);
-            const totalProducts = await db.Products.findAll();
-            maxPages = Math.ceil(totalProducts.length/itemsPerPage);
-            if(pageNumber>maxPages){
-                pageNumber = maxPages
+        if (category) {
+            queryOptions.where = {
+                id_category: category
             }
-            queryOptions.limit = itemsPerPage;
-            queryOptions.offset = itemsPerPage*(pageNumber-1);
+        }
+        if (discount==1) {
+            queryOptions.where = {
+                ...queryOptions.where,
+                discount: {
+                    [Op.gt]: 0
+                }
+            }
+        }
+        
+        if(discount==0){
+            queryOptions.where = {
+                ...queryOptions.where,
+                discount: 0
+            }
+        }
+        let maxPages;
+        if (pageNumber && pageNumber > 0) {
+            pageNumber = parseInt(pageNumber);
+            const totalProducts = await db.Products.count(queryOptions);
+            maxPages = Math.ceil(totalProducts / itemsPerPage);
+
+            if (pageNumber > maxPages) {
+                pageNumber = maxPages;
+            }
+            if (totalProducts > 0) {
+                queryOptions.limit = itemsPerPage;
+                queryOptions.offset = itemsPerPage * (pageNumber - 1);
+            }
         }
         const products = await db.Products.findAll(queryOptions);
         const categories = await db.Categories.findAll()
@@ -63,9 +91,14 @@ const productsController = {
             countByCategory: productsByCategory,
             products: productsCollection
         }
-        if(pageNumber && pageNumber > 0){
-            response.next = `http://localhost:3030/api/products?page=${pageNumber < maxPages ? pageNumber + 1 : maxPages}`;
-            response.previous = `http://localhost:3030/api/products?page=${pageNumber == 1 ? 1 : pageNumber - 1}`;
+
+        if (pageNumber >= 0) {
+            response.pages = {
+                current: pageNumber,
+                next: pageNumber < maxPages ? pageNumber + 1 : null,
+                previous: pageNumber == 1 || pageNumber == 0 ? null : pageNumber - 1,
+                total: maxPages
+            }
         }
         res.status(200).json(response)
     },
@@ -79,7 +112,7 @@ const productsController = {
             ]
         });
         let response, status;
-        
+
         if (product) {
             const image = `http://localhost:3030/images/products/${product.images[0].image}`;
             status = 200;
@@ -98,7 +131,12 @@ const productsController = {
         }
 
         res.status(status).json(response)
-    }
+    },
+
+    end: async () => await db.Products.max('id'),
+
+    countCategory: async () => await db.Categories.count(),
+
 }
 
 module.exports = productsController;

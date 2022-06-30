@@ -37,18 +37,18 @@ const getUsersCollection = (users) => {
 const usersController = {
   list: async (req, res) => {
     let pageNumber = req.query.page;
-    const usersPerPage = 4;
+    const usersPerPage = 6;
     const queryOptions = {};
     let maxPages;
-    if(pageNumber && pageNumber > 0){
+    if (pageNumber && pageNumber > 0) {
       pageNumber = parseInt(pageNumber);
-      const totalUsers = await db.Users.findAll();
-      maxPages = Math.ceil(totalUsers.length/usersPerPage);
-      if(pageNumber>maxPages){
-        pageNumber = maxPages
+      const totalUsers = await db.Users.count();
+      maxPages = Math.ceil(totalUsers / usersPerPage);
+      if (pageNumber > maxPages) {
+        pageNumber = maxPages;
       }
       queryOptions.limit = usersPerPage;
-      queryOptions.offset = usersPerPage*(pageNumber-1);
+      queryOptions.offset = usersPerPage * (pageNumber - 1);
     }
     let users = await db.Users.findAll(queryOptions).catch(error => res.send(error));
     const usersCollection = getUsersCollection(users);
@@ -59,6 +59,14 @@ const usersController = {
       countByRol,
       users: usersCollection,
     };
+    if (pageNumber && pageNumber > 0) {
+      response.pages = {
+        current: pageNumber,
+        next: pageNumber < maxPages ? pageNumber + 1 : null,
+        previous: pageNumber == 1 ? null : pageNumber - 1,
+        total: maxPages
+      }
+    }
     res.status(200).json(response)
     /*
       .catch((error) => {
@@ -97,6 +105,8 @@ const usersController = {
 
     res.status(200).json(response);
   },
+
+  end: async () => await db.Users.max('id'),
 };
 
 module.exports = usersController;
