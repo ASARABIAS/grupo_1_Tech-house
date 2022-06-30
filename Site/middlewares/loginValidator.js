@@ -17,7 +17,7 @@ const loginValidations = [
             email: value}})
             .then(user => {
                 if (!user) {
-                  return Promise.reject('El usuario no se encuentra registrado');}})
+                  return Promise.reject('El correo electrónico o la contraseña son incorrectos');}})
     }).bail(),
     body('password').custom( (value, {req}) => {
         return Users.findOne({where: {
