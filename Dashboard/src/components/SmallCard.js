@@ -14,7 +14,7 @@ function SmallCard(props){
                         </div>
                         <div className="col-auto">
                             {/*<i className={`fas ${props.icon} fa-2x text-gray-300`}></i>*/}
-                            <input type="radio" name='category' value={props.id} checked={props.selectedOption==props.id} onChange={props.onValueChange} alt=""/>
+                            {props.id!=-1?<input type="radio" name='category' value={props.id} checked={props.selectedOption==props.id} onChange={props.onValueChange} alt=""/>:<i className="fas fa-folder-tree" Style={'font-size:30px;'}></i>}
                         </div>
                     </div>
                 </div>

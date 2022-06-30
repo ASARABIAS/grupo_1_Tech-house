@@ -1,9 +1,32 @@
-import React from 'react';
+import React,{ useEffect} from 'react';
+import { Link } from 'react-router-dom';
+import { checkToken } from '../../services/tools'
+import { verifyUser } from '../../services/getApi';
+import { useNavigate } from 'react-router-dom';
 import image from '../../assets/images/logo-tech-house-removebg-preview-removebg-preview.png';
 import {Link} from 'react-router-dom';
 
-function SideBar(){
-    return(
+function SideBar() {
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const token = checkToken();
+        console.log();
+        if (token.length>10) {
+            verifyUser(token)
+            .then((data) =>{
+                if(data.status !== 200){
+                    navigate('/users/login');
+                }else{
+                    sessionStorage.setItem('user', JSON.stringify(data.data));
+                }
+            });
+        
+        }else{
+            navigate('/users/login');
+        }
+    }, []);
+    return (
         <React.Fragment>
             {/*<!-- Sidebar -->*/}
             <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -16,7 +39,7 @@ function SideBar(){
                 </a>
 
                 {/*<!-- Divider -->*/}
-                <hr className="sidebar-divider my-0"/>
+                <hr className="sidebar-divider my-0" />
 
                 {/*<!-- Nav Item - Dashboard -->*/}
                 <li className="nav-item active">
@@ -26,14 +49,14 @@ function SideBar(){
                 </li>
 
                 {/*<!-- Divider -->*/}
-                <hr className="sidebar-divider"/>
+                <hr className="sidebar-divider" />
 
                 {/*<!-- Heading -->*/}
                 <div className="sidebar-heading">Actions</div>
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                <Link className="nav-link" to="/products">
+                    <Link className="nav-link" to="/products">
                         <i className="fas fa-fw fa-folder"></i>
                         <span>Productos</span>
                     </Link>
@@ -47,19 +70,19 @@ function SideBar(){
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
-                 <li className="nav-item nav-link">
-                <Link className="nav-link" to="/categories">
+                <li className="nav-item nav-link">
+                    <Link className="nav-link" to="/categories">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Categorías</span></Link>
                 </li>
                 <li className="nav-item nav-link">
-                <Link className="nav-link" to="/searchMovies">
+                    <Link className="nav-link" to="/searchMovies">
                         <i className="fas fa-fw fa-search"></i>
                         <span>Buscar</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
-                <hr className="sidebar-divider d-none d-md-block"/>
+                <hr className="sidebar-divider d-none d-md-block" />
             </ul>
         </React.Fragment>
     )

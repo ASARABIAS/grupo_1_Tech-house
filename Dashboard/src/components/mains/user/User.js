@@ -4,7 +4,7 @@ import Footer from '../../partials/Footer';
 import TopBar from '../../partials/TopBar';
 import ItemContent from '../../ItemContent';
 import { getAll } from '../../../services/getApi';
-import Loading from '../../Loading';
+import { loading, error } from '../../../services/tools'
 
 const User = () => {
 
@@ -20,7 +20,7 @@ const User = () => {
             setNameRol(data.countByRol?.find(item => item.id == selectedOption)?.title);
             setItems(data.users?.filter(item => item.id_role == selectedOption));
         })
-            .catch(err => console.log("Error: ", err))
+            .catch(err =>setUsers(404))
 
     }, []);
 
@@ -30,7 +30,7 @@ const User = () => {
         setItems(users.users?.filter(item => item.id_role == event.target.value));
     }
 
-    if (users) {
+    const sendOk = () => {
         return (
             <div id="content-wrapper" className="d-flex flex-column">
                 {/*<!-- Main Content -->*/}
@@ -63,10 +63,14 @@ const User = () => {
                 </div>
             </div>
         );
+    }
+
+    if (users === 404) {
+        return error();
+    } else if (users) {
+        return sendOk();
     } else {
-        return (
-            <Loading/>
-        );
+        return loading();
     }
 
 
