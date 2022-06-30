@@ -47,7 +47,7 @@ function SideBar(){
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
-                <li className="nav-item nav-link">
+                 <li className="nav-item nav-link">
                 <Link className="nav-link" to="/categories">
                         <i className="fas fa-fw fa-table"></i>
                         <span>Categorías</span></Link>
