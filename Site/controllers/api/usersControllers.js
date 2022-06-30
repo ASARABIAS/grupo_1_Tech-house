@@ -1,4 +1,6 @@
 const db = require("../../database/models");
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const getUsersRoles = async (roles) => {
   const color = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark'];
@@ -107,6 +109,77 @@ const usersController = {
   },
 
   end: async () => await db.Users.max('id'),
+
+  //Endpoint para generar el token de autenticación
+
+  login: async (req, res) => {
+    const { email, password } = req.body;
+    let userLoggedIn = await db.Users.findOne({
+      where: {
+        email,
+        id_role:2
+      }
+    });
+    if (userLoggedIn && await bcrypt.compare(password, userLoggedIn.password)) {
+      req.session.usuario = userLoggedIn;
+      const token = jwt.sign({ email }, 'secret', { expiresIn: '1h' });
+      res.status(200).json({
+        status: 200,
+        data: {
+          token,
+          expiresIn: 3600
+        }
+      });
+    } else {
+      res.status(401).json({
+        status: 401,
+        data: {
+          error: 'Invalid username or password'
+        }
+
+      });
+    }
+  },
+  checkToken: (req, res) => {
+    //Recibo el token del header del request
+    const token = req.headers['authorization'];
+    if (!token) {
+      res.status(401).json({
+        status: 401,
+        data: {
+          error: 'No token provided'
+        }
+      });
+    } else {
+      jwt.verify(token, 'secret', async (err, decoded) => {
+        if (err) {
+          res.status(401).json({
+            status: 401,
+            data: {
+              error: 'Token is not valid'
+            }
+          });
+        } else {
+          const user = await db.Users.findOne({
+            where: {
+              email: decoded.email
+            }
+          });
+          //Acá se puede usar una base de datos para obtener la información del usuario y responder al cliente
+          res.status(200).json({
+            status: 200,
+            data: {
+              avatar: `http://localhost:3030/images/users/${user.avatar}`,
+              country: user.country,
+              email: user.email,
+              name: user.name,
+            }
+          });
+        }
+      });
+    }
+  }
 };
 
 module.exports = usersController;
+

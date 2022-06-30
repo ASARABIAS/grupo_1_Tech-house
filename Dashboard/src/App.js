@@ -7,6 +7,7 @@ import DetailProduct from './components/mains/product/DetailProduct';
 import Index from './components/mains/Index';
 import User from './components/mains/user/User';
 import DetailUser from './components/mains/user/DetailUser';
+import Login from './components/mains/user/Login';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/products/list" element={<Product />} />
           <Route path="/products/:id" element={<DetailProduct />} />
           <Route path="/users" element={<User />} />
+          <Route path="/users/login" element={<Login />} />
           <Route path="/users/:id" element={<DetailUser />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
