@@ -58,7 +58,6 @@ div.mainlogin {
 .login input {
     display: block;
     padding: 0px;
-    width: 70%;
     height: 25px;
     margin: auto;
     margin-top: 10px;
@@ -79,7 +78,7 @@ div.mainlogin {
 }
 
 .login .button-submit button {
-    width: 45%;
+    width: auto;
     padding: 5px;
     background-color: #333A56;
     color: #E8E8E8;
@@ -93,8 +92,10 @@ div.mainlogin {
     margin-top: 10px;
 }
 
-.recordar{
-    justify-content: space-between;
+input.form-check-input{
+    width: auto;
+    height: auto;
+    display: inline-flex;
 }
 footer{
     margin-top: 70%;
@@ -113,6 +114,34 @@ div.error ul{
     list-style-type: none
 }
 @media(min-width:481px) {
+    .login input {
+        display: block;
+        padding: 0px;
+        width: 70%;
+        height: 25px;
+        margin: auto;
+        margin-top: 10px;
+        padding-top: 5px;
+        background-color: white;
+        text-align: center;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    input.form-check-input{
+        width: auto;
+        height: auto;
+        display: inline-flex;
+    }
+
+    .login .button-submit button {
+        width: auto;
+        padding: 5px;
+        background-color: #333A56;
+        color: #E8E8E8;
+        font-weight: 700;
+        border-radius: 10px;
+        border: none;
+    }
     footer{
         margin-top: 40%;
     }
@@ -123,6 +152,33 @@ div.error ul{
         width: 50%;
         top: -16vh;
         right: 22.5vw;
+    }
+    .login input {
+        display: block;
+        padding: 0px;
+        width: 70%;
+        height: 25px;
+        margin: auto;
+        margin-top: 10px;
+        padding-top: 5px;
+        background-color: white;
+        text-align: center;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    input.form-check-input{
+        width: auto;
+        height: auto;
+        display: inline-flex;
+    }
+    .login .button-submit button {
+        width: auto;
+        padding: 5px;
+        background-color: #333A56;
+        color: #E8E8E8;
+        font-weight: 700;
+        border-radius: 10px;
+        border: none;
     }
     footer{
         margin-top: 30%;
