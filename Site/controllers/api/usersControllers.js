@@ -75,20 +75,32 @@ const usersController = {
   detail: async (req, res) => {
     const { id } = req.params;
 
-    let user = await db.Users.findByPk(id) 
-    .catch((error) =>  {
-      console.log(error);
- });
-    const image = `http://localhost:3030/images/users/${user.avatar}`;
-    const userResponse = {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      country: user.country,
-      avatar: user.avatar,
-      imageUrl: image,
+    const user = await db.Users.findByPk(id);
+    let response, status;
+
+    if (user) {
+      const image = `http://localhost:3030/images/users/${user?.avatar}`;
+      status = 200;
+      response = {
+        status,
+        data: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          country: user.country,
+          avatar: user.avatar,
+          imageUrl: image,
+        }
+      }
+    } else {
+      status = 501;
+      response = {
+        status,
+        data: "No se encuentra el Usuario"
+      }
     }
-    res.status(200).json(userResponse) 
+
+    res.status(200).json(response);
   },
 
   end: async () => await db.Users.max('id'),
@@ -100,7 +112,7 @@ const usersController = {
     let userLoggedIn = await db.Users.findOne({
       where: {
         email,
-        id_role:2
+        id_role: 2
       }
     });
     if (userLoggedIn && await bcrypt.compare(password, userLoggedIn.password)) {
@@ -161,7 +173,13 @@ const usersController = {
         }
       });
     }
-  }
+  },
+  logout: (req, res) => {
+    req.session.destroy();
+    res.status(202).json({
+      status:200
+    })
+  },
 };
 
 module.exports = usersController;
