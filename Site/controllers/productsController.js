@@ -151,6 +151,24 @@ const productsController = {
 
     },
 
+    cartDetails: async (req, res) => {
+        let productsInCart = req.body
+        console.log(productsInCart);
+        let results = await db.Products.findAll({
+            include: [
+                { association: "images" }
+            ],
+            where: {
+                id: productsInCart.map(product => {
+                    return parseInt(product.idProduct)
+                })
+            }
+        })
+        console.log(results);
+
+        res.status(200).json(results)
+    },
+
     // Detalle del producto
     detail: async(req, res) => {
 

@@ -33,10 +33,10 @@
                             </div>
                         </div>
                         <div class="product-specification">
-                            <strong class="product-price-real">$<%= product.price; %> </strong>
+                            <strong class="product-price-real"><%= product.discount!=0 ? "$" + Number(product.price).toLocaleString('es-ES') : ''; %> </strong>
                             <div class="product-price-discount">
-                                <strong class="product-price">$ <%= product.discount!=0 ? product.price-(product.price*product.discount/100) : product.price; %></strong>
-                                <strong class="product-discount"><%= product.discount!=0 ? product.discount+"% OFF" : ''; %></strong>
+                                <strong class="product-price">$ <%= product.discount!=0 ? Number(product.price-(product.price*product.discount/100)).toLocaleString('es-ES') : Number(product.price).toLocaleString('es-ES'); %></strong>
+                                <strong class="product-discount"><%= product.discount!=0 ? Number(product.discount).toLocaleString('es-ES')+"% OFF" : ''; %></strong>
                             </div>
 
                             <div class="payment-methods-header">
@@ -64,6 +64,11 @@
                                 <div class="product-quantity-header">
                                     <h3>Stock disponible</h3>
                                 </div>
+                                <% let isLoggedin = false %>
+                                <% if(locals.usuario) { %>
+                                    <% isLoggedin = true %>
+                                    <input type="hidden" value="<%= locals.usuario.id %>" id="userId">
+                                <%}%>
                                 <form action="">
                                     <div class="container-product-available">
                                         <h6>(20) disponibles</h6>
@@ -74,7 +79,7 @@
                                     </div>
                                     <div class="btn-boy-add">
                                         <button class="btn-buy">Comprar ahora</button>
-                                        <button class="btn-add">Agregar al carrito</button>
+                                        <button title="<%= isLoggedin ? "" : "Debes loguearte para agregar al carrito" %>" class="btn-add" <%= isLoggedin ? "" : "disabled" %> >Agregar al carrito</button>
                                     </div>
                                 </form>
                             </div>
@@ -210,7 +215,7 @@
             </main>
 
             <%- include('../partials/footer') %>
-
+            <script src="/js/products/productDetail.js"></script>
     </body>
 
 
