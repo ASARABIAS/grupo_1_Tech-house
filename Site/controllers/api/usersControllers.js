@@ -36,21 +36,9 @@ const getUsersCollection = (users) => {
 
 const usersController = {
   list: async (req, res) => {
-    let pageNumber = req.query.page;
-    const usersPerPage = 4;
-    const queryOptions = {};
-    let maxPages;
-    if(pageNumber && pageNumber > 0){
-      pageNumber = parseInt(pageNumber);
-      const totalUsers = await db.Users.findAll();
-      maxPages = Math.ceil(totalUsers.length/usersPerPage);
-      if(pageNumber>maxPages){
-        pageNumber = maxPages
-      }
-      queryOptions.limit = usersPerPage;
-      queryOptions.offset = usersPerPage*(pageNumber-1);
-    }
-    let users = await db.Users.findAll(queryOptions).catch(error => res.send(error));
+    let users = await db.Users.findAll() .catch((error) =>  {
+      console.log(error);
+     });
     const usersCollection = getUsersCollection(users);
     const roles = await db.Roles.findAll()
     const countByRol = await getUsersRoles(roles);
@@ -60,42 +48,25 @@ const usersController = {
       users: usersCollection,
     };
     res.status(200).json(response)
-    /*
-      .catch((error) => {
-        console.log(error);
-      });
-      */
   },
 
   detail: async (req, res) => {
     const { id } = req.params;
 
-    const user = await db.Users.findByPk(id);
-    let response, status;
-
-    if (user) {
-      const image = `http://localhost:3030/images/users/${user?.avatar}`;
-      status = 200;
-      response = {
-        status,
-        data: {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-          country: user.country,
-          avatar: user.avatar,
-          imageUrl: image,
-        }
-      }
-    } else {
-      status = 501;
-      response = {
-        status,
-        data: "No se encuentra el Usuario"
-      }
+    let user = await db.Users.findByPk(id) 
+    .catch((error) =>  {
+      console.log(error);
+ });
+    const image = `http://localhost:3030/images/users/${user.avatar}`;
+    const userResponse = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      country: user.country,
+      avatar: user.avatar,
+      imageUrl: image,
     }
-
-    res.status(200).json(response);
+    res.status(200).json(userResponse) 
   },
 };
 
