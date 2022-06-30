@@ -2,6 +2,7 @@ const express = require("express");
 const session = require("express-session");
 const cookies = require("cookie-parser");
 const cors = require('cors');
+const jquery = require('jquery'); //requerir el jquery
 
 const app = express();
 const path = require("path");

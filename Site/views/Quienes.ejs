@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quienes Somos</title>
-</head>
-<body>
 
-    <h1>QUienes somos?</h1>
-    <h3></h3>
-    
+    <%- include('../partials/head', {title:"Carrito de compras", namePage:"productCart"}) %>
+
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <div class="main-wrapper">
+            <div class="left-section-cart">
+                <section>
+                    <h1>Carrito De Compras</h1>
+
+                    <section id="productsContainer">
+                    </section>
+            </div>
+
+            <div class="right-section-cart">
+                <div class="order-summary">
+                    <h3>Total Pedido</h3>
+                    <div class="order-summary-details">
+                        <hr>
+                        <span>Cantidad de Productos <strong id="productQuantity">0</strong></span>
+                        <hr>
+                        <span>Subtotal <strong id="subtotalAmount">$0</strong></span>
+                        <hr>
+                        <span>Envío <strong id="shippingAmount">$0</strong></span>
+                        <hr>
+                        <span>Total <strong id="totalAmount">$0</strong></span>
+                    </div>
+                </div>
+                <div class="pay-button">
+                    <button type="button">Pagar</button>
+                </div>
+                <div class="pay-button">
+                    <button class="clearCart" type="button">Vaciar Carrito</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('../partials/footer') %>
+    <script src="/js/products/productCart.js"></script>
 </body>
+
 </html>
