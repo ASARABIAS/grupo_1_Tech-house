@@ -15,7 +15,7 @@ let products = resultReadJSON(JSONPath('products.json'));
 const mainController = {
 
     // Productos y busqueda para usuarios no administrador y guest
-    home: async(req, res) => {
+    home: async (req, res) => {
 
         let query = req.query.search
         let products = [];
@@ -24,7 +24,8 @@ const mainController = {
             products = await db.Products.findAll({
                 where: {
                     name: {
-                        [Op.like]: "%" + query + "%" }
+                        [Op.like]: "%" + query + "%"
+                    }
                 },
                 include: [
                     { association: "images" },
@@ -37,9 +38,11 @@ const mainController = {
                 ]
             })
         }
+        let count = 0
 
-        let productsWithDiscount = products.filter(product => product.discount != 0);
-        let productsWithoutDiscount = products.filter(product => product.discount == 0);
+        let productsWithDiscount = products.filter((product) => product.discount != 0&&count++<4);
+        count = 0;
+        let productsWithoutDiscount = products.filter((product) => product.discount == 0&&count++<4);
 
         console.log("productsWithDiscount:", productsWithDiscount);
         console.log("productsWithoutDiscount", productsWithoutDiscount);

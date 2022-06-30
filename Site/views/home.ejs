@@ -13,7 +13,12 @@
             <main>
                 <section class="Nuevos-productos">
                     <h3>Nuevos productos</h3>
-                    <div class="productos">
+                    <div class="productos" id="productsWithoutDiscount">
+                        <div class="carousel">
+                            <button id="previousProductsWithoutDiscount">
+                                <i class="fa-solid fa-angle-left disabled"></i>
+                            </button>
+                        </div>
                         <% if (productsWithoutDiscount.length > 0) { %>
                             <% productsWithoutDiscount.forEach(product => {%>
                                 <article>
@@ -41,12 +46,22 @@
                                 </h3>
                             </div>
                         <% } %>
+                        <div class="carousel">
+                            <button id="nextProductsWithoutDiscount">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </button>
+                        </div>
                     </div>
                 </section>
 
                 <section class="Ofertas">
                     <h3>Productos en Oferta</h3>
-                    <div class="productos">
+                    <div class="productos" id="productsWithDiscount">
+                        <div class="carousel">
+                            <button id="previousProductsWithDiscount">
+                                <i class="fa-solid fa-angle-left disabled"></i>
+                            </button>
+                        </div>
                         <% if (productsWithDiscount.length > 0) { %>
                             <% productsWithDiscount.forEach(product => {%>
                                 <article>
@@ -74,6 +89,11 @@
                                 </h3>
                             </div>
                         <% } %>
+                        <div class="carousel">
+                            <button id="nextProductsWithDiscount">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </button>
+                        </div>
                     </div>
                 </section>
 
@@ -81,5 +101,6 @@
 
     </body>
     <script src="https://kit.fontawesome.com/f3d4785aed.js" crossorigin="anonymous"></script>
+    <script src="/js/home.js" type="text/javascript"></script>
 
 </html>

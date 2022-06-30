@@ -75,20 +75,32 @@ const usersController = {
   detail: async (req, res) => {
     const { id } = req.params;
 
-    let user = await db.Users.findByPk(id) 
-    .catch((error) =>  {
-      console.log(error);
- });
-    const image = `http://localhost:3030/images/users/${user.avatar}`;
-    const userResponse = {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      country: user.country,
-      avatar: user.avatar,
-      imageUrl: image,
+    const user = await db.Users.findByPk(id);
+    let response, status;
+
+    if (user) {
+      const image = `http://localhost:3030/images/users/${user?.avatar}`;
+      status = 200;
+      response = {
+        status,
+        data: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          country: user.country,
+          avatar: user.avatar,
+          imageUrl: image,
+        }
+      }
+    } else {
+      status = 501;
+      response = {
+        status,
+        data: "No se encuentra el Usuario"
+      }
     }
-    res.status(200).json(userResponse) 
+
+    res.status(200).json(response);
   },
 
   end: async () => await db.Users.max('id'),
@@ -97,31 +109,41 @@ const usersController = {
 
   login: async (req, res) => {
     const { email, password } = req.body;
+    let useraux = await db.Users.findOne({ where:{email}});
+    console.log("useraux: ",useraux);
+    let messenger;
     let userLoggedIn = await db.Users.findOne({
       where: {
         email,
-        id_role:2
+        id_role: 2
       }
     });
-    if (userLoggedIn && await bcrypt.compare(password, userLoggedIn.password)) {
-      req.session.usuario = userLoggedIn;
-      const token = jwt.sign({ email }, 'secret', { expiresIn: '1h' });
-      res.status(200).json({
-        status: 200,
-        data: {
-          token,
-          expiresIn: 3600
-        }
-      });
+    if (userLoggedIn) {
+      if (await bcrypt.compare(password, userLoggedIn.password)) {
+        req.session.usuario = userLoggedIn;
+        const token = jwt.sign({ email }, 'secret', { expiresIn: '1h' });
+        res.status(200).json({
+          status: 200,
+          data: {
+            token,
+            expiresIn: 3600
+          }
+        });
+      } else {
+        messenger = 'Invalid username or password';
+      }
+    } else if (useraux) {
+      messenger = 'solo se permiten el ingreso de Adminstradores';
     } else {
-      res.status(401).json({
-        status: 401,
-        data: {
-          error: 'Invalid username or password'
-        }
-
-      });
+      messenger = 'Invalid username or password';
     }
+    res.status(401).json({
+      status: 401,
+      data: {
+        error: messenger
+      }
+
+    });
   },
   checkToken: (req, res) => {
     //Recibo el token del header del request
@@ -161,7 +183,13 @@ const usersController = {
         }
       });
     }
-  }
+  },
+  logout: (req, res) => {
+    req.session.destroy();
+    res.status(202).json({
+      status: 200
+    })
+  },
 };
 
 module.exports = usersController;

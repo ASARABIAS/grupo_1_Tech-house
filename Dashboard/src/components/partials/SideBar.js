@@ -4,23 +4,27 @@ import { checkToken } from '../../services/tools'
 import { verifyUser } from '../../services/getApi';
 import { useNavigate } from 'react-router-dom';
 import image from '../../assets/images/logo-tech-house-removebg-preview-removebg-preview.png';
+<<<<<<< HEAD
 //import {Link} from 'react-router-dom';
+=======
+>>>>>>> dev
 
 function SideBar() {
     const navigate = useNavigate()
 
     useEffect(() => {
         const token = checkToken();
-        console.log();
         if (token.length>10) {
             verifyUser(token)
             .then((data) =>{
                 if(data.status !== 200){
                     navigate('/users/login');
                 }else{
+                    console.log(data.data);
                     sessionStorage.setItem('user', JSON.stringify(data.data));
                 }
-            });
+            })
+            .catch(()=>navigate('/users/login'));
         
         }else{
             navigate('/users/login');
@@ -33,8 +37,8 @@ function SideBar() {
 
                 {/*<!-- Sidebar - Brand -->*/}
                 <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-                    <div className="sidebar-brand-icon">
-                        <img className="w-100" src={image} alt="Tech-House"/>
+                    <div className="sidebar-brand-icon ">
+                        <img className=" bg-gradient-light rounded-circle p-1" Style={'width:35%'} src={image} alt="Tech-House"/>
                     </div>
                 </a>
 

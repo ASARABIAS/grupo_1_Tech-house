@@ -5,9 +5,9 @@ import { post } from '../../../services/getApi';
 
 
 const Login = () => {
-    const [form, setForm] = useState();
+    const [form, setForm] = useState({});
     const navigate = useNavigate();
-    const messenger =useRef();
+    const messenger = useRef();
     const handleChange = (e) => {
         setForm({
             ...form,
@@ -20,15 +20,22 @@ const Login = () => {
         //Evitar que el formulario haga submit
         e.preventDefault()
         //Llamar a la API para obtener el token de autenticación
-        post('users/login', form)
-            .then(data => {
-                if (data.status === 200) {
-                    document.cookie = `token=${data.data.token}; max-age=${data.data.expiresIn}, path=/; same-site=strict`;
-                    navigate('/');
-                } else {
-                    messenger.current.innerHTML = 'Error '+data.data.error;
-                }
-            })
+        if (form && Object.keys(form).length > 1) {
+            messenger.current.innerHTML = 'Cargando...';
+            post('users/login', form)
+                .then(data => {
+                    if (data.status === 200) {
+                        document.cookie = `token=${data.data.token}; max-age=${data.data.expiresIn}, path=/; same-site=strict`;
+                        navigate('/');
+                    } else {
+                        messenger.current.innerHTML = 'Error ' + data.data.error;
+                    }
+                })
+                .catch(err => messenger.current.innerHTML = 'Error: servidor no resposnde');
+        }else{
+            messenger.current.innerHTML = 'Por favor llene los campos';
+        }
+
     }
 
     //Función para validar el token de autenticación

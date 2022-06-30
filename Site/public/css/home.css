@@ -127,6 +127,26 @@ section.banner2 img {
     background-color: var(--Red);
 }
 
+.carousel{
+    display: flex;
+    align-items: center;
+    
+}
+.carousel button{
+    border: none;
+    background-color: transparent;
+}
+
+.carousel i{
+    font-size: 40px;
+    color:var(--Dark-grey);
+}
+.enabled i{
+    color: var(--Light-blue);
+}
+.disabled i{
+    color:var(--Dark-grey);
+}
 @media (min-width: 481px) {
     main section article .descripcion {
         display: block;
