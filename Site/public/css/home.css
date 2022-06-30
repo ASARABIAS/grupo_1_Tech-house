@@ -122,15 +122,12 @@ section.banner2 img {
     font-weight: 700;
     text-align: center;
 }
+.carousel {
+    display: none;
+}
 
 .boton-volver {
     background-color: var(--Red);
-}
-
-.carousel{
-    display: flex;
-    align-items: center;
-    
 }
 .carousel button{
     border: none;
@@ -197,6 +194,7 @@ section.banner2 img {
     .detalles {
         display: contents;
     }
+    
 }
 
 @media (min-width: 769px) {
@@ -211,6 +209,9 @@ section.banner2 img {
         box-shadow: 0 0 1.5em rgba(0, 0, 0, 0.2);
         color: rgb(100, 100, 100);
         transition-duration: 0.3s;
+    }
+    .carousel {
+        display: flex;
     }
 
     
