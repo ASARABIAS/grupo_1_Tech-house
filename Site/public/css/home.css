@@ -142,9 +142,11 @@ section.banner2 img {
 
 .carousel i{
     font-size: 40px;
+    color:var(--Dark-grey);
+}
+.enabled i{
     color: var(--Light-blue);
 }
-
 .disabled i{
     color:var(--Dark-grey);
 }

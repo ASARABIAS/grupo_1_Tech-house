@@ -83,7 +83,12 @@
 
                 <section class="Ofertas">
                     <h3>Productos en Oferta</h3>
-                    <div class="productos">
+                    <div class="productos" id="productsWithDiscount">
+                        <div class="carousel">
+                            <button id="previousProductsWithDiscount">
+                                <i class="fa-solid fa-angle-left disabled"></i>
+                            </button>
+                        </div>
                         <% if (productsWithDiscount.length > 0) { %>
                             <% productsWithDiscount.forEach(product => {%>
                                 <article>
@@ -111,6 +116,11 @@
                                 </h3>
                             </div>
                         <% } %>
+                        <div class="carousel">
+                            <button id="nextProductsWithDiscount">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </button>
+                        </div>
                     </div>
                 </section>
 

@@ -28,6 +28,7 @@ const getProductCollection = (products) => {
             detail: `http://localhost:3030/api/products/${product?.id}`,
             price: product.price,
             discount: product.discount,
+            shipping: product.shipping,
             image: `http://localhost:3030/images/products/${product?.images[0].image}`,
             category: product.categories.id,
         }
