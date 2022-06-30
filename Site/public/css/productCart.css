@@ -3,6 +3,10 @@
     padding: 3%;
 }
 
+.no-car-items {
+    width: 100%;
+}
+
 h1 {
     color: var(--White);
     font-weight: lighter;
@@ -155,6 +159,16 @@ h1 {
     width: 100%;
     background-color: var(--Orange);
     border-radius: 7px;
+    margin: 5px 0px;
+}
+
+.clearCart {
+    font-weight: 500;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 7px;
+    margin: 5px 0px;
+    background-color: var(--Light-blue);
 }
 
 /* Chrome, Safari, Edge, Opera */

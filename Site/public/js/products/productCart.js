@@ -30,6 +30,9 @@ window.onload = async () => {
 
         generateCartHtml(productsInCar);
     }else{
+        let leftContainer = document.querySelector(".left-section-cart");
+        leftContainer.classList.add("no-car-items")
+        
         let productsContainer = document.querySelector("#productsContainer");
         productsContainer.innerHTML = "<div>No ha ingresado elementos al carrito aún</div>"
     }
