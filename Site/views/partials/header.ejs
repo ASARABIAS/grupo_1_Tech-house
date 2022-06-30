@@ -35,9 +35,10 @@
     </div>
     <nav>
         <ul>
+            <li><a href="/products">Lista de productos</a></li>
             <% if(locals.usuario.id_role==2){ %>
 
-                <li><a href="/products">Listas de productos</a></li>
+                
                 <li><a href="/products/create">Crear Producto</a></li>
 
                 <% } %>
@@ -48,7 +49,7 @@
             </li>
             <li><a href="">Ofertas</a></li>
             <li><a href="">Tiendas</a></li>
-            <li><a href="">Quienes Somos</a></li>
+            <li><a href="/views/Quienes">Quienes Somos</a></li>
         </ul>
     </nav>
 </header>

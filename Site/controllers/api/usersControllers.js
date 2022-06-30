@@ -70,42 +70,25 @@ const usersController = {
       }
     }
     res.status(200).json(response)
-    /*
-      .catch((error) => {
-        console.log(error);
-      });
-      */
   },
 
   detail: async (req, res) => {
     const { id } = req.params;
 
-    const user = await db.Users.findByPk(id);
-    let response, status;
-
-    if (user) {
-      const image = `http://localhost:3030/images/users/${user?.avatar}`;
-      status = 200;
-      response = {
-        status,
-        data: {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-          country: user.country,
-          avatar: user.avatar,
-          imageUrl: image,
-        }
-      }
-    } else {
-      status = 501;
-      response = {
-        status,
-        data: "No se encuentra el Usuario"
-      }
+    let user = await db.Users.findByPk(id) 
+    .catch((error) =>  {
+      console.log(error);
+ });
+    const image = `http://localhost:3030/images/users/${user.avatar}`;
+    const userResponse = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      country: user.country,
+      avatar: user.avatar,
+      imageUrl: image,
     }
-
-    res.status(200).json(response);
+    res.status(200).json(userResponse) 
   },
 
   end: async () => await db.Users.max('id'),
