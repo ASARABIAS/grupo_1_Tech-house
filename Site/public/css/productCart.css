@@ -96,6 +96,11 @@ h1 {
     border-radius: 4px;
     margin: 0 3px;
     background-color: var(--Orange);
+    cursor: pointer;
+}
+
+.clearCart {
+    cursor: pointer;
 }
 
 .product-options {
