@@ -4,10 +4,6 @@ import { checkToken } from '../../services/tools'
 import { verifyUser } from '../../services/getApi';
 import { useNavigate } from 'react-router-dom';
 import image from '../../assets/images/logo-tech-house-removebg-preview-removebg-preview.png';
-<<<<<<< HEAD
-//import {Link} from 'react-router-dom';
-=======
->>>>>>> dev
 
 function SideBar() {
     const navigate = useNavigate()
