@@ -331,7 +331,7 @@ const productsController = {
             let product = await db.Products.findByPk(id, {
                 include: [
                     { association: "images" },
-                    { association: "paymenth_methods" },
+                    { association: "payment_methods" },
                     /*{ association: "colors" },
                     {
                         association: "characteristics",
