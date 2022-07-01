@@ -29,7 +29,7 @@ const getProductCollection = (products) => {
             price: product.price,
             discount: product.discount,
             shipping: product.shipping,
-            image: `http://localhost:3030/images/products/${product?.images[0].image}`,
+            image: "",
             category: product.categories.id,
         }
     })

@@ -122,7 +122,7 @@ const usersController = {
       if (await bcrypt.compare(password, userLoggedIn.password)) {
         req.session.usuario = userLoggedIn;
         const token = jwt.sign({ email }, 'secret', { expiresIn: '1h' });
-        res.status(200).json({
+        return res.status(200).json({
           status: 200,
           data: {
             token,
@@ -137,7 +137,7 @@ const usersController = {
     } else {
       messenger = 'Invalid username or password';
     }
-    res.status(401).json({
+    return res.status(401).json({
       status: 401,
       data: {
         error: messenger
