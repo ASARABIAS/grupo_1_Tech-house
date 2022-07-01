@@ -103,6 +103,16 @@ Impedimentos encontrados
 Qué haremos esta semana
 - Nos reuniremos para subir los cambios realizados por cada uno en el proyecto para la entrega.
 
+**Weekly 1 - Sprint 8**
+Qué se hizo la semana pasada
+- Se repartieron las responsabilidades individuales
+- Se corrige base de datos.
+
+Impedimentos encontrados
+- Esta semana no hemos encontrado impedimentos que nos impidan cumplir con las consignas del sprint.
+
+Qué haremos esta semana
+- Cada uno trabajará en sus responsabilidades individuales para realizar la entrega de el sprint en la fecha establecida.
 
 
 
