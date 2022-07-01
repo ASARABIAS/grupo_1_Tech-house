@@ -63,7 +63,7 @@ const Login = () => {
                     </FormGroup>
                     <FormGroup className="m-4">
                         <Button variant="primary" type="submit">
-                            Envair
+                            Enviar
                         </Button>
                     </FormGroup>
                 </Form>
